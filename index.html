@@ -8,7 +8,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -19,6 +19,7 @@
         
         :root {
             --gold: #C9A574;
+            --gold-light: #D4B084;
             --dark: #2d3748;
             --grey: #5a6772;
             --light-grey: #f5f6f8;
@@ -31,17 +32,29 @@
             color: var(--grey);
             background: #ffffff;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
         
-        /* Header */
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Header with glassmorphism */
         header {
-            padding: 25px 6%;
-            background: rgba(255, 255, 255, 0.98);
-            border-bottom: 1px solid var(--border);
+            padding: 28px 6%;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px) saturate(180%);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 20px 6%;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
         }
         
         .header-content {
@@ -56,125 +69,253 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            transition: transform 0.3s ease;
         }
         
-        .logo {
-            font-size: 26px;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            text-decoration: none;
+        .logo-container:hover {
+            transform: translateY(-2px);
         }
         
-        .logo-o {
-            color: var(--gold);
-            font-weight: 500;
+        .logo-img {
+            height: 45px;
+            width: auto;
+            transition: transform 0.3s ease;
         }
         
-        .logo-text {
-            color: var(--dark);
+        .logo-img:hover {
+            transform: scale(1.05);
         }
         
         .contact-button {
             background: transparent;
             color: var(--dark);
-            padding: 10px 24px;
+            padding: 12px 28px;
             border: 1.5px solid var(--border);
             border-radius: 6px;
             text-decoration: none;
             font-weight: 500;
             font-size: 14px;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201, 165, 116, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .contact-button:hover::before {
+            left: 100%;
         }
         
         .contact-button:hover {
             border-color: var(--gold);
             color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 165, 116, 0.2);
         }
         
-        /* Hero Section */
+        /* Hero with gradient overlay */
         .hero {
-            padding: 140px 6% 120px;
-            background: linear-gradient(to bottom, #fafbfc 0%, #ffffff 100%);
+            padding: 160px 6% 140px;
+            background: 
+                linear-gradient(135deg, rgba(250, 251, 252, 0.95) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(250, 251, 252, 0.95) 100%),
+                url('https://cnip-agency.com/hubfs/Lucid_Origin_A_calm_minimalist_ocean_horizon_emerging_from_mor_3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 165, 116, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-30px, 30px); }
         }
         
         .hero-content {
-            max-width: 880px;
+            max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         h1 {
             font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 62px;
+            font-size: 68px;
             font-weight: 400;
             color: var(--dark);
-            margin-bottom: 32px;
-            line-height: 1.15;
+            margin-bottom: 36px;
+            line-height: 1.1;
             letter-spacing: -0.02em;
-        }
-        
-        .hero h1 {
-            text-align: left;
         }
         
         h1 .highlight {
             color: var(--gold);
             font-style: italic;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
         }
         
         .tagline {
-            font-size: 22px;
+            font-size: 24px;
             color: var(--grey);
-            margin-bottom: 48px;
+            margin-bottom: 52px;
             font-weight: 300;
             letter-spacing: 0.01em;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
         
         .cta-primary {
             display: inline-block;
             background: var(--dark);
             color: white;
-            padding: 16px 36px;
+            padding: 18px 42px;
             border-radius: 6px;
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             letter-spacing: 0.02em;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(45, 55, 72, 0.15);
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .cta-primary:hover::before {
+            left: 100%;
         }
         
         .cta-primary:hover {
             background: var(--gold);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(201, 165, 116, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(201, 165, 116, 0.3);
         }
         
-        /* Reality Check Section */
+        /* Quote Section with glassmorphism card */
+        .quote-section {
+            padding: 140px 6%;
+            background: var(--light-grey);
+            position: relative;
+        }
+        
+        .quote-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 80px 60px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .quote-content:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(0,0,0,0.1);
+        }
+        
+        .quote {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 42px;
+            font-weight: 300;
+            color: var(--dark);
+            line-height: 1.5;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+        
+        .quote-highlight {
+            color: var(--gold);
+            font-weight: 400;
+            position: relative;
+        }
+        
+        /* Reality Check with split layout */
         .reality-check {
-            padding: 120px 6%;
+            padding: 140px 6%;
             background: white;
+            position: relative;
         }
         
         .section-content {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
         h2 {
             font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 400;
             color: var(--dark);
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             letter-spacing: -0.01em;
         }
         
         .section-intro {
             font-size: 20px;
             color: var(--grey);
-            margin-bottom: 24px;
+            margin-bottom: 32px;
             font-weight: 300;
             max-width: 700px;
+            line-height: 1.8;
         }
         
         .price-tag {
@@ -182,36 +323,73 @@
             font-size: 18px;
             color: var(--gold);
             font-weight: 500;
-            padding: 8px 20px;
+            padding: 12px 32px;
             border: 1.5px solid var(--gold);
             border-radius: 50px;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
             letter-spacing: 0.02em;
+            background: rgba(201, 165, 116, 0.03);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(201, 165, 116, 0.1);
+        }
+        
+        .price-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 165, 116, 0.2);
+            background: rgba(201, 165, 116, 0.05);
         }
         
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 48px;
-            margin-top: 60px;
+            margin-top: 80px;
         }
         
         .feature {
-            padding: 0;
+            padding: 48px;
+            background: linear-gradient(135deg, #fafbfc 0%, #ffffff 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(229, 231, 235, 0.5);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, var(--gold), var(--gold-light));
+            transition: height 0.4s ease;
+        }
+        
+        .feature:hover::before {
+            height: 100%;
+        }
+        
+        .feature:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+            border-color: rgba(201, 165, 116, 0.2);
         }
         
         .feature-number {
             font-size: 14px;
             color: var(--gold);
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             letter-spacing: 0.1em;
+            opacity: 0.8;
         }
         
         .feature h3 {
-            font-size: 24px;
+            font-size: 26px;
             color: var(--dark);
-            margin-bottom: 16px;
+            margin-bottom: 18px;
             font-weight: 500;
             letter-spacing: -0.01em;
         }
@@ -219,67 +397,102 @@
         .feature p {
             color: var(--grey);
             font-size: 16px;
-            line-height: 1.7;
+            line-height: 1.8;
             font-weight: 300;
         }
         
         .cta-section {
-            margin-top: 80px;
-            padding-top: 60px;
+            margin-top: 100px;
+            padding-top: 80px;
             border-top: 1px solid var(--border);
-        }
-        
-        /* Quote Section */
-        .quote-section {
-            padding: 120px 6%;
-            background: var(--light-grey);
-        }
-        
-        .quote-content {
-            max-width: 900px;
-            margin: 0 auto;
             text-align: center;
         }
         
-        .quote {
-            font-family: 'Crimson Pro', Georgia, serif;
-            font-size: 36px;
-            font-weight: 300;
-            color: var(--dark);
-            line-height: 1.5;
-            font-style: italic;
-            margin-bottom: 32px;
-        }
-        
-        .quote-highlight {
-            color: var(--gold);
-            font-weight: 400;
-        }
-        
-        /* About Section */
+        /* About with split grid */
         .about {
-            padding: 120px 6%;
+            padding: 140px 6%;
             background: white;
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(245, 246, 248, 0.5) 0%, transparent 100%);
+            pointer-events: none;
+        }
+        
+        .founder-profile {
+            text-align: center;
+            margin-bottom: 100px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .founder-profile img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 32px;
+            border: 4px solid rgba(201, 165, 116, 0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .founder-profile img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+            border-color: rgba(201, 165, 116, 0.4);
+        }
+        
+        .founder-profile h3 {
+            font-size: 28px;
+            color: var(--dark);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .founder-profile .title {
+            font-size: 16px;
+            color: var(--gold);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+        }
+        
+        .founder-profile .bio {
+            font-size: 17px;
+            color: var(--grey);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
         }
         
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            max-width: 1100px;
+            gap: 100px;
+            max-width: 1200px;
             margin: 0 auto;
             align-items: start;
+            position: relative;
+            z-index: 1;
         }
         
         .about-text h2 {
-            margin-bottom: 32px;
+            margin-bottom: 36px;
         }
         
         .about-text p {
             font-size: 18px;
-            line-height: 1.8;
+            line-height: 1.9;
             color: var(--grey);
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             font-weight: 300;
         }
         
@@ -289,23 +502,41 @@
         }
         
         .evolution {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--gold);
             font-weight: 500;
-            letter-spacing: 0.05em;
-            margin-top: 40px;
-            padding-top: 32px;
+            letter-spacing: 0.08em;
+            margin-top: 48px;
+            padding-top: 36px;
             border-top: 1px solid var(--border);
+            text-transform: uppercase;
         }
         
         .about-values {
-            background: var(--light-grey);
-            padding: 48px;
-            border-radius: 8px;
+            background: rgba(245, 246, 248, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 56px;
+            border-radius: 12px;
+            border: 1px solid rgba(229, 231, 235, 0.5);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+        
+        .about-values:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(0,0,0,0.08);
         }
         
         .value-item {
-            margin-bottom: 32px;
+            margin-bottom: 40px;
+            padding-left: 24px;
+            border-left: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .value-item:hover {
+            border-left-color: var(--gold);
+            padding-left: 28px;
         }
         
         .value-item:last-child {
@@ -313,9 +544,9 @@
         }
         
         .value-item h4 {
-            font-size: 18px;
+            font-size: 19px;
             color: var(--dark);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 500;
         }
         
@@ -323,41 +554,58 @@
             font-size: 15px;
             color: var(--grey);
             font-weight: 300;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         
-        /* Contact Section */
+        /* Contact with dark theme */
         .contact {
-            padding: 120px 6%;
-            background: var(--dark);
+            padding: 140px 6%;
+            background: linear-gradient(135deg, var(--dark) 0%, #1a202c 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 165, 116, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
         }
         
         .contact h2 {
             color: white;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
         
         .contact-grid {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 100px;
+            position: relative;
+            z-index: 1;
         }
         
         .contact-info h3 {
             font-size: 18px;
             color: var(--gold);
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             font-weight: 500;
             letter-spacing: 0.05em;
         }
         
         .contact-info p {
             font-size: 16px;
-            line-height: 1.8;
+            line-height: 1.9;
             color: rgba(255,255,255,0.8);
             font-weight: 300;
         }
@@ -365,8 +613,9 @@
         .contact-info a {
             color: white;
             text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            transition: all 0.2s;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+            padding-bottom: 2px;
         }
         
         .contact-info a:hover {
@@ -377,53 +626,79 @@
         .contact-details {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
         }
         
         /* Footer */
         footer {
-            padding: 48px 6%;
+            padding: 56px 6%;
             background: #1a202c;
             text-align: center;
             color: rgba(255,255,255,0.5);
             font-size: 14px;
             font-weight: 300;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
         
         /* Responsive */
         @media (max-width: 968px) {
             h1 {
-                font-size: 44px;
+                font-size: 48px;
             }
             
             h2 {
-                font-size: 36px;
+                font-size: 40px;
             }
             
             .tagline {
-                font-size: 18px;
+                font-size: 19px;
             }
             
             .hero {
-                padding: 100px 6% 80px;
+                padding: 120px 6% 100px;
             }
             
             .reality-check, .about, .contact, .quote-section {
-                padding: 80px 6%;
+                padding: 100px 6%;
             }
             
             .features {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 36px;
             }
             
             .about-grid, .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 48px;
+                gap: 60px;
             }
             
             .quote {
-                font-size: 28px;
+                font-size: 32px;
+            }
+            
+            .quote-content {
+                padding: 60px 40px;
+            }
+            
+            .feature {
+                padding: 36px;
+            }
+            
+            .about-values {
+                padding: 40px;
+            }
+            
+            .founder-profile img {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .founder-profile h3 {
+                font-size: 24px;
+            }
+            
+            .founder-profile .bio {
+                font-size: 16px;
             }
         }
         
@@ -442,23 +717,41 @@
             }
             
             h1 {
-                font-size: 36px;
+                font-size: 38px;
             }
             
             h2 {
-                font-size: 32px;
+                font-size: 34px;
             }
+            
+            .quote-content {
+                padding: 40px 28px;
+            }
+            
+            .quote {
+                font-size: 26px;
+            }
+        }
+        
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header id="header">
         <div class="header-content">
             <a href="#" class="logo-container">
-                <span class="logo">
-                    <span class="logo-o">O</span><span class="logo-text">RYEN</span>
-                </span>
+                <img src="https://cnip-agency.com/hubfs/Screenshot%202025-10-30%20at%2014.43.48.png" alt="Oryen" class="logo-img">
             </a>
             <a href="#contact" class="contact-button">Contact</a>
         </div>
@@ -469,13 +762,13 @@
         <div class="hero-content">
             <h1>Strategic <span class="highlight">Navigation</span> for Commercial Growth</h1>
             <p class="tagline">Geen campagnes zonder kompas.</p>
-            <a href="https://cnip-agency.com/nl-be/#contact" class="cta-primary" target="_blank">Start Reality Check</a>
+            <a href="https://cnip-agency.com/nl-be/algemeen/contacteer-cnip" class="cta-primary" target="_blank">Start Reality Check</a>
         </div>
     </section>
 
     <!-- Quote Section -->
     <section class="quote-section">
-        <div class="quote-content">
+        <div class="quote-content reveal">
             <p class="quote">Marketing is geen kunst.<br>Het is een <span class="quote-highlight">systeem</span>.</p>
         </div>
     </section>
@@ -483,32 +776,32 @@
     <!-- Reality Check Section -->
     <section id="reality-check" class="reality-check">
         <div class="section-content">
-            <h2>Reality Check</h2>
-            <p class="section-intro">Volledige analyse van je commerciële systemen. Van strategie tot uitvoering. Van data tot resultaten.</p>
-            <span class="price-tag">90 dagen op koers — €2.950</span>
+            <h2 class="reveal">Reality Check</h2>
+            <p class="section-intro reveal">Volledige analyse van je commerciële systemen. Van strategie tot uitvoering. Van data tot resultaten.</p>
+            <span class="price-tag reveal">90 dagen op koers — €2.950 excl. BTW</span>
             
             <div class="features">
-                <div class="feature">
+                <div class="feature reveal">
                     <div class="feature-number">01</div>
                     <h3>Diagnose</h3>
                     <p>Diepgaande audit van je volledige sales & marketing keten. We analyseren niet wat je doet, maar of het werkt.</p>
                 </div>
                 
-                <div class="feature">
+                <div class="feature reveal">
                     <div class="feature-number">02</div>
                     <h3>Roadmap</h3>
                     <p>Geen vaag adviesrapport. Een concrete roadmap met heldere prioriteiten, quick wins en strategische projecten.</p>
                 </div>
                 
-                <div class="feature">
+                <div class="feature reveal">
                     <div class="feature-number">03</div>
                     <h3>Uitvoering-ready</h3>
                     <p>Je weet precies wat te doen, in welke volgorde, en waarom. In 90 dagen ben je op koers.</p>
                 </div>
             </div>
             
-            <div class="cta-section">
-                <a href="https://cnip-agency.com/nl-be/#contact" class="cta-primary" target="_blank">Plan gesprek</a>
+            <div class="cta-section reveal">
+                <a href="https://cnip-agency.com/nl-be/algemeen/contacteer-cnip" class="cta-primary" target="_blank">Plan gesprek</a>
             </div>
         </div>
     </section>
@@ -516,18 +809,26 @@
     <!-- About Section -->
     <section class="about">
         <div class="section-content">
+            <!-- Founder Profile -->
+            <div class="founder-profile reveal">
+                <img src="https://cnip-agency.com/hubfs/Christophe%20Dejaeghere.png" alt="Christophe Dejaeghere">
+                <h3>Christophe Dejaeghere</h3>
+                <p class="title">Founder & Strategic Advisor</p>
+                <p class="bio">25+ jaar ervaring in marketing systemen. Cambridge gecertificeerd in Digital Transformation. HubSpot Gold Partner. Van CNIP naar Oryen: van uitvoering naar strategisch advies.</p>
+            </div>
+            
             <div class="about-grid">
-                <div class="about-text">
+                <div class="about-text reveal">
                     <h2>Strategic advisor voor groeiende B2B bedrijven</h2>
                     <p>Geen uitvoering. Geen campagnes. Geen "meer content".</p>
                     <p><strong>Strategie</strong> die je vooruit brengt.<br>
                     <strong>Systemen</strong> die schaalbaar zijn.<br>
                     <strong>Resultaten</strong> die meetbaar zijn.</p>
                     <p>Voor bedrijven die commerciële helderheid willen in plaats van meer tactiek.</p>
-                    <div class="evolution">EVOLVED FROM 25 YEARS CNIP</div>
+                    <div class="evolution">Evolved from 25 years CNIP</div>
                 </div>
                 
-                <div class="about-values">
+                <div class="about-values reveal">
                     <div class="value-item">
                         <h4>Geen uitvoering</h4>
                         <p>Ik bouw geen campagnes. Ik bouw systemen waarin campagnes kunnen slagen.</p>
@@ -580,8 +881,9 @@
         <p>&copy; 2025 Oryen — Strategic Navigation for Commercial Growth</p>
     </footer>
 
-    <!-- Smooth Scroll -->
+    <!-- Scripts -->
     <script>
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -594,6 +896,45 @@
                 }
             });
         });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Scroll reveal animations
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const elementInView = (el, offset = 100) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return elementTop <= (window.innerHeight - offset);
+        };
+        
+        const displayScrollElement = (element) => {
+            element.classList.add('active');
+        };
+        
+        const handleScrollAnimation = () => {
+            revealElements.forEach((el) => {
+                if (elementInView(el)) {
+                    displayScrollElement(el);
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', handleScrollAnimation);
+        handleScrollAnimation(); // Initial check
     </script>
 </body>
 </html>
