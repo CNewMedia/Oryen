@@ -26,6 +26,10 @@
             --border: #e5e7eb;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.7;
@@ -33,9 +37,167 @@
             background: #ffffff;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            cursor: none;
         }
         
-        html {
+        /* Custom Cursor */
+        .custom-cursor {
+            width: 12px;
+            height: 12px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            top: -6px;
+            left: -6px;
+            pointer-events: none;
+            z-index: 10000;
+            transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+            mix-blend-mode: difference;
+        }
+        
+        .cursor-glow {
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(201, 165, 116, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            position: fixed;
+            top: -20px;
+            left: -20px;
+            pointer-events: none;
+            z-index: 9999;
+            transition: opacity 0.3s ease;
+        }
+        
+        .custom-cursor.cursor-hover,
+        .cursor-glow.cursor-hover {
+            opacity: 0.6;
+        }
+        
+        .custom-cursor.cursor-hover {
+            width: 40px;
+            height: 40px;
+            top: -20px;
+            left: -20px;
+        }
+        
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            z-index: 10001;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 20px rgba(201, 165, 116, 0.6);
+        }
+        
+        /* Particle Canvas */
+        .particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            animation: fadeInParticles 2s ease 1s forwards;
+        }
+        
+        @keyframes fadeInParticles {
+            to { opacity: 1; }
+        }
+        
+        /* Enhanced Animations */
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg); 
+            }
+            50% { 
+                transform: translateY(-10px) rotate(2deg); 
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                box-shadow: 0 8px 30px rgba(201, 165, 116, 0.15);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 12px 45px rgba(201, 165, 116, 0.35);
+                transform: scale(1.02);
+            }
+        }
+        
+        /* Smooth Reveal with Custom Easing */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px) scale(0.95);
+            transition: all 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        /* 3D Card Effects */
+        .feature, .faq-item, .process-item {
+            transform-style: preserve-3d;
+            transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .feature:hover, .faq-item:hover, .process-item:hover {
+            transform: translateY(-12px) rotateX(2deg) scale(1.02);
+            box-shadow: 
+                0 30px 90px rgba(201, 165, 116, 0.25),
+                0 0 60px rgba(201, 165, 116, 0.1);
+        }
+        
+        /* Enhanced Button Effects */
+        .cta-primary, .contact-button, .form-submit {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .cta-primary::before, .contact-button::before, .form-submit::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        
+        .cta-primary:hover::before, .contact-button:hover::before, .form-submit:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        /* Glassmorphism Enhanced */
+        .quote-content, .intake-form, .contact-info-box {
+            backdrop-filter: blur(40px) saturate(180%);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Process Icon Animation */
+        .process-icon {
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(201, 165, 116, 0.3);
+        }
+        
+        body {
             scroll-behavior: smooth;
         }
         
@@ -187,6 +349,51 @@
             padding: 0 20px;
             word-wrap: break-word;
             overflow-wrap: break-word;
+        }
+        
+        .scroll-hint {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1.5s forwards;
+        }
+        
+        .scroll-indicator {
+            width: 24px;
+            height: 40px;
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            position: relative;
+            opacity: 0.6;
+        }
+        
+        .scroll-indicator::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 2px;
+            animation: scrollDown 2s ease-in-out infinite;
+        }
+        
+        @keyframes scrollDown {
+            0%, 100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(12px);
+            }
         }
         
         .cta-primary {
@@ -1126,6 +1333,21 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* Hide custom cursor on touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            .custom-cursor, .cursor-glow {
+                display: none !important;
+            }
+            
+            body {
+                cursor: auto !important;
+            }
+            
+            .particle-canvas {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1144,6 +1366,9 @@
             <h1><span style="white-space: nowrap;">Strategische <span class="highlight">oriëntatie</span></span><br><span style="white-space: nowrap;">voor groeiende bedrijven</span></h1>
             <p class="tagline">Je weet niet of je marketing werkt.<br>Ik vertel je wat er mis is en wat je moet doen.</p>
             <a href="#contact" class="cta-primary">Start Reality Check</a>
+            <div class="scroll-hint">
+                <div class="scroll-indicator"></div>
+            </div>
         </div>
     </section>
 
@@ -1376,6 +1601,175 @@
     </footer>
 
     <script>
+        // ========== CUSTOM CURSOR ==========
+        const cursor = document.createElement('div');
+        const cursorGlow = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        cursorGlow.className = 'cursor-glow';
+        document.body.appendChild(cursor);
+        document.body.appendChild(cursorGlow);
+        
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let glowX = 0, glowY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animateCursor() {
+            const dx = mouseX - cursorX;
+            const dy = mouseY - cursorY;
+            cursorX += dx * 0.2;
+            cursorY += dy * 0.2;
+            
+            const dxGlow = mouseX - glowX;
+            const dyGlow = mouseY - glowY;
+            glowX += dxGlow * 0.1;
+            glowY += dyGlow * 0.1;
+            
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+            cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px)`;
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+        
+        // Cursor states
+        document.querySelectorAll('a, button, .feature, .faq-item, .process-item').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('cursor-hover');
+                cursorGlow.classList.add('cursor-hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-hover');
+                cursorGlow.classList.remove('cursor-hover');
+            });
+        });
+        
+        // ========== SCROLL PROGRESS ==========
+        const progressBar = document.createElement('div');
+        progressBar.className = 'scroll-progress';
+        document.body.appendChild(progressBar);
+        
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+        
+        // ========== PARTICLE BACKGROUND ==========
+        const canvas = document.createElement('canvas');
+        canvas.className = 'particle-canvas';
+        document.querySelector('.hero').appendChild(canvas);
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 50;
+        
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                radius: Math.random() * 2 + 1
+            });
+        }
+        
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(201, 165, 116, 0.4)';
+            ctx.strokeStyle = 'rgba(201, 165, 116, 0.15)';
+            ctx.lineWidth = 1;
+            
+            particles.forEach((p, i) => {
+                p.x += p.vx;
+                p.y += p.vy;
+                
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+                
+                particles.slice(i + 1).forEach(p2 => {
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.globalAlpha = 1 - dist / 120;
+                        ctx.stroke();
+                        ctx.globalAlpha = 1;
+                    }
+                });
+            });
+            
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // ========== ANIMATED COUNTER ==========
+        const priceTag = document.querySelector('.price-tag');
+        let animated = false;
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animated = true;
+                    const text = priceTag.textContent;
+                    const match = text.match(/€(\d+)/);
+                    if (match) {
+                        const target = parseInt(match[1]);
+                        let current = 0;
+                        const increment = target / 60;
+                        
+                        const counter = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(counter);
+                            }
+                            priceTag.textContent = text.replace(/€\d+/, `€${Math.floor(current)}`);
+                        }, 16);
+                    }
+                }
+            });
+        });
+        
+        if (priceTag) observer.observe(priceTag);
+        
+        // ========== MAGNETIC BUTTONS ==========
+        document.querySelectorAll('.cta-primary, .contact-button').forEach(button => {
+            button.addEventListener('mousemove', (e) => {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                button.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = '';
+            });
+        });
+        
+        // ========== HEADER ==========
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 50) {
