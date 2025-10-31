@@ -75,25 +75,6 @@
             transform: scale(1.05);
         }
         
-        .header-buttons {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        
-        .cnip-link {
-            color: var(--grey);
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 10px 20px;
-        }
-        
-        .cnip-link:hover {
-            color: var(--gold);
-        }
-        
         .contact-button {
             background: var(--gold);
             color: white;
@@ -281,6 +262,85 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 500;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 200px 6%;
+            background: white;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            max-width: 1400px;
+            margin: 80px auto 0;
+        }
+        
+        .process-item {
+            text-align: center;
+            padding: 60px 40px;
+            background: var(--light-grey);
+            border-radius: 20px;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .process-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(201, 165, 116, 0.2);
+        }
+        
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 32px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            font-family: 'Crimson Pro', Georgia, serif;
+        }
+        
+        .process-item h3 {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .process-item p {
+            font-size: 18px;
+            color: var(--grey);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        .timeline-note {
+            max-width: 900px;
+            margin: 80px auto 0;
+            text-align: center;
+            padding: 40px 60px;
+            background: linear-gradient(135deg, rgba(201, 165, 116, 0.1), rgba(201, 165, 116, 0.05));
+            border-radius: 16px;
+            border: 2px solid rgba(201, 165, 116, 0.2);
+        }
+        
+        .timeline-note p {
+            font-size: 20px;
+            color: var(--dark);
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        .timeline-note strong {
+            color: var(--gold);
         }
         
         /* CNIP Section */
@@ -658,6 +718,49 @@
             line-height: 1.8;
         }
         
+        /* FAQ */
+        .faq {
+            padding: 200px 6%;
+            background: white;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            max-width: 1200px;
+            margin: 80px auto 0;
+        }
+        
+        .faq-item {
+            padding: 48px;
+            background: var(--light-grey);
+            border-radius: 16px;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(201, 165, 116, 0.15);
+        }
+        
+        .faq-item h3 {
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        
+        .faq-item p {
+            font-size: 18px;
+            color: var(--grey);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
         /* Contact */
         .contact {
             padding: 200px 6%;
@@ -674,7 +777,145 @@
         
         .contact h2 {
             color: white;
-            margin-bottom: 140px;
+            margin-bottom: 28px;
+        }
+        
+        .intake-form-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        
+        .intake-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 60px;
+            border-radius: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 20px;
+            background: var(--gold);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 12px;
+        }
+        
+        .form-submit:hover {
+            background: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(201, 165, 116, 0.4);
+        }
+        
+        .form-note {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            margin-top: 24px;
+            font-style: italic;
+        }
+        
+        .contact-sidebar {
+            position: sticky;
+            top: 120px;
+        }
+        
+        .contact-info-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 48px;
+            border-radius: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-info-box h3 {
+            font-size: 20px;
+            color: var(--gold);
+            margin-bottom: 32px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        
+        .contact-info-box p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        
+        .contact-info-box a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            padding-bottom: 3px;
+        }
+        
+        .contact-info-box a:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
         }
         
         .contact-grid {
@@ -737,16 +978,48 @@
                 padding: 140px 6% 100px;
             }
             
-            .header-buttons {
-                gap: 12px;
-            }
-            
-            .cnip-link {
-                display: none;
-            }
-            
             .features {
                 grid-template-columns: 1fr;
+            }
+            
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .process-item {
+                padding: 40px 32px;
+            }
+            
+            .timeline-note {
+                padding: 32px 40px;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .faq-item {
+                padding: 36px;
+            }
+            
+            .intake-form-container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .intake-form {
+                padding: 40px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .contact-sidebar {
+                position: static;
             }
             
             .about-grid, .contact-grid {
@@ -754,7 +1027,7 @@
                 gap: 80px;
             }
             
-            .quote-content, .cnip-content {
+            .quote-content {
                 padding: 60px 40px;
             }
         }
@@ -776,12 +1049,32 @@
                 padding: 48px;
             }
             
+            .faq-item {
+                padding: 28px;
+            }
+            
+            .process-item {
+                padding: 32px 24px;
+            }
+            
+            .timeline-note {
+                padding: 28px 24px;
+            }
+            
+            .intake-form {
+                padding: 32px 24px;
+            }
+            
+            .contact-info-box {
+                padding: 32px;
+            }
+            
             .founder-profile img {
                 width: 180px;
                 height: 180px;
             }
             
-            .quote-content, .cnip-content {
+            .quote-content {
                 padding: 48px 32px;
             }
         }
@@ -804,10 +1097,7 @@
             <a href="#">
                 <img src="https://cnip-agency.com/hubfs/Screenshot%202025-10-30%20at%2014.43.48.png" alt="Oryen" class="logo-img">
             </a>
-            <div class="header-buttons">
-                <a href="https://cnip-agency.com/nl-be" class="cnip-link" target="_blank">CNIP (uitvoering)</a>
-                <a href="#contact" class="contact-button">Contact</a>
-            </div>
+            <a href="#contact" class="contact-button">Start gesprek</a>
         </div>
     </header>
 
@@ -816,7 +1106,7 @@
         <div class="hero-content">
             <h1><span style="white-space: nowrap;">Strategische <span class="highlight">oriëntatie</span></span><br><span style="white-space: nowrap;">voor groeiende bedrijven</span></h1>
             <p class="tagline">Je weet niet of je marketing werkt.<br>Ik vertel je wat er mis is en wat je moet doen.</p>
-            <a href="https://cnip-agency.com/nl-be/algemeen/contacteer-cnip" class="cta-primary" target="_blank">Start Reality Check</a>
+            <a href="#contact" class="cta-primary">Start Reality Check</a>
         </div>
     </section>
 
@@ -826,38 +1116,42 @@
         </div>
     </section>
 
-    <section class="cnip-section reveal">
-        <div class="cnip-content">
-            <h3>Na je Reality Check: wat dan?</h3>
-            <p style="margin-bottom: 48px;">Je hebt een helder plan. Nu zijn er drie routes:</p>
+    <section class="how-it-works">
+        <div class="section-content">
+            <h2 class="reveal">Hoe het werkt</h2>
+            <p class="section-intro reveal">De meeste B2B bedrijven investeren in marketing zonder te weten wat werkt en wat niet. Ze gooien geld naar campagnes, content en tools — maar missen strategische helderheid.</p>
             
-            <div style="text-align: left; max-width: 700px; margin: 0 auto 48px;">
-                <div style="margin-bottom: 32px; padding-left: 32px; border-left: 3px solid var(--gold);">
-                    <h4 style="font-size: 22px; color: var(--dark); margin-bottom: 12px; font-weight: 600;">Je voert het zelf uit</h4>
-                    <p style="font-size: 18px; color: var(--grey); line-height: 1.7; margin: 0;">Met je roadmap en prioriteiten kan je intern aan de slag. Ik blijf beschikbaar voor advies.</p>
+            <div class="process-grid">
+                <div class="process-item reveal">
+                    <div class="process-icon">01</div>
+                    <h3>Analyse</h3>
+                    <p>Ik analyseer je volledige marketing en sales systeem. Van strategie tot uitvoering, van data tot conversie. In 3 weken krijg je volledige helderheid.</p>
                 </div>
                 
-                <div style="margin-bottom: 32px; padding-left: 32px; border-left: 3px solid var(--gold);">
-                    <h4 style="font-size: 22px; color: var(--dark); margin-bottom: 12px; font-weight: 600;">CNIP voert het uit</h4>
-                    <p style="font-size: 18px; color: var(--grey); line-height: 1.7; margin: 0;">Mijn team bij CNIP kent je plan al en kan direct starten met de uitvoering. Geen briefings, geen ramp-up tijd.</p>
+                <div class="process-item reveal">
+                    <div class="process-icon">02</div>
+                    <h3>Plan</h3>
+                    <p>Je krijgt een concrete roadmap: welke fundamenten zijn zwak, wat zijn quick wins, en wat zijn de strategische projecten. Alles geprioriteerd.</p>
                 </div>
                 
-                <div style="padding-left: 32px; border-left: 3px solid var(--gold);">
-                    <h4 style="font-size: 22px; color: var(--dark); margin-bottom: 12px; font-weight: 600;">Hybride aanpak</h4>
-                    <p style="font-size: 18px; color: var(--grey); line-height: 1.7; margin: 0;">CNIP voert uit, ik blijf strategisch begeleiden. Zo groeit je systeem mee met je bedrijf.</p>
+                <div class="process-item reveal">
+                    <div class="process-icon">03</div>
+                    <h3>Uitvoering</h3>
+                    <p>Met het plan kan je zelf aan de slag. Of je laat CNIP het uitvoeren (zij kennen je plan al). Of hybride: uitvoering door CNIP, strategische begeleiding door mij. Jij kiest.</p>
                 </div>
             </div>
             
-            <p style="font-size: 20px; color: var(--dark); margin-bottom: 28px; font-weight: 500;">Het verschil: je start met een plan, niet met campagnes.</p>
-            <a href="https://cnip-agency.com/nl-be" class="cnip-button" target="_blank">Bekijk CNIP voor uitvoering</a>
+            <div class="timeline-note reveal">
+                <p><strong>Timeline:</strong> 3 weken voor analyse en plan. Implementatie van het systeem: 90 dagen. Maar eerst moet je weten wat er mis is.</p>
+            </div>
         </div>
     </section>
 
     <section id="reality-check" class="reality-check">
         <div class="section-content">
             <h2 class="reveal">Reality Check</h2>
-            <p class="section-intro reveal">In 90 dagen weet je precies wat er niet werkt in je marketing en sales — en heb je een concreet plan om het te verbeteren.</p>
-            <div class="price-tag reveal">90 dagen, complete analyse — €2.950 excl. BTW</div>
+            <p class="section-intro reveal">In 3 weken weet je precies wat er niet werkt in je marketing en sales — en heb je een concreet plan om het te verbeteren.</p>
+            <div class="price-tag reveal">3 weken, volledige analyse — €2.950 excl. BTW</div>
             
             <div class="features">
                 <div class="feature reveal" data-tilt>
@@ -875,12 +1169,12 @@
                 <div class="feature reveal" data-tilt>
                     <div class="feature-number">03</div>
                     <h3>Klaar om uit te voeren</h3>
-                    <p>Na 90 dagen weet je precies wat te doen, in welke volgorde, en waarom. Je kan direct aan de slag.</p>
+                    <p>Na 3 weken weet je precies wat te doen, in welke volgorde, en waarom. Je kan direct aan de slag.</p>
                 </div>
             </div>
             
             <div class="cta-section reveal">
-                <a href="https://cnip-agency.com/nl-be/algemeen/contacteer-cnip" class="cta-primary" target="_blank">Vraag een gesprek aan</a>
+                <a href="#contact" class="cta-primary">Vraag een gesprek aan</a>
             </div>
         </div>
     </section>
@@ -925,28 +1219,93 @@
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section class="faq">
         <div class="section-content">
-            <h2>Benieuwd of ik kan helpen?</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Neem contact op</h3>
-                    <div class="contact-details">
-                        <p><strong>Christophe Dejaeghere</strong><br>
-                        Founder</p>
-                        
-                        <p><a href="tel:+3293965883">+32 (0)9 396 58 83</a></p>
-                        
-                        <p><a href="mailto:christophe@oryen.be">christophe@oryen.be</a></p>
-                        
-                        <p>Gent, Belgium</p>
-                    </div>
+            <h2 class="reveal">Veelgestelde vragen</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item reveal">
+                    <h3>Waarom eerst een Reality Check en niet gewoon beginnen?</h3>
+                    <p>Omdat campagnes zonder strategie geldverspilling zijn. 90% van de bedrijven die "gewoon beginnen" stopt na 6 maanden omdat het niet werkt. Een Reality Check bespaart je maanden trial & error en duizenden euro's aan verkeerde investeringen.</p>
                 </div>
                 
-                <div class="contact-info">
-                    <h3>Hoe het werkt</h3>
-                    <p>We starten met een gesprek over je situatie. Als Reality Check past, krijg je in 90 dagen een helder plan.</p>
-                    <p style="margin-top: 24px;">Daarna kies je hoe je verder gaat: zelf uitvoeren, CNIP laten uitvoeren, of hybride. Jij beslist.</p>
+                <div class="faq-item reveal">
+                    <h3>Hoeveel tijd kost dit van mij?</h3>
+                    <p>Ongeveer 4-6 uur verspreid over 3 weken. Dat is één intake interview (2u), één tussensessie (1-2u) en één eindpresentatie (2u). De rest doe ik.</p>
+                </div>
+                
+                <div class="faq-item reveal">
+                    <h3>Wat als jullie niks vinden dat niet werkt?</h3>
+                    <p>In 25 jaar heb ik dat nog nooit meegemaakt. Elke organisatie heeft blinde vlekken. Als ik echt niets zou vinden, krijg je je geld terug. Maar dat gebeurt niet.</p>
+                </div>
+                
+                <div class="faq-item reveal">
+                    <h3>Is €2.950 niet duur voor "alleen advies"?</h3>
+                    <p>Gemiddeld bespaart een Reality Check €15.000-€30.000 aan verkeerde marketing investeringen in het eerste jaar. Plus de opportunity cost van maanden verkeerde richting. Het verdient zichzelf 5-10x terug.</p>
+                </div>
+                
+                <div class="faq-item reveal">
+                    <h3>Wat krijg ik precies opgeleverd?</h3>
+                    <p>Een uitgebreide analyse (25-35 pagina's), een concrete roadmap met prioriteiten, en een actieplan dat je direct kan uitvoeren. Plus 3 weken toegang tot mij voor vragen tijdens het traject.</p>
+                </div>
+                
+                <div class="faq-item reveal">
+                    <h3>Moet ik daarna met CNIP werken voor uitvoering?</h3>
+                    <p>Nee. Je kan zelf uitvoeren, een ander bureau kiezen, of met CNIP werken. Het plan is van jou. CNIP kent het plan al, dus ze kunnen sneller starten, maar je beslist zelf.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-content">
+            <h2>Klaar voor je Reality Check?</h2>
+            <p class="section-intro" style="margin-bottom: 80px;">Vul onderstaand formulier in en ik neem binnen 24 uur contact op voor een eerste gesprek.</p>
+            
+            <div class="intake-form-container">
+                <form class="intake-form" action="https://cnip-agency.com/nl-be/algemeen/contacteer-cnip" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Naam *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Bedrijf *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefoon</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Waar loop je tegenaan? *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Bijvoorbeeld: Onze marketing levert te weinig leads op, we weten niet of onze investeringen renderen, we hebben geen duidelijke strategie..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Vraag gesprek aan</button>
+                    
+                    <p class="form-note">Geen verplichtingen. Het eerste gesprek is vrijblijvend om te kijken of Reality Check bij je past.</p>
+                </form>
+                
+                <div class="contact-sidebar">
+                    <div class="contact-info-box">
+                        <h3>Direct contact</h3>
+                        <p><strong>Christophe Dejaeghere</strong></p>
+                        <p><a href="tel:+3293965883">+32 (0)9 396 58 83</a></p>
+                        <p><a href="mailto:christophe@oryen.be">christophe@oryen.be</a></p>
+                        <p style="margin-top: 24px; font-size: 16px; color: var(--grey);">Liever bellen of mailen? Dat kan ook. Ik reageer meestal binnen een paar uur.</p>
+                    </div>
                 </div>
             </div>
         </div>
