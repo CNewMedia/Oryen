@@ -40,44 +40,92 @@
             cursor: none;
         }
         
-        /* Custom Cursor */
+        /* Custom Cursor - Oryen O Logo with Compass */
         .custom-cursor {
-            width: 12px;
-            height: 12px;
-            border: 2px solid var(--gold);
-            border-radius: 50%;
+            width: 32px;
+            height: 32px;
             position: fixed;
-            top: -6px;
-            left: -6px;
+            top: -16px;
+            left: -16px;
             pointer-events: none;
             z-index: 10000;
-            transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-            mix-blend-mode: difference;
+            transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* The O ring */
+        .custom-cursor::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 24px;
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 
+                0 0 10px rgba(201, 165, 116, 0.3),
+                inset 0 0 8px rgba(201, 165, 116, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        /* The compass needle (triangle pointing up) */
+        .custom-cursor::after {
+            content: '';
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 8px solid var(--gold);
+            transform: translateX(-50%);
+            filter: drop-shadow(0 0 3px rgba(201, 165, 116, 0.6));
+            transition: all 0.3s ease;
         }
         
         .cursor-glow {
-            width: 40px;
-            height: 40px;
-            background: radial-gradient(circle, rgba(201, 165, 116, 0.3) 0%, transparent 70%);
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(201, 165, 116, 0.15) 0%, transparent 70%);
             border-radius: 50%;
             position: fixed;
-            top: -20px;
-            left: -20px;
+            top: -30px;
+            left: -30px;
             pointer-events: none;
             z-index: 9999;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
         
-        .custom-cursor.cursor-hover,
-        .cursor-glow.cursor-hover {
-            opacity: 0.6;
-        }
-        
+        /* Hover state - grows and rotates */
         .custom-cursor.cursor-hover {
-            width: 40px;
-            height: 40px;
-            top: -20px;
-            left: -20px;
+            width: 48px;
+            height: 48px;
+            top: -24px;
+            left: -24px;
+            transform: rotate(90deg);
+        }
+        
+        .custom-cursor.cursor-hover::before {
+            width: 36px;
+            height: 36px;
+            border-width: 4px;
+            box-shadow: 
+                0 0 20px rgba(201, 165, 116, 0.5),
+                inset 0 0 12px rgba(201, 165, 116, 0.3);
+        }
+        
+        .custom-cursor.cursor-hover::after {
+            border-left-width: 6px;
+            border-right-width: 6px;
+            border-bottom-width: 12px;
+            filter: drop-shadow(0 0 6px rgba(201, 165, 116, 0.8));
+        }
+        
+        .cursor-glow.cursor-hover {
+            opacity: 0.8;
+            transform: scale(1.3);
         }
         
         /* Scroll Progress */
