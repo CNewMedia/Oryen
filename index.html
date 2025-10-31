@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Oryen - Strategic Navigation for Commercial Growth. Reality Check voor B2B bedrijven.">
-    <title>Oryen — Strategic Navigation for Commercial Growth</title>
+    <meta name="description" content="Oryen - Ik help B2B bedrijven begrijpen waarom hun marketing niet werkt en geef ze een plan om het op te lossen.">
+    <title>Oryen — Strategische oriëntatie voor groeiende bedrijven</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,9 +39,9 @@
             scroll-behavior: smooth;
         }
         
-        /* Header met shadow */
+        /* Header */
         header {
-            padding: 32px 6%;
+            padding: 28px 6%;
             background: rgba(255, 255, 255, 0.98);
             border-bottom: 1px solid var(--border);
             position: fixed;
@@ -53,7 +53,7 @@
         }
         
         header.scrolled {
-            padding: 20px 6%;
+            padding: 18px 6%;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
         
@@ -66,35 +66,54 @@
         }
         
         .logo-img {
-            height: 50px;
+            height: 46px;
             width: auto;
             transition: all 0.3s ease;
         }
         
         .logo-img:hover {
-            transform: scale(1.1) rotate(-3deg);
+            transform: scale(1.05);
+        }
+        
+        .header-buttons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .cnip-link {
+            color: var(--grey);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+        }
+        
+        .cnip-link:hover {
+            color: var(--gold);
         }
         
         .contact-button {
             background: var(--gold);
             color: white;
-            padding: 14px 36px;
+            padding: 12px 32px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 15px;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.02em;
             box-shadow: 0 4px 20px rgba(201, 165, 116, 0.3);
             transition: all 0.3s ease;
         }
         
         .contact-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(201, 165, 116, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(201, 165, 116, 0.4);
             background: var(--gold-light);
         }
         
-        /* Hero met DRAMATISCH parallax */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -118,12 +137,6 @@
             background-position: center;
             z-index: 0;
             will-change: transform;
-            filter: blur(0px);
-            transition: filter 0.3s ease;
-        }
-        
-        .hero:hover .hero-bg {
-            filter: blur(1px);
         }
         
         .hero-content {
@@ -152,8 +165,8 @@
             font-size: 88px;
             font-weight: 400;
             color: var(--dark);
-            margin-bottom: 36px;
-            line-height: 1;
+            margin-bottom: 40px;
+            line-height: 1.2;
             letter-spacing: -0.03em;
         }
         
@@ -163,20 +176,17 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-style: italic;
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
         }
         
         .tagline {
-            font-size: 28px;
+            font-size: 26px;
             color: var(--grey);
             margin-bottom: 56px;
             font-weight: 300;
+            line-height: 1.6;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .cta-primary {
@@ -191,7 +201,6 @@
             letter-spacing: 0.03em;
             box-shadow: 0 12px 40px rgba(45, 55, 72, 0.25);
             transition: all 0.4s ease;
-            text-transform: uppercase;
         }
         
         .cta-primary:hover {
@@ -200,7 +209,7 @@
             box-shadow: 0 20px 60px rgba(201, 165, 116, 0.4);
         }
         
-        /* Quote met ZICHTBARE glassmorphism */
+        /* Quote */
         .quote-section {
             padding: 200px 6%;
             background: linear-gradient(180deg, var(--light-grey) 0%, white 100%);
@@ -247,7 +256,62 @@
             font-weight: 500;
         }
         
-        /* Reality Check met ZICHTBARE 3D cards */
+        /* CNIP Section */
+        .cnip-section {
+            padding: 160px 6%;
+            background: var(--light-grey);
+            text-align: center;
+        }
+        
+        .cnip-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px;
+            background: white;
+            border-radius: 24px;
+            border: 2px solid var(--border);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+        }
+        
+        .cnip-content h3 {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 48px;
+            color: var(--dark);
+            margin-bottom: 28px;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+        
+        .cnip-content p {
+            font-size: 22px;
+            color: var(--grey);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .cnip-button {
+            display: inline-block;
+            background: transparent;
+            color: var(--dark);
+            padding: 18px 48px;
+            border: 2px solid var(--dark);
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+        }
+        
+        .cnip-button:hover {
+            background: var(--dark);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(45, 55, 72, 0.2);
+        }
+        
+        /* Reality Check */
         .reality-check {
             padding: 200px 6%;
             background: white;
@@ -267,6 +331,7 @@
             margin-bottom: 28px;
             letter-spacing: -0.03em;
             text-align: center;
+            line-height: 1.15;
         }
         
         .section-intro {
@@ -274,7 +339,7 @@
             color: var(--grey);
             margin-bottom: 48px;
             font-weight: 300;
-            line-height: 1.8;
+            line-height: 1.7;
             text-align: center;
             max-width: 900px;
             margin-left: auto;
@@ -316,7 +381,6 @@
             perspective: 1500px;
         }
         
-        /* DRAMATISCHE 3D card tilt */
         .feature {
             padding: 72px;
             background: linear-gradient(135deg, white 0%, var(--light-grey) 100%);
@@ -575,7 +639,6 @@
         .contact-info a:hover {
             color: var(--gold);
             border-bottom-color: var(--gold);
-            transform: translateY(-2px);
         }
         
         .contact-details {
@@ -605,6 +668,14 @@
                 font-size: 48px;
             }
             
+            .header-buttons {
+                gap: 12px;
+            }
+            
+            .cnip-link {
+                display: none;
+            }
+            
             .hero {
                 padding: 140px 6% 100px;
             }
@@ -622,8 +693,8 @@
                 font-size: 40px;
             }
             
-            .quote-content {
-                padding: 80px 60px;
+            .quote-content, .cnip-content {
+                padding: 60px 40px;
             }
         }
         
@@ -646,7 +717,6 @@
             }
         }
         
-        /* Scroll reveal */
         .reveal {
             opacity: 0;
             transform: translateY(50px);
@@ -660,117 +730,141 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header id="header">
         <div class="header-content">
             <a href="#">
                 <img src="https://cnip-agency.com/hubfs/Screenshot%202025-10-30%20at%2014.43.48.png" alt="Oryen" class="logo-img">
             </a>
-            <a href="#contact" class="contact-button">Contact</a>
+            <div class="header-buttons">
+                <a href="https://cnip-agency.com/nl-be" class="cnip-link" target="_blank">CNIP (executie)</a>
+                <a href="#contact" class="contact-button">Contact</a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <h1>Strategic <span class="highlight">Navigation</span> for Commercial Growth</h1>
-            <p class="tagline">Geen campagnes zonder kompas.</p>
+            <h1>Strategische <span class="highlight">oriëntatie</span><br>voor groeiende bedrijven</h1>
+            <p class="tagline">Je weet niet of je marketing werkt.<br>Ik vertel je wat er mis is en wat je moet doen.</p>
             <a href="https://cnip-agency.com/nl-be/algemeen/contacteer-cnip" class="cta-primary" target="_blank">Start Reality Check</a>
         </div>
     </section>
 
-    <!-- Quote -->
     <section class="quote-section">
         <div class="quote-content reveal">
             <p class="quote">Marketing is geen kunst.<br>Het is een <span class="quote-highlight">systeem</span>.</p>
         </div>
     </section>
 
-    <!-- Reality Check -->
+    <section class="cnip-section reveal">
+        <div class="cnip-content">
+            <h3>Na je Reality Check: wat dan?</h3>
+            <p style="margin-bottom: 48px;">Je hebt een helder plan. Nu zijn er drie routes:</p>
+            
+            <div style="text-align: left; max-width: 700px; margin: 0 auto 48px;">
+                <div style="margin-bottom: 32px; padding-left: 32px; border-left: 3px solid var(--gold);">
+                    <h4 style="font-size: 22px; color: var(--dark); margin-bottom: 12px; font-weight: 600;">Je voert het zelf uit</h4>
+                    <p style="font-size: 18px; color: var(--grey); line-height: 1.7; margin: 0;">Met je roadmap en prioriteiten kan je intern aan de slag. Ik blijf beschikbaar voor advies.</p>
+                </div>
+                
+                <div style="margin-bottom: 32px; padding-left: 32px; border-left: 3px solid var(--gold);">
+                    <h4 style="font-size: 22px; color: var(--dark); margin-bottom: 12px; font-weight: 600;">CNIP voert het uit</h4>
+                    <p style="font-size: 18px; color: var(--grey); line-height: 1.7; margin: 0;">Mijn team bij CNIP kent je plan al en kan direct starten met executie. Geen briefings, geen ramp-up tijd.</p>
+                </div>
+                
+                <div style="padding-left: 32px; border-left: 3px solid var(--gold);">
+                    <h4 style="font-size: 22px; color: var(--dark); margin-bottom: 12px; font-weight: 600;">Hybride aanpak</h4>
+                    <p style="font-size: 18px; color: var(--grey); line-height: 1.7; margin: 0;">CNIP voert uit, ik blijf strategisch begeleiden. Zo groeit je systeem mee met je bedrijf.</p>
+                </div>
+            </div>
+            
+            <p style="font-size: 20px; color: var(--dark); margin-bottom: 28px; font-weight: 500;">Het verschil: je start met een plan, niet met campagnes.</p>
+            <a href="https://cnip-agency.com/nl-be" class="cnip-button" target="_blank">Bekijk CNIP voor executie</a>
+        </div>
+    </section>
+
     <section id="reality-check" class="reality-check">
         <div class="section-content">
             <h2 class="reveal">Reality Check</h2>
-            <p class="section-intro reveal">Volledige analyse van je commerciële systemen. Van strategie tot uitvoering. Van data tot resultaten.</p>
-            <div class="price-tag reveal">90 dagen op koers — €2.950 excl. BTW</div>
+            <p class="section-intro reveal">In 90 dagen weet je precies wat er niet werkt in je marketing en sales — en heb je een concreet plan om het te verbeteren.</p>
+            <div class="price-tag reveal">90 dagen, complete analyse — €2.950 excl. BTW</div>
             
             <div class="features">
                 <div class="feature reveal" data-tilt>
                     <div class="feature-number">01</div>
                     <h3>Diagnose</h3>
-                    <p>Diepgaande audit van je volledige sales & marketing keten. We analyseren niet wat je doet, maar of het werkt.</p>
+                    <p>Ik analyseer je volledige marketing en sales funnel. Niet wat je doet, maar of het écht werkt. Met data, niet met meningen.</p>
                 </div>
                 
                 <div class="feature reveal" data-tilt>
                     <div class="feature-number">02</div>
-                    <h3>Roadmap</h3>
-                    <p>Geen vaag adviesrapport. Een concrete roadmap met heldere prioriteiten, quick wins en strategische projecten.</p>
+                    <h3>Plan van aanpak</h3>
+                    <p>Je krijgt een concrete roadmap: wat moet je eerst aanpakken, wat zijn quick wins, en wat zijn de strategische projecten.</p>
                 </div>
                 
                 <div class="feature reveal" data-tilt>
                     <div class="feature-number">03</div>
-                    <h3>Uitvoering-ready</h3>
-                    <p>Je weet precies wat te doen, in welke volgorde, en waarom. In 90 dagen ben je op koers.</p>
+                    <h3>Klaar om uit te voeren</h3>
+                    <p>Na 90 dagen weet je precies wat te doen, in welke volgorde, en waarom. Je kan direct aan de slag.</p>
                 </div>
             </div>
             
             <div class="cta-section reveal">
-                <a href="https://cnip-agency.com/nl-be/algemeen/contacteer-cnip" class="cta-primary" target="_blank">Plan gesprek</a>
+                <a href="https://cnip-agency.com/nl-be/algemeen/contacteer-cnip" class="cta-primary" target="_blank">Vraag een gesprek aan</a>
             </div>
         </div>
     </section>
 
-    <!-- About -->
     <section class="about">
         <div class="section-content">
             <div class="founder-profile reveal">
                 <img src="https://cnip-agency.com/hubfs/Christophe%20Dejaeghere.png" alt="Christophe Dejaeghere">
                 <h3>Christophe Dejaeghere</h3>
-                <p class="title">Founder & Strategic Advisor</p>
-                <p class="bio">25+ jaar ervaring in marketing systemen. Cambridge gecertificeerd in Digital Transformation. HubSpot Gold Partner. Van CNIP naar Oryen: van uitvoering naar strategisch advies.</p>
+                <p class="title">Founder</p>
+                <p class="bio">25 jaar CNIP gebouwd als full-service B2B marketing bureau. Cambridge gecertificeerd in Digital Transformation. HubSpot Gold Partner sinds 2015.<br><br>Oryen is ontstaan omdat ik merkte dat bedrijven eerst strategische helderheid nodig hebben voordat ze campagnes starten. CNIP doet nog steeds de executie, Oryen doet de diagnose.</p>
             </div>
             
             <div class="about-grid">
                 <div class="about-text reveal">
-                    <h2>Strategic advisor voor groeiende B2B bedrijven</h2>
-                    <p>Geen uitvoering. Geen campagnes. Geen "meer content".</p>
-                    <p><strong>Strategie</strong> die je vooruit brengt.<br>
+                    <h2>Voor B2B bedrijven die duidelijkheid willen</h2>
+                    <p>Geen uitvoering. Geen campagnes bouwen. Geen "nog meer content maken".</p>
+                    <p><strong>Strategie</strong> die je vooruit helpt.<br>
                     <strong>Systemen</strong> die schaalbaar zijn.<br>
-                    <strong>Resultaten</strong> die meetbaar zijn.</p>
-                    <p>Voor bedrijven die commerciële helderheid willen in plaats van meer tactiek.</p>
-                    <div class="evolution">Evolved from 25 years CNIP</div>
+                    <strong>Inzichten</strong> waar je wat mee kan.</p>
+                    <p>Voor bedrijven die willen weten wat er mis is, in plaats van gewoon "meer doen".</p>
+                    <div class="evolution">CNIP blijft bestaan voor executie — Oryen doet de diagnose</div>
                 </div>
                 
                 <div class="about-values reveal">
                     <div class="value-item">
-                        <h4>Geen uitvoering</h4>
-                        <p>Ik bouw geen campagnes. Ik bouw systemen waarin campagnes kunnen slagen.</p>
+                        <h4>Focus op strategie</h4>
+                        <p>Ik doe diagnose en strategie. Voor executie werk ik samen met CNIP — of met jouw eigen team.</p>
                     </div>
                     
                     <div class="value-item">
-                        <h4>Geen buzzwords</h4>
-                        <p>Marketing spreekt in metaforen. Ik spreek in feiten, cijfers en concrete acties.</p>
+                        <h4>Geen vage taal</h4>
+                        <p>Marketing praat graag in metaforen. Ik praat in feiten, cijfers en concrete stappen.</p>
                     </div>
                     
                     <div class="value-item">
                         <h4>Geen quick fixes</h4>
-                        <p>Sustainable groei komt van solide fundamenten, niet van trucjes.</p>
+                        <p>Duurzame groei komt van goede fundamenten, niet van trucjes of hacks.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="contact">
         <div class="section-content">
-            <h2>Laten we praten</h2>
+            <h2>Benieuwd of ik kan helpen?</h2>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h3>Contact</h3>
+                    <h3>Neem contact op</h3>
                     <div class="contact-details">
                         <p><strong>Christophe Dejaeghere</strong><br>
-                        Founder & Strategic Advisor</p>
+                        Founder</p>
                         
                         <p><a href="tel:+3293965883">+32 (0)9 396 58 83</a></p>
                         
@@ -781,21 +875,19 @@
                 </div>
                 
                 <div class="contact-info">
-                    <h3>Start met Reality Check</h3>
-                    <p>Benieuwd of je commerciële systemen écht werken? Of is het tijd voor fundamentele verandering?</p>
-                    <p style="margin-top: 24px;">Plan een eerste gesprek. We bespreken je situatie en of Reality Check past bij wat je nodig hebt.</p>
+                    <h3>Hoe het werkt</h3>
+                    <p>We starten met een gesprek over je situatie. Als Reality Check past, krijg je in 90 dagen een helder plan.</p>
+                    <p style="margin-top: 24px;">Daarna kies je hoe je verder gaat: zelf uitvoeren, CNIP laten uitvoeren, of hybride. Jij beslist.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Oryen — Strategic Navigation for Commercial Growth</p>
+        <p>&copy; 2025 Oryen — Strategische oriëntatie voor groeiende bedrijven</p>
     </footer>
 
     <script>
-        // Header scroll
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 50) {
@@ -805,7 +897,6 @@
             }
         });
         
-        // DRAMATISCH parallax (60% ipv 30%)
         const heroBg = document.querySelector('.hero-bg');
         let ticking = false;
         
@@ -822,7 +913,6 @@
             }
         });
         
-        // ZICHTBARE 3D card tilt (15 graden!)
         const features = document.querySelectorAll('[data-tilt]');
         features.forEach(feature => {
             feature.addEventListener('mousemove', (e) => {
@@ -849,7 +939,6 @@
             });
         });
         
-        // Scroll reveal
         const reveals = document.querySelectorAll('.reveal');
         
         function checkReveal() {
@@ -866,7 +955,6 @@
         window.addEventListener('scroll', checkReveal);
         checkReveal();
         
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
