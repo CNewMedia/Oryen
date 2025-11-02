@@ -399,51 +399,6 @@
             overflow-wrap: break-word;
         }
         
-        .scroll-hint {
-            position: absolute;
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out 1.5s forwards;
-        }
-        
-        .scroll-indicator {
-            width: 24px;
-            height: 40px;
-            border: 2px solid var(--gold);
-            border-radius: 20px;
-            position: relative;
-            opacity: 0.6;
-        }
-        
-        .scroll-indicator::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 8px;
-            background: var(--gold);
-            border-radius: 2px;
-            animation: scrollDown 2s ease-in-out infinite;
-        }
-        
-        @keyframes scrollDown {
-            0%, 100% {
-                opacity: 0;
-                transform: translateX(-50%) translateY(0);
-            }
-            50% {
-                opacity: 1;
-                transform: translateX(-50%) translateY(12px);
-            }
-        }
-        
         .cta-primary {
             display: inline-block;
             background: var(--dark);
@@ -1267,18 +1222,7 @@
         /* Responsive */
         @media (max-width: 968px) {
             .hero {
-                padding: 120px 6% 80px;
-                min-height: 85vh;
-            }
-            
-            h1 {
-                font-size: clamp(40px, 6.5vw, 64px);
-                line-height: 1.3;
-            }
-            
-            .tagline {
-                font-size: 20px;
-                margin-bottom: 48px;
+                padding: 140px 6% 100px;
             }
             
             .features {
@@ -1304,7 +1248,7 @@
             }
             
             .faq-item {
-                padding: 36px 28px;
+                padding: 36px;
             }
             
             .intake-form-container {
@@ -1313,7 +1257,7 @@
             }
             
             .intake-form {
-                padding: 40px 32px;
+                padding: 40px;
             }
             
             .form-row {
@@ -1333,106 +1277,43 @@
             .quote-content {
                 padding: 60px 40px;
             }
-            
-            .quote {
-                font-size: 42px;
-            }
         }
         
         @media (max-width: 640px) {
             .hero {
-                padding: 100px 5% 60px;
-                min-height: 90vh;
+                padding: 120px 8% 80px;
             }
             
             .hero-content {
-                padding: 0 20px;
+                padding: 0 30px;
             }
             
             h1 {
-                font-size: clamp(32px, 8vw, 48px);
-                padding: 10px 15px;
-                line-height: 1.35;
-                margin-bottom: 28px;
-            }
-            
-            .tagline {
-                font-size: 18px;
-                margin-bottom: 40px;
-                padding: 0 10px;
-                line-height: 1.5;
-            }
-            
-            .cta-primary {
-                padding: 18px 40px;
-                font-size: 16px;
-            }
-            
-            .scroll-hint {
-                bottom: 30px;
-            }
-            
-            .scroll-indicator {
-                width: 20px;
-                height: 32px;
-            }
-            
-            header {
-                padding: 16px 5%;
-            }
-            
-            .logo-img {
-                height: 38px;
-            }
-            
-            .contact-button {
-                padding: 10px 24px;
-                font-size: 14px;
+                padding: 10px 20px;
             }
             
             .feature, .about-values {
-                padding: 32px 24px;
+                padding: 48px;
             }
             
             .faq-item {
-                padding: 24px 20px;
-            }
-            
-            .faq-item h3 {
-                font-size: 20px;
-                margin-bottom: 16px;
-            }
-            
-            .faq-item p {
-                font-size: 16px;
+                padding: 28px;
             }
             
             .process-item {
                 padding: 32px 24px;
             }
             
-            .process-item h3 {
-                font-size: 26px;
-            }
-            
-            .process-item p {
-                font-size: 16px;
-            }
-            
             .timeline-note {
-                padding: 24px 20px;
-            }
-            
-            .timeline-note p {
-                font-size: 16px;
+                padding: 28px 24px;
             }
             
             .intake-form {
-                padding: 32px 20px;
+                padding: 32px 24px;
             }
             
             .contact-info-box {
-                padding: 28px 20px;
+                padding: 32px;
             }
             
             .founder-profile img {
@@ -1441,58 +1322,7 @@
             }
             
             .quote-content {
-                padding: 48px 24px;
-            }
-            
-            .quote {
-                font-size: 32px;
-            }
-            
-            h2 {
-                font-size: 36px;
-                margin-bottom: 20px;
-            }
-            
-            .section-intro {
-                font-size: 18px;
-            }
-            
-            section {
-                padding: 80px 5% !important;
-            }
-            
-            .hero {
-                padding: 100px 5% 60px !important;
-            }
-            
-            .contact {
-                padding: 80px 5% !important;
-            }
-            
-            .quote-section {
-                padding: 60px 5% !important;
-            }
-            
-            .price-tag {
-                font-size: 18px;
-                padding: 16px 32px;
-            }
-            
-            .process-icon {
-                width: 64px;
-                height: 64px;
-                font-size: 24px;
-                margin-bottom: 24px;
-            }
-            
-            /* Disable heavy animations on mobile */
-            .feature:hover, .faq-item:hover, .process-item:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 8px 24px rgba(201, 165, 116, 0.15);
-            }
-            
-            .particle-canvas {
-                display: none;
+                padding: 48px 32px;
             }
         }
         
@@ -1539,9 +1369,6 @@
             <h1><span style="white-space: nowrap;">Strategische <span class="highlight">oriëntatie</span></span><br><span style="white-space: nowrap;">voor groeiende bedrijven</span></h1>
             <p class="tagline">Je weet niet of je marketing werkt.<br>Ik vertel je wat er mis is en wat je moet doen.</p>
             <a href="#contact" class="cta-primary">Start Reality Check</a>
-            <div class="scroll-hint">
-                <div class="scroll-indicator"></div>
-            </div>
         </div>
     </section>
 
@@ -1752,7 +1579,7 @@
                         <p><strong>Christophe Dejaeghere</strong></p>
                         <p><a href="tel:+3293965883">+32 (0)9 396 58 83</a></p>
                         <p><a href="mailto:christophe@oryen.be">christophe@oryen.be</a></p>
-                        <p style="margin-top: 24px; font-size: 16px; color: var(--grey);">Liever bellen of mailen? Dat kan ook. Ik reageer meestal binnen een paar uur.</p>
+                        <p style="margin-top: 24px; font-size: 16px; color: rgba(255, 255, 255, 0.7);">Liever bellen of mailen? Dat kan ook. Ik reageer meestal binnen een paar uur.</p>
                     </div>
                 </div>
             </div>
