@@ -1,6 +1,9 @@
-# ORYEN — web + Sanity
+# ORYEN
 
-Monorepo: Next.js (App Router) + Sanity Studio at repository root (`web/`, `studio/`).
+Monorepo: `web/` (Next.js App Router) + `studio/` (Sanity).
+
+- **Root `CNAME`**: kept for deployments that read it from the repo (e.g. GitHub Pages hostname).
+- **`legacy/`**: old static HTML archived; not used by the app.
 
 ## Requirements
 
@@ -14,8 +17,6 @@ cp web/.env.example web/.env.local
 cp studio/.env.example studio/.env
 ```
 
-Fill in Sanity project ID, dataset, and tokens where indicated.
-
 ## Develop
 
 ```bash
@@ -25,11 +26,7 @@ npm run dev:studio  # http://localhost:3333
 
 ## Deploy
 
-- **Web**: Vercel project rooted at `web/` (or monorepo with “Root Directory” = `web`).
-- **Studio**: `npm run deploy --workspace=@oryen/studio` from repo root, or `cd studio && npm run deploy`.
+- **Web**: Vercel root directory `web/`.
+- **Studio**: `cd studio && npm run deploy` (or workspace script from root).
 
-Legacy static assets at repo root (`CNAME`, `stripinfo-doorloop-v3.html`) are unchanged.
-
-## Note on paths
-
-If the repository path contains spaces, some Sanity CLI tooling may emit harmless shell warnings. Using a path without spaces avoids that.
+Paths with spaces in the full repo path can cause minor Sanity CLI warnings; prefer a path without spaces for CI.

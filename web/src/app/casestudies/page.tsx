@@ -1,22 +1,15 @@
 import type { Metadata } from 'next';
 
-import { PageSection } from '@/components/sections/page-section';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = {
-  title: 'Casestudies',
+  title: 'casestudies',
   ...buildPageMetadata({
     path: '/casestudies',
-    pageTitle: 'Casestudies',
+    pageTitle: 'casestudies',
   }),
 };
 
 export default function CasestudiesOverviewPage() {
-  return (
-    <main className="mx-auto max-w-3xl px-6 py-24">
-      <PageSection>
-        <h1 className="text-2xl font-medium tracking-tight">Casestudies</h1>
-      </PageSection>
-    </main>
-  );
+  return <main className="mx-auto max-w-3xl px-6 py-24" />;
 }

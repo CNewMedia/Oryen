@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { PageSection } from '@/components/sections/page-section';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 import { caseStudyBySlugQuery, caseStudyIndexQuery } from '@/lib/sanity/queries';
 import { sanityFetchIfConfigured } from '@/lib/sanity/fetch';
@@ -24,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     params: { slug },
     tags: ['caseStudy', slug],
   });
-  const label = doc?.title ?? 'Casestudy';
+  const label = doc?.title ?? slug;
   return {
     title: label,
     ...buildPageMetadata({
@@ -48,13 +47,5 @@ export default async function CaseStudyDetailPage({ params }: Props) {
     notFound();
   }
 
-  return (
-    <main className="mx-auto max-w-3xl px-6 py-24">
-      <PageSection>
-        <h1 className="text-2xl font-medium tracking-tight">
-          {doc?.title ?? 'Casestudy'}
-        </h1>
-      </PageSection>
-    </main>
-  );
+  return <main className="mx-auto max-w-3xl px-6 py-24" />;
 }
