@@ -29,3 +29,7 @@ npm run dev:studio  # http://localhost:3333
 - **Studio**: `sanity deploy` from `apps/studio`, or host Studio separately.
 
 Legacy static assets at repo root (`CNAME`, `stripinfo-doorloop-v3.html`) are unchanged.
+
+## Note on paths
+
+If the repository path contains spaces, some Sanity CLI tooling may emit harmless shell warnings. Using a path without spaces avoids that.
