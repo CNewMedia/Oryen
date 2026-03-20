@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { CaseStudyDetailComposition } from '@/components/compositions/case-study-detail';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 import { caseStudyBySlugQuery, caseStudyIndexQuery } from '@/lib/sanity/queries';
 import { sanityFetchIfConfigured } from '@/lib/sanity/fetch';
@@ -47,5 +48,5 @@ export default async function CaseStudyDetailPage({ params }: Props) {
     notFound();
   }
 
-  return <main className="mx-auto max-w-3xl px-6 py-24" />;
+  return <CaseStudyDetailComposition slug={slug} />;
 }

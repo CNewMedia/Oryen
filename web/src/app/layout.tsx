@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Cormorant, Source_Sans_3 } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { draftMode } from 'next/headers';
 import { VisualEditing } from 'next-sanity';
@@ -10,6 +11,20 @@ import { sanityFetchIfConfigured } from '@/lib/sanity/fetch';
 import type { SiteSettings } from '@/lib/sanity/types';
 
 import './globals.css';
+
+const fontDisplay = Cormorant({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['400', '500', '600'],
+  display: 'swap',
+});
+
+const fontSans = Source_Sans_3({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  weight: ['400', '500', '600'],
+  display: 'swap',
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   const site = await sanityFetchIfConfigured<SiteSettings>({
@@ -35,7 +50,10 @@ export default async function RootLayout({
   const { isEnabled } = await draftMode();
 
   return (
-    <html lang="nl">
+    <html
+      lang="nl"
+      className={`${fontDisplay.variable} ${fontSans.variable}`}
+    >
       <body className="min-h-screen font-sans antialiased">
         <SiteShell>{children}</SiteShell>
         {isEnabled ? <VisualEditing /> : null}

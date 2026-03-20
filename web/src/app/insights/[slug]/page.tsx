@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { InsightDetailComposition } from '@/components/compositions/insight-detail';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 import { insightArticleBySlugQuery, insightArticleIndexQuery } from '@/lib/sanity/queries';
 import { sanityFetchIfConfigured } from '@/lib/sanity/fetch';
@@ -47,5 +48,5 @@ export default async function InsightDetailPage({ params }: Props) {
     notFound();
   }
 
-  return <main className="mx-auto max-w-3xl px-6 py-24" />;
+  return <InsightDetailComposition slug={slug} />;
 }

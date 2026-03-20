@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { AanbodComposition } from '@/components/compositions/aanbod';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = {
@@ -11,5 +12,5 @@ export const metadata: Metadata = {
 };
 
 export default function AanbodPage() {
-  return <main className="mx-auto max-w-3xl px-6 py-24" />;
+  return <AanbodComposition />;
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { OverOnsComposition } from '@/components/compositions/over-ons';
 import { buildPageMetadata } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = {
@@ -11,5 +12,5 @@ export const metadata: Metadata = {
 };
 
 export default function OverOnsPage() {
-  return <main className="mx-auto max-w-3xl px-6 py-24" />;
+  return <OverOnsComposition />;
 }
