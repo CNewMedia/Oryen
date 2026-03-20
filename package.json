@@ -1,0 +1,18 @@
+{
+  "name": "oryen",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "npm run dev --workspace=@oryen/web",
+    "dev:web": "npm run dev --workspace=@oryen/web",
+    "dev:studio": "npm run dev --workspace=@oryen/studio",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11"
+  }
+}

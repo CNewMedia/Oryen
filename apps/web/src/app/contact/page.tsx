@@ -1,0 +1,19 @@
+import type { Metadata } from 'next';
+
+import { buildPageMetadata } from '@/lib/seo/metadata';
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  ...buildPageMetadata({
+    path: '/contact',
+    pageTitle: 'Contact',
+  }),
+};
+
+export default function ContactPage() {
+  return (
+    <main className="mx-auto max-w-3xl px-6 py-24">
+      <h1 className="text-2xl font-medium tracking-tight">Contact</h1>
+    </main>
+  );
+}

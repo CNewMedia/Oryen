@@ -1,0 +1,7 @@
+node_modules
+.next
+dist
+.sanity
+package-lock.json
+*.min.js
+stripinfo-doorloop-v3.html

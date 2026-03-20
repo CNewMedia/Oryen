@@ -1,0 +1,36 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build
+.next
+out
+dist
+apps/studio/dist
+build
+.turbo
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Debug / OS
+.DS_Store
+*.log
+npm-debug.log*
+
+# IDE
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# Sanity
+apps/studio/.sanity
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
