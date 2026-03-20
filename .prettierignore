@@ -5,3 +5,5 @@ dist
 package-lock.json
 *.min.js
 stripinfo-doorloop-v3.html
+web/.next
+studio/dist

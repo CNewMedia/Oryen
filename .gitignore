@@ -7,9 +7,10 @@ node_modules
 .next
 out
 dist
-apps/studio/dist
 build
 .turbo
+web/.next
+studio/dist
 
 # Env
 .env
@@ -27,7 +28,7 @@ npm-debug.log*
 !.vscode/extensions.json
 
 # Sanity
-apps/studio/.sanity
+studio/.sanity
 
 # Vercel
 .vercel

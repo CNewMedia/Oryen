@@ -1,6 +1,6 @@
 # ORYEN — web + Sanity
 
-Monorepo: Next.js (App Router) + Sanity Studio.
+Monorepo: Next.js (App Router) + Sanity Studio at repository root (`web/`, `studio/`).
 
 ## Requirements
 
@@ -10,11 +10,11 @@ Monorepo: Next.js (App Router) + Sanity Studio.
 
 ```bash
 npm install
-cp apps/web/.env.example apps/web/.env.local
-cp apps/studio/.env.example apps/studio/.env
+cp web/.env.example web/.env.local
+cp studio/.env.example studio/.env
 ```
 
-Fill in Sanity project ID, dataset, and API tokens where indicated.
+Fill in Sanity project ID, dataset, and tokens where indicated.
 
 ## Develop
 
@@ -25,8 +25,8 @@ npm run dev:studio  # http://localhost:3333
 
 ## Deploy
 
-- **Web**: Vercel project rooted at `apps/web` (or monorepo with app directory set to `apps/web`).
-- **Studio**: `sanity deploy` from `apps/studio`, or host Studio separately.
+- **Web**: Vercel project rooted at `web/` (or monorepo with “Root Directory” = `web`).
+- **Studio**: `npm run deploy --workspace=@oryen/studio` from repo root, or `cd studio && npm run deploy`.
 
 Legacy static assets at repo root (`CNAME`, `stripinfo-doorloop-v3.html`) are unchanged.
 
