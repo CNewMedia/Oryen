@@ -1,28 +1,23 @@
 import { createClient, type SanityClient } from 'next-sanity';
 
-import { sanityConfig } from './config';
+let _client: SanityClient | null | undefined;
 
-export function getSanityClient(): SanityClient {
-  return createClient({
-    projectId: sanityConfig.projectId,
-    dataset: sanityConfig.dataset,
-    apiVersion: sanityConfig.apiVersion,
-    useCdn: true,
-    perspective: 'published',
-  });
-}
-
-export function getSanityPreviewClient(): SanityClient {
-  const token = process.env.SANITY_API_READ_TOKEN;
-  if (!token) {
-    throw new Error('SANITY_API_READ_TOKEN is required for preview');
+export function getSanityClient(): SanityClient | null {
+  if (_client !== undefined) return _client;
+  const id = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID?.trim();
+  if (!id) {
+    _client = null;
+    return _client;
   }
-  return createClient({
-    projectId: sanityConfig.projectId,
-    dataset: sanityConfig.dataset,
-    apiVersion: sanityConfig.apiVersion,
-    useCdn: false,
-    token,
-    perspective: 'previewDrafts',
-  });
+  try {
+    _client = createClient({
+      projectId: id,
+      dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production',
+      apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION ?? '2024-01-01',
+      useCdn: process.env.NODE_ENV === 'production',
+    });
+  } catch {
+    _client = null;
+  }
+  return _client;
 }

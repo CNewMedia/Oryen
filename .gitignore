@@ -35,3 +35,6 @@ studio/.sanity
 
 # TypeScript
 *.tsbuildinfo
+
+# Local reference exports (niet in repo)
+oryen_premium*.html

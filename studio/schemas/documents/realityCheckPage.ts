@@ -4,7 +4,7 @@ import { sectionsField } from './_shared';
 
 export const realityCheckPage = defineType({
   name: 'realityCheckPage',
-  title: 'Reality Check',
+  title: 'Reality Check (legacy — gebruik Aanbod)',
   type: 'document',
   fields: [
     defineField({

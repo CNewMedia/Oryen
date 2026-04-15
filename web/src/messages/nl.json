@@ -1,0 +1,236 @@
+{
+  "Meta": {
+    "siteName": "ORYEN",
+    "defaultDescription": "Direction before action. Strategie die marketing, sales en digitaal op elkaar afstemt."
+  },
+  "Nav": {
+    "home": "Home",
+    "aanpak": "Aanpak",
+    "cases": "Cases",
+    "over": "Over ORYEN",
+    "contact": "Contact",
+    "realityCheck": "Reality Check",
+    "cta": "— Plan een gesprek",
+    "openMenu": "Menu",
+    "closeMenu": "Sluiten"
+  },
+  "Global": {
+    "header": {
+      "brandWordmark": "ORYEN",
+      "tagline": "Direction before action."
+    },
+    "footer": {
+      "brandShort": "ORYEN",
+      "tagline": "Direction before action.",
+      "domain": "oryen.be"
+    }
+  },
+  "Aanbod": {
+    "meta": {
+      "title": "Reality Check — ORYEN",
+      "description": "De Reality Check is de eerste strategische stap voor bedrijven die marketing, sales en digitaal op elkaar willen afstemmen — vóór er opnieuw gekozen, gebouwd of geïnvesteerd wordt."
+    },
+    "hero": {
+      "headlineLine1": "Begin niet met uitvoering.",
+      "headlineLine2Em": "Begin met een strategie die klopt.",
+      "sub": "De Reality Check is de eerste stap voor bedrijven die voelen dat marketing, sales en digitaal niet op elkaar afgestemd zijn — en eerst scherp willen krijgen wat moet kloppen vóór er opnieuw gekozen, gebouwd of geïnvesteerd wordt.",
+      "primaryCta": "Plan een eerste gesprek",
+      "secondaryCta": "Bekijk hoe ORYEN werkt"
+    },
+    "whatItIs": {
+      "spine": "01 — Wat het is",
+      "headline": "Wat de Reality Check is",
+      "body": "De Reality Check is geen vrijblijvende intake en geen verkoopgesprek. Het is een eerste strategische oefening waarin ORYEN scherp krijgt wat vandaag niet op elkaar afgestemd is — en wat eerst nodig is om marketing, sales en digitaal beter te laten werken."
+    },
+    "whatYouGet": {
+      "spine": "02 — Wat u eruit haalt",
+      "headline": "Wat u eruit haalt",
+      "items": [
+        "Wat er echt speelt achter de vraag op tafel",
+        "Wat nu eerst beslist moet worden",
+        "Wat te vroeg is en beter wacht",
+        "Welke tools, afspraken en meetpunten nodig zijn om de afstemming te bewaken"
+      ]
+    },
+    "forWho": {
+      "spine": "03 — Voor wie",
+      "headline": "Voor bedrijven die voelen dat er iets niet klopt — maar nog niet scherp zien wat eerst moet gebeuren.",
+      "body": "De Reality Check is bedoeld voor bedrijven die al bewegen, investeren en beslissen — maar merken dat marketing, sales en digitaal niet als één geheel werken.\n\nNiet voor wie gewoon een uitvoerend bureau zoekt.\n\nWel voor wie eerst wil weten wat moet kloppen, wat eerst moet gebeuren en hoe die lijn bewaakt blijft."
+    },
+    "howItWorks": {
+      "spine": "04 — Hoe het werkt",
+      "headline": "Hoe de Reality Check werkt",
+      "stepPrefix": "Stap",
+      "steps": [
+        {
+          "n": "01",
+          "title": "We brengen in kaart wat er vandaag al is.",
+          "body": "Wat werkt? Wat loopt vast? Waar ontbreekt de afstemming tussen marketing, sales en digitaal?"
+        },
+        {
+          "n": "02",
+          "title": "We bepalen wat eerst moet kloppen.",
+          "body": "Welke keuzes zijn nu nodig? Wat is te vroeg? Waar zit de echte verwarring?"
+        },
+        {
+          "n": "03",
+          "title": "We maken duidelijk wat de juiste volgende stap is.",
+          "body": "Welke strategie brengt opnieuw lijn? Welke tools en opvolging helpen om die lijn ook te bewaken?"
+        }
+      ]
+    },
+    "pricing": {
+      "spine": "05 — Aanbod",
+      "name": "Reality Check",
+      "priceLine": "Vaste prijs — € 2.950 excl. btw",
+      "body": "Geen traject zonder richting. De Reality Check geeft eerst helderheid over wat moet kloppen, wat eerst moet gebeuren en welke keuzes u beter nog niet maakt."
+    },
+    "reassurance": {
+      "headline": "Geen vrijblijvende intake. Wel een eerste strategisch gesprek.",
+      "body": "We kijken niet alleen naar wat u vraagt. We kijken naar wat er onder die vraag zit — en wat eerst op elkaar afgestemd moet worden zodat verdere uitvoering zin heeft.",
+      "note": "Persoonlijk antwoord van Christophe. Geen doorschuifsysteem."
+    },
+    "closing": {
+      "line1": "De duurste beslissing is vaak niet de verkeerde.",
+      "line2": "Het is de beslissing die te vroeg genomen werd."
+    }
+  },
+  "Home": {
+    "hero": {
+      "titleLine1": "Marketing. Sales.",
+      "titleLine2": "Digitaal.",
+      "titleEm": "Strategisch op elkaar afgestemd.",
+      "claim": "ORYEN werkt een strategie uit die alles op elkaar afstemt — en helpt de juiste tools en opvolging kiezen om die lijn te bewaken.",
+      "sub": "Geen uitvoering zonder strategie. Eerst juist zetten wat moet kloppen.",
+      "primaryCta": "Plan een Reality Check",
+      "secondaryCta": "Bekijk de aanpak"
+    },
+    "diagnosis": {
+      "spine": "01 — Diagnose",
+      "headlineEm": "Zo logisch.\nZo vaak vergeten.",
+      "p1": "Marketing trekt leads aan die sales niet opvolgt. Sales hoort wat er leeft in de markt, maar die feedback komt niet terug bij marketing. Digitale tools worden ingevoerd, maar niemand kijkt nog of ze echt iets verbeteren.",
+      "focus": "Als marketing, sales en digitaal niet op elkaar afgestemd zijn, maakt extra uitvoering het probleem alleen groter."
+    },
+    "approach": {
+      "spine": "02 — Aanpak",
+      "headline": "Eerst de strategie uitwerken",
+      "headlineEm": "die alles op elkaar afstemt.",
+      "note1": "ORYEN begint niet met campagnes, tools of uitvoering. We werken eerst een strategie uit die marketing, sales en digitaal op elkaar afstemt, duidelijk maakt wat eerst moet gebeuren, en ervoor zorgt dat dat ook zo blijft.",
+      "introHl": "Van strategie naar opvolging.",
+      "stepPrefix": "Stap",
+      "steps": [
+        { "n": "01", "name": "In kaart brengen", "q": "Wat is er vandaag al? Wat werkt? Wat loopt vast? Waar ontbreekt de afstemming tussen marketing, sales en digitaal?" },
+        { "n": "02", "name": "Afstemmen", "q": "Waar botsen marketing, sales en digitaal vandaag? Wat moet beter aansluiten zodat ze elkaar versterken in plaats van elkaar af te remmen?" },
+        { "n": "03", "name": "Strategie uitwerken", "q": "Welke keuzes zijn nu echt nodig? Wat moet eerst? Wat is te vroeg? Welke aanpak past bij uw markt, uw team en uw commerciële realiteit?" },
+        { "n": "04", "name": "Borgen", "q": "Pas wanneer de richting klopt, heeft uitvoering zin. Dan helpen we de juiste tools, meetpunten en opvolging opzetten zodat die strategie zichtbaar blijft en bewaakt wordt." }
+      ]
+    },
+    "proof": {
+      "spine": "03 — Bewijs",
+      "headline": "Wat ORYEN eerst juist zette —",
+      "headlineEm": "vóór er uitgevoerd werd.",
+      "featured": {
+        "client": "Hof van Cleve",
+        "title": "Niet meer zichtbaarheid.\nEerst duidelijkheid over de positie.",
+        "line1": "Iedereen zag een communicatievraag. Meer content, meer bereik.",
+        "line2": "ORYEN zag een positioneringsvraag. Wie zijn we, voor wie, en wat mag nooit verloren gaan?",
+        "line3": "Niet méér communicatie — juistere keuzes. Minder ruis, meer samenhang."
+      },
+      "minis": [
+        { "client": "Willems Veranda", "subtitle": "Niet nog een idee. Eerst één juiste keuze.", "body": "Er waren ideeën genoeg. Elk bureau kwam met een andere oplossing. ORYEN bracht eerst terug naar de essentie: welk probleem moet hier echt opgelost worden?", "result": "Eén juiste keuze maakte alle andere keuzes eenvoudiger." },
+        { "client": "Concordia Textile", "subtitle": "Niet meteen uitrollen. Eerst intern op één lijn komen.", "body": "Een internationale organisatie met verschillende units en één gedeelde ambitie. ORYEN bracht eerst focus in wat gedeeld moest worden, wat eerst gekozen moest worden en hoe de lijn bewaakt kon blijven.", "result": "Eerst dezelfde richting. Dan pas schaal." },
+        { "client": "BMW — lokale dealer", "subtitle": "Niet klinken als iedereen. Eerst kiezen wat u onderscheidt.", "body": "De reflex was om te communiceren zoals elk ander dealernetwerk. ORYEN zag dat de echte kracht net in de lokale eigenheid zat.", "result": "Wat eerst een nuance leek, werd de strategie." }
+      ]
+    },
+    "selection": {
+      "spine": "04 — Selectie",
+      "headline": "Voor wie marketing, sales en digitaal",
+      "headlineEm": "op elkaar wil laten werken.",
+      "forItems": [
+        "Voor bedrijven die voelen dat er veel gebeurt, maar dat het geheel niet klopt.",
+        "Voor bedrijven die niet opnieuw willen investeren in iets dat te vroeg komt.",
+        "Voor bedrijven die eerst een strategie willen die marketing, sales en digitaal op elkaar afstemt — en duidelijk maakt wat eerst moet gebeuren en hoe dat opgevolgd blijft."
+      ],
+      "notForLabel": "Niet voor wie",
+      "notFor": [
+        "Een blind uitvoerend bureau zoekt",
+        "Losse campagnes wil zonder commerciële samenhang",
+        "Liever gelooft in snelle beloftes dan in een juiste analyse",
+        "Vooral snelheid zoekt, zonder eerst de juiste volgorde te bepalen"
+      ]
+    },
+    "about": {
+      "spine": "05 — Over ORYEN",
+      "headline": "ORYEN werkt een strategie uit die marketing, sales en digitaal",
+      "headlineEm": "op elkaar afstemt — en helpt zorgen dat dat ook zo blijft.",
+      "statement": "We beginnen niet met doen. We beginnen met zien wat scheef zit — en werken een strategie uit die marketing, sales en digitaal opnieuw op elkaar afstemt.",
+      "creds": "23 jaar B2B — HubSpot Gold Partner — Cambridge gecertificeerd.",
+      "signature": "Christophe Dejaeghere — oprichter ORYEN",
+      "quote": "De duurste beslissing is vaak niet de verkeerde. Het is de beslissing die te vroeg genomen werd."
+    },
+    "offer": {
+      "spine": "06 — Aanbod",
+      "name": "Reality Check",
+      "body": "Een Reality Check is geen vrijblijvende intake en geen verkoopgesprek. Het is een eerste strategische oefening waarin we scherp krijgen wat vandaag niet op elkaar afgestemd is — en wat eerst nodig is om marketing, sales en digitaal beter te laten werken.",
+      "ctaPrimary": "Plan een eerste gesprek",
+      "secondaryHlBeforeEm": "Begin niet met<br/>uitvoering.",
+      "secondaryHlEm": "Begin met een strategie<br/>die klopt.",
+      "secondaryBody": "Geen vrijblijvende intake. Geen standaard verkoopcall. Wel een eerste helder gesprek over wat er in uw organisatie niet op elkaar aansluit — en wat er eerst nodig is.",
+      "secondaryNote": "Persoonlijk antwoord van Christophe. Geen doorschuifsysteem."
+    }
+  },
+  "Pages": {
+    "aanpak": {
+      "eyebrow": "Aanpak",
+      "title": "De ORYEN-methode.",
+      "intro": "We werken eerst een strategie uit die marketing, sales en digitaal op elkaar afstemt. Van daaruit maken we de juiste keuzes in tools, afspraken en opvolging."
+    },
+    "cases": {
+      "eyebrow": "Cases",
+      "title": "Wat eerst klop moest zijn.",
+      "intro": "Strategische helderheid vóór uitvoering — selectie van recent werk."
+    },
+    "about": {
+      "eyebrow": "Over ORYEN",
+      "title": "Onafhankelijk. Strategisch. B2B.",
+      "intro": "ORYEN bestaat om richting te herstellen waar marketing, sales en digitaal uit elkaar lopen."
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Een eerste gesprek.",
+      "intro": "Geen conveyor belt. Een persoonlijk antwoord — meestal binnen één werkdag."
+    },
+    "reality": {
+      "eyebrow": "Reality Check",
+      "title": "Een eerste strategische oefening.",
+      "intro": "Heldere scope, persoonlijke opvolging."
+    },
+    "thankYou": {
+      "eyebrow": "Bedankt",
+      "title": "Je bericht is goed aangekomen.",
+      "intro": "Je hoort persoonlijk van Christophe zodra er inhoudelijk op geantwoord kan worden."
+    },
+    "privacy": {
+      "eyebrow": "Privacy",
+      "title": "Privacybeleid",
+      "intro": ""
+    },
+    "cookies": {
+      "eyebrow": "Cookies",
+      "title": "Cookiebeleid",
+      "intro": ""
+    }
+  },
+  "Errors": {
+    "notFound": "Deze pagina bestaat niet of is verplaatst.",
+    "homeLink": "Terug naar home"
+  },
+  "ContactForm": {
+    "name": "Naam",
+    "email": "E-mail",
+    "company": "Organisatie",
+    "companyOptional": "(optioneel)",
+    "message": "Bericht",
+    "submit": "Versturen"
+  }
+}

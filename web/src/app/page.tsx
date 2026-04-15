@@ -1,5 +1,5 @@
-import { HomeComposition } from '@/components/compositions/home';
+import { redirect } from 'next/navigation';
 
-export default function HomePage() {
-  return <HomeComposition />;
+export default function RootRedirect() {
+  redirect('/nl');
 }

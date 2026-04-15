@@ -1,0 +1,236 @@
+{
+  "Meta": {
+    "siteName": "ORYEN",
+    "defaultDescription": "Direction before action. Strategy that aligns marketing, sales and digital."
+  },
+  "Nav": {
+    "home": "Home",
+    "aanpak": "Approach",
+    "cases": "Cases",
+    "over": "About ORYEN",
+    "contact": "Contact",
+    "realityCheck": "Reality Check",
+    "cta": "— Book a conversation",
+    "openMenu": "Menu",
+    "closeMenu": "Close"
+  },
+  "Global": {
+    "header": {
+      "brandWordmark": "ORYEN",
+      "tagline": "Direction before action."
+    },
+    "footer": {
+      "brandShort": "ORYEN",
+      "tagline": "Direction before action.",
+      "domain": "oryen.be"
+    }
+  },
+  "Aanbod": {
+    "meta": {
+      "title": "Reality Check — ORYEN",
+      "description": "The Reality Check is the first strategic step for companies that want marketing, sales and digital aligned — before choosing, building or investing again."
+    },
+    "hero": {
+      "headlineLine1": "Do not start with execution.",
+      "headlineLine2Em": "Start with a strategy that fits.",
+      "sub": "The Reality Check is the first step for companies that sense marketing, sales and digital are not aligned — and want clarity on what must fit before choosing, building or investing again.",
+      "primaryCta": "Book a first conversation",
+      "secondaryCta": "See how ORYEN works"
+    },
+    "whatItIs": {
+      "spine": "01 — What it is",
+      "headline": "What the Reality Check is",
+      "body": "A Reality Check is not a casual intake or a sales pitch. It is a first strategic exercise where ORYEN clarifies what is not aligned today — and what is needed first for marketing, sales and digital to work better together."
+    },
+    "whatYouGet": {
+      "spine": "02 — What you get",
+      "headline": "What you take away",
+      "items": [
+        "What really sits behind the question on the table",
+        "What must be decided first now",
+        "What is too early and better waits",
+        "Which tools, agreements and metrics are needed to guard alignment"
+      ]
+    },
+    "forWho": {
+      "spine": "03 — For whom",
+      "headline": "For companies that sense something is off — but do not yet see clearly what must happen first.",
+      "body": "The Reality Check is for companies that already move, invest and decide — but notice marketing, sales and digital do not work as one.\n\nNot for those who simply want an execution-only agency.\n\nFor those who first want to know what must fit, what must happen first, and how that line stays guarded."
+    },
+    "howItWorks": {
+      "spine": "04 — How it works",
+      "headline": "How the Reality Check works",
+      "stepPrefix": "Step",
+      "steps": [
+        {
+          "n": "01",
+          "title": "We map what is there today.",
+          "body": "What works? What is stuck? Where is alignment missing between marketing, sales and digital?"
+        },
+        {
+          "n": "02",
+          "title": "We define what must fit first.",
+          "body": "Which choices are needed now? What is too early? Where is the real confusion?"
+        },
+        {
+          "n": "03",
+          "title": "We clarify the right next step.",
+          "body": "Which strategy restores the line? Which tools and follow-up help guard that line?"
+        }
+      ]
+    },
+    "pricing": {
+      "spine": "05 — Offer",
+      "name": "Reality Check",
+      "priceLine": "Fixed price — € 2,950 excl. VAT",
+      "body": "No trajectory without direction. The Reality Check first brings clarity on what must fit, what must happen first, and which choices you are better not making yet."
+    },
+    "reassurance": {
+      "headline": "Not a casual intake. A first strategic conversation.",
+      "body": "We do not only look at what you ask. We look at what sits beneath that question — and what must be aligned first so further execution makes sense.",
+      "note": "Personal reply from Christophe. No ticket system."
+    },
+    "closing": {
+      "line1": "The most expensive decision is often not the wrong one.",
+      "line2": "It is the one taken too early."
+    }
+  },
+  "Home": {
+    "hero": {
+      "titleLine1": "Marketing. Sales.",
+      "titleLine2": "Digital.",
+      "titleEm": "Strategically aligned.",
+      "claim": "ORYEN develops a strategy that aligns everything — and helps you choose the right tools and follow-up to guard that line.",
+      "sub": "No execution without strategy. First get right what must fit.",
+      "primaryCta": "Book a Reality Check",
+      "secondaryCta": "See the approach"
+    },
+    "diagnosis": {
+      "spine": "01 — Diagnosis",
+      "headlineEm": "So obvious.\nSo often forgotten.",
+      "p1": "Marketing attracts leads that sales does not follow up on. Sales hears what lives in the market, but that feedback does not return to marketing. Digital tools are rolled out, but no one checks whether they actually improve anything.",
+      "focus": "If marketing, sales and digital are not aligned, more execution only makes the problem larger."
+    },
+    "approach": {
+      "spine": "02 — Approach",
+      "headline": "First work out the strategy",
+      "headlineEm": "that aligns everything.",
+      "note1": "ORYEN does not start with campaigns, tools or execution. We first develop a strategy that aligns marketing, sales and digital, clarifies what must happen first, and keeps it that way.",
+      "introHl": "From strategy to follow-up.",
+      "stepPrefix": "Step",
+      "steps": [
+        { "n": "01", "name": "Map the situation", "q": "What is there today? What works? What is stuck? Where is alignment missing between marketing, sales and digital?" },
+        { "n": "02", "name": "Align", "q": "Where do marketing, sales and digital clash today? What must connect better so they reinforce instead of block each other?" },
+        { "n": "03", "name": "Develop strategy", "q": "Which choices are really needed now? What first? What is too early? Which approach fits your market, team and commercial reality?" },
+        { "n": "04", "name": "Embed", "q": "Only when direction is right does execution make sense. Then we help set up the right tools, metrics and follow-up so the strategy stays visible and guarded." }
+      ]
+    },
+    "proof": {
+      "spine": "03 — Proof",
+      "headline": "What ORYEN set right first —",
+      "headlineEm": "before anything was executed.",
+      "featured": {
+        "client": "Hof van Cleve",
+        "title": "Not more visibility.\nFirst clarity on position.",
+        "line1": "Everyone saw a communications question. More content, more reach.",
+        "line2": "ORYEN saw a positioning question. Who are we, for whom, and what must never be lost?",
+        "line3": "Not more communication — sharper choices. Less noise, more coherence."
+      },
+      "minis": [
+        { "client": "Willems Veranda", "subtitle": "Not another idea. First one right choice.", "body": "There were enough ideas. Every agency brought another solution. ORYEN first returned to the essence: which problem really needs solving here?", "result": "One right choice made every other choice simpler." },
+        { "client": "Concordia Textile", "subtitle": "Not roll out at once. First align internally.", "body": "An international organisation with different units and one shared ambition. ORYEN first brought focus to what must be shared, what must be chosen first, and how the line could stay guarded.", "result": "Same direction first. Then scale." },
+        { "client": "BMW — local dealer", "subtitle": "Not sound like everyone. First choose what distinguishes you.", "body": "The reflex was to communicate like every other dealer network. ORYEN saw the real strength was in local identity.", "result": "What seemed a nuance at first became the strategy." }
+      ]
+    },
+    "selection": {
+      "spine": "04 — Fit",
+      "headline": "For those who want marketing, sales and digital",
+      "headlineEm": "to work together.",
+      "forItems": [
+        "For companies that feel a lot is happening but the whole does not fit.",
+        "For companies that do not want to invest again in something that comes too early.",
+        "For companies that want a strategy first that aligns marketing, sales and digital — and clarifies what must happen first and how it stays followed up."
+      ],
+      "notForLabel": "Not for those who",
+      "notFor": [
+        "Want an execution-only agency",
+        "Want loose campaigns without commercial coherence",
+        "Believe in quick promises more than sound analysis",
+        "Seek speed above all without first setting the right order"
+      ]
+    },
+    "about": {
+      "spine": "05 — About ORYEN",
+      "headline": "ORYEN develops a strategy that aligns marketing, sales and digital",
+      "headlineEm": "— and helps ensure it stays that way.",
+      "statement": "We do not start with doing. We start with seeing what is off — and work out a strategy that realigns marketing, sales and digital.",
+      "creds": "23 years B2B — HubSpot Gold Partner — Cambridge certified.",
+      "signature": "Christophe Dejaeghere — founder ORYEN",
+      "quote": "The most expensive decision is often not the wrong one. It is the one taken too early."
+    },
+    "offer": {
+      "spine": "06 — Offer",
+      "name": "Reality Check",
+      "body": "A Reality Check is not a casual intake or a sales pitch. It is a first strategic exercise where we clarify what is not aligned today — and what is needed first for marketing, sales and digital to work better together.",
+      "ctaPrimary": "Book a first conversation",
+      "secondaryHlBeforeEm": "Do not start with<br/>execution.",
+      "secondaryHlEm": "Start with a strategy<br/>that fits.",
+      "secondaryBody": "No casual intake. No standard sales call. A first clear conversation about what does not connect in your organisation — and what is needed first.",
+      "secondaryNote": "Personal reply from Christophe. No ticket system."
+    }
+  },
+  "Pages": {
+    "aanpak": {
+      "eyebrow": "Approach",
+      "title": "The ORYEN method.",
+      "intro": "We first develop a strategy that aligns marketing, sales and digital. From there we make the right choices in tools, agreements and follow-up."
+    },
+    "cases": {
+      "eyebrow": "Cases",
+      "title": "What had to fit first.",
+      "intro": "Strategic clarity before execution — a selection of recent work."
+    },
+    "about": {
+      "eyebrow": "About ORYEN",
+      "title": "Independent. Strategic. B2B.",
+      "intro": "ORYEN exists to restore direction where marketing, sales and digital drift apart."
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "A first conversation.",
+      "intro": "No conveyor belt. A personal reply — usually within one business day."
+    },
+    "reality": {
+      "eyebrow": "Reality Check",
+      "title": "A first strategic exercise.",
+      "intro": "Clear scope, personal follow-up."
+    },
+    "thankYou": {
+      "eyebrow": "Thank you",
+      "title": "Your message was received.",
+      "intro": "You will hear personally from Christophe as soon as there is a substantive reply."
+    },
+    "privacy": {
+      "eyebrow": "Privacy",
+      "title": "Privacy policy",
+      "intro": ""
+    },
+    "cookies": {
+      "eyebrow": "Cookies",
+      "title": "Cookie policy",
+      "intro": ""
+    }
+  },
+  "Errors": {
+    "notFound": "This page does not exist or has been moved.",
+    "homeLink": "Back to home"
+  },
+  "ContactForm": {
+    "name": "Name",
+    "email": "Email",
+    "company": "Organisation",
+    "companyOptional": "(optional)",
+    "message": "Message",
+    "submit": "Send"
+  }
+}

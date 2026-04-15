@@ -1,11 +1,12 @@
 # ORYEN
 
-Monorepo: `web/` (Next.js App Router) + `studio/` (Sanity).
+Monorepo: **`web/`** (Next.js App Router + Tailwind) en **`studio/`** (Sanity CMS).
 
-- **Root `CNAME`**: kept for deployments that read it from the repo (e.g. GitHub Pages hostname).
-- **`legacy/`**: old static HTML archived; not used by the app.
+De **website in `web/` is opnieuw opgezet** als minimale basis — leeg canvas om verder te bouwen.
 
-## Requirements
+- **Root `CNAME`**: voor deployments die de hostname uit de repo lezen.
+
+## Vereisten
 
 - Node 20+
 
@@ -13,11 +14,12 @@ Monorepo: `web/` (Next.js App Router) + `studio/` (Sanity).
 
 ```bash
 npm install
-cp web/.env.example web/.env.local
 cp studio/.env.example studio/.env
 ```
 
-## Develop
+(Voor de webapp is geen `.env` verplicht tot je bv. Sanity weer koppelt.)
+
+## Ontwikkelen
 
 ```bash
 npm run dev:web     # http://localhost:3000
@@ -26,7 +28,7 @@ npm run dev:studio  # http://localhost:3333
 
 ## Deploy
 
-- **Web**: Vercel root directory `web/`.
-- **Studio**: `cd studio && npm run deploy` (or workspace script from root).
+- **Web**: Vercel met root directory `web/`.
+- **Studio**: `cd studio && npm run deploy`.
 
-Paths with spaces in the full repo path can cause minor Sanity CLI warnings; prefer a path without spaces for CI.
+Paden met spaties in het volledige pad kunnen Sanity CLI warnings geven; liever een pad zonder spaties voor CI.
