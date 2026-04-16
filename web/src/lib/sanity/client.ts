@@ -1,4 +1,4 @@
-import { createClient, type SanityClient } from 'next-sanity';
+import { createClient, type SanityClient } from '@sanity/client';
 
 let _client: SanityClient | null | undefined;
 

@@ -3,14 +3,15 @@
   "private": true,
   "workspaces": ["web", "studio"],
   "overrides": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
   },
   "scripts": {
     "dev": "npm run dev --workspace=@oryen/web",
     "dev:web": "npm run dev --workspace=@oryen/web",
     "dev:studio": "npm run dev --workspace=@oryen/studio",
     "build": "npm run build --workspaces --if-present",
+    "seed:cms": "npm run seed:cms --workspace=@oryen/web",
     "lint": "npm run lint --workspaces --if-present",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
