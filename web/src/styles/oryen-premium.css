@@ -1352,6 +1352,66 @@ footer::before {
   margin: 0;
 }
 
+/* Na de Reality Check — roadmap, geen verborgen agenda */
+.aanbod-after {
+  background: var(--cream);
+  padding: clamp(6vh, 9vh, 88px) var(--P);
+  border-top: 1px solid var(--rule);
+}
+.aanbod-after-inner {
+  max-width: 720px;
+  margin-left: var(--spine);
+  padding-left: clamp(2rem, 3.5vw, 4.5rem);
+}
+.aanbod-after-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(15, 14, 11, 0.38);
+  margin: 0 0 1rem;
+}
+.aanbod-after-hl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 1rem;
+}
+.aanbod-after-body {
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.68;
+  color: var(--ink3);
+  margin: 0 0 1.35rem;
+  max-width: 52ch;
+}
+.aanbod-after-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.aanbod-after-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.86rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(15, 14, 11, 0.72);
+  margin-bottom: 0.65rem;
+}
+.aanbod-after-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(15, 14, 11, 0.28);
+}
+
 /* Pricing: nadrukblok */
 .aanbod-package .spine-content {
   padding-top: clamp(12vh, 16vh, 150px);

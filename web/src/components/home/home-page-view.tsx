@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 
+import { Link } from '@/i18n/navigation';
 import { HeroSignature } from '@/components/premium/hero-signature';
 
 import type { HomeContent } from '@/types/home-content';
@@ -29,15 +30,12 @@ type Props = {
   contactEmail: string;
 };
 
-export function HomePageView({ home, images, contactEmail }: Props) {
+export function HomePageView({ home, images, contactEmail: _contactEmail }: Props) {
   const t = home;
   const steps = t.approach.steps;
   const minis = t.proof.minis;
   const forItems = t.selection.forItems;
   const notFor = t.selection.notFor;
-
-  const mailQuery = `subject=${encodeURIComponent('Reality Check')}`;
-  const mailto = `mailto:${contactEmail}?${mailQuery}`;
 
   return (
     <>
@@ -267,13 +265,13 @@ export function HomePageView({ home, images, contactEmail }: Props) {
                 <h2 className="offer-name reveal">{t.offer.name}</h2>
                 <p className="offer-body reveal delay-1">{t.offer.body}</p>
                 <span className="offer-line reveal delay-2" />
-                <a className="offer-btn reveal delay-3" href={mailto}>
+                <Link className="offer-btn reveal delay-3" href="/aanbod">
                   <span>{t.offer.ctaPrimary}</span>
                   <span
                     className="btn-arrow"
                     style={{ background: 'var(--amber)' }}
                   />
-                </a>
+                </Link>
               </div>
               <div className="reveal delay-1">
                 <h3 className="offer-r-hl">

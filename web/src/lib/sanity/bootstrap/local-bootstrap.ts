@@ -34,6 +34,7 @@ export function getBootstrapAanbodContent(locale: string): AanbodContent {
     offerClarity: m.Aanbod.offerClarity,
     whatYouGet: m.Aanbod.whatYouGet,
     howItWorks: m.Aanbod.howItWorks,
+    whatAfter: m.Aanbod.whatAfter,
     pricing: m.Aanbod.pricing,
     reassurance: m.Aanbod.reassurance,
     closing: m.Aanbod.closing,

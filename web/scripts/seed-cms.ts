@@ -123,6 +123,7 @@ function aanbodDoc(locale: Locale, m: OryBundle): Record<string, unknown> {
     offerClarity: A.offerClarity,
     whatYouGet: A.whatYouGet,
     howItWorks: A.howItWorks,
+    whatAfter: A.whatAfter,
     pricing: A.pricing,
     reassurance: A.reassurance,
     closing: A.closing,

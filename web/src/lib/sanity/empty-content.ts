@@ -102,6 +102,12 @@ export const EMPTY_AANBOD_CONTENT: AanbodContent = {
     stepPrefix: '',
     steps: [],
   },
+  whatAfter: {
+    eyebrow: '',
+    headline: '',
+    body: '',
+    items: [],
+  },
   pricing: {
     spine: '',
     name: '',

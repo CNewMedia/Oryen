@@ -131,6 +131,26 @@ export function AanbodPageView({ content }: Props) {
         </div>
       </section>
 
+      <section className="aanbod-after" aria-labelledby="aanbod-after-heading">
+        <div className="aanbod-after-inner">
+          <p className="aanbod-after-eyebrow reveal">{c.whatAfter.eyebrow}</p>
+          <h2 className="aanbod-after-hl reveal" id="aanbod-after-heading">
+            {c.whatAfter.headline}
+          </h2>
+          <p className="aanbod-after-body reveal delay-1">{c.whatAfter.body}</p>
+          <ul className="aanbod-after-list">
+            {c.whatAfter.items.map((line, i) => (
+              <li
+                key={line.slice(0, 40)}
+                className={`reveal delay-${Math.min(i + 1, 3)}`}
+              >
+                {line}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section className="aanbod-package s-offer has-spine spine-dark" id="pricing">
         <div className="spine-grid">
           <div className="spine-label spine-label-dark">

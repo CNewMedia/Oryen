@@ -48,6 +48,12 @@ function sanitizeAanbodFromBase(
         ? merged.howItWorks.steps
         : base.howItWorks.steps,
     },
+    whatAfter: {
+      ...(merged.whatAfter ?? base.whatAfter),
+      items: Array.isArray(merged.whatAfter?.items)
+        ? merged.whatAfter.items
+        : base.whatAfter.items,
+    },
     pricing: {
       ...merged.pricing,
       includedItems: Array.isArray(merged.pricing.includedItems)
@@ -102,6 +108,15 @@ function mergeSanity(base: AanbodContent, doc: SanityDoc): AanbodContent {
         ...base.howItWorks,
         ...doc.howItWorks,
       } as AanbodContent['howItWorks'],
+    };
+  }
+  if (isRecord(doc.whatAfter)) {
+    out = {
+      ...out,
+      whatAfter: {
+        ...base.whatAfter,
+        ...doc.whatAfter,
+      } as AanbodContent['whatAfter'],
     };
   }
   if (isRecord(doc.pricing)) {

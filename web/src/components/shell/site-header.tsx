@@ -15,7 +15,7 @@ export function SiteHeader({ brandWordmark, tagline, ctaLabel }: Props) {
         <span className="nav-logo-line" />
         <span className="nav-logo-sub">{tagline}</span>
       </Link>
-      <Link className="nav-cta" href="/contact">
+      <Link className="nav-cta" href="/aanbod">
         {ctaLabel}
       </Link>
     </nav>

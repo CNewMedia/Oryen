@@ -115,6 +115,22 @@ export const aanbodPage = defineType({
       ],
     }),
     defineField({
+      name: 'whatAfter',
+      title: 'What happens after',
+      type: 'object',
+      fields: [
+        defineField({ name: 'eyebrow', title: 'Eyebrow', type: 'string' }),
+        defineField({ name: 'headline', title: 'Headline', type: 'string' }),
+        defineField({ name: 'body', title: 'Body', type: 'text', rows: 5 }),
+        defineField({
+          name: 'items',
+          title: 'Bullets',
+          type: 'array',
+          of: [{ type: 'string' }],
+        }),
+      ],
+    }),
+    defineField({
       name: 'pricing',
       title: 'Pricing / offer',
       type: 'object',

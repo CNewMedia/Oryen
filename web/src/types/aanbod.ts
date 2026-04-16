@@ -4,6 +4,7 @@ export type AanbodStep = {
   body: string;
 };
 
+/** Reality Check / offer page — mirrors Sanity `aanbodPage` + bootstrap JSON. */
 export type AanbodContent = {
   meta: { title: string; description: string };
   hero: {
@@ -12,17 +13,46 @@ export type AanbodContent = {
     sub: string;
     primaryCta: string;
     secondaryCta: string;
+    offerFrame: { label: string; pillars: string[] };
   };
-  whatItIs: { spine: string; headline: string; body: string };
-  whatYouGet: { spine: string; headline: string; items: string[] };
-  forWho: { spine: string; headline: string; body: string };
+  offerClarity: {
+    eyebrow: string;
+    leftTitle: string;
+    leftBody: string;
+    rightTitle: string;
+    rightLead: string;
+    forBody: string;
+    welLabel: string;
+    welItems: string[];
+    notForLabel: string;
+    notForItems: string[];
+  };
+  whatYouGet: {
+    eyebrow: string;
+    headline: string;
+    subline: string;
+    items: string[];
+  };
   howItWorks: {
-    spine: string;
     headline: string;
     stepPrefix: string;
     steps: AanbodStep[];
   };
-  pricing: { spine: string; name: string; priceLine: string; body: string };
+  /** What happens after — roadmap ownership, optional follow-on (no hard sell). */
+  whatAfter: {
+    eyebrow: string;
+    headline: string;
+    body: string;
+    items: string[];
+  };
+  pricing: {
+    spine: string;
+    name: string;
+    priceLine: string;
+    body: string;
+    includedTitle: string;
+    includedItems: string[];
+  };
   reassurance: { headline: string; body: string; note: string };
-  closing: { line1: string; line2: string };
+  closing: { line1: string; line2: string; ctaLabel: string };
 };
