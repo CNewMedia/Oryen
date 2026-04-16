@@ -1,5 +1,3 @@
-import { notFound } from 'next/navigation';
-
 import { getBootstrapHomeContent } from '@/lib/sanity/bootstrap/local-bootstrap';
 import { getSanityClient } from '@/lib/sanity/client';
 import { EMPTY_HOME_CONTENT } from '@/lib/sanity/empty-content';
@@ -92,7 +90,16 @@ export async function loadHomepage(locale: string): Promise<{
   }
 
   const doc = (await client.fetch(QUERY, { locale })) as SanityDoc | null;
-  if (!doc) notFound();
+  if (!doc) {
+    console.warn(
+      `[ORYEN] homepage missing for locale "${locale}"; using bootstrap shell. Seed CMS or publish the homepage document.`
+    );
+    return {
+      content: getBootstrapHomeContent(locale),
+      imageUrls: defaultImages,
+      seo: resolveHomeSeo(null, settings),
+    };
+  }
 
   const content = mergeHomeFromSanity(doc, EMPTY_HOME_CONTENT);
 
