@@ -1,23 +1,22 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
-
 import { Link } from '@/i18n/navigation';
 
-/** Teksten: `messages/<locale>.json` → `Global.header` + `Nav` */
-export function SiteHeader() {
-  const tNav = useTranslations('Nav');
-  const g = useTranslations('Global');
+type Props = {
+  brandWordmark: string;
+  tagline: string;
+  ctaLabel: string;
+};
 
+/** Copy comes from Sanity `siteSettings` (per locale), merged in layout. */
+export function SiteHeader({ brandWordmark, tagline, ctaLabel }: Props) {
   return (
     <nav className="nav" id="mainNav">
       <Link className="nav-logo" href="/">
-        <span className="nav-logo-name">{g('header.brandWordmark')}</span>
+        <span className="nav-logo-name">{brandWordmark}</span>
         <span className="nav-logo-line" />
-        <span className="nav-logo-sub">{g('header.tagline')}</span>
+        <span className="nav-logo-sub">{tagline}</span>
       </Link>
       <Link className="nav-cta" href="/contact">
-        {tNav('cta')}
+        {ctaLabel}
       </Link>
     </nav>
   );

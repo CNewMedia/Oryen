@@ -31,16 +31,47 @@ export const aanbodPage = defineType({
         defineField({ name: 'sub', title: 'Sub', type: 'text', rows: 4 }),
         defineField({ name: 'primaryCta', title: 'Primary CTA label', type: 'string' }),
         defineField({ name: 'secondaryCta', title: 'Secondary CTA label', type: 'string' }),
+        defineField({
+          name: 'offerFrame',
+          title: 'Offer frame (aside)',
+          type: 'object',
+          fields: [
+            defineField({ name: 'label', title: 'Label', type: 'string' }),
+            defineField({
+              name: 'pillars',
+              title: 'Pillars',
+              type: 'array',
+              of: [{ type: 'string' }],
+            }),
+          ],
+        }),
       ],
     }),
     defineField({
-      name: 'whatItIs',
-      title: 'What it is',
+      name: 'offerClarity',
+      title: 'Offer definition + for who',
       type: 'object',
       fields: [
-        defineField({ name: 'spine', title: 'Spine label', type: 'string' }),
-        defineField({ name: 'headline', title: 'Headline', type: 'string' }),
-        defineField({ name: 'body', title: 'Body', type: 'text', rows: 5 }),
+        defineField({ name: 'eyebrow', title: 'Spine / eyebrow', type: 'string' }),
+        defineField({ name: 'leftTitle', title: 'Left column title', type: 'string' }),
+        defineField({ name: 'leftBody', title: 'Left column body', type: 'text', rows: 6 }),
+        defineField({ name: 'rightTitle', title: 'Right column title', type: 'string' }),
+        defineField({ name: 'rightLead', title: 'Right lead', type: 'text', rows: 4 }),
+        defineField({ name: 'forBody', title: 'For who intro', type: 'text', rows: 5 }),
+        defineField({ name: 'welLabel', title: '“Wel” label', type: 'string' }),
+        defineField({
+          name: 'welItems',
+          title: 'Wel items',
+          type: 'array',
+          of: [{ type: 'string' }],
+        }),
+        defineField({ name: 'notForLabel', title: '“Niet” label', type: 'string' }),
+        defineField({
+          name: 'notForItems',
+          title: 'Niet items',
+          type: 'array',
+          of: [{ type: 'string' }],
+        }),
       ],
     }),
     defineField({
@@ -48,8 +79,9 @@ export const aanbodPage = defineType({
       title: 'What you get',
       type: 'object',
       fields: [
-        defineField({ name: 'spine', title: 'Spine label', type: 'string' }),
+        defineField({ name: 'eyebrow', title: 'Eyebrow', type: 'string' }),
         defineField({ name: 'headline', title: 'Headline', type: 'string' }),
+        defineField({ name: 'subline', title: 'Subline', type: 'text', rows: 3 }),
         defineField({
           name: 'items',
           title: 'Items',
@@ -59,22 +91,12 @@ export const aanbodPage = defineType({
       ],
     }),
     defineField({
-      name: 'forWho',
-      title: 'For who',
-      type: 'object',
-      fields: [
-        defineField({ name: 'spine', title: 'Spine label', type: 'string' }),
-        defineField({ name: 'headline', title: 'Headline', type: 'string' }),
-        defineField({ name: 'body', title: 'Body', type: 'text', rows: 6 }),
-      ],
-    }),
-    defineField({
       name: 'howItWorks',
       title: 'How it works',
       type: 'object',
       fields: [
-        defineField({ name: 'spine', title: 'Spine label', type: 'string' }),
         defineField({ name: 'headline', title: 'Headline', type: 'string' }),
+        defineField({ name: 'stepPrefix', title: 'Step prefix (e.g. Stap / Step)', type: 'string' }),
         defineField({
           name: 'steps',
           title: 'Steps',
@@ -101,6 +123,13 @@ export const aanbodPage = defineType({
         defineField({ name: 'name', title: 'Name', type: 'string' }),
         defineField({ name: 'priceLine', title: 'Price line', type: 'string' }),
         defineField({ name: 'body', title: 'Body', type: 'text', rows: 4 }),
+        defineField({ name: 'includedTitle', title: 'Included title', type: 'string' }),
+        defineField({
+          name: 'includedItems',
+          title: 'Included items',
+          type: 'array',
+          of: [{ type: 'string' }],
+        }),
       ],
     }),
     defineField({
@@ -120,6 +149,7 @@ export const aanbodPage = defineType({
       fields: [
         defineField({ name: 'line1', title: 'Line 1', type: 'string' }),
         defineField({ name: 'line2', title: 'Line 2', type: 'string' }),
+        defineField({ name: 'ctaLabel', title: 'CTA label', type: 'string' }),
       ],
     }),
   ],

@@ -1097,6 +1097,365 @@ footer::before {
   color: rgba(242, 239, 232, 0.52);
 }
 
+/* ==========================================================================
+   AANBOD / OFFER PAGE (compositie, zelfde tokens als homepage)
+   ========================================================================== */
+.aanbod-page {
+  position: relative;
+}
+
+/* Hero: twee kolommen — hoofdclaim + compact offer frame */
+.aanbod-hero .hero-body {
+  align-items: flex-end;
+}
+.aanbod-hero-grid {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: end;
+  padding-left: clamp(2rem, 3.5vw, 4.5rem);
+  padding-right: var(--P);
+  padding-top: clamp(90px, 15vh, 150px);
+  padding-bottom: clamp(4vh, 6vh, 60px);
+}
+.aanbod-hero-main {
+  min-width: 0;
+}
+
+.aanbod-offer-frame {
+  border-left: 1px solid rgba(196, 120, 32, 0.35);
+  padding: 1.25rem 0 0.5rem 1.35rem;
+  align-self: end;
+}
+.aanbod-offer-frame-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(196, 120, 32, 0.85);
+  margin-bottom: 1rem;
+}
+.aanbod-offer-frame-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.aanbod-offer-frame-list li {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.66rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  line-height: 1.55;
+  color: rgba(242, 239, 232, 0.62);
+  padding-left: 0.85rem;
+  position: relative;
+}
+.aanbod-offer-frame-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(196, 120, 32, 0.55);
+}
+
+/* Wat het is + voor wie: split */
+.aanbod-clarity .aanbod-section-hl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.65rem, 2.8vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+.aanbod-clarity-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: start;
+}
+.aanbod-clarity-lead {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--ink2);
+  margin-bottom: 1rem;
+}
+.aanbod-mini-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(15, 14, 11, 0.45);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.aanbod-mini-list {
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0;
+}
+.aanbod-mini-list li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--ink2);
+  margin-bottom: 0.45rem;
+}
+.aanbod-mini-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 1px;
+  background: rgba(196, 120, 32, 0.45);
+}
+.aanbod-mini-list--muted li {
+  color: rgba(42, 39, 32, 0.72);
+}
+.aanbod-mini-list--muted li::before {
+  background: rgba(15, 14, 11, 0.2);
+}
+
+/* Deliverables */
+.aanbod-deliverables {
+  background: var(--pine);
+  padding: clamp(10vh, 14vh, 140px) var(--P);
+  border-top: 1px solid rgba(242, 239, 232, 0.06);
+}
+.aanbod-deliverables-inner {
+  max-width: 1080px;
+  margin-left: var(--spine);
+  padding-left: clamp(2rem, 3.5vw, 4.5rem);
+}
+.aanbod-deliverables-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(196, 120, 32, 0.75);
+  margin-bottom: 1rem;
+}
+.aanbod-deliverables-hl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.024em;
+  color: var(--cream);
+  margin-bottom: 0.75rem;
+}
+.aanbod-deliverables-sub {
+  font-size: 0.98rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(242, 239, 232, 0.52);
+  max-width: 48ch;
+  margin-bottom: clamp(2rem, 4vh, 3rem);
+}
+.aanbod-deliverables-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+}
+.aanbod-deliverable-card {
+  border: 1px solid rgba(242, 239, 232, 0.1);
+  background: rgba(12, 26, 20, 0.35);
+  padding: 1.35rem 1.35rem 1.35rem 1.25rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 1.1rem;
+  align-items: start;
+  min-height: 100%;
+}
+.aanbod-deliverable-n {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: rgba(196, 120, 32, 0.55);
+  padding-top: 0.2rem;
+}
+.aanbod-deliverable-txt {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.62;
+  color: rgba(242, 239, 232, 0.78);
+  margin: 0;
+}
+
+/* Proces: compact */
+.aanbod-process {
+  background: var(--cream);
+  padding: clamp(7vh, 10vh, 100px) var(--P);
+  border-top: 1px solid var(--rule);
+}
+.aanbod-process-inner {
+  max-width: 920px;
+  margin-left: var(--spine);
+  padding-left: clamp(2rem, 3.5vw, 4.5rem);
+}
+.aanbod-process-hl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: clamp(1.75rem, 3vh, 2.5rem);
+}
+.aanbod-process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule);
+}
+.aanbod-process-step {
+  padding-top: 1.25rem;
+}
+.aanbod-process-n {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(15, 14, 11, 0.38);
+  margin-bottom: 0.65rem;
+}
+.aanbod-process-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 0 0 0.6rem;
+}
+.aanbod-process-body {
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--ink3);
+  margin: 0;
+}
+
+/* Pricing: nadrukblok */
+.aanbod-package .spine-content {
+  padding-top: clamp(12vh, 16vh, 150px);
+  padding-bottom: clamp(12vh, 16vh, 150px);
+}
+.aanbod-package-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+}
+.aanbod-included-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 232, 0.42);
+  margin: 2rem 0 0.85rem;
+}
+.aanbod-included-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  border-top: 1px solid rgba(242, 239, 232, 0.1);
+}
+.aanbod-included-list li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(242, 239, 232, 0.08);
+  font-size: 0.93rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(242, 239, 232, 0.58);
+  padding-left: 1.1rem;
+  position: relative;
+}
+.aanbod-included-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.15em;
+  width: 5px;
+  height: 5px;
+  border: 1px solid rgba(196, 120, 32, 0.45);
+  border-radius: 50%;
+  background: transparent;
+}
+.aanbod-package-secondary {
+  padding-top: 0.5rem;
+  border-left: 1px solid rgba(242, 239, 232, 0.1);
+  padding-left: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+@media (max-width: 960px) {
+  .aanbod-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .aanbod-offer-frame {
+    border-left: none;
+    border-top: 1px solid rgba(196, 120, 32, 0.28);
+    padding: 1.5rem 0 0;
+  }
+  .aanbod-clarity-split {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .aanbod-deliverables-grid {
+    grid-template-columns: 1fr;
+  }
+  .aanbod-process-steps {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .aanbod-process-step {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1.5rem;
+  }
+  .aanbod-process-step:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .aanbod-package-grid {
+    grid-template-columns: 1fr;
+  }
+  .aanbod-package-secondary {
+    border-left: none;
+    padding-left: 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(242, 239, 232, 0.1);
+  }
+}
+
+@media (max-width: 640px) {
+  .aanbod-hero-grid {
+    padding-left: var(--P);
+    padding-top: clamp(80px, 12vh, 110px);
+  }
+  .aanbod-deliverables-inner,
+  .aanbod-process-inner {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
 /* Aanbod / Reality Check — afsluiting (zelfde editorial toon als over-quote) */
 .aanbod-closing {
   background: var(--cream);
@@ -1120,6 +1479,9 @@ footer::before {
 .aanbod-closing-line--em {
   color: var(--ink);
   margin-bottom: 0;
+}
+.aanbod-closing-cta {
+  margin-top: 2rem;
 }
 
 @media (max-width: 640px) {
@@ -1283,6 +1645,22 @@ body::before {
 
 /* ── CUSTOM CURSOR ── */
 * { cursor: none !important; }
+
+/* Aanbod / offer: normale cursor, rustiger oppervlak (PremiumChrome zet data-aanbod-calm) */
+html[data-aanbod-calm] *,
+html[data-aanbod-calm] *::before,
+html[data-aanbod-calm] *::after {
+  cursor: auto !important;
+}
+html[data-aanbod-calm] body::before {
+  opacity: 0.04;
+}
+html[data-aanbod-calm] .hero-bg img {
+  transition: opacity 2s ease !important;
+}
+html[data-aanbod-calm] .hero-bg img.loaded {
+  transform: scale(1);
+}
 
 .cursor-dot {
   position: fixed;

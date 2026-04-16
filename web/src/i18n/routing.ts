@@ -12,6 +12,7 @@ export const routing = defineRouting({
     '/aanbod': { nl: '/aanbod', en: '/offer' },
     '/aanpak': { nl: '/aanpak', en: '/approach' },
     '/cases': '/cases',
+    '/insights': { nl: '/inzichten', en: '/insights' },
     '/over-oryen': { nl: '/over-oryen', en: '/about' },
     '/contact': '/contact',
     '/reality-check': '/reality-check',

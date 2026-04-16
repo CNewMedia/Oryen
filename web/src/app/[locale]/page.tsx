@@ -1,31 +1,43 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 
 import { HomePageView } from '@/components/home/home-page-view';
 import { HomeHeroEffects } from '@/components/premium/premium-page-effects';
+import { getCachedHomepage, getCachedSiteSettings } from '@/lib/sanity/cached-loaders';
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Meta' });
+  const { seo } = await getCachedHomepage(locale);
   return {
-    title: t('siteName'),
-    description: t('defaultDescription'),
+    title: { absolute: seo.title },
+    description: seo.description,
+    robots: seo.robotsIndex ? undefined : { index: false, follow: false },
     openGraph: {
-      title: t('siteName'),
-      description: t('defaultDescription'),
+      title: seo.ogTitle ?? seo.title,
+      description: seo.ogDescription ?? seo.description,
       locale,
       type: 'website',
     },
   };
 }
 
-export default function HomePage() {
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
+  const [homeData, settings] = await Promise.all([
+    getCachedHomepage(locale),
+    getCachedSiteSettings(locale),
+  ]);
+  const contactEmail = settings.contactEmail ?? 'hello@oryen.be';
+
   return (
     <>
       <HomeHeroEffects />
-      <HomePageView />
+      <HomePageView
+        home={homeData.content}
+        images={homeData.imageUrls}
+        contactEmail={contactEmail}
+      />
     </>
   );
 }

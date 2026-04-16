@@ -4,6 +4,8 @@ import { aanbodPage } from './documents/aanbodPage';
 import { caseStudy } from './documents/caseStudy';
 import { casestudiesOverviewPage } from './documents/casestudiesOverviewPage';
 import { contactPage } from './documents/contactPage';
+import { legalPage } from './documents/legalPage';
+import { thankYouPage } from './documents/thankYouPage';
 import { homepage } from './documents/homepage';
 import { insightArticle } from './documents/insightArticle';
 import { insightsOverviewPage } from './documents/insightsOverviewPage';
@@ -18,13 +20,27 @@ import { ctaBlock } from './objects/ctaBlock';
 import { faqBlock } from './objects/faqBlock';
 import { faqItem } from './objects/faqItem';
 import { hero } from './objects/hero';
+import {
+  homeAboutSection,
+  homeApproachSection,
+  homeApproachStep,
+  homeDiagnosisSection,
+  homeFeaturedCase,
+  homeHeroSection,
+  homeMiniCase,
+  homeOfferSection,
+  homeProofSection,
+  homeSelectionSection,
+} from './objects/homepageSections';
 import { quoteBlock } from './objects/quoteBlock';
 import { richText } from './objects/richText';
 import { seo } from './objects/seo';
 import { statBlock } from './objects/statBlock';
+import { trackingSettings } from './objects/trackingSettings';
 
 export const schemaTypes: SchemaTypeDefinition[] = [
   seo,
+  trackingSettings,
   buttonLink,
   richText,
   hero,
@@ -33,6 +49,16 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   quoteBlock,
   faqItem,
   faqBlock,
+  homeApproachStep,
+  homeMiniCase,
+  homeHeroSection,
+  homeDiagnosisSection,
+  homeApproachSection,
+  homeFeaturedCase,
+  homeProofSection,
+  homeSelectionSection,
+  homeAboutSection,
+  homeOfferSection,
   siteSettings,
   homepage,
   realityCheckPage,
@@ -41,6 +67,8 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   insightsOverviewPage,
   overOnsPage,
   contactPage,
+  thankYouPage,
+  legalPage,
   service,
   caseStudy,
   insightArticle,
