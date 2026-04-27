@@ -1,7 +1,7 @@
 {
   "Meta": {
     "siteName": "ORYEN",
-    "defaultDescription": "Direction before action. Strategy that aligns marketing, sales and digital."
+    "defaultDescription": "Direction before action. ORYEN makes clear how you can get more out of marketing, sales and tools."
   },
   "Global": {
     "header": {
@@ -20,242 +20,464 @@
     "cases": "Cases",
     "over": "About ORYEN",
     "contact": "Contact",
-    "realityCheck": "Reality Check",
     "cta": "Reality Check",
     "openMenu": "Menu",
     "closeMenu": "Close"
   },
   "Home": {
     "hero": {
-      "titleLine1": "Marketing. Sales.",
-      "titleLine2": "Digital.",
-      "titleEm": "Strategically aligned.",
-      "claim": "ORYEN develops a strategy that aligns everything — and helps you choose the right tools and follow-up to guard that line.",
-      "sub": "No execution without strategy. First get right what must fit.",
-      "primaryCta": "Book a Reality Check",
+      "titleLine1": "ORYEN makes clear where things stall commercially — and what must be addressed first.",
+      "titleLine2": "",
+      "titleEm": "",
+      "claim": "Enough is already happening in your company. The real question is not whether something still needs to happen.",
+      "sub": "The real question is: where is it stuck — and which move actually makes a difference now?",
+      "primaryCta": "Book the Reality Check",
       "secondaryCta": "See the approach"
     },
     "diagnosis": {
       "spine": "01 — Diagnosis",
-      "headlineEm": "So obvious.\nSo often forgotten.",
-      "p1": "Marketing attracts leads that sales does not follow up on. Sales hears what lives in the market, but that feedback does not return to marketing. Digital tools are rolled out, but no one checks whether they actually improve anything.",
-      "focus": "If marketing, sales and digital are not aligned, more execution only makes the problem larger."
+      "headlineEm": "Not every problem\ncalls for more marketing.",
+      "p1": "Sometimes it sits in sales.\nSometimes in follow-up.\nSometimes in tools.\nSometimes in internal alignment.\n\nYet the same thing usually happens: another agency, another tool, another campaign, or more budget.",
+      "focus": "While it is still not clear what actually moves things forward — and what simply costs money."
     },
     "approach": {
       "spine": "02 — Approach",
-      "headline": "First work out the strategy",
-      "headlineEm": "that aligns everything.",
-      "note1": "ORYEN does not start with campaigns, tools or execution. We first develop a strategy that aligns marketing, sales and digital, clarifies what must happen first, and keeps it that way.",
-      "introHl": "From strategy to follow-up.",
+      "headline": "ORYEN makes clear where intervention",
+      "headlineEm": "makes the biggest difference.",
+      "note1": "Not with more noise. But by first getting sharp on where it stalls commercially, what is working against you today, what deserves priority now and what is better left to wait.",
+      "introHl": "",
       "stepPrefix": "Step",
       "steps": [
         {
           "n": "01",
-          "name": "Map the situation",
-          "q": "What is there today? What works? What is stuck? Where is alignment missing between marketing, sales and digital?"
+          "name": "Map",
+          "q": "Where do you lose time, margin, energy or momentum today?"
         },
         {
           "n": "02",
-          "name": "Align",
-          "q": "Where do marketing, sales and digital clash today? What must connect better so they reinforce instead of block each other?"
+          "name": "Test reality",
+          "q": "What can you reasonably expect — and what has not held up for a while already?"
         },
         {
           "n": "03",
-          "name": "Develop strategy",
-          "q": "Which choices are really needed now? What first? What is too early? Which approach fits your market, team and commercial reality?"
+          "name": "Find the cause",
+          "q": "Is it in sales, marketing, follow-up, tools, proposition or internal alignment?"
         },
         {
           "n": "04",
-          "name": "Embed",
-          "q": "Only when direction is right does execution make sense. Then we help set up the right tools, metrics and follow-up so the strategy stays visible and guarded."
+          "name": "Make the call",
+          "q": "What must be addressed first — and what are you better off not doing yet?"
         }
-      ]
+      ],
+      "moreCta": "See the full approach"
     },
     "proof": {
       "spine": "03 — Proof",
-      "headline": "What ORYEN set right first —",
-      "headlineEm": "before anything was executed.",
+      "headline": "ORYEN set the direction first.",
+      "headlineEm": "Execution only after.",
       "featured": {
         "client": "Hof van Cleve",
-        "title": "Not more visibility.\nFirst clarity on position.",
-        "line1": "Everyone saw a communications question. More content, more reach.",
-        "line2": "ORYEN saw a positioning question. Who are we, for whom, and what must never be lost?",
-        "line3": "Not more communication — sharper choices. Less noise, more coherence."
+        "title": "Not more communication first.\nFirst get sharp on what the brand had to stand for.",
+        "line1": "",
+        "line2": "",
+        "line3": "That brought more direction into the communication and real resonance with the right audience."
       },
       "minis": [
         {
           "client": "Willems Veranda",
           "subtitle": "Not another idea. First one right choice.",
-          "body": "There were enough ideas. Every agency brought another solution. ORYEN first returned to the essence: which problem really needs solving here?",
-          "result": "One right choice made every other choice simpler."
+          "body": "",
+          "result": "That made the brand structurally more discoverable, with dozens of core search terms in the top three."
         },
         {
-          "client": "Concordia Textile",
-          "subtitle": "Not roll out at once. First align internally.",
-          "body": "An international organisation with different units and one shared ambition. ORYEN first brought focus to what must be shared, what must be chosen first, and how the line could stay guarded.",
-          "result": "Same direction first. Then scale."
+          "client": "Concordia Textiles",
+          "subtitle": "Not roll out at once. First get sharp internally on what held and what did not.",
+          "body": "",
+          "result": "That laid the basis for a digital plan with internal buy-in and clear priorities."
         },
         {
           "client": "BMW — local dealer",
-          "subtitle": "Not sound like everyone. First choose what distinguishes you.",
-          "body": "The reflex was to communicate like every other dealer network. ORYEN saw the real strength was in local identity.",
-          "result": "What seemed a nuance at first became the strategy."
+          "subtitle": "Not sound like everyone. First choose what set them apart locally.",
+          "body": "",
+          "result": "That restarted digital enquiries from their own region."
         }
       ]
     },
     "selection": {
       "spine": "04 — Fit",
-      "headline": "For those who want marketing, sales and digital",
-      "headlineEm": "to work together.",
+      "headline": "For those who first want to know",
+      "headlineEm": "what really needs to be addressed.",
       "forItems": [
-        "For companies that feel a lot is happening but the whole does not fit.",
-        "For companies that do not want to invest again in something that comes too early.",
-        "For companies that want a strategy first that aligns marketing, sales and digital — and clarifies what must happen first and how it stays followed up."
+        "ORYEN is for entrepreneurs who feel that a lot is going on, but that the result is not in proportion to the effort.",
+        "For decision-makers who do not simply want to add more marketing, more sales pressure, a new tool or an extra vendor, but first want to know where things really stall."
       ],
-      "notForLabel": "Not for those who",
+      "forLabel": "For you if",
+      "forList": [
+        "enough is already happening, but the results are not following",
+        "you sense the problem runs deeper than a single campaign or a single vendor",
+        "you first want to know what is really stuck before deciding again"
+      ],
+      "notForLabel": "Not for you if",
       "notFor": [
-        "Want an execution-only agency",
-        "Want loose campaigns without commercial coherence",
-        "Believe in quick promises more than sound analysis",
-        "Seek speed above all without first setting the right order"
+        "you simply want something executed quickly",
+        "you are mainly seeking confirmation for a decision already made",
+        "you expect a tool, agency or campaign alone to make the difference"
       ]
     },
     "about": {
       "spine": "05 — About ORYEN",
-      "headline": "ORYEN develops a strategy that aligns marketing, sales and digital",
-      "headlineEm": "— and helps ensure it stays that way.",
-      "statement": "We do not start with doing. We start with seeing what is off — and work out a strategy that realigns marketing, sales and digital.",
-      "creds": "23 years B2B — HubSpot Gold Partner — Cambridge certified.",
+      "headline": "Not doing more, faster.",
+      "headlineEm": "First deciding right.",
+      "statement": "",
+      "body": "ORYEN helps companies get sharp on why their commercial operations are not delivering what they should — and what must be set right first before investing again.\n\nNo classic agency structure.\nNo layers of account management.\nA small core team around Christophe, with experience in sales, commercial follow-up, marketing, structure and business leadership.",
+      "creds": "23 years of B2B experience\nDirectly with Christophe\nSmall team. Clear involvement.",
       "signature": "Christophe Dejaeghere — founder ORYEN",
-      "quote": "The most expensive decision is often not the wrong one. It is the one taken too early."
+      "quote": "The most expensive decisions are usually the ones taken too early."
     },
     "offer": {
       "spine": "06 — Offer",
       "name": "Reality Check",
-      "body": "A Reality Check is not a casual intake or a sales pitch. It is a first strategic exercise where we clarify what is not aligned today — and what is needed first for marketing, sales and digital to work better together.",
-      "ctaPrimary": "Book a first conversation",
-      "secondaryHlBeforeEm": "Do not start with<br/>execution.",
-      "secondaryHlEm": "Start with a strategy<br/>that fits.",
-      "secondaryBody": "No casual intake. No standard sales call. A first clear conversation about what does not connect in your organisation — and what is needed first.",
-      "secondaryNote": "Personal reply from Christophe. No ticket system."
+      "body": "The first paid moment in which ORYEN gets sharp on where it stalls commercially, what must be addressed first and what is better off waiting.\n\nNot a casual intake.\nNot a sales call in disguise.\n\nA sharp first decision moment that makes clear:\n\nwhat is blocking today\nwhat deserves priority now\nwhat makes no sense for the time being\nand what the logical next step is",
+      "ctaPrimary": "Book the Reality Check",
+      "secondaryHlBeforeEm": "Not another casual<br/>‘intro call’.",
+      "secondaryHlEm": "A sharp first<br/>decision moment.",
+      "secondaryBody": "You leave with clarity, priorities and a concrete next step. Whether you continue with ORYEN after that, you decide only then.",
+      "secondaryNote": "No automatic trajectory. Directly with Christophe."
+    }
+  },
+  "Aanpak": {
+    "meta": {
+      "title": "Approach — ORYEN",
+      "description": "The ORYEN method: get clear on what is actually at play first, only then decide what follows."
+    },
+    "hero": {
+      "eyebrow": "Approach",
+      "headlineLine1": "Get clear first",
+      "headlineLine2": "on what is really at play.",
+      "headlineEm": "Only then decide what follows.",
+      "body1": "ORYEN does not start with campaigns, tools or execution.",
+      "body2": "ORYEN starts by exposing where things really stall and which intervention makes the biggest difference now.",
+      "primaryCta": "Book the Reality Check",
+      "secondaryCta": "See the Reality Check"
+    },
+    "why": {
+      "eyebrow": "01 — Why this approach",
+      "headlineLine1": "Not move faster.",
+      "headlineLine2": "Look more precisely first.",
+      "body1": "Many organisations feel something is stuck, yet add tools, campaigns or people before the cause is clear.",
+      "body2": "ORYEN starts from understanding: first see what actually needs to be known before another decision or investment is made.",
+      "tail": {
+        "headlineLine1": "The whole, not",
+        "headlineLine2Em": "one lever.",
+        "body": "We read commercial reality as one system: follow-up, expectations, tools, teams, proposition and sequence."
+      }
+    },
+    "lens": {
+      "eyebrow": "02 — How ORYEN looks",
+      "headlineLine1": "Where we look",
+      "headlineEm": "among other things.",
+      "leadIn": "Not at a single isolated cause. At where the system shows strain.",
+      "lookAt": [
+        "where follow-up drops",
+        "where expectation and reality diverge",
+        "where complexity hurts instead of helping",
+        "where the constraint sits elsewhere than where you invest"
+      ],
+      "conclusion": "Only then does it become clear what is — and is not — the real sticking point."
+    },
+    "steps": {
+      "eyebrow": "03 — The four steps",
+      "headline": "From ambiguity to sequence.",
+      "stepPrefix": "Step",
+      "steps": [
+        {
+          "n": "01",
+          "title": "Map",
+          "body": "What is actually happening today? Where does your company lose time, margin, energy or momentum?"
+        },
+        {
+          "n": "02",
+          "title": "Test reality",
+          "body": "What can you reasonably expect? Which assumptions sound logical but do not hold up in practice?"
+        },
+        {
+          "n": "03",
+          "title": "Find the cause",
+          "body": "Does the problem sit in marketing, sales, follow-up, tools, proposition, market or internal workings?"
+        },
+        {
+          "n": "04",
+          "title": "Choose the sequence",
+          "body": "What must come first? What is better left to wait? Which investment seems logical but still starts from the wrong basis?"
+        }
+      ]
+    },
+    "methodBridge": {
+      "eyebrow": "04 — From method to a concrete move",
+      "microEyebrow": "Next step",
+      "summary": "This line avoids costly mismatches: visibility when follow-up is the issue, software before a clear process, or campaigns before a stable proposition.",
+      "headline": "The Reality Check is the first concrete step.",
+      "body1": "In one compact pass it becomes clear what is stuck, what must happen first and what can deliberately wait.",
+      "followTitle": "What happens next is not fixed",
+      "followBody": "Depending on the outcome: adjust internally, short support, deeper work — or execution later. No mandatory follow-on programme; substance first.",
+      "cta": "Book the Reality Check",
+      "secondaryCta": "See the Reality Check →",
+      "secondaryCtaHref": "/aanbod"
+    },
+    "closing": {
+      "spineLabel": "05 — Clarity first",
+      "headlineLine1": "Clarity first.",
+      "headlineLine2": "Execution only when it holds.",
+      "body1": "If you want to know what is truly at play here, you do not start with noise — you start with sharpness.",
+      "body2": "Fits teams that already invest but see too little return on the whole — and value diagnosis over quick reassurance.",
+      "primaryCta": "Book the Reality Check",
+      "primaryCtaHref": "/aanbod",
+      "secondaryCta": "Get in touch →",
+      "secondaryCtaHref": "/contact",
+      "footnote": "Direction before action."
     }
   },
   "Aanbod": {
     "meta": {
       "title": "Reality Check — ORYEN",
-      "description": "One clear first step: the Reality Check. Fixed scope, fixed price — clarity before you invest again in execution, tools or programmes."
+      "description": "A sharp first decision moment for companies that want to know where their commercial operations are stuck, what must be addressed first and what is better off waiting."
     },
     "hero": {
+      "eyebrow": "Reality Check",
       "headlineLine1": "The Reality Check.",
-      "headlineLine2Em": "Your first strategic step.",
-      "sub": "Fixed scope and fixed price. In one engagement we clarify what is misaligned, what must fit first — and what you should not lock in yet. You decide what follows.",
+      "headlineLine2Em": "A sharp first\ndecision moment.",
+      "sub": "You sense that enough is already happening in your company. But not everything still moves in the same direction. The Reality Check makes clear where it stalls commercially, what must be addressed first, and what you are better off not doing yet.",
+      "characterLines": [
+        "No hourly rate that grows along the way.",
+        "No vague engagement that has to prove itself."
+      ],
       "primaryCta": "Book the Reality Check",
       "secondaryCta": "How ORYEN works",
+      "secondaryCtaAnchor": "hoe-het-gaat",
       "offerFrame": {
         "label": "First step",
         "pillars": [
-          "One commercial frame — no open-ended programme",
-          "Concrete output — not a shelf report",
-          "Directly with Christophe — no hand-off",
-          "No mandatory follow-on — you choose what’s next"
+          "One product.",
+          "One first decision.",
+          "One defined engagement.",
+          "One clear outcome.",
+          "Depending on your question: Christophe with Stevie, Koen or Esthel alongside.",
+          "No mandatory follow-on."
         ]
       }
     },
+    "watHetIs": {
+      "spine": "01 — What it is",
+      "eyebrow": "What it is",
+      "headlineLine1": "One engagement.",
+      "headlineLine2Em": "Clear outcome.",
+      "body": "A defined first product with a clear function: making visible what is stuck, what must happen first, and what is better off waiting."
+    },
     "offerClarity": {
       "eyebrow": "What it is",
-      "leftTitle": "A bounded strategic session",
-      "leftBody": "Not a casual intake or a pitch. We look at your situation, your question and pressure together — and make clear what must fit first — before you buy more execution, tools or programmes.",
-      "rightTitle": "Is it for you?",
-      "rightLead": "This page is right if you already invest and decide, but feel the whole no longer holds.",
-      "forBody": "You want a hard first strategic choice — not another campaign or tool.",
+      "spine": "04 — Is this right for you",
+      "pastEyebrow": "Is this right for you?",
+      "fitHeadlineLine1": "The Reality Check makes sense if you",
+      "fitHeadlineEm": "already decide, invest and move,",
+      "fitHeadlineLine2": "but sense that your operations are not delivering what they should.",
+      "fitIntro": "If the Reality Check is not a good fit, we say so. The goal is not to pull you into a trajectory. The goal is to get the right first decision sharp.",
+      "leftTitle": "One engagement. Clear outcome.",
+      "leftBody": "The Reality Check is not an intake, not loose advice, and not a warm-up to a larger trajectory.\n\nIt is a defined first product for companies that want to first get sharp on what is commercially off, before more time, money or energy goes into sales, marketing or tools.\n\nYou are not buying a nice analysis.\nYou are buying a clear first decision.",
+      "rightTitle": "Is this right for you?",
+      "rightLead": "The Reality Check makes sense if you already decide, invest and move, but sense that your commercial operations are not delivering what they should.",
+      "forBody": "Not because nothing is happening. But because the whole is not sharply enough aligned.\n\nYou are not looking for more action. You are looking for a hard first choice.",
       "welLabel": "Yes",
       "welItems": [
-        "Marketing, sales and digital are pulling in different directions",
-        "You do not want to pay again for something that comes too early",
-        "You want sharpness before you scale further"
+        "You want to know what must be addressed first, not what sells fastest.",
+        "You do not want a second investment before the order is clear.",
+        "You want clarity on where you need to fix something internally and where external help only makes sense later.",
+        "You want a first decision, not a pile of impressions."
       ],
       "notForLabel": "No",
       "notForItems": [
-        "You mainly want fast execution without strategic order",
-        "You want an agency that executes blindly what you ask",
-        "You expect a broad agency menu as a first conversation"
+        "You mainly want fast execution without a conversation about cause or order.",
+        "You want to be confirmed in a decision that has in fact already been made.",
+        "You expect an agency menu, a list of packages or a casual exploration."
       ]
     },
     "whatYouGet": {
-      "eyebrow": "What you leave with",
-      "headline": "Concrete output",
-      "subline": "Not a deck to forget — sharpness you can use in the next decision.",
+      "spine": "03 — What you take away",
+      "eyebrow": "What you take away",
+      "headline": "Concrete output. No vague advice.",
+      "headlineLine1": "Concrete output.",
+      "headlineLine2Em": "No vague advice.",
+      "subline": "After the Reality Check you not only know what is off, but also what needs to happen about it now.",
+      "outputs": [
+        {
+          "title": "A sharp picture of where it stalls commercially",
+          "description": "Not loose observations, but one clear overview of what is blocking today."
+        },
+        {
+          "title": "A first decision frame",
+          "description": "What takes priority now, what waits, and why."
+        },
+        {
+          "title": "A 90-day course line",
+          "description": "Not a big year plan, but a short, usable horizon with focus."
+        },
+        {
+          "title": "Clear priorities",
+          "description": "What must be right before you build, buy, change or roll out again."
+        },
+        {
+          "title": "A stop list",
+          "description": "What you should not do, buy or launch for now."
+        },
+        {
+          "title": "A concrete next step",
+          "description": "What you can take in hand internally — and where further support only makes sense once the basis holds."
+        }
+      ],
       "items": [
-        "What really sits behind the question on the table",
-        "Which decision comes first — and which you should not take yet",
-        "Which risks you avoid by not building or rolling out too early",
-        "What follow-up makes sense — and what you can carry yourself"
+        "A sharp picture of where it stalls commercially — not loose observations, but one clear overview of what is blocking today.",
+        "A first decision frame — what takes priority now, what waits, and why.",
+        "A 90-day course line — not a big year plan, but a short, usable horizon with focus.",
+        "Clear priorities — what must be right before you build, buy, change or roll out again.",
+        "A stop list — what you should not do, buy or launch for now.",
+        "A concrete next step — what you can take in hand internally, and where further support only makes sense once the basis holds."
       ]
     },
     "howItWorks": {
-      "headline": "How it runs",
+      "spine": "02 — How it works",
+      "eyebrow": "How it works",
+      "headline": "Short. Direct. No detours.",
+      "headlineLine1": "Short. Direct.",
+      "headlineLine2Em": "No detours.",
       "stepPrefix": "Step",
       "steps": [
         {
           "n": "01",
-          "title": "Clarify what is going on.",
-          "body": "We map your commercial line: where is it stuck, where do channels clash, where is pressure highest?"
+          "title": "Preparation",
+          "body": "We sharpen your question. Where is the pressure? Which decision is hanging over the business? What feels off despite all the effort?",
+          "includes": "Including: preparation on your context and question"
         },
         {
           "n": "02",
-          "title": "Define what must fit first.",
-          "body": "We make the order clear: what must be decided now — and what is deliberately still too early?"
+          "title": "The session",
+          "body": "One compact, sharp session. Depending on your question, Christophe is joined by Stevie, Koen or Esthel — whoever serves the question best. No broad brainstorm. A direct reading of cause, order, risk and priority.",
+          "includes": "Including: the strategic session with the ORYEN team"
         },
         {
           "n": "03",
-          "title": "Agree on what follows.",
-          "body": "You leave with direction. Any follow-up is a choice — not an automatic upsell to the next programme."
+          "title": "Output and debrief",
+          "body": "You receive the output clearly brought together and explained. Not as a theoretical document, but as material that helps you decide internally and move forward precisely.",
+          "includes": "Including: a concrete next step"
         }
       ]
     },
     "whatAfter": {
+      "spine": "05 — After the Reality Check",
       "eyebrow": "After the Reality Check",
-      "headline": "The roadmap stays yours",
-      "body": "You take away sharpness on what comes first — not a list of what ORYEN wants to sell you next. What follows depends on your situation: sometimes a short follow-up, sometimes a second depth, sometimes enough to steer internally with the right agreements.",
+      "headline": "The outcome stays yours.",
+      "headlineLine1": "The outcome",
+      "headlineEm": "stays yours.",
+      "body": "The Reality Check is no hidden funnel.\n\nSometimes the outcome is enough to correct things internally. Sometimes a short follow-up makes sense. Sometimes further support is logical.\n\nBut only when it fits on substance.",
+      "stanzas": [
+        { "text": "The Reality Check is no hidden funnel." },
+        {
+          "text": "Sometimes the outcome is enough to correct things internally. Sometimes a short follow-up makes sense. Sometimes further support is logical."
+        },
+        { "text": "But only when it fits on substance.", "italic": true }
+      ],
+      "guarantees": [
+        {
+          "mark": "01",
+          "text": "No automatic upgrade to a follow-on trajectory."
+        },
+        { "mark": "02", "text": "No pressure to buy more." },
+        { "mark": "03", "text": "No sales machine behind the scenes." },
+        { "mark": "04", "text": "No mandatory path." }
+      ],
+      "signature": "Always a personal reply from Christophe.",
       "items": [
-        "No hidden obligation to a follow-on programme",
-        "No automatic ‘upgrade’ to other services — only when it makes sense",
-        "Contact stays direct — no sales pressure"
+        "No automatic upgrade to a follow-on trajectory.",
+        "No pressure to buy more.",
+        "No sales machine behind the scenes.",
+        "No mandatory path."
       ]
     },
     "pricing": {
-      "spine": "Investment",
+      "spine": "Product",
       "name": "Reality Check",
-      "priceLine": "Fixed price — € 2,950 excl. VAT",
-      "body": "One clear frame. No open hourly rate that runs up before you know where you are heading.",
+      "supportLine": "One product. One first decision.",
+      "body": "No hourly rate that grows along the way. No vague engagement that has to prove itself.\n\nA defined first product with a clear function: making visible what is stuck, what must happen first, and what is better off waiting.",
       "includedTitle": "What is included",
       "includedItems": [
-        "Preparation and scoping tied to your question and context",
-        "The strategic session itself — sharp and personal",
-        "Concrete output that makes your next decision workable"
+        "Preparation on your context and question",
+        "The strategic session with Christophe",
+        "A sharp overview of where it stalls commercially",
+        "A decision frame with priorities and stop list",
+        "A short 90-day course line",
+        "A concrete next step"
       ]
     },
     "reassurance": {
       "headline": "No hidden agenda.",
-      "body": "If the Reality Check is not a good fit, we will say so. The goal is the right first step — not filling a pipeline.",
-      "note": "You always hear back personally from Christophe."
+      "body": "If the Reality Check is not a good fit, we say so. The goal is not to pull you into a trajectory. The goal is to get the right first decision sharp.",
+      "note": "Always a personal reply from Christophe."
     },
     "closing": {
+      "spine": "06 — Start with clarity",
+      "headlineLine1": "Doubt is not",
+      "headlineLine2": "the problem.",
+      "headlineEm": "Investing too early is.",
+      "body1": "If your company already moves enough but the results lag behind, more action is rarely the first answer.",
+      "body2": "First it must become clear where it is really stuck and what must happen as the very first step.",
+      "primaryCta": "Book the Reality Check",
+      "footnote": "Direction before action.",
+      "secondaryCta": "Get in touch →",
+      "secondaryCtaHref": "/contact",
       "line1": "Doubt is not the problem.",
       "line2": "Investing too early is.",
+      "body": "If your company already moves enough but the results lag behind, more action is rarely the first answer.\n\nFirst it must become clear where it is really stuck and what must happen as the very first step.",
       "ctaLabel": "Book the Reality Check"
     }
   },
-  "Pages": {
-    "aanpak": {
-      "eyebrow": "Approach",
-      "title": "The ORYEN method.",
-      "intro": "We first develop a strategy that aligns marketing, sales and digital. From there we make the right choices in tools, agreements and follow-up."
+  "Contact": {
+    "meta": {
+      "title": "Contact — ORYEN",
+      "description": "A clear first conversation, not a long intake. Tell us briefly what is at stake — we look at whether a Reality Check makes sense."
     },
+    "hero": {
+      "eyebrow": "Contact",
+      "headline": "A clear first conversation, not a long intake.",
+      "sub": "Tell us briefly what is at stake. We look at whether a Reality Check — or another first conversation — makes sense.",
+      "primaryCta": "Start the conversation",
+      "primaryCtaHref": "#contact-form",
+      "secondaryCta": "See the Reality Check",
+      "secondaryCtaHref": "/offer"
+    },
+    "expectations": {
+      "headline": "What to expect",
+      "body": "No hand-off. No generic sales call. A first reply that looks sharply at whether this fits on substance."
+    },
+    "form": {
+      "headline": "Tell us briefly what is at stake",
+      "labels": {
+        "name": "Name",
+        "email": "Email",
+        "company": "Company",
+        "phone": "Phone",
+        "message": "Where is it stalling today?",
+        "submit": "Send message",
+        "optional": "(optional)"
+      }
+    },
+    "reassurance": {
+      "body": "A direct reply from Christophe when it fits on substance.",
+      "note": "No hidden funnel. An honest first answer."
+    }
+  },
+  "Pages": {
     "cases": {
       "eyebrow": "Cases",
       "title": "What had to fit first.",
-      "intro": "Strategic clarity before execution — a selection of recent work."
+      "intro": "We share detailed case stories on request. Much of our work sits under confidentiality — it deliberately does not appear here.\n\nWe work with international B2B manufacturing companies and with smaller local businesses alike. The approach stays the same: see clearly what is at play before you invest in execution.\n\nStrategic clarity before execution — below is a selection of recently published work."
     },
     "insights": {
       "eyebrow": "Insights",
@@ -269,8 +491,8 @@
     },
     "contact": {
       "eyebrow": "Contact",
-      "title": "A first conversation.",
-      "intro": "No conveyor belt. A personal reply — usually within one business day."
+      "title": "A clear first conversation, not a long intake.",
+      "intro": "Tell us briefly what is at stake. We look at whether a Reality Check — or another first conversation — makes sense."
     },
     "reality": {
       "eyebrow": "Reality Check",

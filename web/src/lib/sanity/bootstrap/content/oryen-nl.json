@@ -1,7 +1,7 @@
 {
   "Meta": {
     "siteName": "ORYEN",
-    "defaultDescription": "Direction before action. Strategie die marketing, sales en digitaal op elkaar afstemt."
+    "defaultDescription": "Direction before action. ORYEN maakt duidelijk hoe u meer uit marketing, sales en tools kunt halen."
   },
   "Global": {
     "header": {
@@ -20,242 +20,464 @@
     "cases": "Cases",
     "over": "Over ORYEN",
     "contact": "Contact",
-    "realityCheck": "Reality Check",
     "cta": "Reality Check",
     "openMenu": "Menu",
     "closeMenu": "Sluiten"
   },
   "Home": {
     "hero": {
-      "titleLine1": "Marketing. Sales.",
-      "titleLine2": "Digitaal.",
-      "titleEm": "Strategisch op elkaar afgestemd.",
-      "claim": "ORYEN werkt een strategie uit die alles op elkaar afstemt — en helpt de juiste tools en opvolging kiezen om die lijn te bewaken.",
-      "sub": "Geen uitvoering zonder strategie. Eerst juist zetten wat moet kloppen.",
-      "primaryCta": "Plan een Reality Check",
+      "titleLine1": "ORYEN maakt duidelijk waar het commercieel vastloopt — en wat eerst moet worden aangepakt.",
+      "titleLine2": "",
+      "titleEm": "",
+      "claim": "Er gebeurt al genoeg in uw bedrijf. De echte vraag is niet of er nog iets moet gebeuren.",
+      "sub": "De echte vraag is: waar zit het vast — en welke ingreep maakt nu echt verschil?",
+      "primaryCta": "Plan de Reality Check",
       "secondaryCta": "Bekijk de aanpak"
     },
     "diagnosis": {
       "spine": "01 — Diagnose",
-      "headlineEm": "Zo logisch.\nZo vaak vergeten.",
-      "p1": "Marketing trekt leads aan die sales niet opvolgt. Sales hoort wat er leeft in de markt, maar die feedback komt niet terug bij marketing. Digitale tools worden ingevoerd, maar niemand kijkt nog of ze echt iets verbeteren.",
-      "focus": "Als marketing, sales en digitaal niet op elkaar afgestemd zijn, maakt extra uitvoering het probleem alleen groter."
+      "headlineEm": "Niet elk probleem\nvraagt meer marketing.",
+      "p1": "Soms zit het in sales.\nSoms in opvolging.\nSoms in tools.\nSoms in interne afstemming.\n\nToch gebeurt vaak hetzelfde: er komt een bureau bij, een nieuwe tool, een extra campagne of meer budget.",
+      "focus": "Terwijl nog altijd niet duidelijk is wat echt vooruithelpt — en wat gewoon geld kost."
     },
     "approach": {
       "spine": "02 — Aanpak",
-      "headline": "Eerst de strategie uitwerken",
-      "headlineEm": "die alles op elkaar afstemt.",
-      "note1": "ORYEN begint niet met campagnes, tools of uitvoering. We werken eerst een strategie uit die marketing, sales en digitaal op elkaar afstemt, duidelijk maakt wat eerst moet gebeuren, en ervoor zorgt dat dat ook zo blijft.",
-      "introHl": "Van strategie naar opvolging.",
+      "headline": "ORYEN maakt duidelijk waar ingrijpen",
+      "headlineEm": "het meeste verschil maakt.",
+      "note1": "Niet met nog meer ruis. Wel door eerst scherp te krijgen waar het commercieel vastloopt, wat vandaag tegenwerkt, wat nu prioriteit heeft en wat beter nog wacht.",
+      "introHl": "",
       "stepPrefix": "Stap",
       "steps": [
         {
           "n": "01",
           "name": "In kaart brengen",
-          "q": "Wat is er vandaag al? Wat werkt? Wat loopt vast? Waar ontbreekt de afstemming tussen marketing, sales en digitaal?"
+          "q": "Waar verliest u vandaag tijd, marge, energie of momentum?"
         },
         {
           "n": "02",
-          "name": "Afstemmen",
-          "q": "Waar botsen marketing, sales en digitaal vandaag? Wat moet beter aansluiten zodat ze elkaar versterken in plaats van elkaar af te remmen?"
+          "name": "Realiteit toetsen",
+          "q": "Wat mag u redelijkerwijs verwachten — en wat klopt al langer niet meer?"
         },
         {
           "n": "03",
-          "name": "Strategie uitwerken",
-          "q": "Welke keuzes zijn nu echt nodig? Wat moet eerst? Wat is te vroeg? Welke aanpak past bij uw markt, uw team en uw commerciële realiteit?"
+          "name": "Oorzaak bepalen",
+          "q": "Zit het in sales, marketing, opvolging, tools, propositie of interne afstemming?"
         },
         {
           "n": "04",
-          "name": "Borgen",
-          "q": "Pas wanneer de richting klopt, heeft uitvoering zin. Dan helpen we de juiste tools, meetpunten en opvolging opzetten zodat die strategie zichtbaar blijft en bewaakt wordt."
+          "name": "Keuze maken",
+          "q": "Wat moet eerst worden aangepakt — en wat doet u beter nog niet?"
         }
-      ]
+      ],
+      "moreCta": "Bekijk de volledige aanpak"
     },
     "proof": {
       "spine": "03 — Bewijs",
-      "headline": "Wat ORYEN eerst juist zette —",
-      "headlineEm": "vóór er uitgevoerd werd.",
+      "headline": "ORYEN bepaalde eerst de richting.",
+      "headlineEm": "Daarna pas de uitvoering.",
       "featured": {
         "client": "Hof van Cleve",
-        "title": "Niet meer zichtbaarheid.\nEerst duidelijkheid over de positie.",
-        "line1": "Iedereen zag een communicatievraag. Meer content, meer bereik.",
-        "line2": "ORYEN zag een positioneringsvraag. Wie zijn we, voor wie, en wat mag nooit verloren gaan?",
-        "line3": "Niet méér communicatie — juistere keuzes. Minder ruis, meer samenhang."
+        "title": "Niet eerst meer communicatie.\nEerst scherper krijgen wat het merk moest uitstralen.",
+        "line1": "",
+        "line2": "",
+        "line3": "Dat zorgde voor meer richting in de communicatie en meer resonantie bij het juiste publiek."
       },
       "minis": [
         {
           "client": "Willems Veranda",
           "subtitle": "Niet nog een idee. Eerst één juiste keuze.",
-          "body": "Er waren ideeën genoeg. Elk bureau kwam met een andere oplossing. ORYEN bracht eerst terug naar de essentie: welk probleem moet hier echt opgelost worden?",
-          "result": "Eén juiste keuze maakte alle andere keuzes eenvoudiger."
+          "body": "",
+          "result": "Dat maakte het merk structureel beter vindbaar, met tientallen kernzoektermen in de top drie."
         },
         {
-          "client": "Concordia Textile",
-          "subtitle": "Niet meteen uitrollen. Eerst intern op één lijn komen.",
-          "body": "Een internationale organisatie met verschillende units en één gedeelde ambitie. ORYEN bracht eerst focus in wat gedeeld moest worden, wat eerst gekozen moest worden en hoe de lijn bewaakt kon blijven.",
-          "result": "Eerst dezelfde richting. Dan pas schaal."
+          "client": "Concordia Textiles",
+          "subtitle": "Niet meteen uitrollen. Eerst intern scherp krijgen wat klopte en wat niet.",
+          "body": "",
+          "result": "Dat legde de basis voor een digitaal plan met draagvlak en duidelijke prioriteiten."
         },
         {
           "client": "BMW — lokale dealer",
-          "subtitle": "Niet klinken als iedereen. Eerst kiezen wat u onderscheidt.",
-          "body": "De reflex was om te communiceren zoals elk ander dealernetwerk. ORYEN zag dat de echte kracht net in de lokale eigenheid zat.",
-          "result": "Wat eerst een nuance leek, werd de strategie."
+          "subtitle": "Niet klinken als iedereen. Eerst kiezen wat hen lokaal onderscheidde.",
+          "body": "",
+          "result": "Dat bracht opnieuw digitale aanvragen op gang uit de eigen regio."
         }
       ]
     },
     "selection": {
       "spine": "04 — Selectie",
-      "headline": "Voor wie marketing, sales en digitaal",
-      "headlineEm": "op elkaar wil laten werken.",
+      "headline": "Voor wie eerst wil weten",
+      "headlineEm": "wat echt moet worden aangepakt.",
       "forItems": [
-        "Voor bedrijven die voelen dat er veel gebeurt, maar dat het geheel niet klopt.",
-        "Voor bedrijven die niet opnieuw willen investeren in iets dat te vroeg komt.",
-        "Voor bedrijven die eerst een strategie willen die marketing, sales en digitaal op elkaar afstemt — en duidelijk maakt wat eerst moet gebeuren en hoe dat opgevolgd blijft."
+        "ORYEN is er voor ondernemers die voelen dat er veel gebeurt, maar dat het resultaat niet in verhouding staat tot de inspanning.",
+        "Voor beslissers die niet zomaar meer marketing, meer salesdruk, een nieuwe tool of een extra leverancier willen inschakelen, maar eerst willen weten waar het werkelijk vastloopt."
       ],
-      "notForLabel": "Niet voor wie",
+      "forLabel": "Voor u als",
+      "forList": [
+        "er al genoeg gebeurt, maar het resultaat achterblijft",
+        "u voelt dat het probleem dieper zit dan één campagne of één leverancier",
+        "u eerst wilt weten wat werkelijk vastzit vóór u opnieuw beslist"
+      ],
+      "notForLabel": "Niet voor u als",
       "notFor": [
-        "Een blind uitvoerend bureau zoekt",
-        "Losse campagnes wil zonder commerciële samenhang",
-        "Liever gelooft in snelle beloftes dan in een juiste analyse",
-        "Vooral snelheid zoekt, zonder eerst de juiste volgorde te bepalen"
+        "u gewoon snel iets wilt laten uitvoeren",
+        "u vooral bevestiging zoekt voor een beslissing die al genomen is",
+        "u verwacht dat een tool, bureau of campagne op zich het verschil zal maken"
       ]
     },
     "about": {
       "spine": "05 — Over ORYEN",
-      "headline": "ORYEN werkt een strategie uit die marketing, sales en digitaal",
-      "headlineEm": "op elkaar afstemt — en helpt zorgen dat dat ook zo blijft.",
-      "statement": "We beginnen niet met doen. We beginnen met zien wat scheef zit — en werken een strategie uit die marketing, sales en digitaal opnieuw op elkaar afstemt.",
-      "creds": "23 jaar B2B — HubSpot Gold Partner — Cambridge gecertificeerd.",
+      "headline": "Niet sneller van alles doen.",
+      "headlineEm": "Eerst juist beslissen.",
+      "statement": "",
+      "body": "ORYEN helpt bedrijven scherp krijgen waarom hun commerciële werking niet brengt wat ze zou moeten — en wat eerst moet worden rechtgezet vóór er opnieuw wordt geïnvesteerd.\n\nGeen klassieke bureaustructuur.\nGeen lagen van accountmanagement.\nWel een klein kernteam rond Christophe, met ervaring in sales, commerciële opvolging, marketing, structuur en bedrijfsleiding.",
+      "creds": "23 jaar B2B-ervaring\nRechtstreeks met Christophe\nKlein team. Duidelijke betrokkenheid.",
       "signature": "Christophe Dejaeghere — oprichter ORYEN",
-      "quote": "De duurste beslissing is vaak niet de verkeerde. Het is de beslissing die te vroeg genomen werd."
+      "quote": "De duurste beslissingen zijn meestal de beslissingen die te vroeg werden genomen."
     },
     "offer": {
       "spine": "06 — Aanbod",
       "name": "Reality Check",
-      "body": "Een Reality Check is geen vrijblijvende intake en geen verkoopgesprek. Het is een eerste strategische oefening waarin we scherp krijgen wat vandaag niet op elkaar afgestemd is — en wat eerst nodig is om marketing, sales en digitaal beter te laten werken.",
-      "ctaPrimary": "Plan een eerste gesprek",
-      "secondaryHlBeforeEm": "Begin niet met<br/>uitvoering.",
-      "secondaryHlEm": "Begin met een strategie<br/>die klopt.",
-      "secondaryBody": "Geen vrijblijvende intake. Geen standaard verkoopcall. Wel een eerste helder gesprek over wat er in uw organisatie niet op elkaar aansluit — en wat er eerst nodig is.",
-      "secondaryNote": "Persoonlijk antwoord van Christophe. Geen doorschuifsysteem."
+      "body": "Het eerste betaalde moment waarin ORYEN scherp krijgt waar het commercieel vastloopt, wat eerst moet worden aangepakt en wat beter nog wacht.\n\nGeen vrijblijvende intake.\nGeen verkoopgesprek in vermomming.\n\nWel een scherp eerste beslismoment waarmee duidelijk wordt:\n\nwat vandaag blokkeert\nwat nu prioriteit heeft\nwat voorlopig geen zin heeft\nen wat de logische volgende stap is",
+      "ctaPrimary": "Plan de Reality Check",
+      "secondaryHlBeforeEm": "Niet nog een vrijblijvende<br/>kennismaking.",
+      "secondaryHlEm": "Wel een scherp eerste<br/>beslismoment.",
+      "secondaryBody": "U vertrekt met duidelijkheid, prioriteiten en een concrete volgende stap. Of u daarna verder werkt met ORYEN, beslist u pas dan.",
+      "secondaryNote": "Geen automatisch traject. Rechtstreeks met Christophe."
+    }
+  },
+  "Aanpak": {
+    "meta": {
+      "title": "Aanpak — ORYEN",
+      "description": "De ORYEN-methodiek: eerst scherp krijgen wat werkelijk speelt, dan pas beslissen wat volgt."
+    },
+    "hero": {
+      "eyebrow": "Aanpak",
+      "headlineLine1": "Eerst scherp krijgen",
+      "headlineLine2": "wat echt speelt.",
+      "headlineEm": "Dan pas beslissen wat volgt.",
+      "body1": "ORYEN begint niet met campagnes, tools of uitvoering.",
+      "body2": "ORYEN begint met blootleggen waar het werkelijk vastloopt en welke ingreep nu het meeste verschil maakt.",
+      "primaryCta": "Plan de Reality Check",
+      "secondaryCta": "Bekijk de Reality Check"
+    },
+    "why": {
+      "eyebrow": "01 — Waarom deze aanpak",
+      "headlineLine1": "Niet sneller bewegen.",
+      "headlineLine2": "Eerst juister kijken.",
+      "body1": "Veel organisaties voelen dat er iets stokt, maar zetten extra tools, campagnes of mensen in vóór de oorzaak scherp is.",
+      "body2": "ORYEN vertrekt van begrip: eerst zicht op wat echt gekend moet worden, vóór er opnieuw beslist of geïnvesteerd wordt.",
+      "tail": {
+        "headlineLine1": "Het geheel, niet",
+        "headlineLine2Em": "één schakel.",
+        "body": "We lezen de commerciële realiteit als één stelsel: opvolging, verwachtingen, tools, teams, propositie en volgorde."
+      }
+    },
+    "lens": {
+      "eyebrow": "02 — Hoe ORYEN kijkt",
+      "headlineLine1": "Waar we",
+      "headlineEm": "onder meer naar kijken.",
+      "leadIn": "Niet naar één losse oorzaak. Wel naar waar het stelsel breuken vertoont.",
+      "lookAt": [
+        "waar opvolging wegvalt",
+        "waar verwachting en realiteit uit elkaar lopen",
+        "waar complexiteit schaadt in plaats van helpt",
+        "waar het knelpunt elders zit dan waar u investeert"
+      ],
+      "conclusion": "Pas dan wordt zichtbaar wat wél en niet het echte struikelpunt is."
+    },
+    "steps": {
+      "eyebrow": "03 — De vier stappen",
+      "headline": "Van onduidelijkheid naar volgorde.",
+      "stepPrefix": "Stap",
+      "steps": [
+        {
+          "n": "01",
+          "title": "In kaart brengen",
+          "body": "Wat gebeurt er vandaag echt? Waar verliest uw bedrijf tijd, marge, energie of momentum?"
+        },
+        {
+          "n": "02",
+          "title": "Realiteit toetsen",
+          "body": "Wat mag u redelijkerwijs verwachten? Welke aannames klinken logisch, maar houden in werkelijkheid geen stand?"
+        },
+        {
+          "n": "03",
+          "title": "Oorzaak bepalen",
+          "body": "Zit het probleem in marketing, sales, opvolging, tools, propositie, markt of interne werking?"
+        },
+        {
+          "n": "04",
+          "title": "Volgorde kiezen",
+          "body": "Wat moet eerst? Wat wacht beter? Welke investering lijkt logisch, maar vertrekt nog van de verkeerde basis?"
+        }
+      ]
+    },
+    "methodBridge": {
+      "eyebrow": "04 — Van methode naar concrete zet",
+      "microEyebrow": "Volgende stap",
+      "summary": "Deze lijn vermijdt dure misfits: zichtbaarheid terwijl opvolging het probleem is, software vóór een helder proces, of campagne vóór een vaste propositie.",
+      "headline": "De Reality Check is de eerste concrete stap.",
+      "body1": "In één compacte doorloop wordt zichtbaar wat vastzit, wat eerst moet gebeuren en wat bewust nog wacht.",
+      "followTitle": "Wat daarna gebeurt, ligt niet vast",
+      "followBody": "Afhankelijk van de uitkomst: bijsturen, korte begeleiding, verdieping — of pas latere uitvoering. Geen verplicht vervolgtraject; eerst inhoud die klopt.",
+      "cta": "Plan de Reality Check",
+      "secondaryCta": "Bekijk de Reality Check →",
+      "secondaryCtaHref": "/aanbod"
+    },
+    "closing": {
+      "spineLabel": "05 — Eerst scherpte",
+      "headlineLine1": "Eerst scherpte.",
+      "headlineLine2": "Dan pas uitvoering als het klopt.",
+      "body1": "Wie wil weten wat hier werkelijk speelt, start niet met ruis maar met helderheid.",
+      "body2": "Past bij teams die al investeren, maar te weinig rendement voelen op het geheel — en diagnose belangrijker vinden dan snelle geruststelling.",
+      "primaryCta": "Plan de Reality Check",
+      "primaryCtaHref": "/aanbod",
+      "secondaryCta": "Contact opnemen →",
+      "secondaryCtaHref": "/contact",
+      "footnote": "Direction before action."
     }
   },
   "Aanbod": {
     "meta": {
       "title": "Reality Check — ORYEN",
-      "description": "Eén duidelijke eerste stap: de Reality Check. Vast kader, vaste prijs — helderheid vóór u opnieuw investeert in uitvoering, tools of trajecten."
+      "description": "Een scherp eerste beslismoment voor bedrijven die willen weten waar hun commerciële werking vastloopt, wat eerst moet worden aangepakt en wat beter nog wacht."
     },
     "hero": {
+      "eyebrow": "Reality Check",
       "headlineLine1": "De Reality Check.",
-      "headlineLine2Em": "Uw eerste strategische stap.",
-      "sub": "Vast kader en vaste prijs. In één traject brengen we scherp wat niet op elkaar afgestemd is, wat eerst moet kloppen — en wat u beter nog niet vastlegt. Daarna bepaalt u zelf het vervolg.",
+      "headlineLine2Em": "Een scherp eerste\nbeslismoment.",
+      "sub": "U voelt dat er al genoeg gebeurt in uw bedrijf. Maar niet alles werkt nog in dezelfde richting. De Reality Check maakt duidelijk waar het commercieel vastloopt, wat eerst moet worden aangepakt en wat u beter nog niet doet.",
+      "characterLines": [
+        "Geen uurtarief dat onderweg groter wordt.",
+        "Geen vaag traject dat zichzelf moet bewijzen."
+      ],
       "primaryCta": "Plan de Reality Check",
       "secondaryCta": "Hoe ORYEN werkt",
+      "secondaryCtaAnchor": "hoe-het-gaat",
       "offerFrame": {
         "label": "Eerste stap",
         "pillars": [
-          "Eén commercieel kader — geen open traject",
-          "Concrete output — geen rapport voor de la",
-          "Persoonlijk met Christophe — geen doorschuif",
-          "Geen verplicht vervolg — u beslist wat volgt"
+          "Eén product.",
+          "Eén eerste beslissing.",
+          "Eén afgebakend traject.",
+          "Eén duidelijke uitkomst.",
+          "Afhankelijk van uw vraag: Christophe, Stevie, Koen of Esthel erbij.",
+          "Geen verplicht vervolg."
         ]
       }
     },
+    "watHetIs": {
+      "spine": "01 — Wat het is",
+      "eyebrow": "Wat het is",
+      "headlineLine1": "Eén traject.",
+      "headlineLine2Em": "Duidelijke uitkomst.",
+      "body": "Een afgebakend eerste product met een duidelijke functie: zichtbaar maken wat vastzit, wat eerst moet gebeuren en wat beter nog wacht."
+    },
     "offerClarity": {
       "eyebrow": "Wat het is",
-      "leftTitle": "Een afgebakende strategische sessie",
-      "leftBody": "Geen intake zonder scherp randje en geen verkooppraatje. We nemen uw situatie, uw vraag en uw druk samen onder de loep en maken helder wat eerst moet kloppen — vóór u opnieuw koopt in uitvoering, tools of trajecten.",
-      "rightTitle": "Past het bij u?",
-      "rightLead": "Deze pagina is de juiste plek als u al investeert en beslist, maar merkt dat het geheel niet meer klopt.",
-      "forBody": "U zoekt een eerste harde strategische keuze — niet nog een campagne of tool.",
+      "spine": "04 — Past dit bij u",
+      "pastEyebrow": "Past dit bij u?",
+      "fitHeadlineLine1": "De Reality Check is zinvol als u",
+      "fitHeadlineEm": "al beslist, investeert en beweegt,",
+      "fitHeadlineLine2": "maar voelt dat de werking niet brengt wat ze zou moeten.",
+      "fitIntro": "Als de Reality Check geen goede fit is, zeggen we dat ook. Het doel is niet om u in een traject te trekken. Het doel is om de juiste eerste beslissing scherp te krijgen.",
+      "leftTitle": "Eén traject. Duidelijke uitkomst.",
+      "leftBody": "De Reality Check is geen intake, geen vrijblijvend advies en geen voorprogramma van een groter traject.\n\nHet is een afgebakend eerste product voor bedrijven die eerst scherp willen krijgen wat er commercieel niet klopt, vóór er opnieuw tijd, geld of energie naar sales, marketing of tools gaat.\n\nU koopt geen mooie analyse.\nU koopt een eerste duidelijke beslissing.",
+      "rightTitle": "Past dit bij u?",
+      "rightLead": "De Reality Check is zinvol als u al beslist, investeert en beweegt, maar voelt dat de commerciële werking niet brengt wat ze zou moeten.",
+      "forBody": "Niet omdat er niets gebeurt. Wel omdat het geheel niet scherp genoeg klopt.\n\nU zoekt dus geen extra actie. U zoekt eerst een harde keuze.",
       "welLabel": "Wel",
       "welItems": [
-        "U voelt dat marketing, sales en digitaal langs elkaar heen werken",
-        "U wilt niet opnieuw betalen voor iets dat te vroeg komt",
-        "U wilt eerst scherpte vóór u verder schaalt"
+        "U wilt weten wat eerst moet worden aangepakt, niet wat het snelst verkocht raakt.",
+        "U wilt geen tweede investering vóór de volgorde helder is.",
+        "U wilt duidelijkheid waar u intern iets moet rechtzetten en waar externe hulp pas later zinvol is.",
+        "U wilt een eerste besluit, geen stapel indrukken."
       ],
       "notForLabel": "Niet",
       "notForItems": [
-        "U zoekt vooral snelle executie zonder strategische volgorde",
-        "U wilt een bureau dat blind uitvoert wat u vraagt",
-        "U verwacht een breed agency-menu als eerste gesprek"
+        "U zoekt vooral snelle uitvoering zonder gesprek over oorzaak of volgorde.",
+        "U wilt bevestigd worden in een beslissing die in feite al genomen is.",
+        "U verwacht een agency-menu, een lijst pakketten of een vrijblijvende verkenning."
       ]
     },
     "whatYouGet": {
+      "spine": "03 — Wat u meeneemt",
       "eyebrow": "Wat u meeneemt",
-      "headline": "Concreet resultaat",
-      "subline": "Geen slide-deck om te vergeten — wel scherpte die u kunt gebruiken in de volgende beslissing.",
+      "headline": "Concrete output. Geen vaag advies.",
+      "headlineLine1": "Concrete output.",
+      "headlineLine2Em": "Geen vaag advies.",
+      "subline": "Na de Reality Check weet u niet alleen wat er wringt, maar ook wat daar nu mee moet gebeuren.",
+      "outputs": [
+        {
+          "title": "Een scherp beeld van waar het commercieel vastloopt",
+          "description": "Geen losse observaties, maar één helder overzicht van wat vandaag blokkeert."
+        },
+        {
+          "title": "Een eerste besliskader",
+          "description": "Wat nu prioriteit heeft, wat nog wacht en waarom."
+        },
+        {
+          "title": "Een 90-dagen koerslijn",
+          "description": "Geen groot plan voor een jaar, wel een korte, bruikbare horizon met focus."
+        },
+        {
+          "title": "Duidelijke prioriteiten",
+          "description": "Wat eerst moet kloppen vóór u opnieuw bouwt, koopt, verandert of uitrolt."
+        },
+        {
+          "title": "Een stoplijst",
+          "description": "Wat u voorlopig beter niet doet, niet koopt en niet lanceert."
+        },
+        {
+          "title": "Een concrete volgende stap",
+          "description": "Wat u intern kunt vastpakken — en waar verdere begeleiding pas zinvol wordt als de basis klopt."
+        }
+      ],
       "items": [
-        "Wat er echt speelt achter de vraag op tafel",
-        "Welke beslissing eerst moet — en welke bewust nog niet",
-        "Welke risico’s u vermijdt door niet te vroeg te bouwen of uit te rollen",
-        "Welke opvolging zinvol is — en wat u zelf kunt dragen"
+        "Een scherp beeld van waar het commercieel vastloopt — geen losse observaties, maar één helder overzicht van wat vandaag blokkeert.",
+        "Een eerste besliskader — wat nu prioriteit heeft, wat nog wacht en waarom.",
+        "Een 90-dagen koerslijn — geen groot plan voor een jaar, wel een korte, bruikbare horizon met focus.",
+        "Duidelijke prioriteiten — wat eerst moet kloppen vóór u opnieuw bouwt, koopt, verandert of uitrolt.",
+        "Een stoplijst — wat u voorlopig beter niet doet, niet koopt en niet lanceert.",
+        "Een concrete volgende stap — wat u intern kunt vastpakken en waar verdere begeleiding pas zinvol wordt als de basis klopt."
       ]
     },
     "howItWorks": {
-      "headline": "Hoe het loopt",
+      "spine": "02 — Hoe het gaat",
+      "eyebrow": "Hoe het gaat",
+      "headline": "Kort. Rechtstreeks. Zonder omwegen.",
+      "headlineLine1": "Kort. Rechtstreeks.",
+      "headlineLine2Em": "Zonder omwegen.",
       "stepPrefix": "Stap",
       "steps": [
         {
           "n": "01",
-          "title": "Scherp krijgen wat er speelt.",
-          "body": "We brengen uw commerciële lijn in beeld: waar loopt het vast, waar botsen kanalen, waar is de druk het grootst?"
+          "title": "Voorbereiding",
+          "body": "We zetten uw vraag scherp. Waar zit de druk? Welke beslissing hangt er boven de markt? Wat voelt verkeerd, ondanks alle inspanningen?",
+          "includes": "Inclusief: voorbereiding op uw context en vraag"
         },
         {
           "n": "02",
-          "title": "Bepalen wat eerst moet kloppen.",
-          "body": "We maken de volgorde helder: wat moet nu beslist worden — en wat is bewust nog te vroeg?"
+          "title": "De sessie",
+          "body": "Eén compacte maar scherpe sessie. Afhankelijk van uw vraag schuift Christophe aan met Stevie, Koen of Esthel erbij — wie uw vraag het best dient. Geen brede brainstorm. Wel een directe doorlichting van oorzaak, volgorde, risico en prioriteit.",
+          "includes": "Inclusief: de strategische sessie met het ORYEN-team"
         },
         {
           "n": "03",
-          "title": "Afspraken over het vervolg.",
-          "body": "U vertrekt met richting. Eventuele opvolging is een keuze — geen automatische verkoop van een volgend traject."
+          "title": "Output en duiding",
+          "body": "U krijgt de output helder samengebracht en toegelicht. Niet als theoretisch document, maar als materiaal dat helpt om intern te beslissen en gericht verder te gaan.",
+          "includes": "Inclusief: een concrete volgende stap"
         }
       ]
     },
     "whatAfter": {
+      "spine": "05 — Na de Reality Check",
       "eyebrow": "Na de Reality Check",
-      "headline": "De roadmap blijft van u",
-      "body": "U neemt scherpte mee over wat eerst moet — niet over wat ORYEN u later wil verkopen. Wat volgt, hangt van uw situatie af: soms een korte opvolging, soms een tweede verdieping, soms volstaat het om intern te sturen met de juiste afspraken.",
+      "headline": "De uitkomst blijft van u.",
+      "headlineLine1": "De uitkomst",
+      "headlineEm": "blijft van u.",
+      "body": "De Reality Check is geen verborgen funnel.\n\nSoms volstaat de uitkomst om intern bij te sturen. Soms is een korte opvolging zinvol. Soms is verdere begeleiding logisch.\n\nMaar alleen als dat inhoudelijk klopt.",
+      "stanzas": [
+        { "text": "De Reality Check is geen verborgen funnel." },
+        {
+          "text": "Soms volstaat de uitkomst om intern bij te sturen. Soms is een korte opvolging zinvol. Soms is verdere begeleiding logisch."
+        },
+        { "text": "Maar alleen als dat inhoudelijk klopt.", "italic": true }
+      ],
+      "guarantees": [
+        {
+          "mark": "01",
+          "text": "Geen automatische upgrade naar een vervolgtraject."
+        },
+        { "mark": "02", "text": "Geen druk om meer te kopen." },
+        { "mark": "03", "text": "Geen salesmachine achter de schermen." },
+        { "mark": "04", "text": "Geen verplicht pad." }
+      ],
+      "signature": "Antwoord altijd persoonlijk van Christophe.",
       "items": [
-        "Geen verborgen verplichting tot een vervolgtraject",
-        "Geen automatische ‘upgrade’ naar andere diensten — enkel als het logisch is",
-        "Contact blijft rechtstreeks — geen salesdruk"
+        "Geen automatische upgrade naar een vervolgtraject.",
+        "Geen druk om meer te kopen.",
+        "Geen salesmachine achter de schermen.",
+        "Geen verplicht pad."
       ]
     },
     "pricing": {
-      "spine": "Investering",
+      "spine": "Product",
       "name": "Reality Check",
-      "priceLine": "Vaste prijs — € 2.950 excl. btw",
-      "body": "Eén duidelijk kader. Geen openstaand uurtarief dat oploopt vóór u weet waar u naartoe werkt.",
+      "supportLine": "Eén product. Eén eerste beslissing.",
+      "body": "Geen uurtarief dat onderweg groter wordt. Geen vaag traject dat zichzelf moet bewijzen.\n\nWel een afgebakend eerste product met een duidelijke functie: zichtbaar maken wat vastzit, wat eerst moet gebeuren en wat beter nog wacht.",
       "includedTitle": "Dit zit erin",
       "includedItems": [
-        "Voorbereiding en afbakening op uw vraag en context",
-        "De strategische sessie zelf — scherp en persoonlijk",
-        "Concrete output die uw volgende beslissing draaglijk maakt"
+        "Voorbereiding op uw context en vraag",
+        "De strategische sessie met Christophe",
+        "Een scherp overzicht van waar het commercieel vastloopt",
+        "Een besliskader met prioriteiten en stoplijst",
+        "Een korte 90-dagen koerslijn",
+        "Een concrete volgende stap"
       ]
     },
     "reassurance": {
       "headline": "Geen verborgen agenda.",
-      "body": "Als de Reality Check geen goede fit blijkt, zeggen we dat ook. Het doel is een juiste eerste stap — geen volle pijplijn.",
+      "body": "Als de Reality Check geen goede fit is, zeggen we dat ook. Het doel is niet om u in een traject te trekken. Het doel is om de juiste eerste beslissing scherp te krijgen.",
       "note": "Antwoord altijd persoonlijk van Christophe."
     },
     "closing": {
+      "spine": "06 — Start met scherpte",
+      "headlineLine1": "Twijfel is niet",
+      "headlineLine2": "het probleem.",
+      "headlineEm": "Te vroeg investeren wel.",
+      "body1": "Als uw bedrijf al genoeg beweegt, maar het resultaat achterblijft, is nog meer actie zelden het eerste antwoord.",
+      "body2": "Eerst moet duidelijk worden waar het echt vastloopt en wat nu als eerste moet gebeuren.",
+      "primaryCta": "Plan de Reality Check",
+      "footnote": "Direction before action.",
+      "secondaryCta": "Contact opnemen →",
+      "secondaryCtaHref": "/contact",
       "line1": "Twijfel is niet het probleem.",
-      "line2": "Te vroeg investeren wél.",
+      "line2": "Te vroeg investeren wel.",
+      "body": "Als uw bedrijf al genoeg beweegt, maar het resultaat achterblijft, is nog meer actie zelden het eerste antwoord.\n\nEerst moet duidelijk worden waar het echt vastloopt en wat nu als eerste moet gebeuren.",
       "ctaLabel": "Plan de Reality Check"
     }
   },
-  "Pages": {
-    "aanpak": {
-      "eyebrow": "Aanpak",
-      "title": "De ORYEN-methode.",
-      "intro": "We werken eerst een strategie uit die marketing, sales en digitaal op elkaar afstemt. Van daaruit maken we de juiste keuzes in tools, afspraken en opvolging."
+  "Contact": {
+    "meta": {
+      "title": "Contact — ORYEN",
+      "description": "Liever eerst een helder gesprek dan een lange intake. Vertel kort wat er speelt — ORYEN bekijkt of een Reality Check zinvol is."
     },
+    "hero": {
+      "eyebrow": "Contact",
+      "headline": "Liever eerst een helder gesprek dan een lange intake.",
+      "sub": "Vertel kort wat er speelt. We bekijken of een Reality Check of een ander eerste gesprek zinvol is.",
+      "primaryCta": "Plan een gesprek",
+      "primaryCtaHref": "#contact-form",
+      "secondaryCta": "Bekijk de Reality Check",
+      "secondaryCtaHref": "/aanbod"
+    },
+    "expectations": {
+      "headline": "Wat u mag verwachten",
+      "body": "Geen doorschuifsysteem. Geen algemeen salesgesprek. Wel een eerste reactie die scherp bekijkt of dit inhoudelijk past."
+    },
+    "form": {
+      "headline": "Vertel kort wat er speelt",
+      "labels": {
+        "name": "Naam",
+        "email": "E-mail",
+        "company": "Bedrijf",
+        "phone": "Telefoon",
+        "message": "Waar loopt het vandaag vast?",
+        "submit": "Bericht versturen",
+        "optional": "(optioneel)"
+      }
+    },
+    "reassurance": {
+      "body": "Rechtstreeks antwoord van Christophe wanneer het inhoudelijk past.",
+      "note": "Geen verborgen funnel. Wel een eerlijk eerste antwoord."
+    }
+  },
+  "Pages": {
     "cases": {
       "eyebrow": "Cases",
-      "title": "Wat eerst klop moest zijn.",
-      "intro": "Strategische helderheid vóór uitvoering — selectie van recent werk."
+      "title": "Wat eerst kloppen moest zijn.",
+      "intro": "Concrete cases bespreken we op verzoek. Veel trajecten spelen zich onder vertrouwelijkheid af — dan publiceren we ze niet online, en dat is bewust zo.\n\nWe werken voor internationale B2B-productiebedrijven en evengoed voor kleinere lokale ondernemers. De aanpak blijft dezelfde: eerst scherp zien wat er speelt, dan pas uitvoeren.\n\nStrategische helderheid vóór uitvoering. Hieronder een selectie van recent gepubliceerd werk."
     },
     "insights": {
       "eyebrow": "Inzichten",
@@ -269,8 +491,8 @@
     },
     "contact": {
       "eyebrow": "Contact",
-      "title": "Een eerste gesprek.",
-      "intro": "Geen conveyor belt. Een persoonlijk antwoord — meestal binnen één werkdag."
+      "title": "Liever eerst een helder gesprek dan een lange intake.",
+      "intro": "Vertel kort wat er speelt. We bekijken of een Reality Check of een ander eerste gesprek zinvol is."
     },
     "reality": {
       "eyebrow": "Reality Check",

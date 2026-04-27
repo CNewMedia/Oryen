@@ -28,9 +28,17 @@ type Props = {
   home: HomeContent;
   images: HomeImageUrls;
   contactEmail: string;
+  seeAllCasesLabel: string;
+  meetTheTeamLabel: string;
 };
 
-export function HomePageView({ home, images, contactEmail: _contactEmail }: Props) {
+export function HomePageView({
+  home,
+  images,
+  contactEmail: _contactEmail,
+  seeAllCasesLabel,
+  meetTheTeamLabel,
+}: Props) {
   const t = home;
   const steps = t.approach.steps;
   const minis = t.proof.minis;
@@ -51,25 +59,33 @@ export function HomePageView({ home, images, contactEmail: _contactEmail }: Prop
             <h1 className="hero-hl reveal">
               <span>
                 {t.hero.titleLine1}
-                <br />
-                {t.hero.titleLine2}
+                {t.hero.titleLine2 ? (
+                  <>
+                    <br />
+                    {t.hero.titleLine2}
+                  </>
+                ) : null}
               </span>
-              <em
-                dangerouslySetInnerHTML={{
-                  __html: t.hero.titleEm.replace(/\n/g, '<br />'),
-                }}
-              />
+              {t.hero.titleEm?.trim() ? (
+                <em
+                  dangerouslySetInnerHTML={{
+                    __html: t.hero.titleEm.replace(/\n/g, '<br />'),
+                  }}
+                />
+              ) : null}
             </h1>
             <p className="hero-claim reveal delay-1">{t.hero.claim}</p>
-            <p className="hero-sub reveal delay-2">{t.hero.sub}</p>
+            {t.hero.sub ? (
+              <p className="hero-sub reveal delay-2">{t.hero.sub}</p>
+            ) : null}
             <div className="hero-actions reveal delay-3">
-              <a className="btn-primary" href="#contact">
+              <Link className="btn-primary" href="/aanbod">
                 <span>{t.hero.primaryCta}</span>
                 <span className="btn-arrow" />
-              </a>
-              <a className="btn-ghost" href="#aanpak">
+              </Link>
+              <Link className="btn-ghost" href="/aanpak">
                 {t.hero.secondaryCta}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -91,7 +107,9 @@ export function HomePageView({ home, images, contactEmail: _contactEmail }: Prop
             <DiagLine className="diag-line reveal delay-1" />
             <div className="stelling-grid">
               <div className="reveal delay-2">
-                <p className="stelling-p">{t.diagnosis.p1}</p>
+                <p className="stelling-p">
+                  <RichBrLines text={t.diagnosis.p1} />
+                </p>
                 <p className="stelling-focus">{t.diagnosis.focus}</p>
               </div>
             </div>
@@ -99,7 +117,7 @@ export function HomePageView({ home, images, contactEmail: _contactEmail }: Prop
         </div>
       </section>
 
-      <section className="s-aanpak has-spine spine-dark" id="aanpak">
+      <section className="s-aanpak has-spine spine-dark" id="how">
         <div className="spine-grid aanpak-head-wrap">
           <div className="spine-label spine-label-dark">
             <span>{t.approach.spine}</span>
@@ -111,7 +129,9 @@ export function HomePageView({ home, images, contactEmail: _contactEmail }: Prop
               <em>{t.approach.headlineEm}</em>
             </h2>
             <p className="aanpak-note reveal delay-1">{t.approach.note1}</p>
-            <p className="aanpak-intro-hl reveal delay-2">{t.approach.introHl}</p>
+            {t.approach.introHl ? (
+              <p className="aanpak-intro-hl reveal delay-2">{t.approach.introHl}</p>
+            ) : null}
           </div>
         </div>
         <div className="aanpak-steps">
@@ -126,6 +146,19 @@ export function HomePageView({ home, images, contactEmail: _contactEmail }: Prop
             </div>
           ))}
         </div>
+        {t.approach.moreCta ? (
+          <div className="spine-grid">
+            <div className="spine-label spine-label-dark" aria-hidden="true">
+              <span />
+            </div>
+            <div className="spine-content aanpak-more">
+              <Link className="section-more section-more-dark reveal" href="/aanpak">
+                <span>{t.approach.moreCta}</span>
+                <span className="section-more-arrow" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        ) : null}
       </section>
 
       <section className="s-bewijs has-spine spine-light">
@@ -155,15 +188,21 @@ export function HomePageView({ home, images, contactEmail: _contactEmail }: Prop
               }}
             />
             <div className="feat-dl">
-              <div>
-                <p className="feat-v">{t.proof.featured.line1}</p>
-              </div>
-              <div>
-                <p className="feat-v">{t.proof.featured.line2}</p>
-              </div>
-              <div>
-                <p className="feat-v">{t.proof.featured.line3}</p>
-              </div>
+              {t.proof.featured.line1 ? (
+                <div>
+                  <p className="feat-v">{t.proof.featured.line1}</p>
+                </div>
+              ) : null}
+              {t.proof.featured.line2 ? (
+                <div>
+                  <p className="feat-v">{t.proof.featured.line2}</p>
+                </div>
+              ) : null}
+              {t.proof.featured.line3 ? (
+                <div>
+                  <p className="feat-v">{t.proof.featured.line3}</p>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
@@ -174,10 +213,21 @@ export function HomePageView({ home, images, contactEmail: _contactEmail }: Prop
               <span className="mini-ghost">{String(i + 2).padStart(2, '0')}</span>
               <div className="mini-client">{m.client}</div>
               <p className="mini-subtitle">{m.subtitle}</p>
-              <p className="mini-body">{m.body}</p>
+              {m.body ? <p className="mini-body">{m.body}</p> : null}
               <p className="mini-result">{m.result}</p>
             </div>
           ))}
+        </div>
+        <div className="spine-grid">
+          <div className="spine-label spine-label-light" aria-hidden="true">
+            <span />
+          </div>
+          <div className="spine-content bewijs-footer">
+            <Link className="section-more reveal" href="/cases">
+              <span>{seeAllCasesLabel}</span>
+              <span className="section-more-arrow" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -205,6 +255,16 @@ export function HomePageView({ home, images, contactEmail: _contactEmail }: Prop
                     </p>
                   ))}
                 </div>
+                {t.selection.forLabel && t.selection.forList && t.selection.forList.length > 0 ? (
+                  <div className="selectie-sub reveal delay-2">
+                    <span className="selectie-sub-lbl">{t.selection.forLabel}</span>
+                    <ul className="selectie-sub-list">
+                      {t.selection.forList.map((item) => (
+                        <li key={item.slice(0, 24)}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
               </div>
               <div className="reveal delay-2">
                 <span className="niet-lbl">{t.selection.notForLabel}</span>
@@ -236,12 +296,25 @@ export function HomePageView({ home, images, contactEmail: _contactEmail }: Prop
                     }}
                   />
                 </h2>
-                <p className="over-stmt reveal delay-1">{t.about.statement}</p>
-                <p className="over-creds reveal delay-2">{t.about.creds}</p>
+                {t.about.statement ? (
+                  <p className="over-stmt reveal delay-1">{t.about.statement}</p>
+                ) : null}
+                {t.about.body ? (
+                  <p className="over-body reveal delay-1">
+                    <RichBrLines text={t.about.body} />
+                  </p>
+                ) : null}
+                <p className="over-creds reveal delay-2">
+                  <RichBrLines text={t.about.creds} />
+                </p>
                 <div className="over-sig reveal delay-2">
                   <span className="over-sig-line" />
                   <span className="over-sig-txt">{t.about.signature}</span>
                 </div>
+                <Link className="section-more over-more reveal delay-3" href="/team">
+                  <span>{meetTheTeamLabel}</span>
+                  <span className="section-more-arrow" aria-hidden="true" />
+                </Link>
               </div>
               <div className="reveal delay-1">
                 <div className="over-portrait">
@@ -254,7 +327,7 @@ export function HomePageView({ home, images, contactEmail: _contactEmail }: Prop
         </div>
       </section>
 
-      <section className="s-offer has-spine spine-dark" id="contact">
+      <section className="s-offer has-spine spine-dark">
         <div className="spine-grid">
           <div className="spine-label spine-label-dark">
             <span>{t.offer.spine}</span>
@@ -263,7 +336,9 @@ export function HomePageView({ home, images, contactEmail: _contactEmail }: Prop
             <div className="offer-grid">
               <div>
                 <h2 className="offer-name reveal">{t.offer.name}</h2>
-                <p className="offer-body reveal delay-1">{t.offer.body}</p>
+                <p className="offer-body reveal delay-1">
+                  <RichBrLines text={t.offer.body} />
+                </p>
                 <span className="offer-line reveal delay-2" />
                 <Link className="offer-btn reveal delay-3" href="/aanbod">
                   <span>{t.offer.ctaPrimary}</span>
