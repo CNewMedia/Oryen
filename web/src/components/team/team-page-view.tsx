@@ -1,10 +1,11 @@
 import Image from 'next/image';
 
+import { PrimaryRcCtaLabel } from '@/components/shell/reality-check-cta-label';
 import { Link } from '@/i18n/navigation';
 
 import type { TeamContent } from '@/types/team';
 
-type Props = { content: TeamContent };
+type Props = { content: TeamContent; locale: string };
 
 function TeamHeroScaffold() {
   return (
@@ -63,7 +64,7 @@ function TeamHeroScaffold() {
   );
 }
 
-export function TeamPageView({ content: c }: Props) {
+export function TeamPageView({ content: c, locale }: Props) {
   return (
     <div className="team-page">
       <section className="team-hero-dark has-spine spine-dark" aria-labelledby="team-hero-heading">
@@ -175,7 +176,9 @@ export function TeamPageView({ content: c }: Props) {
             <p className="team-closing-lead reveal delay-1">{c.closing.body}</p>
             <div className="team-closing-actions reveal delay-2">
               <Link className="btn-primary" href={c.closing.primaryCtaHref as never}>
-                <span>{c.closing.primaryCta}</span>
+                <span>
+                  <PrimaryRcCtaLabel locale={locale} label={c.closing.primaryCta} />
+                </span>
                 <span className="btn-arrow" />
               </Link>
               <Link className="btn-ghost" href={c.closing.secondaryCtaHref as never}>

@@ -40,7 +40,7 @@ export default async function AanbodPage({ params }: Props) {
   return (
     <>
       <AanpakHeroEffects />
-      <AanbodPageView content={content} />
+      <AanbodPageView content={content} locale={locale} />
     </>
   );
 }

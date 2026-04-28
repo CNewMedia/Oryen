@@ -1,7 +1,7 @@
 {
   "Meta": {
     "siteName": "ORYEN",
-    "defaultDescription": "Direction before action. ORYEN makes clear where you can get more out of marketing, sales and tools."
+    "defaultDescription": "Direction before action. ORYEN shows where sales, marketing and follow-up lose results."
   },
   "Nav": {
     "home": "Home",
@@ -43,8 +43,8 @@
     },
     "contact": {
       "eyebrow": "Contact",
-      "title": "A first conversation.",
-      "intro": "No conveyor belt. A personal reply — usually within one business day."
+      "title": "A concrete first conversation, not a long intake.",
+      "intro": "Tell us briefly what is at stake. We look at whether a Reality Check — or another first conversation — makes sense."
     },
     "reality": {
       "eyebrow": "Reality Check",

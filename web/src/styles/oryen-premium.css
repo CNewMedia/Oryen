@@ -65,6 +65,16 @@ body {
 img { display: block; max-width: 100%; }
 ::selection { background: #C47820; color: #fff; }
 
+/* Reality Check booking CTA: short label under 768px; full label from tablet up */
+.cta-rc-suffix {
+  display: none;
+}
+@media (min-width: 768px) {
+  .cta-rc-suffix {
+    display: inline;
+  }
+}
+
 /* Keyboard focus ring — amber outline readable on both pine (dark) and cream
  * (light) backgrounds. Applies only to keyboard users via :focus-visible, so
  * mouse/touch clicks stay clean. Pairs with existing component focus styles

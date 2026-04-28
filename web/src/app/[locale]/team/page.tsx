@@ -36,5 +36,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TeamPage({ params }: Props) {
   const { locale } = await params;
   const content = getTeamContent(locale);
-  return <TeamPageView content={content} />;
+  return <TeamPageView content={content} locale={locale} />;
 }

@@ -1,10 +1,11 @@
 import { Fragment } from 'react';
 
+import { PrimaryRcCtaLabel } from '@/components/shell/reality-check-cta-label';
 import { Link } from '@/i18n/navigation';
 
 import type { AanbodContent } from '@/types/aanbod';
 
-type Props = { content: AanbodContent };
+type Props = { content: AanbodContent; locale: string };
 
 /** Split `\n` / `<br/>` zodat editorial regeleindes renderen als echte `<br />`. */
 function RichBrLines({ text }: { text: string }) {
@@ -124,7 +125,7 @@ function ClosingResolutionRc() {
 /**
  * Reality Check / aanbod — slim template: hero, outputs, flow, fit, closing.
  */
-export function AanbodPageView({ content }: Props) {
+export function AanbodPageView({ content, locale }: Props) {
   const c = content;
   const h = c.hero;
   const anchor = h.secondaryCtaAnchor?.replace(/^#/, '') ?? 'hoe-het-gaat';
@@ -165,7 +166,9 @@ export function AanbodPageView({ content }: Props) {
                 </div>
                 <div className="hero-actions rc-tpl-hero-actions reveal delay-3">
                   <Link className="btn-primary" href="/contact">
-                    <span>{h.primaryCta}</span>
+                    <span>
+                      <PrimaryRcCtaLabel locale={locale} label={h.primaryCta} />
+                    </span>
                     <span className="btn-arrow" />
                   </Link>
                   {h.secondaryCtaHref?.trim() ? (
@@ -397,7 +400,9 @@ export function AanbodPageView({ content }: Props) {
             ) : null}
             <div className="hero-actions rc-tpl-s06-actions reveal delay-2">
               <Link className="btn-primary" href="/contact">
-                <span>{c.closing.primaryCta}</span>
+                <span>
+                  <PrimaryRcCtaLabel locale={locale} label={c.closing.primaryCta} />
+                </span>
                 <span className="btn-arrow" />
               </Link>
             </div>

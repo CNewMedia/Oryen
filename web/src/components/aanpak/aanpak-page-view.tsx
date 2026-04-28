@@ -1,8 +1,9 @@
+import { PrimaryRcCtaLabel } from '@/components/shell/reality-check-cta-label';
 import { Link } from '@/i18n/navigation';
 
 import type { AanpakPageContent } from '@/types/aanpak-page';
 
-type Props = { content: AanpakPageContent };
+type Props = { content: AanpakPageContent; locale: string };
 
 function HeroBlueprint() {
   const pid = 'aanpakHeroBpGrid';
@@ -145,7 +146,7 @@ function ClosingResolution() {
  * Aanpak page: hero, waarom, vier stappen, volgende stap. Optional `lens` and
  * `methodBridge` blocks (legacy) render when present in CMS/bootstrap.
  */
-export function AanpakPageView({ content }: Props) {
+export function AanpakPageView({ content, locale }: Props) {
   const c = content;
   const b = c.methodBridge;
   const close = c.closing;
@@ -193,7 +194,9 @@ export function AanpakPageView({ content }: Props) {
               </div>
               <div className="hero-actions aanpak-tpl-hero-actions reveal delay-3">
                 <Link className="btn-primary" href="/aanbod">
-                  <span>{c.hero.primaryCta}</span>
+                  <span>
+                    <PrimaryRcCtaLabel locale={locale} label={c.hero.primaryCta} />
+                  </span>
                   <span className="btn-arrow" />
                 </Link>
                 <Link className="btn-ghost" href="/aanbod">
@@ -366,7 +369,9 @@ export function AanpakPageView({ content }: Props) {
             ) : null}
             <div className="hero-actions aanpak-tpl-s05-primary reveal delay-2">
               <Link className="btn-primary" href={close.primaryCtaHref as never}>
-                <span>{close.primaryCta}</span>
+                <span>
+                  <PrimaryRcCtaLabel locale={locale} label={close.primaryCta} />
+                </span>
                 <span className="btn-arrow" />
               </Link>
             </div>

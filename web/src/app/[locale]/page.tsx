@@ -49,6 +49,7 @@ export default async function HomePage({ params }: Props) {
         contactEmail={contactEmail}
         seeAllCasesLabel={tNav('seeAllCases')}
         meetTheTeamLabel={tNav('meetTheTeam')}
+        locale={locale}
       />
     </>
   );

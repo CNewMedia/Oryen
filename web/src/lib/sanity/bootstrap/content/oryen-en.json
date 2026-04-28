@@ -1,7 +1,7 @@
 {
   "Meta": {
     "siteName": "ORYEN",
-    "defaultDescription": "Direction before action. ORYEN shows where sales, marketing and follow-up leak results."
+    "defaultDescription": "Direction before action. ORYEN shows where sales, marketing and follow-up lose results."
   },
   "Global": {
     "header": {
@@ -38,7 +38,7 @@
     "diagnosis": {
       "spine": "01 — Diagnosis",
       "headlineEm": "Not every problem\ncalls for more marketing.",
-      "p1": "Sometimes it sits in sales. In follow-up. In the proposition. In tools, people or internal alignment. Sometimes in a decision made too early.\n\nYet the same thing often happens: another agency, a new tool, an extra campaign, more budget.\n\nWhile the real cause has not been named sharply enough.\n\nORYEN does not only look at what happens — but at what sits underneath.",
+      "p1": "Sometimes it sits in sales. In follow-up. In the proposition. In tools, people or internal coordination. Sometimes in a decision made too early.\n\nYet the same thing often happens: another agency, a new tool, an extra campaign, more budget.\n\nWhile the real cause has not been named sharply enough.\n\nORYEN does not only look at what happens — but at what sits underneath.",
       "focus": ""
     },
     "approach": {
@@ -51,18 +51,18 @@
       "steps": [
         {
           "n": "01",
-          "name": "Map",
-          "q": "What is already happening today?"
+          "name": "Map out",
+          "q": "What is happening today?"
         },
         {
           "n": "02",
-          "name": "Test results",
-          "q": "Where does result lag behind?"
+          "name": "Check results",
+          "q": "Where do results fall short?"
         },
         {
           "n": "03",
-          "name": "Find the cause",
-          "q": "Where is the real cause?"
+          "name": "Pinpoint the cause",
+          "q": "Where does the real cause sit?"
         },
         {
           "n": "04",
@@ -131,7 +131,7 @@
     "offer": {
       "spine": "06 — Offer",
       "name": "Reality Check",
-      "body": "The first paid moment where ORYEN gets sharp on where sales, marketing and follow-up lose results — and which intervention makes the difference first.\n\nNot a casual intake. Not a sales call in disguise.\n\nYou leave with clarity, priorities and a concrete next step. Whether you continue with ORYEN after that, you decide only then.",
+      "body": "The first paid moment where ORYEN gets sharp on where sales, marketing and follow-up lose results — and which intervention makes the difference first.\n\nNo casual intake. Not a sales conversation in disguise.\n\nYou leave with priorities and a concrete next step. Whether you continue with ORYEN after that, you decide only then.",
       "ctaPrimary": "Book a Reality Check conversation with Christophe",
       "secondaryHlBeforeEm": "",
       "secondaryHlEm": "",
@@ -142,14 +142,14 @@
   "Aanpak": {
     "meta": {
       "title": "Approach — ORYEN",
-      "description": "Get sharp on what really matters first. Only then decide what follows — without starting from campaigns or tools."
+      "description": "First get sharp on what really matters. Only then decide what follows — without starting from campaigns or tools."
     },
     "hero": {
       "eyebrow": "Approach",
-      "headlineLine1": "First, get sharp on what really matters.",
+      "headlineLine1": "First get sharp on what really matters.",
       "headlineLine2": "Then decide what follows.",
-      "body1": "ORYEN does not start with campaigns, tools or execution.",
-      "body2": "ORYEN starts by exposing where things actually stall — and which intervention makes the biggest difference now.",
+      "body1": "ORYEN does not begin with campaigns, tools or execution.",
+      "body2": "ORYEN begins by exposing where things actually stall — and which intervention makes the biggest difference now.",
       "primaryCta": "Book a Reality Check conversation with Christophe",
       "secondaryCta": "See the Reality Check"
     },
@@ -157,28 +157,28 @@
       "eyebrow": "01 — Why this approach",
       "headlineLine1": "Not moving faster.",
       "headlineLine2": "Looking more accurately first.",
-      "body1": "Many organisations sense something is stuck, and then add tools, campaigns or people before the cause is clear.\n\nThe result: visibility while follow-up is the problem. Software before a clear process. A new campaign before a fixed proposition.\n\nORYEN reverses that. First clarity on what must really be known — only then decide whether to invest.",
+      "body1": "Many organisations sense something is stuck, and then add tools, campaigns or people before the cause is sharp.\n\nThe result: visibility while follow-up is the problem. Software before a solid process. A new campaign before a fixed proposition.\n\nORYEN reverses that. First see what really needs to be known — only then decide whether to invest.",
       "body2": ""
     },
     "steps": {
       "eyebrow": "02 — The four steps",
-      "headline": "From ambiguity to sequence.",
+      "headline": "From blur to order.",
       "stepPrefix": "Step",
       "steps": [
         {
           "n": "01",
-          "title": "Map",
-          "body": "What is already happening today?\n\nWe look at offer, audience, communication, sales, follow-up, tools and internal choices. Not from theory. From one question: what does this do to results today?"
+          "title": "Map out",
+          "body": "What is happening today?\n\nWe look at offer, audience, communication, sales, follow-up, tools and internal choices. Not from theory. From one question: what does this do to results today?"
         },
         {
           "n": "02",
-          "title": "Test results",
-          "body": "Where does the result fall short?\n\nNot only in numbers, but in signals: leads that do not fit, follow-up that is too slow or fragmented, sales struggling to explain the difference, marketing that is visible but creates little movement, tools that add more complexity than grip, customers who drop off or keep comparing."
+          "title": "Check results",
+          "body": "Where do results fall short?\n\nNot only in numbers, but in signals: leads that do not fit, follow-up that is too slow or fragmented, sales struggling to explain the difference, marketing that is visible but creates little movement, tools that add more complexity than grip, customers who drop off or keep comparing."
         },
         {
           "n": "03",
-          "title": "Find the cause",
-          "body": "Where is the real cause?\n\nIn the proposition? In audience choice? In sales, marketing, follow-up, tools, people, internal alignment? Or in a decision that seemed logical but started from a wrong assumption?\n\nThat distinction matters. Solve the wrong problem and you keep investing without real progress."
+          "title": "Pinpoint the cause",
+          "body": "Where does the real cause sit?\n\nIn the proposition? In audience choice? In sales, marketing, follow-up, tools, people, internal coordination? Or in a decision that seemed logical but started from a wrong assumption?\n\nThat distinction matters. Solve the wrong problem and you keep investing without real progress."
         },
         {
           "n": "04",
@@ -192,7 +192,7 @@
       "headlineLine1": "The Reality Check is the first concrete move.",
       "headlineLine2": "",
       "body1": "In one compact pass, what is stuck, what must happen first and what can deliberately wait becomes visible.",
-      "body2": "What happens next is not fixed. Depending on the outcome: course correction, short guidance, depth — or execution later. No mandatory follow-on programme. First, substance that fits.",
+      "body2": "What happens next is not fixed. Depending on the outcome: course correction, short guidance, depth — or execution later. No mandatory follow-on programme. First content that holds.",
       "primaryCta": "Book a Reality Check conversation with Christophe",
       "primaryCtaHref": "/aanbod",
       "secondaryCta": "See the Reality Check →",
@@ -221,12 +221,12 @@
       "fitHeadlineLine1": "",
       "fitHeadlineEm": "",
       "fitHeadlineLine2": "",
-      "fitIntro": "The Reality Check makes sense if you already decide, invest and move — but sense that your operations are not delivering what they should.",
+      "fitIntro": "The Reality Check makes sense if you already decide, invest and move — but sense that how things run is not delivering what they should.",
       "welLabel": "Right for you if:",
       "welItems": [
         "You want to know what must come first, not what sells fastest.",
         "You do not want a second investment before the order is clear.",
-        "You want clarity on what to fix internally and where outside help only makes sense later.",
+        "You want to see clearly where to fix things internally and where outside help only makes sense later.",
         "You want a first decision, not a pile of impressions."
       ],
       "notForLabel": "Not for you if:",
@@ -289,7 +289,7 @@
     },
     "closing": {
       "spine": "04 — Next step",
-      "headlineLine1": "First know where it stalls.\nThen choose what is needed.",
+      "headlineLine1": "First know where things stall.\nThen choose what is needed.",
       "headlineLine2": "",
       "headlineEm": "",
       "body1": "Always a personal reply from Christophe. No mandatory follow-on, no automatic upgrade.",
@@ -303,7 +303,7 @@
   "Contact": {
     "meta": {
       "title": "Contact — ORYEN",
-      "description": "A concrete first conversation rather than a long intake. Tell us briefly what is at stake — we look at whether a Reality Check makes sense."
+      "description": "A concrete first conversation rather than a long intake. Tell us briefly what is at stake — we look at whether a Reality Check or another first conversation makes sense."
     },
     "hero": {
       "eyebrow": "Contact",
@@ -312,7 +312,7 @@
       "primaryCta": "Start the conversation",
       "primaryCtaHref": "#contact-form",
       "secondaryCta": "See the Reality Check",
-      "secondaryCtaHref": "/offer"
+      "secondaryCtaHref": "/aanbod"
     },
     "expectations": {
       "headline": "What to expect",
@@ -379,7 +379,7 @@
   },
   "Team": {
     "christophe": {
-      "body": "23 years of experience with brands — large and small, B2B and consumer-facing. Christophe knows execution from the inside out: from brand positioning and boutique agency work to video, websites, CRM and HubSpot.",
+      "body": "23 years of experience with brands — large and small, B2B and consumer-facing. He knows execution from the inside out: from brand positioning and boutique agency work to video, websites, CRM and HubSpot.",
       "italicLine": "I've seen it all — what works en what not.",
       "bodyAfter": "That is where ORYEN makes the difference — not with tools, but with direction."
     },

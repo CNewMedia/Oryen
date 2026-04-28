@@ -6,6 +6,8 @@ import { HeroSignature } from '@/components/premium/hero-signature';
 import type { HomeContent } from '@/types/home-content';
 import type { HomeImageUrls } from '@/lib/sanity/load-homepage';
 
+import { PrimaryRcCtaLabel } from '@/components/shell/reality-check-cta-label';
+
 import { DiagLine } from './diag-line';
 
 /** Split op `<br/>` of newline in copy (JSON/Sanity) en render echte `<br />`. */
@@ -55,6 +57,7 @@ type Props = {
   contactEmail: string;
   seeAllCasesLabel: string;
   meetTheTeamLabel: string;
+  locale: string;
 };
 
 export function HomePageView({
@@ -63,6 +66,7 @@ export function HomePageView({
   contactEmail: _contactEmail,
   seeAllCasesLabel,
   meetTheTeamLabel,
+  locale,
 }: Props) {
   const t = home;
   const steps = t.approach.steps;
@@ -113,7 +117,9 @@ export function HomePageView({
             ) : null}
             <div className="hero-actions reveal delay-3">
               <Link className="btn-primary" href="/aanbod">
-                <span>{t.hero.primaryCta}</span>
+                <span>
+                  <PrimaryRcCtaLabel locale={locale} label={t.hero.primaryCta} />
+                </span>
                 <span className="btn-arrow" />
               </Link>
               <Link className="btn-ghost" href="/aanpak">
@@ -405,7 +411,9 @@ export function HomePageView({
                 </p>
                 <span className="offer-line reveal delay-2" />
                 <Link className="offer-btn reveal delay-3" href="/aanbod">
-                  <span>{t.offer.ctaPrimary}</span>
+                  <span>
+                    <PrimaryRcCtaLabel locale={locale} label={t.offer.ctaPrimary} />
+                  </span>
                   <span
                     className="btn-arrow"
                     style={{ background: 'var(--amber)' }}

@@ -39,7 +39,7 @@ export default async function AanpakPage({ params }: Props) {
   return (
     <>
       <AanpakHeroEffects />
-      <AanpakPageView content={content} />
+      <AanpakPageView content={content} locale={locale} />
     </>
   );
 }
