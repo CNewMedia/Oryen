@@ -88,7 +88,7 @@ function patchNl() {
       name: 'Reality Check',
       body:
         'Het eerste betaalde moment waarin ORYEN scherp krijgt waar sales, marketing en opvolging resultaat verliezen — en welke ingreep eerst verschil maakt.\n\nGeen vrijblijvende intake. Geen verkoopgesprek in vermomming.\n\nU vertrekt met duidelijkheid, prioriteiten en een concrete volgende stap. Of u daarna verder werkt met ORYEN, beslist u pas dan.',
-      ctaPrimary: 'Plan de Reality Check',
+      ctaPrimary: 'Plan een Reality Check-gesprek',
       secondaryHlBeforeEm: '',
       secondaryHlEm: '',
       secondaryBody: '',
@@ -179,7 +179,7 @@ function patchEn() {
       name: 'Reality Check',
       body:
         'The first paid moment where ORYEN gets sharp on where sales, marketing and follow-up lose results — and which intervention makes the difference first.\n\nNot a casual intake. Not a sales call in disguise.\n\nYou leave with clarity, priorities and a concrete next step. Whether you continue with ORYEN after that, you decide only then.',
-      ctaPrimary: 'Book the Reality Check',
+      ctaPrimary: 'Book a Reality Check conversation',
       secondaryHlBeforeEm: '',
       secondaryHlEm: '',
       secondaryBody: '',

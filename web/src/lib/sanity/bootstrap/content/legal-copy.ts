@@ -118,6 +118,8 @@ function privacyNl(): PtBlock[] {
     p(
       'Dit privacybeleid kan worden aangepast wanneer onze werking, onze partners of de toepasselijke regelgeving wijzigen. De meest recente versie is altijd raadpleegbaar op oryen.be/privacy.'
     ),
+
+    p('ORYEN is een geregistreerd merk van CNIP BV.'),
   ];
 }
 
@@ -182,6 +184,8 @@ function privacyEn(): PtBlock[] {
     p(
       'This privacy statement may be updated when our operations, our partners or applicable legislation change. The most recent version is always available at oryen.be/privacy.'
     ),
+
+    p('ORYEN is a registered trademark of CNIP BV.'),
   ];
 }
 
@@ -238,6 +242,8 @@ function cookiesNl(): PtBlock[] {
     p(
       'Vragen over dit cookiebeleid kunnen worden gericht aan CNIP bv (ORYEN), Ottergemsesteenweg Zuid 808 b125, 9000 Gent, info@cnip.be.'
     ),
+
+    p('ORYEN is een geregistreerd merk van CNIP BV.'),
   ];
 }
 
@@ -292,6 +298,8 @@ function cookiesEn(): PtBlock[] {
     p(
       'Questions about this cookie policy can be addressed to CNIP bv (ORYEN), Ottergemsesteenweg Zuid 808 b125, 9000 Ghent, info@cnip.be.'
     ),
+
+    p('ORYEN is a registered trademark of CNIP BV.'),
   ];
 }
 
