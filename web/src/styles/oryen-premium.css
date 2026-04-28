@@ -1531,6 +1531,39 @@ footer {
 .footer-social a:hover {
   color: rgba(242, 239, 232, 0.85);
 }
+
+.footer-lang {
+  margin-top: 0.35rem;
+}
+.footer-lang-inner {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+}
+.footer-lang a {
+  color: rgba(242, 239, 232, 0.5);
+  text-decoration: none;
+  transition: none;
+}
+.footer-lang a:hover {
+  color: rgba(242, 239, 232, 0.5);
+}
+.footer-lang a[aria-current='true'] {
+  color: rgba(242, 239, 232, 0.98);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.footer-lang a[aria-current='true']:hover {
+  color: rgba(242, 239, 232, 0.98);
+}
+.footer-lang-sep {
+  color: rgba(242, 239, 232, 0.35);
+  user-select: none;
+}
+
 footer::before {
   content: '';
   position: absolute;

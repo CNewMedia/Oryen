@@ -1,3 +1,4 @@
+import { FooterLanguageSwitch } from '@/components/shell/footer-language-switch';
 import { Link } from '@/i18n/navigation';
 import type { PathnameHref } from '@/i18n/routing';
 
@@ -58,6 +59,7 @@ export function SiteFooter({
             </ul>
           </nav>
         ) : null}
+        <FooterLanguageSwitch />
       </div>
       <div className="footer-right">
         <span className="footer-base">
