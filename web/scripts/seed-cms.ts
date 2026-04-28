@@ -107,7 +107,7 @@ function siteSettingsDoc(locale: Locale, m: OryBundle): Record<string, unknown> 
     footerBrandShort: m.Global.footer.brandShort,
     footerTagline: m.Global.footer.tagline,
     footerDomain: m.Global.footer.domain,
-    contactEmail: 'info@cnip.be',
+    contactEmail: 'info@oryen.be',
     contactAddress: 'Ottergemsesteenweg Zuid 808 b125\n9000 Gent',
   };
 }

@@ -1,8 +1,9 @@
 /**
  * Standard bootstrap copy for ORYEN's legal pages (privacy + cookies).
  *
- * Operator: ORYEN is a registered trade name of CNIP bv
- * (BE 0478.506.146, Ottergemsesteenweg Zuid 808 b125, 9000 Gent, info@cnip.be).
+ * Verwerkingsverantwoordelijke: ORYEN (Belgisch ondernemingsnummer BE 0478.506.146),
+ * Ottergemsesteenweg Zuid 808 b125, 9000 Gent. Contact: info@oryen.be.
+ * Juridische houder van het merk wordt alleen genoemd in de afsluitende merkzin onderaan elk beleid.
  *
  * Tracking in use on the public site:
  * - Google Analytics 4
@@ -52,10 +53,10 @@ function bullet(text: string): PtBlock {
 }
 
 const operatorNl =
-  'ORYEN is een geregistreerd handelsmerk van CNIP bv, met ondernemingsnummer BE 0478.506.146 en maatschappelijke zetel te Ottergemsesteenweg Zuid 808 b125, 9000 Gent, België. In dit document verwijzen "ORYEN", "wij" of "ons" naar CNIP bv, handelend onder de merknaam ORYEN. Contact: info@cnip.be.';
+  'ORYEN verwerkt persoonsgegevens als verwerkingsverantwoordelijke, met maatschappelijke zetel te Ottergemsesteenweg Zuid 808 b125, 9000 Gent, België, ondernemingsnummer BE 0478.506.146. In dit document verwijzen "ORYEN", "wij" of "ons" naar deze onderneming. Contact: info@oryen.be.';
 
 const operatorEn =
-  'ORYEN is a registered trade name of CNIP bv, company number BE 0478.506.146, registered office at Ottergemsesteenweg Zuid 808 b125, 9000 Ghent, Belgium. In this document, "ORYEN", "we" or "us" refers to CNIP bv, operating under the ORYEN brand. Contact: info@cnip.be.';
+  'ORYEN processes personal data as controller, with registered office at Ottergemsesteenweg Zuid 808 b125, 9000 Ghent, Belgium, company number BE 0478.506.146. In this document, "ORYEN", "we" or "us" refers to this company. Contact: info@oryen.be.';
 
 function privacyNl(): PtBlock[] {
   return [
@@ -101,7 +102,7 @@ function privacyNl(): PtBlock[] {
 
     h2('Uw rechten'),
     p(
-      'U heeft op elk moment recht op inzage, verbetering, verwijdering, beperking, bezwaar en overdraagbaarheid van uw persoonsgegevens, en het recht om een gegeven toestemming opnieuw in te trekken. Uw verzoek richt u aan info@cnip.be; wij behandelen het binnen de wettelijke termijn. U kan ook klacht indienen bij de Gegevensbeschermingsautoriteit (gegevensbeschermingsautoriteit.be).'
+      'U heeft op elk moment recht op inzage, verbetering, verwijdering, beperking, bezwaar en overdraagbaarheid van uw persoonsgegevens, en het recht om een gegeven toestemming opnieuw in te trekken. Uw verzoek richt u aan info@oryen.be; wij behandelen het binnen de wettelijke termijn. U kan ook klacht indienen bij de Gegevensbeschermingsautoriteit (gegevensbeschermingsautoriteit.be).'
     ),
 
     h2('Cookies'),
@@ -111,7 +112,7 @@ function privacyNl(): PtBlock[] {
 
     h2('Contact'),
     p(
-      'Vragen over dit privacybeleid of over uw persoonsgegevens kunnen steeds worden gesteld aan CNIP bv (ORYEN), Ottergemsesteenweg Zuid 808 b125, 9000 Gent, info@cnip.be.'
+      'Vragen over dit privacybeleid of over uw persoonsgegevens kunnen steeds worden gesteld aan ORYEN, Ottergemsesteenweg Zuid 808 b125, 9000 Gent, info@oryen.be.'
     ),
 
     h2('Wijzigingen'),
@@ -167,7 +168,7 @@ function privacyEn(): PtBlock[] {
 
     h2('Your rights'),
     p(
-      'You have the right to access, rectify, erase, restrict, object to and port your personal data at any time, and to withdraw consent where processing is based on it. Requests can be addressed to info@cnip.be and will be handled within the legal timeframe. You may also lodge a complaint with the Belgian Data Protection Authority (gegevensbeschermingsautoriteit.be).'
+      'You have the right to access, rectify, erase, restrict, object to and port your personal data at any time, and to withdraw consent where processing is based on it. Requests can be addressed to info@oryen.be and will be handled within the legal timeframe. You may also lodge a complaint with the Belgian Data Protection Authority (gegevensbeschermingsautoriteit.be).'
     ),
 
     h2('Cookies'),
@@ -177,7 +178,7 @@ function privacyEn(): PtBlock[] {
 
     h2('Contact'),
     p(
-      'Questions about this privacy statement or about your personal data can be addressed to CNIP bv (ORYEN), Ottergemsesteenweg Zuid 808 b125, 9000 Ghent, info@cnip.be.'
+      'Questions about this privacy statement or about your personal data can be addressed to ORYEN, Ottergemsesteenweg Zuid 808 b125, 9000 Ghent, info@oryen.be.'
     ),
 
     h2('Changes'),
@@ -240,7 +241,7 @@ function cookiesNl(): PtBlock[] {
 
     h2('Contact'),
     p(
-      'Vragen over dit cookiebeleid kunnen worden gericht aan CNIP bv (ORYEN), Ottergemsesteenweg Zuid 808 b125, 9000 Gent, info@cnip.be.'
+      'Vragen over dit cookiebeleid kunnen worden gericht aan ORYEN, Ottergemsesteenweg Zuid 808 b125, 9000 Gent, info@oryen.be.'
     ),
 
     p('ORYEN is een geregistreerd merk van CNIP BV.'),
@@ -296,7 +297,7 @@ function cookiesEn(): PtBlock[] {
 
     h2('Contact'),
     p(
-      'Questions about this cookie policy can be addressed to CNIP bv (ORYEN), Ottergemsesteenweg Zuid 808 b125, 9000 Ghent, info@cnip.be.'
+      'Questions about this cookie policy can be addressed to ORYEN, Ottergemsesteenweg Zuid 808 b125, 9000 Ghent, info@oryen.be.'
     ),
 
     p('ORYEN is a registered trademark of CNIP BV.'),
@@ -324,8 +325,8 @@ export function getLegalPageDescription(
 ): string {
   if (key === 'privacy') {
     return locale === 'en'
-      ? 'How ORYEN (CNIP bv, BE 0478.506.146) processes personal data and which rights apply under the GDPR.'
-      : 'Hoe ORYEN (CNIP bv, BE 0478.506.146) persoonsgegevens verwerkt en welke rechten u heeft onder de GDPR.';
+      ? 'How ORYEN processes personal data and which rights apply under the GDPR.'
+      : 'Hoe ORYEN persoonsgegevens verwerkt en welke rechten u heeft onder de GDPR.';
   }
   return locale === 'en'
     ? 'ORYEN does not use its own commercial cookies. Overview of the third-party analytics and advertising services in use and how to manage them.'

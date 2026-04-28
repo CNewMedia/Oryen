@@ -59,7 +59,7 @@ export function getBootstrapSiteSettings(locale: string): SiteSettingsResolved {
     footerBrandShort: m.Global.footer.brandShort,
     footerTagline: m.Global.footer.tagline,
     footerDomain: m.Global.footer.domain,
-    contactEmail: 'info@cnip.be',
+    contactEmail: 'info@oryen.be',
     contactPhone: null,
     contactAddress: 'Ottergemsesteenweg Zuid 808 b125\n9000 Gent',
     legalLinks: [
