@@ -24,16 +24,19 @@ function mergeWhyTail(base: AanpakWhyTail | undefined, doc: unknown): AanpakWhyT
 }
 
 function sanitizeFromBase(merged: AanpakPageContent, base: AanpakPageContent): AanpakPageContent {
-  const lookAt = Array.isArray(merged.lens.lookAt) ? merged.lens.lookAt : base.lens.lookAt;
   const steps = Array.isArray(merged.steps.steps) ? merged.steps.steps : base.steps.steps;
-  const whyTail = merged.why.tail
-    ? mergeWhyTail(base.why.tail, merged.why.tail)
-    : base.why.tail;
 
-  return {
+  let why = { ...merged.why };
+  if (merged.why.tail) {
+    why = {
+      ...why,
+      tail: mergeWhyTail(base.why.tail, merged.why.tail),
+    };
+  }
+
+  const out: AanpakPageContent = {
     ...merged,
-    why: { ...merged.why, tail: whyTail ?? merged.why.tail },
-    lens: { ...merged.lens, lookAt },
+    why,
     steps: { ...merged.steps, steps: steps as AanpakStep[] },
     closing: {
       ...merged.closing,
@@ -45,6 +48,15 @@ function sanitizeFromBase(merged: AanpakPageContent, base: AanpakPageContent): A
         : base.closing.secondaryCtaHref,
     },
   };
+
+  if (merged.lens) {
+    const lookAt = Array.isArray(merged.lens.lookAt)
+      ? merged.lens.lookAt
+      : base.lens?.lookAt ?? [];
+    out.lens = { ...merged.lens, lookAt };
+  }
+
+  return out;
 }
 
 function mergeSanity(base: AanpakPageContent, doc: SanityDoc): AanpakPageContent {
@@ -83,9 +95,16 @@ function mergeSanity(base: AanpakPageContent, doc: SanityDoc): AanpakPageContent
     };
   }
   if (isRecord(doc.lens)) {
+    const lensBase = base.lens ?? {
+      eyebrow: '',
+      headlineLine1: '',
+      leadIn: '',
+      lookAt: [] as string[],
+      conclusion: '',
+    };
     out = {
       ...out,
-      lens: { ...base.lens, ...doc.lens } as AanpakPageContent['lens'],
+      lens: { ...lensBase, ...doc.lens } as NonNullable<AanpakPageContent['lens']>,
     };
   }
   if (isRecord(doc.steps)) {
@@ -98,7 +117,7 @@ function mergeSanity(base: AanpakPageContent, doc: SanityDoc): AanpakPageContent
     out = {
       ...out,
       methodBridge: {
-        ...base.methodBridge,
+        ...(base.methodBridge ?? {}),
         ...doc.methodBridge,
       } as AanpakPageContent['methodBridge'],
     };

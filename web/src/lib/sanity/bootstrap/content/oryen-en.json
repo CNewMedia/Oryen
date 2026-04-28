@@ -142,93 +142,62 @@
   "Aanpak": {
     "meta": {
       "title": "Approach — ORYEN",
-      "description": "The ORYEN method: get clear on what is actually at play first, only then decide what follows."
+      "description": "Get sharp on what really matters first. Only then decide what follows — without starting from campaigns or tools."
     },
     "hero": {
       "eyebrow": "Approach",
-      "headlineLine1": "Get clear first",
-      "headlineLine2": "on what is really at play.",
-      "headlineEm": "Only then decide what follows.",
+      "headlineLine1": "First, get sharp on what really matters.",
+      "headlineLine2": "Then decide what follows.",
       "body1": "ORYEN does not start with campaigns, tools or execution.",
-      "body2": "ORYEN starts by exposing where things really stall and which intervention makes the biggest difference now.",
+      "body2": "ORYEN starts by exposing where things actually stall — and which intervention makes the biggest difference now.",
       "primaryCta": "Book the Reality Check",
       "secondaryCta": "See the Reality Check"
     },
     "why": {
       "eyebrow": "01 — Why this approach",
-      "headlineLine1": "Not move faster.",
-      "headlineLine2": "Look more precisely first.",
-      "body1": "Many organisations feel something is stuck, yet add tools, campaigns or people before the cause is clear.\n\nSometimes it sits in sales.\nSometimes in follow-up.\nSometimes in the proposition.\nSometimes in tools.\nSometimes in people.\nSometimes in internal alignment.\nSometimes in a decision made too early.\n\nYet the same thing often happens:\nan agency joins in, a new tool, an extra campaign, more budget or more pressure on the team.\n\nWhile the real cause has not been named sharply enough.\n\nORYEN does not only look at what happens.\nWe look at what sits underneath:\n\nwhere is attention lost?\nwhere does follow-up drop off?\nwhere does selling become harder than it needs to be?\nwhere does marketing become noise instead of leverage?\nwhere does the chosen fix not match the real problem?",
-      "body2": "ORYEN starts from understanding: first see what actually needs to be known before another decision or investment is made.",
-      "tail": {
-        "headlineLine1": "The whole, not",
-        "headlineLine2Em": "one lever.",
-        "body": "We read commercial reality as one system: follow-up, expectations, tools, teams, proposition and sequence."
-      }
-    },
-    "lens": {
-      "eyebrow": "02 — How ORYEN looks",
-      "headlineLine1": "Where we look",
-      "headlineEm": "among other things.",
-      "leadIn": "Not at a single isolated cause. At where the system shows strain.",
-      "lookAt": [
-        "where follow-up drops",
-        "where expectation and reality diverge",
-        "where complexity hurts instead of helping",
-        "where the constraint sits elsewhere than where you invest"
-      ],
-      "conclusion": "ORYEN makes clear where sales, marketing and follow-up reinforce each other — or work against each other.\n\nNot to create more noise.\nBut to get sharp on:\n\nwhat holds back results today;\nwhere time, budget or energy leaks;\nwhich assumption does not hold;\nwhat deserves priority now;\nwhat is better left waiting;\nand which move makes the difference first.\n\nOnly then does it become clear what is — and is not — the real sticking point."
+      "headlineLine1": "Not moving faster.",
+      "headlineLine2": "Looking more accurately first.",
+      "body1": "Many organisations sense something is stuck, and then add tools, campaigns or people before the cause is clear.\n\nThe result: visibility while follow-up is the problem. Software before a clear process. A new campaign before a fixed proposition.\n\nORYEN reverses that. First clarity on what must really be known — only then decide whether to invest.",
+      "body2": ""
     },
     "steps": {
-      "eyebrow": "03 — The four steps",
+      "eyebrow": "02 — The four steps",
       "headline": "From ambiguity to sequence.",
       "stepPrefix": "Step",
       "steps": [
         {
           "n": "01",
           "title": "Map",
-          "body": "What is already happening today?\n\nWe look at offer, audience, communication, sales, follow-up, tools and internal choices.\n\nNot from theory.\nBut from the question:\n\nwhat does this do to results today?"
+          "body": "What is already happening today?\n\nWe look at offer, audience, communication, sales, follow-up, tools and internal choices. Not from theory. From one question: what does this do to results today?"
         },
         {
           "n": "02",
           "title": "Test results",
-          "body": "Where does result lag behind?\n\nNot only in numbers, but also in signals:\n\nleads that do not fit;\nfollow-up that is too slow or fragmented;\nsales struggling to explain the difference;\nmarketing that is visible but barely moves the needle;\ntools that add complexity instead of grip;\ncustomers who drop off, hesitate or keep comparing."
+          "body": "Where does the result fall short?\n\nNot only in numbers, but in signals: leads that do not fit, follow-up that is too slow or fragmented, sales struggling to explain the difference, marketing that is visible but creates little movement, tools that add more complexity than grip, customers who drop off or keep comparing."
         },
         {
           "n": "03",
           "title": "Find the cause",
-          "body": "Where is the real cause?\n\nIn the proposition?\nIn audience choice?\nIn sales?\nIn marketing?\nIn follow-up?\nIn tools?\nIn people?\nIn internal alignment?\nOr in a decision that seemed logical but started from the wrong assumption?\n\nThat distinction matters.\n\nBecause whoever solves the wrong problem keeps investing without meaningful progress."
+          "body": "Where is the real cause?\n\nIn the proposition? In audience choice? In sales, marketing, follow-up, tools, people, internal alignment? Or in a decision that seemed logical but started from a wrong assumption?\n\nThat distinction matters. Solve the wrong problem and you keep investing without real progress."
         },
         {
           "n": "04",
           "title": "Make the call",
-          "body": "What must be tackled first?\n\nNot everything at once.\nNot another list of loose actions.\n\nBut a clear priority:\n\nthis first.\nnot this yet.\nstop this.\nreframe this.\n\nThat is direction before execution."
+          "body": "What must be tackled first?\n\nNot everything at once. Not another list of loose actions. But a clear priority: this first. Not this yet. Stop this. Reframe this.\n\nThat is direction before execution."
         }
       ]
     },
-    "methodBridge": {
-      "eyebrow": "04 — From method to a concrete move",
-      "microEyebrow": "Next step",
-      "summary": "This line avoids costly mismatches: visibility when follow-up is the issue, software before a clear process, or campaigns before a stable proposition.",
-      "headline": "The Reality Check is the first concrete step.",
-      "body1": "In one compact pass it becomes clear what is stuck, what must happen first and what can deliberately wait.",
-      "followTitle": "What happens next is not fixed",
-      "followBody": "Depending on the outcome: adjust internally, short support, deeper work — or execution later. No mandatory follow-on programme; substance first.",
-      "cta": "Book the Reality Check",
-      "secondaryCta": "See the Reality Check →",
-      "secondaryCtaHref": "/aanbod"
-    },
     "closing": {
-      "spineLabel": "05 — Clarity first",
-      "headlineLine1": "Clarity first.",
-      "headlineLine2": "Execution only when it holds.",
-      "body1": "If you want to know what is truly at play here, you do not start with noise — you start with sharpness.",
-      "body2": "For you if\n\n• enough is already happening, but results lag behind\n• sales, marketing or follow-up fail to reinforce each other enough\n• you sense the problem runs deeper than one campaign, one tool or one vendor\n• you are not sure the next investment is the right one\n• you first want to know what truly needs to change before deciding again\n\nNot for you if\n\n• you simply want something executed quickly\n• you are mainly seeking confirmation for a decision already made\n• you expect a tool, agency or campaign alone to make the difference\n• you are unwilling to look at the cause first",
+      "spineLabel": "03 — Next step",
+      "headlineLine1": "The Reality Check is the first concrete move.",
+      "headlineLine2": "",
+      "body1": "In one compact pass, what is stuck, what must happen first and what can deliberately wait becomes visible.",
+      "body2": "What happens next is not fixed. Depending on the outcome: course correction, short guidance, depth — or execution later. No mandatory follow-on programme. First, substance that fits.",
       "primaryCta": "Book the Reality Check",
       "primaryCtaHref": "/aanbod",
-      "secondaryCta": "Get in touch →",
-      "secondaryCtaHref": "/contact",
-      "footnote": "Direction before action."
+      "secondaryCta": "See the Reality Check →",
+      "secondaryCtaHref": "/aanbod",
+      "footnote": ""
     }
   },
   "Aanbod": {

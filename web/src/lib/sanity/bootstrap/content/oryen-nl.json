@@ -142,15 +142,14 @@
   "Aanpak": {
     "meta": {
       "title": "Aanpak — ORYEN",
-      "description": "De ORYEN-methodiek: eerst scherp krijgen wat werkelijk speelt, dan pas beslissen wat volgt."
+      "description": "Eerst scherp krijgen wat echt speelt. Dan pas beslissen wat volgt — zonder met campagnes of tools te beginnen."
     },
     "hero": {
       "eyebrow": "Aanpak",
-      "headlineLine1": "Eerst scherp krijgen",
-      "headlineLine2": "wat echt speelt.",
-      "headlineEm": "Dan pas beslissen wat volgt.",
+      "headlineLine1": "Eerst scherp krijgen wat echt speelt.",
+      "headlineLine2": "Dan pas beslissen wat volgt.",
       "body1": "ORYEN begint niet met campagnes, tools of uitvoering.",
-      "body2": "ORYEN begint met blootleggen waar het werkelijk vastloopt en welke ingreep nu het meeste verschil maakt.",
+      "body2": "ORYEN begint met blootleggen waar het werkelijk vastloopt — en welke ingreep nu het meeste verschil maakt.",
       "primaryCta": "Plan de Reality Check",
       "secondaryCta": "Bekijk de Reality Check"
     },
@@ -158,77 +157,47 @@
       "eyebrow": "01 — Waarom deze aanpak",
       "headlineLine1": "Niet sneller bewegen.",
       "headlineLine2": "Eerst juister kijken.",
-      "body1": "Veel organisaties voelen dat er iets stokt, maar zetten extra tools, campagnes of mensen in vóór de oorzaak scherp is.\n\nSoms zit het in sales.\nSoms in opvolging.\nSoms in de propositie.\nSoms in tools.\nSoms in mensen.\nSoms in interne afstemming.\nSoms in een keuze die te vroeg werd gemaakt.\n\nToch gebeurt vaak hetzelfde:\ner komt een bureau bij, een nieuwe tool, een extra campagne, meer budget of meer druk op het team.\n\nTerwijl de echte oorzaak nog niet scherp genoeg benoemd is.\n\nORYEN kijkt niet alleen naar wat er gebeurt.\nWe kijken naar wat eronder zit:\n\nwaar loopt aandacht verloren?\nwaar haakt opvolging af?\nwaar wordt verkoop moeilijker dan nodig?\nwaar wordt marketing ruis in plaats van hefboom?\nwaar klopt de gekozen oplossing niet met het echte probleem?",
-      "body2": "ORYEN vertrekt van begrip: eerst zicht op wat echt gekend moet worden, vóór er opnieuw beslist of geïnvesteerd wordt.",
-      "tail": {
-        "headlineLine1": "Het geheel, niet",
-        "headlineLine2Em": "één schakel.",
-        "body": "We lezen de commerciële realiteit als één stelsel: opvolging, verwachtingen, tools, teams, propositie en volgorde."
-      }
-    },
-    "lens": {
-      "eyebrow": "02 — Hoe ORYEN kijkt",
-      "headlineLine1": "Waar we",
-      "headlineEm": "onder meer naar kijken.",
-      "leadIn": "Niet naar één losse oorzaak. Wel naar waar het stelsel breuken vertoont.",
-      "lookAt": [
-        "waar opvolging wegvalt",
-        "waar verwachting en realiteit uit elkaar lopen",
-        "waar complexiteit schaadt in plaats van helpt",
-        "waar het knelpunt elders zit dan waar u investeert"
-      ],
-      "conclusion": "ORYEN maakt duidelijk waar sales, marketing en opvolging elkaar versterken — of net tegenwerken.\n\nNiet om nog meer ruis te creëren.\nWel om scherp te krijgen:\n\nwat vandaag resultaat tegenhoudt;\nwaar tijd, budget of energie verloren gaat;\nwelke aanname niet klopt;\nwat nu prioriteit heeft;\nwat beter nog wacht;\nen welke ingreep eerst verschil maakt.\n\nPas dan wordt zichtbaar wat wél en niet het echte struikelpunt is."
+      "body1": "Veel organisaties voelen dat er iets stokt, en zetten dan extra tools, campagnes of mensen in vóór de oorzaak scherp is.\n\nHet gevolg: zichtbaarheid terwijl opvolging het probleem is. Software vóór een helder proces. Een nieuwe campagne vóór een vaste propositie.\n\nORYEN draait dat om. Eerst zicht op wat echt gekend moet worden — pas dan beslissen of investeren.",
+      "body2": ""
     },
     "steps": {
-      "eyebrow": "03 — De vier stappen",
+      "eyebrow": "02 — De vier stappen",
       "headline": "Van onduidelijkheid naar volgorde.",
       "stepPrefix": "Stap",
       "steps": [
         {
           "n": "01",
           "title": "In kaart brengen",
-          "body": "Wat gebeurt er vandaag al?\n\nWe kijken naar aanbod, doelgroep, communicatie, sales, opvolging, tools en interne keuzes.\n\nNiet vanuit theorie.\nWel vanuit de vraag:\n\nwat doet dit vandaag met resultaat?"
+          "body": "Wat gebeurt er vandaag al?\n\nWe kijken naar aanbod, doelgroep, communicatie, sales, opvolging, tools en interne keuzes. Niet vanuit theorie. Wel vanuit één vraag: wat doet dit vandaag met resultaat?"
         },
         {
           "n": "02",
           "title": "Resultaat toetsen",
-          "body": "Waar blijft het resultaat achter?\n\nNiet alleen in cijfers, maar ook in signalen:\n\nleads die niet goed passen;\nopvolging die te traag of te versnipperd loopt;\nsales die moeite heeft om het verschil uit te leggen;\nmarketing die wel zichtbaar is, maar weinig beweging brengt;\ntools die meer complexiteit dan grip geven;\nklanten die afhaken, twijfelen of blijven vergelijken."
+          "body": "Waar blijft het resultaat achter?\n\nNiet alleen in cijfers, maar ook in signalen: leads die niet passen, opvolging die te traag of versnipperd loopt, sales die moeite heeft het verschil uit te leggen, marketing die zichtbaar is maar weinig beweging brengt, tools die meer complexiteit dan grip geven, klanten die afhaken of blijven vergelijken."
         },
         {
           "n": "03",
           "title": "Oorzaak bepalen",
-          "body": "Waar zit de echte oorzaak?\n\nIn de propositie?\nIn doelgroepkeuze?\nIn sales?\nIn marketing?\nIn opvolging?\nIn tools?\nIn mensen?\nIn interne afstemming?\nOf in een beslissing die logisch leek, maar vertrok van een verkeerde aanname?\n\nDat onderscheid maakt het verschil.\n\nWant wie het verkeerde probleem oplost, blijft investeren zonder wezenlijke vooruitgang."
+          "body": "Waar zit de echte oorzaak?\n\nIn de propositie? In doelgroepkeuze? In sales, marketing, opvolging, tools, mensen, interne afstemming? Of in een beslissing die logisch leek, maar vertrok van een verkeerde aanname?\n\nDat onderscheid maakt het verschil. Wie het verkeerde probleem oplost, blijft investeren zonder wezenlijke vooruitgang."
         },
         {
           "n": "04",
           "title": "Keuze maken",
-          "body": "Wat moet eerst worden aangepakt?\n\nNiet alles tegelijk.\nNiet nog een lijst met losse acties.\n\nWel een heldere prioriteit:\n\ndit eerst.\ndit nog niet.\ndit stopzetten.\ndit anders bekijken.\n\nZo ontstaat richting vóór uitvoering."
+          "body": "Wat moet eerst worden aangepakt?\n\nNiet alles tegelijk. Niet nog een lijst met losse acties. Wel een heldere prioriteit: dit eerst. Dit nog niet. Dit stopzetten. Dit anders bekijken.\n\nZo ontstaat richting vóór uitvoering."
         }
       ]
     },
-    "methodBridge": {
-      "eyebrow": "04 — Van methode naar concrete zet",
-      "microEyebrow": "Volgende stap",
-      "summary": "Deze lijn vermijdt dure misfits: zichtbaarheid terwijl opvolging het probleem is, software vóór een helder proces, of campagne vóór een vaste propositie.",
-      "headline": "De Reality Check is de eerste concrete stap.",
-      "body1": "In één compacte doorloop wordt zichtbaar wat vastzit, wat eerst moet gebeuren en wat bewust nog wacht.",
-      "followTitle": "Wat daarna gebeurt, ligt niet vast",
-      "followBody": "Afhankelijk van de uitkomst: bijsturen, korte begeleiding, verdieping — of pas latere uitvoering. Geen verplicht vervolgtraject; eerst inhoud die klopt.",
-      "cta": "Plan de Reality Check",
-      "secondaryCta": "Bekijk de Reality Check →",
-      "secondaryCtaHref": "/aanbod"
-    },
     "closing": {
-      "spineLabel": "05 — Eerst scherpte",
-      "headlineLine1": "Eerst scherpte.",
-      "headlineLine2": "Dan pas uitvoering als het klopt.",
-      "body1": "Wie wil weten wat hier werkelijk speelt, start niet met ruis maar met helderheid.",
-      "body2": "Voor u als\n\n• er al genoeg gebeurt, maar het resultaat achterblijft\n• sales, marketing of opvolging elkaar onvoldoende versterken\n• u voelt dat het probleem dieper zit dan één campagne, één tool of één leverancier\n• u niet zeker bent of de volgende investering wel de juiste is\n• u eerst wilt weten wat werkelijk moet worden aangepakt vóór u opnieuw beslist\n\nNiet voor u als\n\n• u gewoon snel iets wilt laten uitvoeren\n• u vooral bevestiging zoekt voor een beslissing die al genomen is\n• u verwacht dat een tool, bureau of campagne op zich het verschil zal maken\n• u geen zin hebt om eerst naar de oorzaak te kijken",
+      "spineLabel": "03 — Volgende stap",
+      "headlineLine1": "De Reality Check is de eerste concrete zet.",
+      "headlineLine2": "",
+      "body1": "In één compacte doorloop wordt zichtbaar wat vastzit, wat eerst moet gebeuren en wat bewust nog wacht.",
+      "body2": "Wat daarna gebeurt, ligt niet vast. Afhankelijk van de uitkomst: bijsturen, korte begeleiding, verdieping — of pas latere uitvoering. Geen verplicht vervolgtraject. Eerst inhoud die klopt.",
       "primaryCta": "Plan de Reality Check",
       "primaryCtaHref": "/aanbod",
-      "secondaryCta": "Contact opnemen →",
-      "secondaryCtaHref": "/contact",
-      "footnote": "Direction before action."
+      "secondaryCta": "Bekijk de Reality Check →",
+      "secondaryCtaHref": "/aanbod",
+      "footnote": ""
     }
   },
   "Aanbod": {

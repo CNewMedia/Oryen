@@ -39,7 +39,11 @@ export type AanpakPageContent = {
     /** Second narrative block in the same cream section (reference `s01-second`). */
     tail?: AanpakWhyTail;
   };
-  lens: {
+  /**
+   * Optional “Hoe ORYEN kijkt” block. Omitted on the slim Aanpak page to avoid
+   * duplicating home positioning.
+   */
+  lens?: {
     eyebrow: string;
     headlineLine1: string;
     /** Italic second line of the lens headline (e.g. “onder meer naar kijken.”). */
@@ -56,7 +60,8 @@ export type AanpakPageContent = {
     stepPrefix: string;
     steps: AanpakStep[];
   };
-  methodBridge: {
+  /** Optional bridge section; omitted on the slim Aanpak page. */
+  methodBridge?: {
     eyebrow: string;
     /** Small mono label above summary (e.g. “Volgende stap”). */
     microEyebrow?: string;

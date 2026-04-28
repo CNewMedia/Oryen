@@ -171,9 +171,9 @@ function aanpakDoc(locale: Locale, m: OryBundle): Record<string, unknown> {
     },
     hero: A.hero,
     why: A.why,
-    lens: A.lens,
+    ...(A.lens != null ? { lens: A.lens } : {}),
     steps: A.steps,
-    methodBridge: A.methodBridge,
+    ...(A.methodBridge != null ? { methodBridge: A.methodBridge } : {}),
     closing: A.closing,
   };
 }

@@ -142,15 +142,15 @@ function ClosingResolution() {
 }
 
 /**
- * Methodology page aligned with `oryen-aanpak-volledig.html`: blueprint hero,
- * stacked “waarom”, ruled observations, four-column steps, bridge, resolution close.
+ * Aanpak page: hero, waarom, vier stappen, volgende stap. Optional `lens` and
+ * `methodBridge` blocks (legacy) render when present in CMS/bootstrap.
  */
 export function AanpakPageView({ content }: Props) {
   const c = content;
   const b = c.methodBridge;
   const close = c.closing;
   const secondClosingPara = close.body2 ?? close.supportHook;
-  const lensEm = c.lens.headlineEm ?? c.lens.headlineLine2;
+  const lensEm = c.lens ? (c.lens.headlineEm ?? c.lens.headlineLine2) : undefined;
 
   return (
     <div className="aanpak-page">
@@ -173,15 +173,19 @@ export function AanpakPageView({ content }: Props) {
               <h1 className="hero-hl aanpak-tpl-hero-hl reveal delay-1">
                 <span>
                   {c.hero.headlineLine1}
-                  <br />
                   {c.hero.headlineLine2 ? (
                     <>
-                      {c.hero.headlineLine2}
                       <br />
+                      {c.hero.headlineLine2}
                     </>
                   ) : null}
                 </span>
-                {c.hero.headlineEm ? <em>{c.hero.headlineEm}</em> : null}
+                {c.hero.headlineEm?.trim() ? (
+                  <>
+                    <br />
+                    <em>{c.hero.headlineEm}</em>
+                  </>
+                ) : null}
               </h1>
               <div className="aanpak-tpl-hero-sub reveal delay-2">
                 <p>{c.hero.body1}</p>
@@ -216,7 +220,9 @@ export function AanpakPageView({ content }: Props) {
               <p className="aanpak-tpl-p-body reveal delay-1" style={{ whiteSpace: 'pre-line' }}>
                 {c.why.body1}
               </p>
-              <p className="aanpak-tpl-p-body reveal delay-1">{c.why.body2}</p>
+              {c.why.body2?.trim() ? (
+                <p className="aanpak-tpl-p-body reveal delay-1">{c.why.body2}</p>
+              ) : null}
             </div>
             {c.why.tail ? (
               <div className="aanpak-tpl-s01-second">
@@ -236,6 +242,7 @@ export function AanpakPageView({ content }: Props) {
         </div>
       </section>
 
+      {c.lens ? (
       <section className="aanpak-tpl-s02 has-spine spine-light">
         <div className="spine-grid">
           <div className="spine-label spine-label-light">
@@ -269,6 +276,7 @@ export function AanpakPageView({ content }: Props) {
           </div>
         </div>
       </section>
+      ) : null}
 
       <section className="aanpak-tpl-s03 has-spine spine-dark">
         <div className="spine-grid">
@@ -301,6 +309,7 @@ export function AanpakPageView({ content }: Props) {
         </div>
       </section>
 
+      {b ? (
       <section className="aanpak-tpl-s04 has-spine spine-light">
         <div className="spine-grid">
           <div className="spine-label spine-label-light">
@@ -328,6 +337,7 @@ export function AanpakPageView({ content }: Props) {
           </div>
         </div>
       </section>
+      ) : null}
 
       <section className="aanpak-tpl-s05 has-spine spine-dark">
         <ClosingResolution />
@@ -338,8 +348,12 @@ export function AanpakPageView({ content }: Props) {
           <div className="spine-content aanpak-tpl-s05-content">
             <h2 className="aanpak-tpl-h-section aanpak-tpl-h-section--on-dark reveal">
               {close.headlineLine1}
-              <br />
-              <em>{close.headlineLine2}</em>
+              {close.headlineLine2?.trim() ? (
+                <>
+                  <br />
+                  <em>{close.headlineLine2}</em>
+                </>
+              ) : null}
             </h2>
             <p className="aanpak-tpl-p-body aanpak-tpl-p-body--on-dark reveal delay-1">{close.body1}</p>
             {secondClosingPara ? (
@@ -357,7 +371,9 @@ export function AanpakPageView({ content }: Props) {
               </Link>
             </div>
             <div className="aanpak-tpl-s05-close reveal delay-3">
-              {close.footnote ? <span className="aanpak-tpl-s05-close-text">{close.footnote}</span> : null}
+              {close.footnote?.trim() ? (
+                <span className="aanpak-tpl-s05-close-text">{close.footnote}</span>
+              ) : null}
               <Link className="btn-ghost" href={close.secondaryCtaHref as never}>
                 {close.secondaryCta}
               </Link>
