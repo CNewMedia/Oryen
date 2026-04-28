@@ -1,9 +1,6 @@
 import { getSanityClient } from '@/lib/sanity/client';
 import { getBootstrapSiteSettings } from '@/lib/sanity/bootstrap/local-bootstrap';
-import {
-  allowBootstrapWithoutSanityClient,
-  shouldStrictRequireSiteSettings,
-} from '@/lib/sanity/bootstrap/sanity-mode';
+import { allowBootstrapWithoutSanityClient } from '@/lib/sanity/bootstrap/sanity-mode';
 import type { SiteSettingsResolved, TrackingSettings } from '@/types/site-settings';
 
 type SanityDoc = Record<string, unknown>;
@@ -69,7 +66,8 @@ function normalizeSeo(
   };
 }
 
-const QUERY = `*[_type == "siteSettings" && locale == $locale][0]`;
+/** Matches `web/scripts/seed-cms.ts` ids (`oryen.siteSettings.nl` / `oryen.siteSettings.en`). */
+const QUERY = `*[_type == "siteSettings" && (locale == $locale || _id == $id)][0]`;
 
 export async function loadSiteSettings(
   locale: string
@@ -79,24 +77,21 @@ export async function loadSiteSettings(
 
   if (!client) {
     if (!allowBootstrapWithoutSanityClient()) {
-      throw new Error(
-        'ORYEN: NEXT_PUBLIC_SANITY_PROJECT_ID is required in this environment. ' +
-          'For a temporary exception set ORYEN_ALLOW_OFFLINE_CMS=true (not for public production).'
+      console.error(
+        '[ORYEN] NEXT_PUBLIC_SANITY_PROJECT_ID is not set. Serving bootstrap site settings. ' +
+          'Add NEXT_PUBLIC_SANITY_PROJECT_ID (and optional SANITY_API_READ_TOKEN for private datasets) in Vercel, or set ORYEN_ALLOW_OFFLINE_CMS=true for local production testing.'
       );
     }
     return bootstrap;
   }
 
+  const id = `oryen.siteSettings.${locale}`;
+
   try {
-    const doc = (await client.fetch(QUERY, { locale })) as SanityDoc | null;
+    const doc = (await client.fetch(QUERY, { locale, id })) as SanityDoc | null;
     if (!doc) {
-      if (shouldStrictRequireSiteSettings()) {
-        throw new Error(
-          `ORYEN: Missing siteSettings document for locale "${locale}". Run: npm run seed:cms (from web/) with SANITY_API_WRITE_TOKEN set.`
-        );
-      }
       console.warn(
-        `[ORYEN] siteSettings missing for locale "${locale}"; using bootstrap shell until published.`
+        `[ORYEN] siteSettings missing for locale "${locale}" (expected id ${id} or locale match); using bootstrap shell. Run: npm run seed:cms (from web/) with SANITY_API_WRITE_TOKEN set.`
       );
       return bootstrap;
     }
@@ -142,12 +137,12 @@ export async function loadSiteSettings(
       footerDomain: asString(doc.footerDomain) ?? bootstrap.footerDomain,
       contactEmail: asString(doc.contactEmail) ?? bootstrap.contactEmail,
       contactPhone: asString(doc.contactPhone) ?? bootstrap.contactPhone,
+      contactAddress: asString(doc.contactAddress) ?? bootstrap.contactAddress,
       legalLinks: legalLinks.length ? legalLinks : bootstrap.legalLinks,
       socialLinks: socialLinks.length ? socialLinks : bootstrap.socialLinks,
       tracking: normalizeTracking(doc.tracking),
     };
   } catch (e) {
-    if (shouldStrictRequireSiteSettings()) throw e;
     console.warn('[ORYEN] siteSettings fetch failed; using bootstrap.', e);
     return bootstrap;
   }
