@@ -100,10 +100,10 @@ function normalizeClosing(closing: AanbodClosing, base: AanbodClosing): AanbodCl
 }
 
 function normalizeWhatAfter(
-  wa: AanbodContent['whatAfter'],
-  base: AanbodContent['whatAfter'],
+  wa: NonNullable<AanbodContent['whatAfter']>,
+  base: NonNullable<AanbodContent['whatAfter']>,
   reassuranceBody?: string
-): AanbodContent['whatAfter'] {
+): NonNullable<AanbodContent['whatAfter']> {
   let stanzas = Array.isArray(wa.stanzas) ? wa.stanzas : [];
   if (!stanzas.length && wa.body?.trim()) {
     stanzas = stanzasFromLegacyBody(wa.body);
@@ -134,16 +134,12 @@ function normalizeWhatAfter(
  * Partial CMS objects must not wipe arrays used by `.map` — restore from `base`.
  */
 function sanitizeAanbodFromBase(merged: AanbodContent, base: AanbodContent): AanbodContent {
-  const of = merged.hero.offerFrame;
-  const ofBase = base.hero.offerFrame;
+  const ofMerged = merged.hero.offerFrame;
+  const ofBase = base.hero.offerFrame ?? { label: '', pillars: [] as string[] };
   const offerFrame =
-    of && typeof of === 'object' && !Array.isArray(of)
-      ? {
-          ...ofBase,
-          ...of,
-          pillars: Array.isArray(of.pillars) ? of.pillars : ofBase.pillars,
-        }
-      : ofBase;
+    ofMerged && Array.isArray(ofMerged.pillars) && ofMerged.pillars.length > 0
+      ? { ...ofBase, ...ofMerged, pillars: ofMerged.pillars }
+      : { ...ofBase, pillars: [] };
 
   const items = merged.whatYouGet.items ?? base.whatYouGet.items ?? [];
   let outputs = Array.isArray(merged.whatYouGet.outputs)
@@ -153,10 +149,14 @@ function sanitizeAanbodFromBase(merged: AanbodContent, base: AanbodContent): Aan
     outputs = deriveOutputsFromItems(items);
   }
 
-  const watHetIs =
-    merged.watHetIs?.headlineLine1?.trim()
-      ? merged.watHetIs
-      : watHetIsFromOfferClarity(merged.offerClarity, base.watHetIs);
+  let watHetIs: AanbodWatHetIs | undefined;
+  if (merged.watHetIs?.headlineLine1?.trim()) {
+    watHetIs = merged.watHetIs;
+  } else if (base.watHetIs?.headlineLine1?.trim()) {
+    watHetIs = watHetIsFromOfferClarity(merged.offerClarity, base.watHetIs);
+  } else {
+    watHetIs = undefined;
+  }
 
   const wySplit = splitDisplayHeadline(
     merged.whatYouGet.headline,
@@ -192,14 +192,22 @@ function sanitizeAanbodFromBase(merged: AanbodContent, base: AanbodContent): Aan
       oc.fitIntro?.trim() ||
       merged.reassurance?.body?.trim() ||
       baseOc.fitIntro,
+    fitOutro: oc.fitOutro?.trim() || baseOc.fitOutro,
   };
 
   const reassurance = merged.reassurance ?? base.reassurance;
-  const whatAfter = normalizeWhatAfter(
-    merged.whatAfter,
-    base.whatAfter,
-    reassurance?.body
-  );
+  let whatAfter: AanbodContent['whatAfter'];
+  const waM = merged.whatAfter;
+  const waB = base.whatAfter;
+  if (waM || waB) {
+    whatAfter = normalizeWhatAfter(
+      { ...(waB ?? {}), ...(waM ?? {}) } as NonNullable<AanbodContent['whatAfter']>,
+      (waB ?? waM!) as NonNullable<AanbodContent['whatAfter']>,
+      reassurance?.body
+    );
+  } else {
+    whatAfter = undefined;
+  }
 
   const closing = normalizeClosing(merged.closing, base.closing);
 
@@ -214,8 +222,11 @@ function sanitizeAanbodFromBase(merged: AanbodContent, base: AanbodContent): Aan
         }
       : merged.pricing ?? base.pricing;
 
+  const mergedRest = { ...merged };
+  delete (mergedRest as Record<string, unknown>).watHetIs;
+  delete (mergedRest as Record<string, unknown>).whatAfter;
   const out: AanbodContent = {
-    ...merged,
+    ...mergedRest,
     hero: {
       ...merged.hero,
       offerFrame,
@@ -223,7 +234,7 @@ function sanitizeAanbodFromBase(merged: AanbodContent, base: AanbodContent): Aan
         ? merged.hero.characterLines
         : base.hero.characterLines,
     },
-    watHetIs,
+    ...(watHetIs ? { watHetIs } : {}),
     offerClarity: {
       ...offerClarityMerged,
       welItems: Array.isArray(merged.offerClarity.welItems)
@@ -248,7 +259,7 @@ function sanitizeAanbodFromBase(merged: AanbodContent, base: AanbodContent): Aan
         ? merged.howItWorks.steps
         : base.howItWorks.steps,
     },
-    whatAfter,
+    ...(whatAfter ? { whatAfter } : {}),
     closing,
   };
   if (pricing) out.pricing = pricing;
@@ -279,7 +290,10 @@ function mergeSanity(base: AanbodContent, doc: SanityDoc): AanbodContent {
   if (isRecord(doc.watHetIs)) {
     out = {
       ...out,
-      watHetIs: { ...base.watHetIs, ...doc.watHetIs } as AanbodContent['watHetIs'],
+      watHetIs: {
+        ...(base.watHetIs ?? {}),
+        ...doc.watHetIs,
+      } as AanbodWatHetIs,
     };
   }
   if (isRecord(doc.offerClarity)) {
@@ -313,9 +327,9 @@ function mergeSanity(base: AanbodContent, doc: SanityDoc): AanbodContent {
     out = {
       ...out,
       whatAfter: {
-        ...base.whatAfter,
+        ...(base.whatAfter ?? {}),
         ...doc.whatAfter,
-      } as AanbodContent['whatAfter'],
+      } as NonNullable<AanbodContent['whatAfter']>,
     };
   }
   if (isRecord(doc.pricing) && base.pricing) {

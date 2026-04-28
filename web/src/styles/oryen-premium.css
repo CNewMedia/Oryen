@@ -1638,6 +1638,10 @@ footer::before {
   padding-left: clamp(2.8rem, 4vw, 5.5rem);
   padding-right: var(--P);
 }
+.rc-tpl-hero-layout--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 52rem;
+}
 .rc-tpl-hero-eyebrow {
   font-family: 'DM Mono', monospace;
   font-size: 0.72rem;
@@ -1945,6 +1949,15 @@ footer::before {
   color: var(--ink3);
   max-width: 48rem;
   margin-bottom: clamp(3rem, 6vh, 4.5rem);
+}
+.rc-tpl-s04-outro {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: clamp(0.98rem, 1.1vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--ink2);
+  max-width: 48rem;
+  margin-top: clamp(2.5rem, 5vh, 3.5rem);
 }
 .rc-tpl-fit-grid {
   display: grid;

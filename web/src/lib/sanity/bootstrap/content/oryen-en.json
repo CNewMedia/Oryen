@@ -203,77 +203,50 @@
   "Aanbod": {
     "meta": {
       "title": "Reality Check — ORYEN",
-      "description": "A sharp first decision moment for companies that want to know where their commercial operations are stuck, what must be addressed first and what is better off waiting."
+      "description": "A defined engagement that makes visible where sales, marketing and follow-up lose results — and which intervention really makes a difference now."
     },
     "hero": {
       "eyebrow": "Reality Check",
       "headlineLine1": "The Reality Check.",
-      "headlineLine2Em": "A sharp first\ndecision moment.",
-      "sub": "You sense that enough is already happening in your company. But not everything still moves in the same direction. The Reality Check makes clear where it stalls commercially, what must be addressed first, and what you are better off not doing yet.\n\nNot another casual introductory chat.\nA sharp first decision moment.\n\nYou leave with clarity, priorities and a concrete next step.\n\nWhether you continue with ORYEN after that, you decide only then.",
-      "characterLines": [
-        "No hourly rate that grows along the way.",
-        "No vague engagement that has to prove itself."
-      ],
-      "primaryCta": "Book the Reality Check",
-      "secondaryCta": "How ORYEN works",
-      "secondaryCtaAnchor": "hoe-het-gaat",
-      "offerFrame": {
-        "label": "First step",
-        "pillars": [
-          "One product.",
-          "One first decision.",
-          "One defined engagement.",
-          "One clear outcome.",
-          "Depending on your question: Christophe with Stevie, Koen or Esthel alongside.",
-          "No mandatory follow-on."
-        ]
-      }
-    },
-    "watHetIs": {
-      "spine": "01 — What it is",
-      "eyebrow": "What it is",
-      "headlineLine1": "One engagement.",
-      "headlineLine2Em": "Clear outcome.",
-      "body": "A defined first product with a clear function: making visible what is stuck, what must happen first, and what is better off waiting.\n\nThe Reality Check is the first paid moment where ORYEN gets sharp on where sales, marketing and follow-up lose results — and which intervention makes the difference first.\n\nNot a casual intake.\nNot a sales call in disguise.\nNot a long list of loose recommendations.\n\nA sharp first decision moment that makes clear:\n\nwhat holds back results today;\nwhere the cause likely sits;\nwhat deserves priority now;\nwhat makes no sense for now;\nwhat the logical next step is."
+      "headlineLine2Em": "A sharp first decision moment.",
+      "sub": "Not another casual introduction. Not another quote for execution. But a defined path that makes visible where sales, marketing and follow-up lose results — and which intervention really makes a difference now.\n\nThe same approach that underpinned work with clients such as Hof van Cleve, Willems Veranda and Concordia Textiles.",
+      "characterLines": [],
+      "primaryCta": "Book a Reality Check conversation with Christophe",
+      "secondaryCta": "Put your question directly to Christophe",
+      "secondaryCtaHref": "/contact"
     },
     "offerClarity": {
-      "eyebrow": "What it is",
-      "spine": "04 — Is this right for you",
-      "pastEyebrow": "Is this right for you?",
-      "fitHeadlineLine1": "The Reality Check makes sense if you",
-      "fitHeadlineEm": "already decide, invest and move,",
-      "fitHeadlineLine2": "but sense that your operations are not delivering what they should.",
-      "fitIntro": "If the Reality Check is not a good fit, we say so. The goal is not to pull you into a trajectory. The goal is to get the right first decision sharp.",
-      "leftTitle": "One engagement. Clear outcome.",
-      "leftBody": "The Reality Check is not an intake, not loose advice, and not a warm-up to a larger trajectory.\n\nIt is a defined first product for companies that want to first get sharp on what is commercially off, before more time, money or energy goes into sales, marketing or tools.\n\nYou are not buying a nice analysis.\nYou are buying a clear first decision.",
-      "rightTitle": "Is this right for you?",
-      "rightLead": "The Reality Check makes sense if you already decide, invest and move, but sense that your commercial operations are not delivering what they should.",
-      "forBody": "Not because nothing is happening. But because the whole is not sharply enough aligned.\n\nYou are not looking for more action. You are looking for a hard first choice.",
-      "welLabel": "Yes",
+      "spine": "03 — Who it is for",
+      "pastEyebrow": "Who it is for",
+      "fitHeadlineLine1": "",
+      "fitHeadlineEm": "",
+      "fitHeadlineLine2": "",
+      "fitIntro": "The Reality Check makes sense if you already decide, invest and move — but sense that your operations are not delivering what they should.",
+      "welLabel": "Right for you if:",
       "welItems": [
-        "You want to know what must be addressed first, not what sells fastest.",
+        "You want to know what must come first, not what sells fastest.",
         "You do not want a second investment before the order is clear.",
-        "You want clarity on where you need to fix something internally and where external help only makes sense later.",
+        "You want clarity on what to fix internally and where outside help only makes sense later.",
         "You want a first decision, not a pile of impressions."
       ],
-      "notForLabel": "No",
+      "notForLabel": "Not for you if:",
       "notForItems": [
-        "You mainly want fast execution without a conversation about cause or order.",
+        "You mainly want fast delivery without a conversation about cause and order.",
         "You want to be confirmed in a decision that has in fact already been made.",
         "You expect an agency menu, a list of packages or a casual exploration."
-      ]
+      ],
+      "fitOutro": "If the Reality Check is not a good fit, we say so. The goal is not to pull you into a trajectory, but to make sharp what your first step should be."
     },
     "whatYouGet": {
-      "spine": "03 — What you take away",
+      "spine": "01 — What you take away",
       "eyebrow": "What you take away",
-      "headline": "Concrete output. No vague advice.",
       "headlineLine1": "Concrete output.",
       "headlineLine2Em": "No vague advice.",
       "subline": "After the Reality Check you not only know what is off, but also what needs to happen about it now.",
       "outputs": [
         {
-          "title": "A sharp picture of where it stalls commercially",
-          "description": "Not loose observations, but one clear overview of what is blocking today."
+          "title": "A sharp picture of where things stall",
+          "description": "Not loose observations, but one clear overview."
         },
         {
           "title": "A first decision frame",
@@ -281,34 +254,18 @@
         },
         {
           "title": "A 90-day course line",
-          "description": "Not a big year plan, but a short, usable horizon with focus."
-        },
-        {
-          "title": "Clear priorities",
-          "description": "What must be right before you build, buy, change or roll out again."
-        },
-        {
-          "title": "A stop list",
-          "description": "What you should not do, buy or launch for now."
-        },
-        {
-          "title": "A concrete next step",
-          "description": "What you can take in hand internally — and where further support only makes sense once the basis holds."
+          "description": "Not a yearly plan, but a short horizon with focus — and a stop list of what not to do before the basics hold."
         }
       ],
       "items": [
-        "A sharp picture of where it stalls commercially — not loose observations, but one clear overview of what is blocking today.",
+        "A sharp picture of where things stall — not loose observations, but one clear overview.",
         "A first decision frame — what takes priority now, what waits, and why.",
-        "A 90-day course line — not a big year plan, but a short, usable horizon with focus.",
-        "Clear priorities — what must be right before you build, buy, change or roll out again.",
-        "A stop list — what you should not do, buy or launch for now.",
-        "A concrete next step — what you can take in hand internally, and where further support only makes sense once the basis holds."
+        "A 90-day course line — not a yearly plan, but a short horizon with focus and a stop list of what not to do before the basics hold."
       ]
     },
     "howItWorks": {
-      "spine": "02 — How it works",
-      "eyebrow": "How it works",
-      "headline": "Short. Direct. No detours.",
+      "spine": "02 — How it runs",
+      "eyebrow": "How it runs",
       "headlineLine1": "Short. Direct.",
       "headlineLine2Em": "No detours.",
       "stepPrefix": "Step",
@@ -316,103 +273,31 @@
         {
           "n": "01",
           "title": "Preparation",
-          "body": "We sharpen your question. Where is the pressure? Which decision is hanging over the business? What feels off despite all the effort?",
-          "includes": "Including: preparation on your context and question"
+          "body": "We sharpen your question. Where is the pressure? Which decision is hanging over the business? What feels off despite all the effort?"
         },
         {
           "n": "02",
           "title": "The session",
-          "body": "One compact, sharp session. Depending on your question, Christophe is joined by Stevie, Koen or Esthel — whoever serves the question best. No broad brainstorm. A direct reading of cause, order, risk and priority.",
-          "includes": "Including: the strategic session with the ORYEN team"
+          "body": "One compact, sharp session. Depending on your question, Stevie, Koen or Esthel join alongside Christophe. No broad brainstorm. A direct read of cause, order and priority."
         },
         {
           "n": "03",
           "title": "Output and debrief",
-          "body": "You receive the output clearly brought together and explained. Not as a theoretical document, but as material that helps you decide internally and move forward precisely.",
-          "includes": "Including: a concrete next step"
+          "body": "You receive the outcome clearly brought together and explained. Not as a theoretical document, but as material you can use to decide internally and move forward with focus."
         }
       ]
-    },
-    "whatAfter": {
-      "spine": "05 — After the Reality Check",
-      "eyebrow": "After the Reality Check",
-      "headline": "The outcome stays yours.",
-      "headlineLine1": "The outcome",
-      "headlineEm": "stays yours.",
-      "body": "The Reality Check is no hidden funnel.\n\nSometimes the outcome is enough to correct things internally. Sometimes a short follow-up makes sense. Sometimes further support is logical.\n\nBut only when it fits on substance.",
-      "stanzas": [
-        {
-          "text": "The Reality Check is no hidden funnel."
-        },
-        {
-          "text": "Sometimes the outcome is enough to correct things internally. Sometimes a short follow-up makes sense. Sometimes further support is logical."
-        },
-        {
-          "text": "But only when it fits on substance.",
-          "italic": true
-        }
-      ],
-      "guarantees": [
-        {
-          "mark": "01",
-          "text": "No automatic upgrade to a follow-on trajectory."
-        },
-        {
-          "mark": "02",
-          "text": "No pressure to buy more."
-        },
-        {
-          "mark": "03",
-          "text": "No sales machine behind the scenes."
-        },
-        {
-          "mark": "04",
-          "text": "No mandatory path."
-        }
-      ],
-      "signature": "Always a personal reply from Christophe.",
-      "items": [
-        "No automatic upgrade to a follow-on trajectory.",
-        "No pressure to buy more.",
-        "No sales machine behind the scenes.",
-        "No mandatory path."
-      ]
-    },
-    "pricing": {
-      "spine": "Product",
-      "name": "Reality Check",
-      "supportLine": "One product. One first decision.",
-      "body": "No hourly rate that grows along the way. No vague engagement that has to prove itself.\n\nA defined first product with a clear function: making visible what is stuck, what must happen first, and what is better off waiting.",
-      "includedTitle": "What is included",
-      "includedItems": [
-        "Preparation on your context and question",
-        "The strategic session with Christophe",
-        "A sharp overview of where it stalls commercially",
-        "A decision frame with priorities and stop list",
-        "A short 90-day course line",
-        "A concrete next step"
-      ]
-    },
-    "reassurance": {
-      "headline": "No hidden agenda.",
-      "body": "If the Reality Check is not a good fit, we say so. The goal is not to pull you into a trajectory. The goal is to get the right first decision sharp.",
-      "note": "Always a personal reply from Christophe."
     },
     "closing": {
-      "spine": "06 — Start with clarity",
-      "headlineLine1": "Doubt is not",
-      "headlineLine2": "the problem.",
-      "headlineEm": "Investing too early is.",
-      "body1": "If your company already moves enough but the results lag behind, more action is rarely the first answer.",
-      "body2": "First it must become clear where it is really stuck and what must happen as the very first step.",
-      "primaryCta": "Book the Reality Check",
-      "footnote": "Direction before action.",
-      "secondaryCta": "Get in touch →",
-      "secondaryCtaHref": "/contact",
-      "line1": "Doubt is not the problem.",
-      "line2": "Investing too early is.",
-      "body": "If your company already moves enough but the results lag behind, more action is rarely the first answer.\n\nFirst it must become clear where it is really stuck and what must happen as the very first step.",
-      "ctaLabel": "Book the Reality Check"
+      "spine": "04 — Next step",
+      "headlineLine1": "First know where it stalls.\nThen choose what is needed.",
+      "headlineLine2": "",
+      "headlineEm": "",
+      "body1": "Always a personal reply from Christophe. No mandatory follow-on, no automatic upgrade.",
+      "body2": "",
+      "primaryCta": "Book a Reality Check conversation with Christophe",
+      "footnote": "",
+      "secondaryCta": "",
+      "secondaryCtaHref": ""
     }
   },
   "Contact": {

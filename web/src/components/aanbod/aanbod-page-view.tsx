@@ -122,13 +122,13 @@ function ClosingResolutionRc() {
 }
 
 /**
- * Reality Check offer page — aligned with `oryen-realitycheck-volledig.html`
- * (blueprint hero + rail, wat-het-is, drie fases, outputs, fit, na-RC, closing).
+ * Reality Check / aanbod — slim template: hero, outputs, flow, fit, closing.
  */
 export function AanbodPageView({ content }: Props) {
   const c = content;
   const h = c.hero;
   const anchor = h.secondaryCtaAnchor?.replace(/^#/, '') ?? 'hoe-het-gaat';
+  const showRail = Boolean(h.offerFrame?.pillars?.length);
 
   return (
     <div className="aanbod-page rc-tpl-page">
@@ -146,7 +146,7 @@ export function AanbodPageView({ content }: Props) {
             <div className="spine-label spine-label-dark">
               <span>00 — Reality Check</span>
             </div>
-            <div className="rc-tpl-hero-layout">
+            <div className={showRail ? 'rc-tpl-hero-layout' : 'rc-tpl-hero-layout rc-tpl-hero-layout--single'}>
               <div>
                 <p className="rc-tpl-hero-eyebrow reveal">{h.eyebrow}</p>
                 <h1 className="hero-hl rc-tpl-hero-hl reveal delay-1">
@@ -168,24 +168,33 @@ export function AanbodPageView({ content }: Props) {
                     <span>{h.primaryCta}</span>
                     <span className="btn-arrow" />
                   </Link>
-                  <a className="btn-ghost" href={`#${anchor}`}>
-                    {h.secondaryCta}
-                  </a>
+                  {h.secondaryCtaHref?.trim() ? (
+                    <Link className="btn-ghost" href={h.secondaryCtaHref as never}>
+                      {h.secondaryCta}
+                    </Link>
+                  ) : (
+                    <a className="btn-ghost" href={`#${anchor}`}>
+                      {h.secondaryCta}
+                    </a>
+                  )}
                 </div>
               </div>
-              <aside className="rc-tpl-hero-rail reveal delay-2" aria-label={h.offerFrame.label}>
-                <p className="rc-tpl-hero-rail-title">{h.offerFrame.label}</p>
-                <ul className="rc-tpl-hero-rail-list">
-                  {h.offerFrame.pillars.map((line) => (
-                    <li key={line.slice(0, 40)}>{line}</li>
-                  ))}
-                </ul>
-              </aside>
+              {showRail ? (
+                <aside className="rc-tpl-hero-rail reveal delay-2" aria-label={h.offerFrame!.label}>
+                  <p className="rc-tpl-hero-rail-title">{h.offerFrame!.label}</p>
+                  <ul className="rc-tpl-hero-rail-list">
+                    {h.offerFrame!.pillars.map((line) => (
+                      <li key={line.slice(0, 40)}>{line}</li>
+                    ))}
+                  </ul>
+                </aside>
+              ) : null}
             </div>
           </div>
         </div>
       </section>
 
+      {c.watHetIs ? (
       <section className="rc-tpl-s01 has-spine spine-light">
         <div className="spine-grid">
           <div className="spine-label spine-label-light">
@@ -203,6 +212,39 @@ export function AanbodPageView({ content }: Props) {
             <p className="rc-tpl-s01-body reveal delay-2">
               <RichBrLines text={c.watHetIs.body} />
             </p>
+          </div>
+        </div>
+      </section>
+      ) : null}
+
+      <section className="rc-tpl-s03 has-spine spine-light">
+        <div className="spine-grid">
+          <div className="spine-label spine-label-light">
+            <span>{c.whatYouGet.spine ?? '01 — Wat u meeneemt'}</span>
+          </div>
+          <div className="spine-content">
+            <p className="rc-tpl-s-eyebrow reveal">{c.whatYouGet.eyebrow}</p>
+            <h2 className="rc-tpl-h-section reveal delay-1">
+              <RichBrLines text={c.whatYouGet.headlineLine1} />
+              <br />
+              <em>
+                <RichBrLines text={c.whatYouGet.headlineLine2Em} />
+              </em>
+            </h2>
+            <p className="rc-tpl-p-lead reveal delay-2">{c.whatYouGet.subline}</p>
+            <div className="rc-tpl-outputs">
+              {c.whatYouGet.outputs.map((row, i) => (
+                <div key={`${row.title.slice(0, 32)}-${i}`} className="rc-tpl-output-row reveal delay-2">
+                  <span className="rc-tpl-output-num">— {String(i + 1).padStart(2, '0')}</span>
+                  <div className="rc-tpl-output-body">
+                    <h3 className="rc-tpl-output-title">{row.title}</h3>
+                    {row.description ? (
+                      <p className="rc-tpl-output-desc">{row.description}</p>
+                    ) : null}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -233,42 +275,12 @@ export function AanbodPageView({ content }: Props) {
                     {c.howItWorks.stepPrefix} {step.n} — {step.title}
                   </p>
                   <h3 className="rc-tpl-phase-title">{step.title}</h3>
-                  <p className="rc-tpl-phase-body">{step.body}</p>
+                  <p className="rc-tpl-phase-body" style={{ whiteSpace: 'pre-line' }}>
+                    {step.body}
+                  </p>
                   {step.includes ? (
                     <p className="rc-tpl-phase-includes">{step.includes}</p>
                   ) : null}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="rc-tpl-s03 has-spine spine-light">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-light">
-            <span>{c.whatYouGet.spine ?? '03 — Wat u meeneemt'}</span>
-          </div>
-          <div className="spine-content">
-            <p className="rc-tpl-s-eyebrow reveal">{c.whatYouGet.eyebrow}</p>
-            <h2 className="rc-tpl-h-section reveal delay-1">
-              <RichBrLines text={c.whatYouGet.headlineLine1} />
-              <br />
-              <em>
-                <RichBrLines text={c.whatYouGet.headlineLine2Em} />
-              </em>
-            </h2>
-            <p className="rc-tpl-p-lead reveal delay-2">{c.whatYouGet.subline}</p>
-            <div className="rc-tpl-outputs">
-              {c.whatYouGet.outputs.map((row, i) => (
-                <div key={`${row.title.slice(0, 32)}-${i}`} className="rc-tpl-output-row reveal delay-2">
-                  <span className="rc-tpl-output-num">— {String(i + 1).padStart(2, '0')}</span>
-                  <div className="rc-tpl-output-body">
-                    <h3 className="rc-tpl-output-title">{row.title}</h3>
-                    {row.description ? (
-                      <p className="rc-tpl-output-desc">{row.description}</p>
-                    ) : null}
-                  </div>
                 </div>
               ))}
             </div>
@@ -283,16 +295,18 @@ export function AanbodPageView({ content }: Props) {
           </div>
           <div className="spine-content">
             <p className="rc-tpl-s-eyebrow reveal">{c.offerClarity.pastEyebrow}</p>
-            <h2 className="rc-tpl-h-section reveal delay-1">
-              {c.offerClarity.fitHeadlineLine1}
-              <br />
-              <em>{c.offerClarity.fitHeadlineEm}</em>
-              <br />
-              {c.offerClarity.fitHeadlineLine2}
-            </h2>
-            <p className="rc-tpl-s04-intro reveal delay-2">{c.offerClarity.fitIntro}</p>
-            <div className="rc-tpl-fit-grid">
-              <div className="rc-tpl-fit-wel reveal delay-2">
+            <p className="rc-tpl-s04-intro reveal delay-1">{c.offerClarity.fitIntro}</p>
+            {c.offerClarity.fitHeadlineLine1?.trim() ? (
+              <h2 className="rc-tpl-h-section reveal delay-1">
+                {c.offerClarity.fitHeadlineLine1}
+                <br />
+                <em>{c.offerClarity.fitHeadlineEm}</em>
+                <br />
+                {c.offerClarity.fitHeadlineLine2}
+              </h2>
+            ) : null}
+            <div className="rc-tpl-fit-grid reveal delay-2">
+              <div className="rc-tpl-fit-wel">
                 <p className="rc-tpl-fit-col-head">{c.offerClarity.welLabel}</p>
                 <ul className="rc-tpl-fit-list">
                   {c.offerClarity.welItems.map((item) => (
@@ -300,7 +314,7 @@ export function AanbodPageView({ content }: Props) {
                   ))}
                 </ul>
               </div>
-              <div className="rc-tpl-fit-niet reveal delay-3">
+              <div className="rc-tpl-fit-niet">
                 <p className="rc-tpl-fit-col-head">{c.offerClarity.notForLabel}</p>
                 <ul className="rc-tpl-fit-list">
                   {c.offerClarity.notForItems.map((item) => (
@@ -309,10 +323,14 @@ export function AanbodPageView({ content }: Props) {
                 </ul>
               </div>
             </div>
+            {c.offerClarity.fitOutro?.trim() ? (
+              <p className="rc-tpl-s04-outro reveal delay-3">{c.offerClarity.fitOutro}</p>
+            ) : null}
           </div>
         </div>
       </section>
 
+      {c.whatAfter ? (
       <section className="rc-tpl-s05 has-spine spine-light">
         <div className="spine-grid">
           <div className="spine-label spine-label-light">
@@ -347,6 +365,7 @@ export function AanbodPageView({ content }: Props) {
           </div>
         </div>
       </section>
+      ) : null}
 
       <section className="rc-tpl-s06 has-spine spine-dark">
         <ClosingResolutionRc />
@@ -357,32 +376,46 @@ export function AanbodPageView({ content }: Props) {
           <div className="spine-content rc-tpl-s06-content">
             <h2 className="rc-tpl-h-section rc-tpl-h-section--on-dark reveal">
               <RichBrLines text={c.closing.headlineLine1} />
-              <br />
-              <RichBrLines text={c.closing.headlineLine2} />
-              <br />
-              <em>
-                <RichBrLines text={c.closing.headlineEm} />
-              </em>
+              {c.closing.headlineLine2?.trim() ? (
+                <>
+                  <br />
+                  <RichBrLines text={c.closing.headlineLine2} />
+                </>
+              ) : null}
+              {c.closing.headlineEm?.trim() ? (
+                <>
+                  <br />
+                  <em>
+                    <RichBrLines text={c.closing.headlineEm} />
+                  </em>
+                </>
+              ) : null}
             </h2>
             <p className="rc-tpl-p-body rc-tpl-p-body--on-dark reveal delay-1">{c.closing.body1}</p>
-            <p className="rc-tpl-p-body rc-tpl-p-body--on-dark reveal delay-1">{c.closing.body2}</p>
+            {c.closing.body2?.trim() ? (
+              <p className="rc-tpl-p-body rc-tpl-p-body--on-dark reveal delay-1">{c.closing.body2}</p>
+            ) : null}
             <div className="hero-actions rc-tpl-s06-actions reveal delay-2">
               <Link className="btn-primary" href="/contact">
                 <span>{c.closing.primaryCta}</span>
                 <span className="btn-arrow" />
               </Link>
             </div>
+            {c.closing.footnote?.trim() || c.closing.secondaryCta?.trim() ? (
             <div className="rc-tpl-s06-close reveal delay-3">
-              {c.closing.footnote ? (
+              {c.closing.footnote?.trim() ? (
                 <span className="rc-tpl-s06-close-text">{c.closing.footnote}</span>
               ) : null}
+              {c.closing.secondaryCta?.trim() ? (
               <Link
                 className="btn-ghost"
                 href={(c.closing.secondaryCtaHref ?? '/contact') as never}
               >
-                {c.closing.secondaryCta ?? 'Contact'}
+                {c.closing.secondaryCta}
               </Link>
+              ) : null}
             </div>
+            ) : null}
           </div>
         </div>
       </section>

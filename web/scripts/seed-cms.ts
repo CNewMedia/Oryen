@@ -147,12 +147,13 @@ function aanbodDoc(locale: Locale, m: OryBundle): Record<string, unknown> {
       robotsIndex: true,
     },
     hero: A.hero,
+    ...(A.watHetIs != null ? { watHetIs: A.watHetIs } : {}),
     offerClarity: A.offerClarity,
     whatYouGet: A.whatYouGet,
     howItWorks: A.howItWorks,
-    whatAfter: A.whatAfter,
-    pricing: A.pricing,
-    reassurance: A.reassurance,
+    ...(A.whatAfter != null ? { whatAfter: A.whatAfter } : {}),
+    ...(A.pricing != null ? { pricing: A.pricing } : {}),
+    ...(A.reassurance != null ? { reassurance: A.reassurance } : {}),
     closing: A.closing,
   };
 }

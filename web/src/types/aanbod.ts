@@ -64,11 +64,15 @@ export type AanbodContent = {
     characterLines: string[];
     primaryCta: string;
     secondaryCta: string;
-    /** Same-page section id without `#` (e.g. `hoe-het-gaat`). */
+    /** Same-page section id without `#` (e.g. `hoe-het-gaat`) when secondary is in-page. */
     secondaryCtaAnchor?: string;
-    offerFrame: { label: string; pillars: string[] };
+    /** When set, secondary CTA links here instead of `#secondaryCtaAnchor`. */
+    secondaryCtaHref?: string;
+    /** Right-hand rail; omit or empty pillars to hide (slim Reality Check page). */
+    offerFrame?: { label: string; pillars: string[] };
   };
-  watHetIs: AanbodWatHetIs;
+  /** Cream block after hero; omit for slim offer pages. */
+  watHetIs?: AanbodWatHetIs;
   offerClarity: {
     /** Legacy spine label for “Wat het is” block — optional. */
     eyebrow?: string;
@@ -82,6 +86,8 @@ export type AanbodContent = {
     welItems: string[];
     notForLabel: string;
     notForItems: string[];
+    /** Paragraph after Wel/Niet lists (e.g. honesty disclaimer). */
+    fitOutro?: string;
     /** Legacy columns — optional, for older CMS payloads. */
     leftTitle?: string;
     leftBody?: string;
@@ -110,7 +116,8 @@ export type AanbodContent = {
     /** Legacy single headline — optional. */
     headline?: string;
   };
-  whatAfter: {
+  /** “Na de Reality Check” band; omit on slim template. */
+  whatAfter?: {
     spine: string;
     eyebrow: string;
     headlineLine1: string;
