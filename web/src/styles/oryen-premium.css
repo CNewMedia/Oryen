@@ -118,6 +118,10 @@ img { display: block; max-width: 100%; }
   --P:       clamp(24px, 5.5vw, 80px);   /* page padding */
   --spine:   clamp(80px, 11vw, 148px);   /* verticale as */
   --lw:      1.5px;                       /* lijndikte */
+
+  /* Step cards — homepage `.step`; reused by aanpak + Reality Check phases */
+  --step-card-padding-y: clamp(2.6rem, 4.5vh, 5rem);
+  --step-card-padding-x: clamp(1.2rem, 2.2vw, 3rem);
 }
 
 /* ==========================================================================
@@ -715,7 +719,7 @@ img { display: block; max-width: 100%; }
   border-right: 1px solid var(--rule-i);
 }
 .step {
-  padding: clamp(2.6rem,4.5vh,5rem) clamp(1.2rem,2.2vw,3rem);
+  padding: var(--step-card-padding-y) var(--step-card-padding-x);
   border-right: 1px solid var(--rule-i);
   transition: background .4s;
   position: relative;
@@ -727,7 +731,7 @@ img { display: block; max-width: 100%; }
   content: '';
   position: absolute;
   top: -5px;
-  left: clamp(1.2rem,2.2vw,3rem);
+  left: var(--step-card-padding-x);
   width: 8px; height: 8px;
   border-radius: 50%;
   border: var(--lw) solid rgba(242,239,232,.2);
@@ -1831,7 +1835,7 @@ footer::before {
 }
 .rc-tpl-phase {
   position: relative;
-  padding: clamp(2rem, 3.5vh, 3rem) clamp(1.25rem, 2vw, 2rem) clamp(2rem, 3.5vh, 3.5rem) 0;
+  padding: var(--step-card-padding-y) var(--step-card-padding-x);
   border-right: 1px solid rgba(242, 239, 232, 0.14);
 }
 .rc-tpl-phase:last-child {
@@ -1841,7 +1845,7 @@ footer::before {
   content: '';
   position: absolute;
   top: -5px;
-  left: 0;
+  left: var(--step-card-padding-x);
   width: 9px;
   height: 9px;
   border-radius: 50%;
@@ -1867,8 +1871,8 @@ footer::before {
 .rc-tpl-phase-body {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.86rem;
+  line-height: 1.7;
   color: rgba(242, 239, 232, 0.72);
   margin: 0 0 1rem;
 }
@@ -2131,7 +2135,6 @@ footer::before {
   .rc-tpl-phase {
     border-right: none;
     border-bottom: 1px solid rgba(242, 239, 232, 0.14);
-    padding-right: 0;
   }
   .rc-tpl-phase:last-child {
     border-bottom: none;
@@ -2747,7 +2750,11 @@ footer::before {
 }
 
 @media (max-width: 640px) {
-  :root { --spine: 0px; }
+  :root {
+    --spine: 0px;
+    --step-card-padding-y: 2rem;
+    --step-card-padding-x: 1.2rem;
+  }
   .has-spine::before { display: none; }
   .spine-label { display: none; }
   .spine-grid { grid-template-columns: 1fr; }
@@ -2768,7 +2775,6 @@ footer::before {
   .aanpak-steps { grid-template-columns: 1fr 1fr; }
   .aanpak-spacer { display: none; }
   .aanpak-steps::before { display: none; }
-  .step { padding: 2rem 1.2rem; }
   .step-name { font-size: clamp(1.4rem,5vw,2rem); }
   .minis { grid-template-columns: 1fr; }
   .diag-line { display: none; }
@@ -3604,7 +3610,7 @@ body::before {
 }
 .aanpak-tpl-step {
   position: relative;
-  padding: clamp(2rem, 3.5vh, 3rem) clamp(1.25rem, 2vw, 1.75rem) clamp(2rem, 3.5vh, 3rem) 0;
+  padding: var(--step-card-padding-y) var(--step-card-padding-x);
   border-right: 1px solid rgba(242, 239, 232, 0.14);
 }
 .aanpak-tpl-step:last-child {
@@ -3614,7 +3620,7 @@ body::before {
   content: '';
   position: absolute;
   top: -5px;
-  left: 0;
+  left: var(--step-card-padding-x);
   width: 9px;
   height: 9px;
   border-radius: 50%;
@@ -3645,10 +3651,9 @@ body::before {
 .aanpak-tpl-step-body {
   font-family: 'Jost', sans-serif;
   font-weight: 300;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.86rem;
+  line-height: 1.7;
   color: rgba(242, 239, 232, 0.72);
-  padding-right: 0.65rem;
   margin: 0;
 }
 
@@ -3769,7 +3774,6 @@ body::before {
   .aanpak-tpl-step {
     border-right: none;
     border-bottom: 1px solid rgba(242, 239, 232, 0.14);
-    padding-right: 0;
   }
   .aanpak-tpl-step:last-child {
     border-bottom: none;
