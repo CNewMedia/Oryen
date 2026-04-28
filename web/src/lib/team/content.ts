@@ -155,14 +155,14 @@ const NL: TeamContent = {
   meta: {
     title: 'Team — ORYEN',
     description:
-      'Het kernteam achter ORYEN: commerciële ervaring, strategische scherpte en praktijkinzicht — met Christophe als ankerpunt.',
+      'Het kernteam achter ORYEN: ervaring met sales, marketing en bedrijfsvoering, strategische scherpte en praktijkinzicht — met Christophe als ankerpunt.',
   },
   hero: {
     eyebrow: 'Team',
     headlineLine1: 'Een klein kernteam.',
     headlineLine2Em: 'Geen lagen ertussen.',
     sub:
-      'ORYEN werkt niet met accountmanagement of klassieke bureaustructuur. U werkt met de mensen die het werk ook effectief doen — met Christophe als strategisch ankerpunt.\n\nGeen klassieke bureaustructuur. Geen lagen van accountmanagement. Wel een klein kernteam met ervaring in sales, commerciële opvolging, marketing, structuur en bedrijfsleiding.',
+      'ORYEN werkt niet met accountmanagement of klassieke bureaustructuur. U werkt met de mensen die het werk ook effectief doen — met Christophe als strategisch ankerpunt.\n\nGeen klassieke bureaustructuur. Geen lagen van accountmanagement. Wel een klein kernteam met ervaring in sales, opvolging, marketing, structuur en bedrijfsleiding.',
   },
   team: {
     spineLabel: 'Team',
@@ -192,14 +192,14 @@ const EN: TeamContent = {
   meta: {
     title: 'Team — ORYEN',
     description:
-      'The core team behind ORYEN: commercial sharpness, strategic judgement and experience on the floor — with Christophe as anchor.',
+      'The core team behind ORYEN: experience in sales, marketing and operations, strategic sharpness and judgement on the floor — with Christophe as anchor.',
   },
   hero: {
     eyebrow: 'Team',
     headlineLine1: 'A small core team.',
     headlineLine2Em: 'No layers in between.',
     sub:
-      'ORYEN does not run on account management or a classic agency structure. You work with the people who actually do the work — with Christophe as the strategic anchor.\n\nNo classic agency structure. No layers of account management. A small core team with experience in sales, commercial follow-up, marketing, structure and leadership.',
+      'ORYEN does not run on account management or a classic agency structure. You work with the people who actually do the work — with Christophe as the strategic anchor.\n\nNo classic agency structure. No layers of account management. A small core team with experience in sales, follow-up, marketing, structure and leadership.',
   },
   team: {
     spineLabel: 'Team',

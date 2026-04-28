@@ -303,11 +303,11 @@
   "Contact": {
     "meta": {
       "title": "Contact — ORYEN",
-      "description": "Liever eerst een helder gesprek dan een lange intake. Vertel kort wat er speelt — ORYEN bekijkt of een Reality Check zinvol is."
+      "description": "Liever eerst een concreet eerste gesprek dan een lange intake. Vertel kort wat er speelt — ORYEN bekijkt of een Reality Check zinvol is."
     },
     "hero": {
       "eyebrow": "Contact",
-      "headline": "Liever eerst een helder gesprek dan een lange intake.",
+      "headline": "Liever eerst een concreet gesprek dan een lange intake.",
       "sub": "Vertel kort wat er speelt. We bekijken of een Reality Check of een ander eerste gesprek zinvol is.",
       "primaryCta": "Plan een gesprek",
       "primaryCtaHref": "#contact-form",
@@ -339,7 +339,7 @@
     "cases": {
       "eyebrow": "Cases",
       "title": "Wat eerst kloppen moest zijn.",
-      "intro": "Concrete cases bespreken we op verzoek. Veel trajecten spelen zich onder vertrouwelijkheid af — dan publiceren we ze niet online, en dat is bewust zo.\n\nWe werken voor internationale B2B-productiebedrijven en evengoed voor kleinere lokale ondernemers. De aanpak blijft dezelfde: eerst scherp zien wat er speelt, dan pas uitvoeren.\n\nStrategische helderheid vóór uitvoering. Hieronder een selectie van recent gepubliceerd werk."
+      "intro": "Concrete cases bespreken we op verzoek. Veel trajecten spelen zich onder vertrouwelijkheid af — dan publiceren we ze niet online, en dat is bewust zo.\n\nWe werken voor internationale bedrijven en merken, en evengoed voor kleinere lokale ondernemers. De aanpak blijft dezelfde: eerst scherp zien wat er speelt, dan pas uitvoeren.\n\nEerst richting en scherpte, dan uitvoering. Hieronder een selectie van recent gepubliceerd werk."
     },
     "insights": {
       "eyebrow": "Inzichten",
@@ -348,18 +348,18 @@
     },
     "about": {
       "eyebrow": "Over ORYEN",
-      "title": "Onafhankelijk. Strategisch. B2B.",
+      "title": "Onafhankelijk. Strategisch. Merk en resultaat.",
       "intro": "ORYEN bestaat om richting te herstellen waar marketing, sales en digitaal uit elkaar lopen."
     },
     "contact": {
       "eyebrow": "Contact",
-      "title": "Liever eerst een helder gesprek dan een lange intake.",
+      "title": "Liever eerst een concreet gesprek dan een lange intake.",
       "intro": "Vertel kort wat er speelt. We bekijken of een Reality Check of een ander eerste gesprek zinvol is."
     },
     "reality": {
       "eyebrow": "Reality Check",
-      "title": "Een eerste strategische oefening.",
-      "intro": "Heldere scope, persoonlijke opvolging."
+      "title": "Een scherp eerste gesprek.",
+      "intro": "Concrete scope, persoonlijke opvolging."
     },
     "thankYou": {
       "eyebrow": "Bedankt",
@@ -379,9 +379,9 @@
   },
   "Team": {
     "christophe": {
-      "body": "23 jaar ervaring met merken — groot en klein, B2B en consumentgericht. Met uitvoering ook diep van binnenuit gekend: van merkpositionering en boutique-agencywerk tot video, commercial, folders, websites, CRM en HubSpot.",
+      "body": "23 jaar ervaring met merken — groot en klein, B2B en consumentgericht. Uitvoering kent hij van binnenuit: van merkpositionering en boutique-agencywerk tot video, websites, CRM en HubSpot.",
       "italicLine": "I've seen it all — what works en what not.",
-      "bodyAfter": "Maar bovenal: ervaring met de mens achter het merk. Met de gedrevenheid van ondernemers en de why die hun bedrijf draagt.\n\nDaar maakt ORYEN het verschil — niet bij de tools, maar bij de richting."
+      "bodyAfter": "Daar maakt ORYEN het verschil — niet met tools, maar met richting."
     },
     "closing": {
       "body": "De Reality Check is het eerste betaalde moment waarin we samen scherp krijgen waar sales, marketing en opvolging resultaat verliezen — en welke ingreep eerst verschil maakt."

@@ -303,11 +303,11 @@
   "Contact": {
     "meta": {
       "title": "Contact — ORYEN",
-      "description": "A clear first conversation, not a long intake. Tell us briefly what is at stake — we look at whether a Reality Check makes sense."
+      "description": "A concrete first conversation rather than a long intake. Tell us briefly what is at stake — we look at whether a Reality Check makes sense."
     },
     "hero": {
       "eyebrow": "Contact",
-      "headline": "A clear first conversation, not a long intake.",
+      "headline": "A concrete first conversation, not a long intake.",
       "sub": "Tell us briefly what is at stake. We look at whether a Reality Check — or another first conversation — makes sense.",
       "primaryCta": "Start the conversation",
       "primaryCtaHref": "#contact-form",
@@ -339,7 +339,7 @@
     "cases": {
       "eyebrow": "Cases",
       "title": "What had to fit first.",
-      "intro": "We share detailed case stories on request. Much of our work sits under confidentiality — it deliberately does not appear here.\n\nWe work with international B2B manufacturing companies and with smaller local businesses alike. The approach stays the same: see clearly what is at play before you invest in execution.\n\nStrategic clarity before execution — below is a selection of recently published work."
+      "intro": "We share detailed case stories on request. Much of our work sits under confidentiality — it deliberately does not appear here.\n\nWe work with international companies and brands, and with smaller local businesses alike. The approach stays the same: see clearly what is at play before you invest in execution.\n\nDirection and sharp focus before execution — below is a selection of recently published work."
     },
     "insights": {
       "eyebrow": "Insights",
@@ -348,18 +348,18 @@
     },
     "about": {
       "eyebrow": "About ORYEN",
-      "title": "Independent. Strategic. B2B.",
+      "title": "Independent. Strategic. Brand and results.",
       "intro": "ORYEN exists to restore direction where marketing, sales and digital drift apart."
     },
     "contact": {
       "eyebrow": "Contact",
-      "title": "A clear first conversation, not a long intake.",
+      "title": "A concrete first conversation, not a long intake.",
       "intro": "Tell us briefly what is at stake. We look at whether a Reality Check — or another first conversation — makes sense."
     },
     "reality": {
       "eyebrow": "Reality Check",
-      "title": "A first strategic exercise.",
-      "intro": "Clear scope, personal follow-up."
+      "title": "A sharp first conversation.",
+      "intro": "Concrete scope, personal follow-up."
     },
     "thankYou": {
       "eyebrow": "Thank you",
@@ -379,9 +379,9 @@
   },
   "Team": {
     "christophe": {
-      "body": "23 years of experience with brands — large and small, B2B and consumer-facing. Execution understood deeply from the inside out: from brand positioning and boutique agency work to video, commercials, brochures, websites, CRM and HubSpot.",
+      "body": "23 years of experience with brands — large and small, B2B and consumer-facing. Christophe knows execution from the inside out: from brand positioning and boutique agency work to video, websites, CRM and HubSpot.",
       "italicLine": "I've seen it all — what works en what not.",
-      "bodyAfter": "But above all: experience with the people behind the brand. With entrepreneurs' drive and the why that carries their business.\n\nThat is where ORYEN makes the difference — not in the tools, but in direction."
+      "bodyAfter": "That is where ORYEN makes the difference — not with tools, but with direction."
     },
     "closing": {
       "body": "The Reality Check is the first paid moment where we get sharp together on where sales, marketing and follow-up lose results — and which intervention makes the difference first."
