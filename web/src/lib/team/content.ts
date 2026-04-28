@@ -16,7 +16,7 @@ const CHRISTOPHE_NL: TeamMember = {
   name: 'Christophe Dejaeghere',
   role: 'Founder & strategisch ankerpunt',
   body:
-    'Brengt structuur in commerciële chaos. Kijkt waar verwachtingen fout zitten, waar de werking vastloopt en welke ingreep eerst het meeste verschil maakt. Verbindt strategie, marketing, systemen en opvolging tot een duidelijk besliskader.',
+    'ORYEN helpt bedrijven scherp krijgen waarom sales, marketing en opvolging niet brengen wat ze zouden moeten brengen — en wat eerst moet worden rechtgezet vóór er opnieuw tijd, geld of energie wordt ingezet.\n\nDe kracht van ORYEN zit in het herkennen van patronen: waar wordt te veel gedaan? waar wordt het verkeerde probleem opgelost? waar zit de aanname die niet klopt? waar moet eerst worden ingegrepen?\n\nChristophe kijkt niet alleen naar marketing of sales als losse onderdelen — hij kijkt naar de werking ertussen. Vaak zit het probleem niet in één campagne, één verkoper of één tool. Het zit in de manier waarop aanbod, boodschap, opvolging, keuzes en uitvoering elkaar beïnvloeden. Daar maakt ORYEN het verschil.',
   photo: PHOTO.christophe,
   alt: 'Portret van Christophe Dejaeghere',
 };
@@ -25,7 +25,7 @@ const CHRISTOPHE_EN: TeamMember = {
   ...CHRISTOPHE_NL,
   role: 'Founder & strategic anchor',
   body:
-    'Brings structure into commercial chaos. Looks at where expectations are off, where operations stall and which move makes the biggest difference first. Connects strategy, marketing, systems and follow-up into a clear decision frame.',
+    'ORYEN helps companies get sharp on why sales, marketing and follow-up are not delivering what they should — and what must be put right first before more time, money or energy is spent.\n\nORYEN’s strength is recognising patterns: where is too much being done? where is the wrong problem being solved? where is the assumption that does not hold? where must you intervene first?\n\nChristophe does not look at marketing or sales as separate boxes — he looks at how they work together. Often the issue is not one campaign, one seller or one tool. It is how offer, message, follow-up, choices and execution influence each other. That is where ORYEN makes the difference.',
   alt: 'Portrait of Christophe Dejaeghere',
 };
 
@@ -146,7 +146,7 @@ const NL: TeamContent = {
     headlineLine1: 'Een klein kernteam.',
     headlineLine2Em: 'Geen lagen ertussen.',
     sub:
-      'ORYEN werkt niet met accountmanagement of klassieke bureaustructuur. U werkt met de mensen die het werk ook effectief doen — met Christophe als strategisch ankerpunt.',
+      'ORYEN werkt niet met accountmanagement of klassieke bureaustructuur. U werkt met de mensen die het werk ook effectief doen — met Christophe als strategisch ankerpunt.\n\nGeen klassieke bureaustructuur. Geen lagen van accountmanagement. Wel een klein kernteam met ervaring in sales, commerciële opvolging, marketing, structuur en bedrijfsleiding.',
   },
   team: {
     spineLabel: 'Team',
@@ -184,7 +184,7 @@ const EN: TeamContent = {
     headlineLine1: 'A small core team.',
     headlineLine2Em: 'No layers in between.',
     sub:
-      'ORYEN does not run on account management or a classic agency structure. You work with the people who actually do the work — with Christophe as the strategic anchor.',
+      'ORYEN does not run on account management or a classic agency structure. You work with the people who actually do the work — with Christophe as the strategic anchor.\n\nNo classic agency structure. No layers of account management. A small core team with experience in sales, commercial follow-up, marketing, structure and leadership.',
   },
   team: {
     spineLabel: 'Team',

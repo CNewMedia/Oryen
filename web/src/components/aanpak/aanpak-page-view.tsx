@@ -213,7 +213,9 @@ export function AanpakPageView({ content }: Props) {
                 <br />
                 <em>{c.why.headlineLine2}</em>
               </h2>
-              <p className="aanpak-tpl-p-body reveal delay-1">{c.why.body1}</p>
+              <p className="aanpak-tpl-p-body reveal delay-1" style={{ whiteSpace: 'pre-line' }}>
+                {c.why.body1}
+              </p>
               <p className="aanpak-tpl-p-body reveal delay-1">{c.why.body2}</p>
             </div>
             {c.why.tail ? (
@@ -261,7 +263,9 @@ export function AanpakPageView({ content }: Props) {
                 </div>
               ))}
             </div>
-            <p className="aanpak-tpl-p-close reveal delay-3">{c.lens.conclusion}</p>
+            <p className="aanpak-tpl-p-close reveal delay-3" style={{ whiteSpace: 'pre-line' }}>
+              {c.lens.conclusion}
+            </p>
           </div>
         </div>
       </section>
@@ -287,7 +291,9 @@ export function AanpakPageView({ content }: Props) {
                     {c.steps.stepPrefix} {step.n}
                   </p>
                   <h3 className="aanpak-tpl-step-title">{step.title}</h3>
-                  <p className="aanpak-tpl-step-body">{step.body}</p>
+                  <p className="aanpak-tpl-step-body" style={{ whiteSpace: 'pre-line' }}>
+                    {step.body}
+                  </p>
                 </div>
               ))}
             </div>
@@ -337,7 +343,10 @@ export function AanpakPageView({ content }: Props) {
             </h2>
             <p className="aanpak-tpl-p-body aanpak-tpl-p-body--on-dark reveal delay-1">{close.body1}</p>
             {secondClosingPara ? (
-              <p className="aanpak-tpl-p-body aanpak-tpl-p-body--on-dark reveal delay-1">
+              <p
+                className="aanpak-tpl-p-body aanpak-tpl-p-body--on-dark reveal delay-1"
+                style={{ whiteSpace: 'pre-line' }}
+              >
                 {secondClosingPara}
               </p>
             ) : null}

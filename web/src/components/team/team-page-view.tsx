@@ -79,7 +79,9 @@ export function TeamPageView({ content: c }: Props) {
               <br />
               <em>{c.hero.headlineLine2Em}</em>
             </h1>
-            <p className="team-hero-lead reveal delay-2">{c.hero.sub}</p>
+            <p className="team-hero-lead reveal delay-2" style={{ whiteSpace: 'pre-line' }}>
+              {c.hero.sub}
+            </p>
           </div>
         </div>
       </section>
@@ -119,7 +121,9 @@ export function TeamPageView({ content: c }: Props) {
                   <h3 className="team-module-name">{m.name}</h3>
                   <p className="team-module-role">{m.role}</p>
                   <div className="team-module-divider" aria-hidden="true" />
-                  <p className="team-module-bio">{m.body}</p>
+                  <p className="team-module-bio" style={{ whiteSpace: 'pre-line' }}>
+                    {m.body}
+                  </p>
                 </article>
               ))}
             </div>

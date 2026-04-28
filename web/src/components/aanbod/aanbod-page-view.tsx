@@ -155,7 +155,9 @@ export function AanbodPageView({ content }: Props) {
                     <RichBrLines text={h.headlineLine2Em} />
                   </em>
                 </h1>
-                <p className="rc-tpl-hero-sub reveal delay-2">{h.sub}</p>
+                <p className="rc-tpl-hero-sub reveal delay-2">
+                  <RichBrLines text={h.sub} />
+                </p>
                 <div className="rc-tpl-hero-character reveal delay-3">
                   {h.characterLines.map((line) => (
                     <p key={line.slice(0, 48)}>{line}</p>
@@ -198,7 +200,9 @@ export function AanbodPageView({ content }: Props) {
                 <RichBrLines text={c.watHetIs.headlineLine2Em} />
               </em>
             </h2>
-            <p className="rc-tpl-s01-body reveal delay-2">{c.watHetIs.body}</p>
+            <p className="rc-tpl-s01-body reveal delay-2">
+              <RichBrLines text={c.watHetIs.body} />
+            </p>
           </div>
         </div>
       </section>

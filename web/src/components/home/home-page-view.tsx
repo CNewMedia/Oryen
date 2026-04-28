@@ -163,9 +163,11 @@ export function HomePageView({
               <br />
               <em>{t.approach.headlineEm}</em>
             </h2>
-            <p className="aanpak-note reveal delay-1">
-              <RichBrLines text={t.approach.note1} />
-            </p>
+            {t.approach.note1?.trim() ? (
+              <p className="aanpak-note reveal delay-1">
+                <RichBrLines text={t.approach.note1} />
+              </p>
+            ) : null}
             {t.approach.introHl ? (
               <p className="aanpak-intro-hl reveal delay-2">{t.approach.introHl}</p>
             ) : null}
@@ -314,12 +316,16 @@ export function HomePageView({
                 ) : null}
               </div>
               <div className="reveal delay-2">
-                <span className="niet-lbl">{t.selection.notForLabel}</span>
-                <ul className="niet-list">
-                  {notFor.map((item) => (
-                    <li key={item.slice(0, 24)}>{item}</li>
-                  ))}
-                </ul>
+                {notFor.length > 0 ? (
+                  <>
+                    <span className="niet-lbl">{t.selection.notForLabel}</span>
+                    <ul className="niet-list">
+                      {notFor.map((item) => (
+                        <li key={item.slice(0, 24)}>{item}</li>
+                      ))}
+                    </ul>
+                  </>
+                ) : null}
               </div>
             </div>
           </div>
@@ -351,13 +357,17 @@ export function HomePageView({
                     <RichBrLines text={t.about.body} />
                   </p>
                 ) : null}
-                <p className="over-creds reveal delay-2">
-                  <RichBrLines text={t.about.creds} />
-                </p>
-                <div className="over-sig reveal delay-2">
-                  <span className="over-sig-line" />
-                  <span className="over-sig-txt">{t.about.signature}</span>
-                </div>
+                {t.about.creds?.trim() ? (
+                  <p className="over-creds reveal delay-2">
+                    <RichBrLines text={t.about.creds} />
+                  </p>
+                ) : null}
+                {t.about.signature?.trim() ? (
+                  <div className="over-sig reveal delay-2">
+                    <span className="over-sig-line" />
+                    <span className="over-sig-txt">{t.about.signature}</span>
+                  </div>
+                ) : null}
                 {t.about.postSignature?.trim() ? (
                   <p className="over-body reveal delay-2">
                     <RichBrLines text={t.about.postSignature} />
@@ -403,21 +413,36 @@ export function HomePageView({
                 </Link>
               </div>
               <div className="reveal delay-1">
-                <h3 className="offer-r-hl">
-                  <span>
-                    <RichBrLines text={t.offer.secondaryHlBeforeEm} />
-                  </span>
-                  <br />
-                  <em>
-                    <RichBrLines text={t.offer.secondaryHlEm} />
-                  </em>
-                </h3>
-                <p className="offer-r-body">
-                  <RichBrLines text={t.offer.secondaryBody} />
-                </p>
-                <p className="offer-note">
-                  <RichBrLines text={t.offer.secondaryNote} />
-                </p>
+                {(t.offer.secondaryHlBeforeEm?.trim() ||
+                  t.offer.secondaryHlEm?.trim() ||
+                  t.offer.secondaryBody?.trim() ||
+                  t.offer.secondaryNote?.trim()) ? (
+                  <>
+                    <h3 className="offer-r-hl">
+                      {(t.offer.secondaryHlBeforeEm?.trim() || t.offer.secondaryHlEm?.trim()) ? (
+                        <>
+                          <span>
+                            <RichBrLines text={t.offer.secondaryHlBeforeEm} />
+                          </span>
+                          <br />
+                          <em>
+                            <RichBrLines text={t.offer.secondaryHlEm} />
+                          </em>
+                        </>
+                      ) : null}
+                    </h3>
+                    {t.offer.secondaryBody?.trim() ? (
+                      <p className="offer-r-body">
+                        <RichBrLines text={t.offer.secondaryBody} />
+                      </p>
+                    ) : null}
+                    {t.offer.secondaryNote?.trim() ? (
+                      <p className="offer-note">
+                        <RichBrLines text={t.offer.secondaryNote} />
+                      </p>
+                    ) : null}
+                  </>
+                ) : null}
               </div>
             </div>
           </div>
