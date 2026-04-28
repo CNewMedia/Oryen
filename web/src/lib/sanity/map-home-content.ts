@@ -132,6 +132,7 @@ export function mergeHomeFromSanity(doc: SanityDoc | null, base: HomeContent): H
       body: str(ab.body, base.about.body ?? ''),
       creds: str(ab.creds, base.about.creds),
       signature: str(ab.signature, base.about.signature),
+      postSignature: str(ab.postSignature, base.about.postSignature ?? ''),
       quote: str(ab.quote, base.about.quote),
     },
     offer: {

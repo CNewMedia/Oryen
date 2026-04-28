@@ -72,6 +72,8 @@ export type HomeContent = {
     body?: string;
     creds: string;
     signature: string;
+    /** Tekst onder de handtekening, vóór de team-link (bijv. persoonlijke noot). */
+    postSignature?: string;
     quote: string;
   };
   offer: {

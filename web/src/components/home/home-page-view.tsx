@@ -24,6 +24,31 @@ function RichBrLines({ text }: { text: string }) {
   );
 }
 
+/** Blokken gescheiden door lege regels (\n\n); binnen een blok: echte regeleinden. */
+function HeroRichBlocks({
+  text,
+  className,
+  revealDelay,
+}: {
+  text: string;
+  className: string;
+  revealDelay: string;
+}) {
+  const blocks = text
+    .split(/\n\n+/)
+    .map((b) => b.trim())
+    .filter(Boolean);
+  return (
+    <>
+      {blocks.map((block, i) => (
+        <p key={i} className={`${className} reveal ${revealDelay}`}>
+          <RichBrLines text={block} />
+        </p>
+      ))}
+    </>
+  );
+}
+
 type Props = {
   home: HomeContent;
   images: HomeImageUrls;
@@ -74,9 +99,17 @@ export function HomePageView({
                 />
               ) : null}
             </h1>
-            <p className="hero-claim reveal delay-1">{t.hero.claim}</p>
-            {t.hero.sub ? (
-              <p className="hero-sub reveal delay-2">{t.hero.sub}</p>
+            <HeroRichBlocks
+              text={t.hero.claim}
+              className="hero-claim"
+              revealDelay="delay-1"
+            />
+            {t.hero.sub?.trim() ? (
+              <HeroRichBlocks
+                text={t.hero.sub}
+                className="hero-sub"
+                revealDelay="delay-2"
+              />
             ) : null}
             <div className="hero-actions reveal delay-3">
               <Link className="btn-primary" href="/aanbod">
@@ -110,7 +143,9 @@ export function HomePageView({
                 <p className="stelling-p">
                   <RichBrLines text={t.diagnosis.p1} />
                 </p>
-                <p className="stelling-focus">{t.diagnosis.focus}</p>
+                {t.diagnosis.focus?.trim() ? (
+                  <p className="stelling-focus">{t.diagnosis.focus}</p>
+                ) : null}
               </div>
             </div>
           </div>
@@ -128,7 +163,9 @@ export function HomePageView({
               <br />
               <em>{t.approach.headlineEm}</em>
             </h2>
-            <p className="aanpak-note reveal delay-1">{t.approach.note1}</p>
+            <p className="aanpak-note reveal delay-1">
+              <RichBrLines text={t.approach.note1} />
+            </p>
             {t.approach.introHl ? (
               <p className="aanpak-intro-hl reveal delay-2">{t.approach.introHl}</p>
             ) : null}
@@ -142,7 +179,9 @@ export function HomePageView({
                 {t.approach.stepPrefix} {step.n}
               </span>
               <span className="step-name">{step.name}</span>
-              <p className="step-q">{step.q}</p>
+              <p className="step-q">
+                <RichBrLines text={step.q} />
+              </p>
             </div>
           ))}
         </div>
@@ -212,9 +251,17 @@ export function HomePageView({
             <div key={m.client} className={`mini reveal ${i > 0 ? `delay-${i}` : ''}`}>
               <span className="mini-ghost">{String(i + 2).padStart(2, '0')}</span>
               <div className="mini-client">{m.client}</div>
-              <p className="mini-subtitle">{m.subtitle}</p>
-              {m.body ? <p className="mini-body">{m.body}</p> : null}
-              <p className="mini-result">{m.result}</p>
+              <p className="mini-subtitle">
+                <RichBrLines text={m.subtitle} />
+              </p>
+              {m.body?.trim() ? (
+                <p className="mini-body">
+                  <RichBrLines text={m.body} />
+                </p>
+              ) : null}
+              <p className="mini-result">
+                <RichBrLines text={m.result} />
+              </p>
             </div>
           ))}
         </div>
@@ -250,8 +297,8 @@ export function HomePageView({
                 </h2>
                 <div className="selectie-list reveal delay-1">
                   {forItems.map((item) => (
-                    <p key={item.slice(0, 24)} className="sel-item">
-                      {item}
+                    <p key={item.slice(0, 40)} className="sel-item">
+                      <RichBrLines text={item} />
                     </p>
                   ))}
                 </div>
@@ -311,6 +358,11 @@ export function HomePageView({
                   <span className="over-sig-line" />
                   <span className="over-sig-txt">{t.about.signature}</span>
                 </div>
+                {t.about.postSignature?.trim() ? (
+                  <p className="over-body reveal delay-2">
+                    <RichBrLines text={t.about.postSignature} />
+                  </p>
+                ) : null}
                 <Link className="section-more over-more reveal delay-3" href="/team">
                   <span>{meetTheTeamLabel}</span>
                   <span className="section-more-arrow" aria-hidden="true" />
@@ -320,7 +372,9 @@ export function HomePageView({
                 <div className="over-portrait">
                   <img src={images.portrait} alt="" />
                 </div>
-                <p className="over-quote">{t.about.quote}</p>
+                <p className="over-quote">
+                  <RichBrLines text={t.about.quote} />
+                </p>
               </div>
             </div>
           </div>
@@ -358,8 +412,12 @@ export function HomePageView({
                     <RichBrLines text={t.offer.secondaryHlEm} />
                   </em>
                 </h3>
-                <p className="offer-r-body">{t.offer.secondaryBody}</p>
-                <p className="offer-note">{t.offer.secondaryNote}</p>
+                <p className="offer-r-body">
+                  <RichBrLines text={t.offer.secondaryBody} />
+                </p>
+                <p className="offer-note">
+                  <RichBrLines text={t.offer.secondaryNote} />
+                </p>
               </div>
             </div>
           </div>

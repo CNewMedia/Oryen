@@ -1,7 +1,7 @@
 {
   "Meta": {
     "siteName": "ORYEN",
-    "defaultDescription": "Direction before action. ORYEN maakt duidelijk hoe u meer uit marketing, sales en tools kunt halen."
+    "defaultDescription": "Direction before action. ORYEN toont waar sales, marketing en opvolging resultaat verliezen."
   },
   "Global": {
     "header": {
@@ -22,51 +22,52 @@
     "contact": "Contact",
     "cta": "Reality Check",
     "openMenu": "Menu",
-    "closeMenu": "Sluiten"
+    "closeMenu": "Sluiten",
+    "team": "Team"
   },
   "Home": {
     "hero": {
-      "titleLine1": "ORYEN maakt duidelijk waar het commercieel vastloopt — en wat eerst moet worden aangepakt.",
+      "titleLine1": "ORYEN toont waar sales, marketing en opvolging resultaat verliezen.",
       "titleLine2": "",
       "titleEm": "",
-      "claim": "Er gebeurt al genoeg in uw bedrijf. De echte vraag is niet of er nog iets moet gebeuren.",
-      "sub": "De echte vraag is: waar zit het vast — en welke ingreep maakt nu echt verschil?",
+      "claim": "Er gebeurt vaak al genoeg in uw bedrijf.\nEr wordt gecommuniceerd. Er wordt opgevolgd. Er worden tools gebruikt. Er worden beslissingen genomen.\n\nMaar toch blijft het gevoel:\n\nhier halen we niet uit wat erin zit.",
+      "sub": "De vraag is dan niet meteen of er méér moet gebeuren.\n\nDe echte vraag is:\n\nwaar gaat het vandaag mis — en welke ingreep maakt nu echt verschil?",
       "primaryCta": "Plan de Reality Check",
       "secondaryCta": "Bekijk de aanpak"
     },
     "diagnosis": {
       "spine": "01 — Diagnose",
       "headlineEm": "Niet elk probleem\nvraagt meer marketing.",
-      "p1": "Soms zit het in sales.\nSoms in opvolging.\nSoms in tools.\nSoms in interne afstemming.\n\nToch gebeurt vaak hetzelfde: er komt een bureau bij, een nieuwe tool, een extra campagne of meer budget.",
-      "focus": "Terwijl nog altijd niet duidelijk is wat echt vooruithelpt — en wat gewoon geld kost."
+      "p1": "Soms zit het in sales.\nSoms in opvolging.\nSoms in de propositie.\nSoms in tools.\nSoms in mensen.\nSoms in interne afstemming.\nSoms in een keuze die te vroeg werd gemaakt.\n\nToch gebeurt vaak hetzelfde:\ner komt een bureau bij, een nieuwe tool, een extra campagne, meer budget of meer druk op het team.\n\nTerwijl de echte oorzaak nog niet scherp genoeg benoemd is.\n\nORYEN kijkt niet alleen naar wat er gebeurt.\nWe kijken naar wat eronder zit:\n\nwaar loopt aandacht verloren?\nwaar haakt opvolging af?\nwaar wordt verkoop moeilijker dan nodig?\nwaar wordt marketing ruis in plaats van hefboom?\nwaar klopt de gekozen oplossing niet met het echte probleem?",
+      "focus": ""
     },
     "approach": {
       "spine": "02 — Aanpak",
-      "headline": "ORYEN maakt duidelijk waar ingrijpen",
-      "headlineEm": "het meeste verschil maakt.",
-      "note1": "Niet met nog meer ruis. Wel door eerst scherp te krijgen waar het commercieel vastloopt, wat vandaag tegenwerkt, wat nu prioriteit heeft en wat beter nog wacht.",
+      "headline": "Eerst weten waar resultaat verloren gaat.",
+      "headlineEm": "Dan pas kiezen wat nodig is.",
+      "note1": "ORYEN maakt duidelijk waar sales, marketing en opvolging elkaar versterken — of net tegenwerken.\n\nNiet om nog meer ruis te creëren.\nWel om scherp te krijgen:\n\nwat vandaag resultaat tegenhoudt;\nwaar tijd, budget of energie verloren gaat;\nwelke aanname niet klopt;\nwat nu prioriteit heeft;\nwat beter nog wacht;\nen welke ingreep eerst verschil maakt.",
       "introHl": "",
       "stepPrefix": "Stap",
       "steps": [
         {
           "n": "01",
           "name": "In kaart brengen",
-          "q": "Waar verliest u vandaag tijd, marge, energie of momentum?"
+          "q": "Wat gebeurt er vandaag al?\n\nWe kijken naar aanbod, doelgroep, communicatie, sales, opvolging, tools en interne keuzes.\n\nNiet vanuit theorie.\nWel vanuit de vraag:\n\nwat doet dit vandaag met resultaat?"
         },
         {
           "n": "02",
-          "name": "Realiteit toetsen",
-          "q": "Wat mag u redelijkerwijs verwachten — en wat klopt al langer niet meer?"
+          "name": "Resultaat toetsen",
+          "q": "Waar blijft het resultaat achter?\n\nNiet alleen in cijfers, maar ook in signalen:\n\nleads die niet goed passen;\nopvolging die te traag of te versnipperd loopt;\nsales die moeite heeft om het verschil uit te leggen;\nmarketing die wel zichtbaar is, maar weinig beweging brengt;\ntools die meer complexiteit dan grip geven;\nklanten die afhaken, twijfelen of blijven vergelijken."
         },
         {
           "n": "03",
           "name": "Oorzaak bepalen",
-          "q": "Zit het in sales, marketing, opvolging, tools, propositie of interne afstemming?"
+          "q": "Waar zit de echte oorzaak?\n\nIn de propositie?\nIn doelgroepkeuze?\nIn sales?\nIn marketing?\nIn opvolging?\nIn tools?\nIn mensen?\nIn interne afstemming?\nOf in een beslissing die logisch leek, maar vertrok van een verkeerde aanname?\n\nDat onderscheid maakt het verschil.\n\nWant wie het verkeerde probleem oplost, blijft investeren zonder wezenlijke vooruitgang."
         },
         {
           "n": "04",
           "name": "Keuze maken",
-          "q": "Wat moet eerst worden aangepakt — en wat doet u beter nog niet?"
+          "q": "Wat moet eerst worden aangepakt?\n\nNiet alles tegelijk.\nNiet nog een lijst met losse acties.\n\nWel een heldere prioriteit:\n\ndit eerst.\ndit nog niet.\ndit stopzetten.\ndit anders bekijken.\n\nZo ontstaat richting vóór uitvoering."
         }
       ],
       "moreCta": "Bekijk de volledige aanpak"
@@ -77,28 +78,28 @@
       "headlineEm": "Daarna pas de uitvoering.",
       "featured": {
         "client": "Hof van Cleve",
-        "title": "Niet eerst meer communicatie.\nEerst scherper krijgen wat het merk moest uitstralen.",
-        "line1": "",
-        "line2": "",
-        "line3": "Dat zorgde voor meer richting in de communicatie en meer resonantie bij het juiste publiek."
+        "title": "Een driesterren-restaurant met onaantastbare reputatie, maar weinig binding bij een jonger publiek dat het toekomstig clienteel moest worden.",
+        "line1": "Niet commercieel zichtbaarder maken. Wel het merk aantrekkelijk maken bij een nieuwe generatie zonder de klasse te verliezen.",
+        "line2": "Vier jaar gericht werken aan betrokkenheid en jeugdiger merkgevoel. Tot een jongere overnemer de fakkel kon overnemen.",
+        "line3": ""
       },
       "minis": [
         {
           "client": "Willems Veranda",
-          "subtitle": "Niet nog een idee. Eerst één juiste keuze.",
-          "body": "",
+          "subtitle": "Sterk vakmanschap, maar online nauwelijks vindbaar — en dus afgesloten van hoe klanten vandaag zoeken en kiezen.",
+          "body": "Niet eerst meer reclame. Eerst de digitale aansluiting maken die er nog niet was.",
           "result": "Dat maakte het merk structureel beter vindbaar, met tientallen kernzoektermen in de top drie."
         },
         {
           "client": "Concordia Textiles",
-          "subtitle": "Niet meteen uitrollen. Eerst intern scherp krijgen wat klopte en wat niet.",
-          "body": "",
-          "result": "Dat legde de basis voor een digitaal plan met draagvlak en duidelijke prioriteiten."
+          "subtitle": "Digitalisering die intern vastliep op uiteenlopende verwachtingen en een complexe structuur.",
+          "body": "Niet meteen uitrollen. Eerst intern op één lijn krijgen wat haalbaar, wenselijk en prioritair was.",
+          "result": "Dat maakte de digitalisering uitvoerbaar, met draagvlak en duidelijke prioriteiten."
         },
         {
           "client": "BMW — lokale dealer",
-          "subtitle": "Niet klinken als iedereen. Eerst kiezen wat hen lokaal onderscheidde.",
-          "body": "",
+          "subtitle": "Sterke positie, maar communicatief niet te onderscheiden van andere dealers in de regio.",
+          "body": "Niet eerst meer budget. Eerst kiezen wat hen lokaal écht anders maakte.",
           "result": "Dat bracht opnieuw digitale aanvragen op gang uit de eigen regio."
         }
       ]
@@ -106,22 +107,26 @@
     "selection": {
       "spine": "04 — Selectie",
       "headline": "Voor wie eerst wil weten",
-      "headlineEm": "wat echt moet worden aangepakt.",
+      "headlineEm": "waar resultaat verloren gaat.",
       "forItems": [
-        "ORYEN is er voor ondernemers die voelen dat er veel gebeurt, maar dat het resultaat niet in verhouding staat tot de inspanning.",
-        "Voor beslissers die niet zomaar meer marketing, meer salesdruk, een nieuwe tool of een extra leverancier willen inschakelen, maar eerst willen weten waar het werkelijk vastloopt."
+        "ORYEN is er voor ondernemers, salesverantwoordelijken en beslissers die voelen dat er veel gebeurt, maar dat het resultaat niet in verhouding staat tot de inspanning.",
+        "Voor bedrijven waar sales, marketing en opvolging niet scherp genoeg op elkaar aansluiten.",
+        "Voor wie niet zomaar meer marketing, meer salesdruk, een nieuwe tool of een extra leverancier wil inschakelen, maar eerst wil weten:\n\nwaar zit de oorzaak?"
       ],
       "forLabel": "Voor u als",
       "forList": [
         "er al genoeg gebeurt, maar het resultaat achterblijft",
-        "u voelt dat het probleem dieper zit dan één campagne of één leverancier",
-        "u eerst wilt weten wat werkelijk vastzit vóór u opnieuw beslist"
+        "sales, marketing of opvolging elkaar onvoldoende versterken",
+        "u voelt dat het probleem dieper zit dan één campagne, één tool of één leverancier",
+        "u niet zeker bent of de volgende investering wel de juiste is",
+        "u eerst wilt weten wat werkelijk moet worden aangepakt vóór u opnieuw beslist"
       ],
       "notForLabel": "Niet voor u als",
       "notFor": [
         "u gewoon snel iets wilt laten uitvoeren",
         "u vooral bevestiging zoekt voor een beslissing die al genomen is",
-        "u verwacht dat een tool, bureau of campagne op zich het verschil zal maken"
+        "u verwacht dat een tool, bureau of campagne op zich het verschil zal maken",
+        "u geen zin hebt om eerst naar de oorzaak te kijken"
       ]
     },
     "about": {
@@ -129,20 +134,21 @@
       "headline": "Niet sneller van alles doen.",
       "headlineEm": "Eerst juist beslissen.",
       "statement": "",
-      "body": "ORYEN helpt bedrijven scherp krijgen waarom hun commerciële werking niet brengt wat ze zou moeten — en wat eerst moet worden rechtgezet vóór er opnieuw wordt geïnvesteerd.\n\nGeen klassieke bureaustructuur.\nGeen lagen van accountmanagement.\nWel een klein kernteam rond Christophe, met ervaring in sales, commerciële opvolging, marketing, structuur en bedrijfsleiding.",
+      "body": "ORYEN helpt bedrijven scherp krijgen waarom sales, marketing en opvolging niet brengen wat ze zouden moeten brengen — en wat eerst moet worden rechtgezet vóór er opnieuw tijd, geld of energie wordt ingezet.\n\nGeen klassieke bureaustructuur.\nGeen lagen van accountmanagement.\nGeen standaardadvies dat vertrekt vanuit één kanaal.\n\nWel een klein kernteam rond Christophe, met ervaring in sales, commerciële opvolging, marketing, structuur en bedrijfsleiding.\n\nDe kracht van ORYEN zit in het herkennen van patronen:\n\nwaar wordt te veel gedaan?\nwaar wordt het verkeerde probleem opgelost?\nwaar zit de aanname die niet klopt?\nwaar moet eerst worden ingegrepen?",
       "creds": "23 jaar B2B-ervaring\nRechtstreeks met Christophe\nKlein team. Duidelijke betrokkenheid.",
       "signature": "Christophe Dejaeghere — oprichter ORYEN",
-      "quote": "De duurste beslissingen zijn meestal de beslissingen die te vroeg werden genomen."
+      "postSignature": "Christophe kijkt niet alleen naar marketing of sales als losse onderdelen.\nHij kijkt naar de werking ertussen.\n\nWant vaak zit het probleem niet in één campagne, één verkoper of één tool.\nHet zit in de manier waarop aanbod, boodschap, opvolging, keuzes en uitvoering elkaar beïnvloeden.\n\nDaar maakt ORYEN het verschil.",
+      "quote": "De duurste beslissingen zijn meestal niet de grote beslissingen.\nHet zijn de beslissingen die te vroeg worden genomen."
     },
     "offer": {
       "spine": "06 — Aanbod",
       "name": "Reality Check",
-      "body": "Het eerste betaalde moment waarin ORYEN scherp krijgt waar het commercieel vastloopt, wat eerst moet worden aangepakt en wat beter nog wacht.\n\nGeen vrijblijvende intake.\nGeen verkoopgesprek in vermomming.\n\nWel een scherp eerste beslismoment waarmee duidelijk wordt:\n\nwat vandaag blokkeert\nwat nu prioriteit heeft\nwat voorlopig geen zin heeft\nen wat de logische volgende stap is",
+      "body": "De Reality Check is het eerste betaalde moment waarin ORYEN scherp krijgt waar sales, marketing en opvolging resultaat verliezen — en welke ingreep eerst verschil maakt.\n\nGeen vrijblijvende intake.\nGeen verkoopgesprek in vermomming.\nGeen lange lijst met losse aanbevelingen.\n\nWel een scherp eerste beslismoment waarmee duidelijk wordt:\n\nwat vandaag resultaat tegenhoudt;\nwaar de oorzaak waarschijnlijk zit;\nwat nu prioriteit heeft;\nwat voorlopig geen zin heeft;\nwelke volgende stap logisch is.",
       "ctaPrimary": "Plan de Reality Check",
-      "secondaryHlBeforeEm": "Niet nog een vrijblijvende<br/>kennismaking.",
-      "secondaryHlEm": "Wel een scherp eerste<br/>beslismoment.",
-      "secondaryBody": "U vertrekt met duidelijkheid, prioriteiten en een concrete volgende stap. Of u daarna verder werkt met ORYEN, beslist u pas dan.",
-      "secondaryNote": "Geen automatisch traject. Rechtstreeks met Christophe."
+      "secondaryHlBeforeEm": "Niet nog een vrijblijvende kennismaking.",
+      "secondaryHlEm": "Wel een scherp eerste beslismoment.",
+      "secondaryBody": "U vertrekt met duidelijkheid, prioriteiten en een concrete volgende stap.\n\nOf u daarna verder werkt met ORYEN, beslist u pas dan.",
+      "secondaryNote": "Geen automatisch traject.\nRechtstreeks met Christophe."
     }
   },
   "Aanpak": {
@@ -378,20 +384,34 @@
       "headlineEm": "blijft van u.",
       "body": "De Reality Check is geen verborgen funnel.\n\nSoms volstaat de uitkomst om intern bij te sturen. Soms is een korte opvolging zinvol. Soms is verdere begeleiding logisch.\n\nMaar alleen als dat inhoudelijk klopt.",
       "stanzas": [
-        { "text": "De Reality Check is geen verborgen funnel." },
+        {
+          "text": "De Reality Check is geen verborgen funnel."
+        },
         {
           "text": "Soms volstaat de uitkomst om intern bij te sturen. Soms is een korte opvolging zinvol. Soms is verdere begeleiding logisch."
         },
-        { "text": "Maar alleen als dat inhoudelijk klopt.", "italic": true }
+        {
+          "text": "Maar alleen als dat inhoudelijk klopt.",
+          "italic": true
+        }
       ],
       "guarantees": [
         {
           "mark": "01",
           "text": "Geen automatische upgrade naar een vervolgtraject."
         },
-        { "mark": "02", "text": "Geen druk om meer te kopen." },
-        { "mark": "03", "text": "Geen salesmachine achter de schermen." },
-        { "mark": "04", "text": "Geen verplicht pad." }
+        {
+          "mark": "02",
+          "text": "Geen druk om meer te kopen."
+        },
+        {
+          "mark": "03",
+          "text": "Geen salesmachine achter de schermen."
+        },
+        {
+          "mark": "04",
+          "text": "Geen verplicht pad."
+        }
       ],
       "signature": "Antwoord altijd persoonlijk van Christophe.",
       "items": [

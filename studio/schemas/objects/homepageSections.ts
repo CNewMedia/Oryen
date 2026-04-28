@@ -140,8 +140,16 @@ export const homeAboutSection = defineType({
     defineField({ name: 'headline', title: 'Headline', type: 'string' }),
     defineField({ name: 'headlineEm', title: 'Headline (emphasis)', type: 'text', rows: 2 }),
     defineField({ name: 'statement', title: 'Statement', type: 'text', rows: 4 }),
-    defineField({ name: 'creds', title: 'Credentials line', type: 'string' }),
+    defineField({ name: 'body', title: 'Body', type: 'text', rows: 8 }),
+    defineField({ name: 'creds', title: 'Credentials line', type: 'text', rows: 3 }),
     defineField({ name: 'signature', title: 'Signature', type: 'string' }),
+    defineField({
+      name: 'postSignature',
+      title: 'Body after signature',
+      type: 'text',
+      rows: 6,
+      description: 'Extra copy shown after the signature line, before the team link.',
+    }),
     defineField({ name: 'quote', title: 'Quote', type: 'text', rows: 2 }),
   ],
 });
