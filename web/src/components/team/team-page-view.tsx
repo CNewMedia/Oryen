@@ -121,9 +121,23 @@ export function TeamPageView({ content: c }: Props) {
                   <h3 className="team-module-name">{m.name}</h3>
                   <p className="team-module-role">{m.role}</p>
                   <div className="team-module-divider" aria-hidden="true" />
-                  <p className="team-module-bio" style={{ whiteSpace: 'pre-line' }}>
-                    {m.body}
-                  </p>
+                  {m.italicLine ? (
+                    <div className="team-module-bio-stack">
+                      <p className="team-module-bio" style={{ whiteSpace: 'pre-line' }}>
+                        {m.body}
+                      </p>
+                      <p className="team-module-bio-quote">{m.italicLine}</p>
+                      {m.bodyAfter ? (
+                        <p className="team-module-bio" style={{ whiteSpace: 'pre-line' }}>
+                          {m.bodyAfter}
+                        </p>
+                      ) : null}
+                    </div>
+                  ) : (
+                    <p className="team-module-bio" style={{ whiteSpace: 'pre-line' }}>
+                      {m.body}
+                    </p>
+                  )}
                 </article>
               ))}
             </div>

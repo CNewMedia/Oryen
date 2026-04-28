@@ -32,7 +32,7 @@
       "titleEm": "",
       "claim": "Er gebeurt vaak al genoeg in uw bedrijf.\nEr wordt gecommuniceerd. Er wordt opgevolgd. Er worden tools gebruikt. Er worden beslissingen genomen.\n\nMaar toch blijft het gevoel: hier halen we niet uit wat erin zit.",
       "sub": "De vraag is dan niet meteen of er méér moet gebeuren.\n\nDe echte vraag is: waar gaat het vandaag mis — en welke ingreep maakt nu echt verschil?",
-      "primaryCta": "Plan een Reality Check-gesprek",
+      "primaryCta": "Plan een Reality Check-gesprek met Christophe",
       "secondaryCta": "Bekijk de aanpak"
     },
     "diagnosis": {
@@ -122,7 +122,7 @@
       "headline": "Niet sneller van alles doen.",
       "headlineEm": "Eerst juist beslissen.",
       "statement": "",
-      "body": "Geen klassieke bureaustructuur. Geen lagen van accountmanagement. Wel een klein kernteam rond Christophe Dejaeghere — 23 jaar B2B-ervaring, rechtstreeks aanspreekbaar.\n\nORYEN kijkt niet naar marketing of sales als losse onderdelen, maar naar de werking ertussen.",
+      "body": "Geen klassieke bureaustructuur. Geen lagen van accountmanagement. Wel een boutique team met Christophe Dejaeghere als strategisch ankerpunt — 23 jaar ervaring met merken, met uitvoering en met de mens achter het merk. Rechtstreeks aanspreekbaar.\n\nORYEN kijkt niet naar marketing of sales als losse onderdelen, maar naar de werking ertussen.",
       "creds": "",
       "signature": "",
       "postSignature": "",
@@ -132,7 +132,7 @@
       "spine": "06 — Aanbod",
       "name": "Reality Check",
       "body": "Het eerste betaalde moment waarin ORYEN scherp krijgt waar sales, marketing en opvolging resultaat verliezen — en welke ingreep eerst verschil maakt.\n\nGeen vrijblijvende intake. Geen verkoopgesprek in vermomming.\n\nU vertrekt met duidelijkheid, prioriteiten en een concrete volgende stap. Of u daarna verder werkt met ORYEN, beslist u pas dan.",
-      "ctaPrimary": "Plan een Reality Check-gesprek",
+      "ctaPrimary": "Plan een Reality Check-gesprek met Christophe",
       "secondaryHlBeforeEm": "",
       "secondaryHlEm": "",
       "secondaryBody": "",
@@ -150,7 +150,7 @@
       "headlineLine2": "Dan pas beslissen wat volgt.",
       "body1": "ORYEN begint niet met campagnes, tools of uitvoering.",
       "body2": "ORYEN begint met blootleggen waar het werkelijk vastloopt — en welke ingreep nu het meeste verschil maakt.",
-      "primaryCta": "Plan een Reality Check-gesprek",
+      "primaryCta": "Plan een Reality Check-gesprek met Christophe",
       "secondaryCta": "Bekijk de Reality Check"
     },
     "why": {
@@ -193,7 +193,7 @@
       "headlineLine2": "",
       "body1": "In één compacte doorloop wordt zichtbaar wat vastzit, wat eerst moet gebeuren en wat bewust nog wacht.",
       "body2": "Wat daarna gebeurt, ligt niet vast. Afhankelijk van de uitkomst: bijsturen, korte begeleiding, verdieping — of pas latere uitvoering. Geen verplicht vervolgtraject. Eerst inhoud die klopt.",
-      "primaryCta": "Plan een Reality Check-gesprek",
+      "primaryCta": "Plan een Reality Check-gesprek met Christophe",
       "primaryCtaHref": "/aanbod",
       "secondaryCta": "Bekijk de Reality Check →",
       "secondaryCtaHref": "/aanbod",
@@ -211,7 +211,7 @@
       "headlineLine2Em": "Een scherp eerste beslismoment.",
       "sub": "Niet nog een vrijblijvende kennismaking. Niet nog een offerte voor uitvoering. Wel een afgebakend traject dat zichtbaar maakt waar sales, marketing en opvolging resultaat verliezen — en welke ingreep nu echt verschil maakt.\n\nDezelfde aanpak die de basis legde voor cases zoals Hof van Cleve, Willems Veranda en Concordia Textiles.",
       "characterLines": [],
-      "primaryCta": "Plan een Reality Check-gesprek",
+      "primaryCta": "Plan een Reality Check-gesprek met Christophe",
       "secondaryCta": "Stel uw vraag rechtstreeks aan Christophe",
       "secondaryCtaHref": "/contact"
     },
@@ -294,7 +294,7 @@
       "headlineEm": "",
       "body1": "Antwoord altijd persoonlijk van Christophe. Geen verplicht vervolg, geen automatische upgrade.",
       "body2": "",
-      "primaryCta": "Plan een Reality Check-gesprek",
+      "primaryCta": "Plan een Reality Check-gesprek met Christophe",
       "footnote": "",
       "secondaryCta": "",
       "secondaryCtaHref": ""
@@ -379,7 +379,9 @@
   },
   "Team": {
     "christophe": {
-      "body": "23 jaar ervaring in sales, marketing en bedrijfsleiding. Ziet sneller dan anderen waar de verkeerde aanname onder een probleem zit, en welke ingreep echt het verschil maakt. Bewaakt bij elke opdracht de strategische lijn van diagnose tot keuze."
+      "body": "23 jaar ervaring met merken — groot en klein, B2B en consumentgericht. Met uitvoering ook diep van binnenuit gekend: van merkpositionering en boutique-agencywerk tot video, commercial, folders, websites, CRM en HubSpot.",
+      "italicLine": "I've seen it all — what works en what not.",
+      "bodyAfter": "Maar bovenal: ervaring met de mens achter het merk. Met de gedrevenheid van ondernemers en de why die hun bedrijf draagt.\n\nDaar maakt ORYEN het verschil — niet bij de tools, maar bij de richting."
     },
     "closing": {
       "body": "De Reality Check is het eerste betaalde moment waarin we samen scherp krijgen waar sales, marketing en opvolging resultaat verliezen — en welke ingreep eerst verschil maakt."

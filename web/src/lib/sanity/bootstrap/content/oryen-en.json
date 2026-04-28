@@ -32,7 +32,7 @@
       "titleEm": "",
       "claim": "Often enough is already happening in your company.\nThere is communication. There is follow-up. Tools are used. Decisions are made.\n\nAnd yet the feeling remains: we are not getting out what we put in.",
       "sub": "The question is not immediately whether more needs to be done.\n\nThe real question is: where does it go wrong today — and which intervention actually makes a difference now?",
-      "primaryCta": "Book a Reality Check conversation",
+      "primaryCta": "Book a Reality Check conversation with Christophe",
       "secondaryCta": "See the approach"
     },
     "diagnosis": {
@@ -122,7 +122,7 @@
       "headline": "Not doing more, faster.",
       "headlineEm": "First deciding right.",
       "statement": "",
-      "body": "No classic agency structure. No layers of account management. A small core team around Christophe Dejaeghere — 23 years of B2B experience, directly approachable.\n\nORYEN does not look at marketing or sales as separate boxes, but at how they work together.",
+      "body": "No classic agency structure. No layers of account management. A boutique team with Christophe Dejaeghere as strategic anchor — 23 years of experience with brands, with execution and with the people behind the brand. Directly approachable.\n\nORYEN does not look at marketing or sales as separate boxes, but at how they work together.",
       "creds": "",
       "signature": "",
       "postSignature": "",
@@ -132,7 +132,7 @@
       "spine": "06 — Offer",
       "name": "Reality Check",
       "body": "The first paid moment where ORYEN gets sharp on where sales, marketing and follow-up lose results — and which intervention makes the difference first.\n\nNot a casual intake. Not a sales call in disguise.\n\nYou leave with clarity, priorities and a concrete next step. Whether you continue with ORYEN after that, you decide only then.",
-      "ctaPrimary": "Book a Reality Check conversation",
+      "ctaPrimary": "Book a Reality Check conversation with Christophe",
       "secondaryHlBeforeEm": "",
       "secondaryHlEm": "",
       "secondaryBody": "",
@@ -150,7 +150,7 @@
       "headlineLine2": "Then decide what follows.",
       "body1": "ORYEN does not start with campaigns, tools or execution.",
       "body2": "ORYEN starts by exposing where things actually stall — and which intervention makes the biggest difference now.",
-      "primaryCta": "Book a Reality Check conversation",
+      "primaryCta": "Book a Reality Check conversation with Christophe",
       "secondaryCta": "See the Reality Check"
     },
     "why": {
@@ -193,7 +193,7 @@
       "headlineLine2": "",
       "body1": "In one compact pass, what is stuck, what must happen first and what can deliberately wait becomes visible.",
       "body2": "What happens next is not fixed. Depending on the outcome: course correction, short guidance, depth — or execution later. No mandatory follow-on programme. First, substance that fits.",
-      "primaryCta": "Book a Reality Check conversation",
+      "primaryCta": "Book a Reality Check conversation with Christophe",
       "primaryCtaHref": "/aanbod",
       "secondaryCta": "See the Reality Check →",
       "secondaryCtaHref": "/aanbod",
@@ -211,7 +211,7 @@
       "headlineLine2Em": "A sharp first decision moment.",
       "sub": "Not another casual introduction. Not another quote for execution. But a defined path that makes visible where sales, marketing and follow-up lose results — and which intervention really makes a difference now.\n\nThe same approach that underpinned work with clients such as Hof van Cleve, Willems Veranda and Concordia Textiles.",
       "characterLines": [],
-      "primaryCta": "Book a Reality Check conversation",
+      "primaryCta": "Book a Reality Check conversation with Christophe",
       "secondaryCta": "Put your question directly to Christophe",
       "secondaryCtaHref": "/contact"
     },
@@ -294,7 +294,7 @@
       "headlineEm": "",
       "body1": "Always a personal reply from Christophe. No mandatory follow-on, no automatic upgrade.",
       "body2": "",
-      "primaryCta": "Book a Reality Check conversation",
+      "primaryCta": "Book a Reality Check conversation with Christophe",
       "footnote": "",
       "secondaryCta": "",
       "secondaryCtaHref": ""
@@ -379,7 +379,9 @@
   },
   "Team": {
     "christophe": {
-      "body": "23 years of experience in sales, marketing and leadership. Spots faster than most where the wrong assumption sits beneath a problem, and which intervention truly makes the difference. On every assignment, guards the strategic line from diagnosis to choice."
+      "body": "23 years of experience with brands — large and small, B2B and consumer-facing. Execution understood deeply from the inside out: from brand positioning and boutique agency work to video, commercials, brochures, websites, CRM and HubSpot.",
+      "italicLine": "I've seen it all — what works en what not.",
+      "bodyAfter": "But above all: experience with the people behind the brand. With entrepreneurs' drive and the why that carries their business.\n\nThat is where ORYEN makes the difference — not in the tools, but in direction."
     },
     "closing": {
       "body": "The Reality Check is the first paid moment where we get sharp together on where sales, marketing and follow-up lose results — and which intervention makes the difference first."

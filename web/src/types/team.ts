@@ -11,6 +11,10 @@ export type TeamMember = {
   name: string;
   role: string;
   body: string;
+  /** Optional italic line between `body` and `bodyAfter` (e.g. Christophe’s quote). */
+  italicLine?: string;
+  /** Remaining bio after `italicLine`; supports `\n\n` paragraphs. */
+  bodyAfter?: string;
   photo: string;
   /** Alt text for the portrait. */
   alt: string;

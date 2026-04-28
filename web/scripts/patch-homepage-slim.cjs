@@ -76,7 +76,7 @@ function patchNl() {
       headlineEm: 'Eerst juist beslissen.',
       statement: '',
       body:
-        'Geen klassieke bureaustructuur. Geen lagen van accountmanagement. Wel een klein kernteam rond Christophe Dejaeghere — 23 jaar B2B-ervaring, rechtstreeks aanspreekbaar.\n\nORYEN kijkt niet naar marketing of sales als losse onderdelen, maar naar de werking ertussen.',
+        'Geen klassieke bureaustructuur. Geen lagen van accountmanagement. Wel een boutique team met Christophe Dejaeghere als strategisch ankerpunt — 23 jaar ervaring met merken, met uitvoering en met de mens achter het merk. Rechtstreeks aanspreekbaar.\n\nORYEN kijkt niet naar marketing of sales als losse onderdelen, maar naar de werking ertussen.',
       creds: '',
       signature: '',
       postSignature: '',
@@ -88,7 +88,7 @@ function patchNl() {
       name: 'Reality Check',
       body:
         'Het eerste betaalde moment waarin ORYEN scherp krijgt waar sales, marketing en opvolging resultaat verliezen — en welke ingreep eerst verschil maakt.\n\nGeen vrijblijvende intake. Geen verkoopgesprek in vermomming.\n\nU vertrekt met duidelijkheid, prioriteiten en een concrete volgende stap. Of u daarna verder werkt met ORYEN, beslist u pas dan.',
-      ctaPrimary: 'Plan een Reality Check-gesprek',
+      ctaPrimary: 'Plan een Reality Check-gesprek met Christophe',
       secondaryHlBeforeEm: '',
       secondaryHlEm: '',
       secondaryBody: '',
@@ -167,7 +167,7 @@ function patchEn() {
       headlineEm: 'First deciding right.',
       statement: '',
       body:
-        'No classic agency structure. No layers of account management. A small core team around Christophe Dejaeghere — 23 years of B2B experience, directly approachable.\n\nORYEN does not look at marketing or sales as separate boxes, but at how they work together.',
+        'No classic agency structure. No layers of account management. A boutique team with Christophe Dejaeghere as strategic anchor — 23 years of experience with brands, with execution and with the people behind the brand. Directly approachable.\n\nORYEN does not look at marketing or sales as separate boxes, but at how they work together.',
       creds: '',
       signature: '',
       postSignature: '',
@@ -179,7 +179,7 @@ function patchEn() {
       name: 'Reality Check',
       body:
         'The first paid moment where ORYEN gets sharp on where sales, marketing and follow-up lose results — and which intervention makes the difference first.\n\nNot a casual intake. Not a sales call in disguise.\n\nYou leave with clarity, priorities and a concrete next step. Whether you continue with ORYEN after that, you decide only then.',
-      ctaPrimary: 'Book a Reality Check conversation',
+      ctaPrimary: 'Book a Reality Check conversation with Christophe',
       secondaryHlBeforeEm: '',
       secondaryHlEm: '',
       secondaryBody: '',

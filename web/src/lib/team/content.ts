@@ -5,7 +5,7 @@ import oryNl from '@/lib/sanity/bootstrap/content/oryen-nl.json';
 
 type TeamBootstrap = {
   Team: {
-    christophe: { body: string };
+    christophe: { body: string; italicLine?: string; bodyAfter?: string };
     closing: { body: string };
   };
 };
@@ -25,22 +25,25 @@ const PHOTO = {
   stevie: '/images/team/stevie.jpeg',
 } as const;
 
-const CHRISTOPHE_NL: TeamMember = {
-  slug: 'christophe',
-  num: '01',
-  name: 'Christophe Dejaeghere',
-  role: 'Founder & strategisch ankerpunt',
-  body: teamStrings('nl').christophe.body,
-  photo: PHOTO.christophe,
-  alt: 'Portret van Christophe Dejaeghere',
-};
+function christopheMember(locale: 'nl' | 'en'): TeamMember {
+  const c = teamStrings(locale).christophe;
+  return {
+    slug: 'christophe',
+    num: '01',
+    name: 'Christophe Dejaeghere',
+    role:
+      locale === 'en' ? 'Founder & strategic anchor' : 'Founder & strategisch ankerpunt',
+    body: c.body,
+    ...(c.italicLine != null
+      ? { italicLine: c.italicLine, bodyAfter: c.bodyAfter ?? '' }
+      : {}),
+    photo: PHOTO.christophe,
+    alt: locale === 'en' ? 'Portrait of Christophe Dejaeghere' : 'Portret van Christophe Dejaeghere',
+  };
+}
 
-const CHRISTOPHE_EN: TeamMember = {
-  ...CHRISTOPHE_NL,
-  role: 'Founder & strategic anchor',
-  body: teamStrings('en').christophe.body,
-  alt: 'Portrait of Christophe Dejaeghere',
-};
+const CHRISTOPHE_NL = christopheMember('nl');
+const CHRISTOPHE_EN = christopheMember('en');
 
 const TEAM_NL_REST: TeamMember[] = [
   {
@@ -178,7 +181,7 @@ const NL: TeamContent = {
     headlineLine1: 'Eén gesprek dat',
     headlineLine2Em: 'richting geeft.',
     body: teamStrings('nl').closing.body,
-    primaryCta: 'Plan een Reality Check-gesprek',
+    primaryCta: 'Plan een Reality Check-gesprek met Christophe',
     primaryCtaHref: '/aanbod',
     secondaryCta: 'Contact',
     secondaryCtaHref: '/contact',
@@ -215,7 +218,7 @@ const EN: TeamContent = {
     headlineLine1: 'One conversation that',
     headlineLine2Em: 'sets direction.',
     body: teamStrings('en').closing.body,
-    primaryCta: 'Book a Reality Check conversation',
+    primaryCta: 'Book a Reality Check conversation with Christophe',
     primaryCtaHref: '/aanbod',
     secondaryCta: 'Contact',
     secondaryCtaHref: '/contact',

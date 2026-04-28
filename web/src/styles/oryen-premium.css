@@ -3199,6 +3199,23 @@ body::before {
   margin: 0;
   max-width: 38ch;
 }
+.team-module-bio-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  max-width: 38ch;
+}
+.team-module-bio-quote {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 0.91rem;
+  line-height: 1.65;
+  color: rgba(196, 120, 32, 0.88);
+  margin: clamp(0.85rem, 2vw, 1.15rem) 0 clamp(0.75rem, 1.8vw, 1rem);
+  max-width: 38ch;
+}
 
 /* ── Collaboration strip (cream + spine) ── */
 .team-collab-strip-inner {
