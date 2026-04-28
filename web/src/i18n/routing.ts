@@ -24,6 +24,8 @@ export type PathnameHref = keyof typeof localizedPathnames;
 export const routing = defineRouting({
   locales,
   defaultLocale: 'nl',
+  /** Do not use Accept-Language or locale cookie — everyone defaults to Dutch unless they open `/en`. */
+  localeDetection: false,
   localePrefix: 'always',
   pathnames: localizedPathnames,
 });
