@@ -1,5 +1,20 @@
 import type { TeamContent, TeamMember } from '@/types/team';
 
+import oryEn from '@/lib/sanity/bootstrap/content/oryen-en.json';
+import oryNl from '@/lib/sanity/bootstrap/content/oryen-nl.json';
+
+type TeamBootstrap = {
+  Team: {
+    christophe: { body: string };
+    closing: { body: string };
+  };
+};
+
+function teamStrings(locale: string) {
+  const raw = (locale === 'en' ? oryEn : oryNl) as TeamBootstrap;
+  return raw.Team;
+}
+
 /** Source files copied to `public/images/team/` from `web/Images/`. */
 const PHOTO = {
   christophe: '/images/team/christophecnip.jpg',
@@ -15,8 +30,7 @@ const CHRISTOPHE_NL: TeamMember = {
   num: '01',
   name: 'Christophe Dejaeghere',
   role: 'Founder & strategisch ankerpunt',
-  body:
-    'ORYEN helpt bedrijven scherp krijgen waarom sales, marketing en opvolging niet brengen wat ze zouden moeten brengen — en wat eerst moet worden rechtgezet vóór er opnieuw tijd, geld of energie wordt ingezet.\n\nDe kracht van ORYEN zit in het herkennen van patronen: waar wordt te veel gedaan? waar wordt het verkeerde probleem opgelost? waar zit de aanname die niet klopt? waar moet eerst worden ingegrepen?\n\nChristophe kijkt niet alleen naar marketing of sales als losse onderdelen — hij kijkt naar de werking ertussen. Vaak zit het probleem niet in één campagne, één verkoper of één tool. Het zit in de manier waarop aanbod, boodschap, opvolging, keuzes en uitvoering elkaar beïnvloeden. Daar maakt ORYEN het verschil.',
+  body: teamStrings('nl').christophe.body,
   photo: PHOTO.christophe,
   alt: 'Portret van Christophe Dejaeghere',
 };
@@ -24,8 +38,7 @@ const CHRISTOPHE_NL: TeamMember = {
 const CHRISTOPHE_EN: TeamMember = {
   ...CHRISTOPHE_NL,
   role: 'Founder & strategic anchor',
-  body:
-    'ORYEN helps companies get sharp on why sales, marketing and follow-up are not delivering what they should — and what must be put right first before more time, money or energy is spent.\n\nORYEN’s strength is recognising patterns: where is too much being done? where is the wrong problem being solved? where is the assumption that does not hold? where must you intervene first?\n\nChristophe does not look at marketing or sales as separate boxes — he looks at how they work together. Often the issue is not one campaign, one seller or one tool. It is how offer, message, follow-up, choices and execution influence each other. That is where ORYEN makes the difference.',
+  body: teamStrings('en').christophe.body,
   alt: 'Portrait of Christophe Dejaeghere',
 };
 
@@ -164,8 +177,7 @@ const NL: TeamContent = {
     spineLabel: 'Volgende stap',
     headlineLine1: 'Eén gesprek dat',
     headlineLine2Em: 'richting geeft.',
-    body:
-      'De Reality Check is het eerste betaalde moment waarop we samen scherp krijgen waar uw commerciële werking vastloopt, wat eerst moet worden aangepakt en wat beter nog wacht.',
+    body: teamStrings('nl').closing.body,
     primaryCta: 'Plan de Reality Check',
     primaryCtaHref: '/aanbod',
     secondaryCta: 'Contact',
@@ -202,8 +214,7 @@ const EN: TeamContent = {
     spineLabel: 'Next step',
     headlineLine1: 'One conversation that',
     headlineLine2Em: 'sets direction.',
-    body:
-      'The Reality Check is the first paid moment where we get sharp together on where your commercial operations stall, what must be addressed first and what is better off waiting.',
+    body: teamStrings('en').closing.body,
     primaryCta: 'Book the Reality Check',
     primaryCtaHref: '/aanbod',
     secondaryCta: 'Contact',

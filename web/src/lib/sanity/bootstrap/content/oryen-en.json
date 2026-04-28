@@ -522,5 +522,13 @@
       "title": "Cookie policy",
       "intro": "Which cookies ORYEN uses. Final legal copy is managed in Sanity."
     }
+  },
+  "Team": {
+    "christophe": {
+      "body": "23 years of experience in sales, marketing and leadership. Spots faster than most where the wrong assumption sits beneath a problem, and which intervention truly makes the difference. On every assignment, guards the strategic line from diagnosis to choice."
+    },
+    "closing": {
+      "body": "The Reality Check is the first paid moment where we get sharp together on where sales, marketing and follow-up lose results — and which intervention makes the difference first."
+    }
   }
 }
