@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reality Check — ORYEN</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2EDE4;
+  --paper-2:#EAE3D6;
+  --forest:#142821;
+  --forest-2:#0E1E18;
+  --ink:#1A1A1A;
+  --ink-soft:#2B2B2B;
+  --muted:#6B6A64;
+  --muted-dark:rgba(242,237,228,.62);
+  --amber:#C47820;
+  --amber-soft:rgba(196,120,32,.38);
+  --line-light:rgba(26,26,26,.12);
+  --line-dark:rgba(242,237,228,.14);
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ═══════════════ NAV ═══════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 48px;
+  background:rgba(20,40,33,.72);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(242,237,228,.08);
+  color:var(--paper);
+}
+.nav-logo{text-decoration:none;color:var(--paper);display:flex;flex-direction:column;gap:4px}
+.nav-logo-name{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;letter-spacing:.3em;font-size:15px;
+}
+.nav-logo-line{width:100px;height:1px;background:rgba(242,237,228,.24);margin:2px 0}
+.nav-logo-sub{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:.15em;
+  color:var(--muted-dark);text-transform:uppercase;
+}
+.nav-primary{list-style:none;display:flex;gap:56px}
+.nav-link{
+  text-decoration:none;color:var(--paper);
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:8px 0;
+}
+.nav-cta{
+  border:1px solid var(--amber);
+  padding:8px 14px;
+  font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--paper);text-decoration:none;
+}
+
+/* ═══════════════ SPINE SYSTEM ═══════════════ */
+.spine{position:relative}
+.spine-grid{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  max-width:1440px;
+  margin:0 auto;
+  padding:0 48px;
+  position:relative;
+}
+.spine-grid::before{
+  content:"";
+  position:absolute;
+  left:calc(48px + 50px);
+  top:0;bottom:0;
+  width:1px;
+  background:var(--amber);
+  opacity:.7;
+}
+.spine-label{
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.25em;
+  text-transform:uppercase;
+  align-self:start;
+  white-space:nowrap;
+  padding-top:140px;
+  color:var(--muted);
+}
+.spine-dark .spine-label{color:var(--muted-dark)}
+.spine-dark .spine-grid::before{opacity:.55}
+.spine-content{padding:120px 0 140px 80px}
+
+/* ═══════════════ HERO ═══════════════ */
+.hero{
+  background:var(--forest);
+  color:var(--paper);
+  min-height:100vh;
+  padding-top:80px;
+  position:relative;
+  overflow:hidden;
+}
+.hero .spine-grid::before{opacity:.55}
+.hero .spine-label{color:var(--muted-dark)}
+.hero-layout{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:80px;
+  padding:140px 0 120px 80px;
+  position:relative;
+  z-index:2;
+}
+.hero-eyebrow{
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:.25em;
+  color:var(--amber);text-transform:uppercase;
+  margin-bottom:56px;
+}
+.hero-headline{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(56px,6.5vw,100px);
+  line-height:1.02;
+  letter-spacing:-.015em;
+  color:var(--paper);
+  margin-bottom:40px;
+}
+.hero-headline em{
+  font-style:italic;
+  color:var(--amber);
+  font-weight:300;
+}
+.hero-sub{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  font-size:18px;
+  line-height:1.65;
+  color:var(--muted-dark);
+  max-width:540px;
+  margin-bottom:40px;
+}
+.hero-character{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-weight:300;
+  font-size:22px;
+  line-height:1.5;
+  color:var(--muted-dark);
+  max-width:540px;
+  margin-bottom:56px;
+  padding-left:24px;
+  border-left:1px solid var(--amber-soft);
+}
+.hero-character p+p{margin-top:10px}
+
+/* hero right rail — Lijst A */
+.hero-rail{
+  border-left:1px solid var(--line-dark);
+  padding:8px 0 8px 28px;
+}
+.hero-rail-title{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.25em;
+  color:var(--amber);text-transform:uppercase;
+  margin-bottom:28px;
+}
+.hero-rail-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.hero-rail-list li{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  font-size:14.5px;
+  color:var(--paper);
+  padding-left:22px;
+  position:relative;
+  line-height:1.45;
+}
+.hero-rail-list li::before{
+  content:"";
+  position:absolute;
+  left:0;top:10px;
+  width:10px;height:1px;
+  background:var(--amber);
+}
+
+/* hero blueprint */
+.hero-blueprint{
+  position:absolute;
+  top:0;right:0;bottom:0;
+  width:55%;
+  pointer-events:none;
+  opacity:.22;
+  z-index:1;
+}
+
+/* ═══════════════ CTA BUTTONS ═══════════════ */
+.btn-row{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:20px;
+  padding:20px 28px;
+  background:var(--paper);
+  color:var(--ink);
+  text-decoration:none;
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;
+  transition:transform .4s var(--ease);
+}
+.btn-primary:hover{transform:translateX(4px)}
+.btn-arrow{
+  display:inline-block;width:20px;height:1px;
+  background:var(--amber);position:relative;
+}
+.btn-arrow::after{
+  content:"";position:absolute;right:0;top:-3px;
+  width:7px;height:7px;
+  border-top:1px solid var(--amber);
+  border-right:1px solid var(--amber);
+  transform:rotate(45deg);
+}
+.btn-ghost{
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;
+  color:inherit;text-decoration:none;
+  opacity:.7;
+  transition:opacity .3s var(--ease);
+}
+.btn-ghost:hover{opacity:1}
+
+/* ═══════════════ SECTION TYPOGRAPHY ═══════════════ */
+.s-eyebrow{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--amber);
+  margin-bottom:28px;
+}
+.h-section{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(38px,4.2vw,60px);
+  line-height:1.08;
+  letter-spacing:-.015em;
+  margin-bottom:36px;
+}
+.h-section em{font-style:italic;color:var(--amber);font-weight:300}
+.h-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(28px,3vw,40px);
+  line-height:1.15;
+  letter-spacing:-.01em;
+  margin-bottom:24px;
+}
+.p-lead{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  font-size:18px;
+  line-height:1.65;
+  color:var(--ink-soft);
+  max-width:640px;
+}
+.spine-dark .p-lead{color:var(--muted-dark)}
+.p-body{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  font-size:17px;
+  line-height:1.65;
+  color:var(--ink-soft);
+  max-width:640px;
+}
+.spine-dark .p-body{color:var(--muted-dark)}
+.p-body+.p-body{margin-top:20px}
+
+/* ═══════════════ 01 · WAT HET IS ═══════════════ */
+.s01{background:var(--paper)}
+.s01-head{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(44px,5vw,72px);
+  line-height:1.08;
+  letter-spacing:-.015em;
+  margin-bottom:48px;
+  max-width:900px;
+}
+.s01-head em{font-style:italic;color:var(--amber);font-weight:300}
+.s01-body{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-weight:300;
+  font-size:24px;
+  line-height:1.5;
+  color:var(--muted);
+  max-width:620px;
+}
+
+/* ═══════════════ 02 · HOE HET GAAT — drie fases ═══════════════ */
+.s02{background:var(--forest);color:var(--paper);padding-bottom:40px}
+.s02 .h-section{color:var(--paper);margin-bottom:72px}
+.phases{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  position:relative;
+  margin-top:40px;
+}
+.phases::before{
+  content:"";position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:var(--line-dark);
+}
+.phase{
+  position:relative;
+  padding:48px 32px 56px 0;
+  border-right:1px solid var(--line-dark);
+}
+.phase:last-child{border-right:none}
+.phase::before{
+  content:"";
+  position:absolute;
+  top:-5px;left:0;
+  width:9px;height:9px;
+  border-radius:50%;
+  background:var(--forest);
+  border:1px solid rgba(242,237,228,.35);
+}
+.phase-num{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.24em;
+  color:var(--amber);
+  text-transform:uppercase;
+  margin-bottom:28px;
+}
+.phase-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+  font-size:26px;
+  line-height:1.15;
+  color:var(--paper);
+  margin-bottom:24px;
+  letter-spacing:-.01em;
+}
+.phase-body{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  font-size:14.5px;
+  line-height:1.6;
+  color:var(--muted-dark);
+  padding-right:12px;
+  margin-bottom:20px;
+}
+.phase-includes{
+  font-family:'DM Mono',monospace;
+  font-size:9.5px;letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(196,120,32,.75);
+  margin-top:28px;
+  padding-top:16px;
+  border-top:1px solid var(--line-dark);
+}
+
+/* ═══════════════ 03 · WAT U MEENEEMT — genummerde outputs ═══════════════ */
+.s03{background:var(--paper)}
+.outputs{
+  border-top:1px solid var(--line-light);
+  max-width:1040px;
+  margin-top:48px;
+}
+.output-row{
+  display:grid;
+  grid-template-columns:72px 1fr;
+  gap:32px;
+  align-items:baseline;
+  padding:32px 0;
+  border-bottom:1px solid var(--line-light);
+  transition:padding-left .5s var(--ease);
+}
+.output-row:hover{padding-left:12px}
+.output-row:hover .output-num{color:var(--amber)}
+.output-num{
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:.22em;
+  color:var(--muted);
+  transition:color .4s var(--ease);
+  padding-top:6px;
+}
+.output-body{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:40px;
+  align-items:baseline;
+}
+.output-title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+  font-size:24px;
+  line-height:1.25;
+  color:var(--ink);
+  letter-spacing:-.005em;
+}
+.output-desc{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  font-size:15.5px;
+  line-height:1.6;
+  color:var(--ink-soft);
+}
+
+/* ═══════════════ 04 · PAST DIT BIJ U ═══════════════ */
+.s04{background:var(--paper-2)}
+.s04-intro{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-weight:300;
+  font-size:22px;
+  line-height:1.55;
+  color:var(--muted);
+  max-width:760px;
+  margin-bottom:72px;
+}
+.fit-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  margin-top:32px;
+}
+.fit-col-head{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.25em;
+  text-transform:uppercase;
+  margin-bottom:32px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--line-light);
+}
+.fit-wel .fit-col-head{color:var(--amber)}
+.fit-niet .fit-col-head{color:var(--muted)}
+.fit-list{list-style:none;display:flex;flex-direction:column;gap:18px}
+.fit-list li{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  font-size:15.5px;
+  line-height:1.55;
+  color:var(--ink-soft);
+  padding-left:22px;
+  position:relative;
+}
+.fit-wel .fit-list li::before{
+  content:"";
+  position:absolute;
+  left:0;top:10px;
+  width:12px;height:1px;
+  background:var(--amber);
+}
+.fit-niet .fit-list li{color:var(--muted)}
+.fit-niet .fit-list li::before{
+  content:"×";
+  position:absolute;
+  left:0;top:0;
+  font-family:'DM Mono',monospace;
+  font-size:13px;
+  color:rgba(26,26,26,.35);
+}
+
+/* ═══════════════ 05 · UITKOMST BLIJFT VAN U ═══════════════ */
+.s05{background:var(--paper)}
+.s05-body{max-width:640px}
+.guarantee-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px 48px;
+  margin-top:48px;
+  max-width:860px;
+}
+.guarantee{
+  display:flex;align-items:baseline;gap:14px;
+  padding:14px 0;
+  border-bottom:1px solid var(--line-light);
+}
+.guarantee-mark{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.18em;
+  color:var(--amber);
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.guarantee-text{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  font-size:15.5px;
+  color:var(--ink-soft);
+  line-height:1.5;
+}
+.s05-signature{
+  margin-top:56px;
+  padding-top:28px;
+  border-top:1px solid var(--line-light);
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:17px;
+  color:var(--muted);
+  max-width:540px;
+}
+
+/* ═══════════════ 06 · AFSLUITING ═══════════════ */
+.s06{
+  background:var(--forest-2);
+  color:var(--paper);
+  position:relative;
+  overflow:hidden;
+}
+.s06 .h-section{color:var(--paper)}
+.s06 .p-body{color:var(--muted-dark)}
+.s06-resolution{
+  position:absolute;
+  top:50%;right:0;
+  transform:translateY(-50%);
+  width:52%;
+  max-width:760px;
+  pointer-events:none;
+  opacity:.36;
+}
+.s06-content{position:relative;z-index:2;max-width:640px}
+.s06-close{
+  margin-top:56px;
+  padding-top:32px;
+  border-top:1px solid var(--line-dark);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+}
+.s06-close-text{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:18px;
+  color:var(--muted-dark);
+}
+
+/* ═══════════════ FOOTER ═══════════════ */
+footer{
+  background:#0A1813;
+  color:var(--paper);
+  padding:56px 48px 32px;
+  border-top:1px solid var(--line-dark);
+}
+.footer-inner{
+  max-width:1440px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  flex-wrap:wrap;gap:32px;
+}
+.footer-left{display:flex;flex-direction:column;gap:32px}
+.footer-brand{
+  font-family:'Cormorant Garamond',serif;
+  letter-spacing:.3em;font-size:14px;
+}
+.footer-nav{
+  display:flex;gap:32px;list-style:none;
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+}
+.footer-nav a{color:var(--muted-dark);text-decoration:none;transition:color .3s var(--ease)}
+.footer-nav a:hover{color:var(--paper)}
+.footer-legal{
+  display:flex;gap:24px;list-style:none;
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted-dark);
+}
+.footer-legal a{color:inherit;text-decoration:none}
+.footer-right{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted-dark);
+}
+
+/* ═══════════════ REVEAL ═══════════════ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}
+.d2{transition-delay:.16s}
+.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}
+
+@media (max-width:1100px){
+  .hero-layout{grid-template-columns:1fr;gap:64px}
+  .hero-rail{border-left:none;border-top:1px solid var(--line-dark);padding:32px 0 0}
+  .phases{grid-template-columns:1fr;gap:0}
+  .phase{border-right:none;border-bottom:1px solid var(--line-dark)}
+  .phase:last-child{border-bottom:none}
+  .output-body{grid-template-columns:1fr;gap:12px}
+  .fit-grid{grid-template-columns:1fr;gap:56px}
+  .guarantee-grid{grid-template-columns:1fr}
+  .s06-resolution{opacity:.18;width:80%}
+}
+@media (max-width:768px){
+  .nav{padding:18px 24px}
+  .nav-primary{display:none}
+  .spine-grid{grid-template-columns:60px 1fr;padding:0 24px}
+  .spine-grid::before{left:calc(24px + 30px)}
+  .spine-content{padding:80px 0 100px 40px}
+  .hero-layout{padding:120px 0 80px 40px}
+  .output-row{grid-template-columns:48px 1fr;gap:20px;padding:24px 0}
+  .output-title{font-size:20px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="/">
+    <span class="nav-logo-name">ORYEN</span>
+    <span class="nav-logo-line"></span>
+    <span class="nav-logo-sub">Direction before action.</span>
+  </a>
+  <ul class="nav-primary">
+    <li><a class="nav-link" href="/aanpak">Aanpak</a></li>
+    <li><a class="nav-link" href="/cases">Cases</a></li>
+    <li><a class="nav-link" href="/team">Team</a></li>
+    <li><a class="nav-link" href="/contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="/aanbod">Reality Check</a>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero spine spine-dark">
+  <svg class="hero-blueprint" viewBox="0 0 900 700" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <pattern id="rc-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(196,120,32,.13)" stroke-width=".5"/>
+      </pattern>
+    </defs>
+    <rect width="900" height="700" fill="url(#rc-grid)"/>
+    <!-- axes -->
+    <line x1="0" y1="350" x2="900" y2="350" stroke="rgba(196,120,32,.18)" stroke-width=".6"/>
+    <line x1="450" y1="0" x2="450" y2="700" stroke="rgba(196,120,32,.18)" stroke-width=".6"/>
+    <!-- radar-like concentric circles -->
+    <circle cx="450" cy="350" r="80" fill="none" stroke="rgba(196,120,32,.22)" stroke-width=".6"/>
+    <circle cx="450" cy="350" r="160" fill="none" stroke="rgba(196,120,32,.18)" stroke-width=".6"/>
+    <circle cx="450" cy="350" r="240" fill="none" stroke="rgba(196,120,32,.14)" stroke-width=".6"/>
+    <circle cx="450" cy="350" r="6" fill="rgba(196,120,32,.7)"/>
+    <!-- target marker -->
+    <g transform="translate(580,260)" stroke="rgba(196,120,32,.5)" stroke-width=".7" fill="none">
+      <line x1="-10" y1="0" x2="-4" y2="0"/>
+      <line x1="4" y1="0" x2="10" y2="0"/>
+      <line x1="0" y1="-10" x2="0" y2="-4"/>
+      <line x1="0" y1="4" x2="0" y2="10"/>
+    </g>
+  </svg>
+  <div class="spine-grid">
+    <div class="spine-label">00 — Reality Check</div>
+    <div>
+      <div class="hero-layout">
+        <div>
+          <p class="hero-eyebrow reveal">Reality Check</p>
+          <h1 class="hero-headline reveal d1">
+            De Reality Check.<br>
+            <em>Een scherp eerste<br>beslismoment.</em>
+          </h1>
+          <p class="hero-sub reveal d2">
+            U voelt dat er al genoeg gebeurt in uw bedrijf. Maar niet alles werkt nog in dezelfde richting. De Reality Check maakt duidelijk waar het commercieel vastloopt, wat eerst moet worden aangepakt en wat u beter nog niet doet.
+          </p>
+          <div class="hero-character reveal d3">
+            <p>Geen uurtarief dat onderweg groter wordt.</p>
+            <p>Geen vaag traject dat zichzelf moet bewijzen.</p>
+          </div>
+          <div class="btn-row reveal d4">
+            <a class="btn-primary" href="/contact">
+              <span>Plan de Reality Check</span>
+              <span class="btn-arrow"></span>
+            </a>
+            <a class="btn-ghost" href="#hoe-het-gaat">Hoe Oryen werkt</a>
+          </div>
+        </div>
+
+        <!-- Lijst A — karakter van het product -->
+        <aside class="hero-rail reveal d3">
+          <p class="hero-rail-title">Eerste stap</p>
+          <ul class="hero-rail-list">
+            <li>Eén product.</li>
+            <li>Eén eerste beslissing.</li>
+            <li>Eén afgebakend traject.</li>
+            <li>Eén duidelijke uitkomst.</li>
+            <li>Afhankelijk van uw vraag: Christophe, Stevie, Koen of Esthel erbij.</li>
+            <li>Geen verplicht vervolg.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 01 · WAT HET IS ═══════════════════════ -->
+<section class="s01 spine">
+  <div class="spine-grid">
+    <div class="spine-label">01 — Wat het is</div>
+    <div class="spine-content">
+      <p class="s-eyebrow reveal">Wat het is</p>
+      <h2 class="s01-head reveal d1">
+        Eén traject.<br>
+        <em>Duidelijke uitkomst.</em>
+      </h2>
+      <p class="s01-body reveal d2">
+        Een afgebakend eerste product met een duidelijke functie: zichtbaar maken wat vastzit, wat eerst moet gebeuren en wat beter nog wacht.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 02 · HOE HET GAAT ═══════════════════════ -->
+<section class="s02 spine spine-dark" id="hoe-het-gaat">
+  <div class="spine-grid">
+    <div class="spine-label">02 — Hoe het gaat</div>
+    <div class="spine-content">
+      <p class="s-eyebrow reveal">Hoe het gaat</p>
+      <h2 class="h-section reveal d1">
+        Kort. Rechtstreeks.<br>
+        <em>Zonder omwegen.</em>
+      </h2>
+
+      <div class="phases">
+        <div class="phase reveal d1">
+          <p class="phase-num">Stap 01 — Voorbereiding</p>
+          <h3 class="phase-title">Voorbereiding</h3>
+          <p class="phase-body">We zetten uw vraag scherp. Waar zit de druk? Welke beslissing hangt er boven de markt? Wat voelt verkeerd, ondanks alle inspanningen?</p>
+          <p class="phase-includes">Inclusief: voorbereiding op uw context en vraag</p>
+        </div>
+        <div class="phase reveal d2">
+          <p class="phase-num">Stap 02 — De sessie</p>
+          <h3 class="phase-title">De sessie</h3>
+          <p class="phase-body">Eén compacte maar scherpe sessie. Afhankelijk van uw vraag schuift Christophe aan met Stevie, Koen of Esthel erbij — wie uw vraag het best dient. Geen brede brainstorm. Wel een directe doorlichting van oorzaak, volgorde, risico en prioriteit.</p>
+          <p class="phase-includes">Inclusief: de strategische sessie met het ORYEN-team</p>
+        </div>
+        <div class="phase reveal d3">
+          <p class="phase-num">Stap 03 — Output en duiding</p>
+          <h3 class="phase-title">Output en duiding</h3>
+          <p class="phase-body">U krijgt de output helder samengebracht en toegelicht. Niet als theoretisch document, maar als materiaal dat helpt om intern te beslissen en gericht verder te gaan.</p>
+          <p class="phase-includes">Inclusief: een concrete volgende stap</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 03 · WAT U MEENEEMT ═══════════════════════ -->
+<section class="s03 spine">
+  <div class="spine-grid">
+    <div class="spine-label">03 — Wat u meeneemt</div>
+    <div class="spine-content">
+      <p class="s-eyebrow reveal">Wat u meeneemt</p>
+      <h2 class="h-section reveal d1">
+        Concrete output.<br>
+        <em>Geen vaag advies.</em>
+      </h2>
+      <p class="p-lead reveal d2">
+        Na de Reality Check weet u niet alleen wat er wringt, maar ook wat daar nu mee moet gebeuren.
+      </p>
+
+      <div class="outputs">
+
+        <div class="output-row reveal d1">
+          <span class="output-num">— 01</span>
+          <div class="output-body">
+            <h3 class="output-title">Een scherp beeld van waar het commercieel vastloopt</h3>
+            <p class="output-desc">Geen losse observaties, maar één helder overzicht van wat vandaag blokkeert.</p>
+          </div>
+        </div>
+
+        <div class="output-row reveal d1">
+          <span class="output-num">— 02</span>
+          <div class="output-body">
+            <h3 class="output-title">Een eerste besliskader</h3>
+            <p class="output-desc">Wat nu prioriteit heeft, wat nog wacht en waarom.</p>
+          </div>
+        </div>
+
+        <div class="output-row reveal d2">
+          <span class="output-num">— 03</span>
+          <div class="output-body">
+            <h3 class="output-title">Een 90-dagen koerslijn</h3>
+            <p class="output-desc">Geen groot plan voor een jaar, wel een korte, bruikbare horizon met focus.</p>
+          </div>
+        </div>
+
+        <div class="output-row reveal d2">
+          <span class="output-num">— 04</span>
+          <div class="output-body">
+            <h3 class="output-title">Duidelijke prioriteiten</h3>
+            <p class="output-desc">Wat eerst moet kloppen vóór u opnieuw bouwt, koopt, verandert of uitrolt.</p>
+          </div>
+        </div>
+
+        <div class="output-row reveal d3">
+          <span class="output-num">— 05</span>
+          <div class="output-body">
+            <h3 class="output-title">Een stoplijst</h3>
+            <p class="output-desc">Wat u voorlopig beter niet doet, niet koopt en niet lanceert.</p>
+          </div>
+        </div>
+
+        <div class="output-row reveal d3">
+          <span class="output-num">— 06</span>
+          <div class="output-body">
+            <h3 class="output-title">Een concrete volgende stap</h3>
+            <p class="output-desc">Wat u intern kunt vastpakken — en waar verdere begeleiding pas zinvol wordt als de basis klopt.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 04 · PAST DIT BIJ U ═══════════════════════ -->
+<section class="s04 spine">
+  <div class="spine-grid">
+    <div class="spine-label">04 — Past dit bij u</div>
+    <div class="spine-content">
+      <p class="s-eyebrow reveal">Past dit bij u?</p>
+      <h2 class="h-section reveal d1">
+        De Reality Check is zinvol als u<br>
+        <em>al beslist, investeert en beweegt,</em><br>
+        maar voelt dat de werking niet brengt wat ze zou moeten.
+      </h2>
+      <p class="s04-intro reveal d2">
+        Als de Reality Check geen goede fit is, zeggen we dat ook. Het doel is niet om u in een traject te trekken. Het doel is om de juiste eerste beslissing scherp te krijgen.
+      </p>
+
+      <div class="fit-grid">
+        <div class="fit-wel reveal d2">
+          <p class="fit-col-head">Wel</p>
+          <ul class="fit-list">
+            <li>U wilt weten wat eerst moet worden aangepakt, niet wat het snelst verkocht raakt.</li>
+            <li>U wilt geen tweede investering vóór de volgorde helder is.</li>
+            <li>U wilt duidelijkheid waar u intern iets moet rechtzetten en waar externe hulp pas later zinvol is.</li>
+            <li>U wilt een eerste besluit, geen stapel indrukken.</li>
+          </ul>
+        </div>
+        <div class="fit-niet reveal d3">
+          <p class="fit-col-head">Niet</p>
+          <ul class="fit-list">
+            <li>U zoekt vooral snelle uitvoering zonder gesprek over oorzaak of volgorde.</li>
+            <li>U wilt bevestigd worden in een beslissing die in feite al genomen is.</li>
+            <li>U verwacht een agency-menu, een lijst pakketten of een vrijblijvende verkenning.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 05 · UITKOMST BLIJFT VAN U ═══════════════════════ -->
+<section class="s05 spine">
+  <div class="spine-grid">
+    <div class="spine-label">05 — Na de Reality Check</div>
+    <div class="spine-content">
+      <p class="s-eyebrow reveal">Na de Reality Check</p>
+      <h2 class="h-section reveal d1">
+        De uitkomst<br>
+        <em>blijft van u.</em>
+      </h2>
+
+      <div class="s05-body">
+        <p class="p-body reveal d2">
+          De Reality Check is geen verborgen funnel.
+        </p>
+        <p class="p-body reveal d2">
+          Soms volstaat de uitkomst om intern bij te sturen. Soms is een korte opvolging zinvol. Soms is verdere begeleiding logisch.
+        </p>
+        <p class="p-body reveal d2" style="font-style:italic;color:var(--ink)">
+          Maar alleen als dat inhoudelijk klopt.
+        </p>
+      </div>
+
+      <div class="guarantee-grid reveal d3">
+        <div class="guarantee">
+          <span class="guarantee-mark">01</span>
+          <span class="guarantee-text">Geen automatische upgrade naar een vervolgtraject.</span>
+        </div>
+        <div class="guarantee">
+          <span class="guarantee-mark">02</span>
+          <span class="guarantee-text">Geen druk om meer te kopen.</span>
+        </div>
+        <div class="guarantee">
+          <span class="guarantee-mark">03</span>
+          <span class="guarantee-text">Geen salesmachine achter de schermen.</span>
+        </div>
+        <div class="guarantee">
+          <span class="guarantee-mark">04</span>
+          <span class="guarantee-text">Geen verplicht pad.</span>
+        </div>
+      </div>
+
+      <p class="s05-signature reveal d4">
+        Antwoord altijd persoonlijk van Christophe.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 06 · AFSLUITING ═══════════════════════ -->
+<section class="s06 spine spine-dark">
+  <svg class="s06-resolution" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <pattern id="s06-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(196,120,32,.08)" stroke-width=".5"/>
+      </pattern>
+    </defs>
+    <rect width="800" height="500" fill="url(#s06-grid)"/>
+    <circle cx="80" cy="360" r="16" fill="none" stroke="rgba(196,120,32,.45)" stroke-width=".7"/>
+    <text x="80" y="366" text-anchor="middle" fill="rgba(196,120,32,.7)" font-family="DM Mono, monospace" font-size="10" letter-spacing="1">A</text>
+    <path d="M 96 360 C 280 360, 360 220, 520 180 S 680 120, 720 120" 
+          fill="none" stroke="rgba(196,120,32,.72)" stroke-width="1.1"/>
+    <circle cx="720" cy="120" r="22" fill="none" stroke="rgba(196,120,32,.7)" stroke-width=".9"/>
+    <circle cx="720" cy="120" r="5" fill="rgba(196,120,32,.9)"/>
+    <circle cx="720" cy="120" r="44" fill="none" stroke="rgba(196,120,32,.22)" stroke-width=".5"/>
+    <line x1="720" y1="70" x2="720" y2="100" stroke="rgba(196,120,32,.3)" stroke-width=".5"/>
+    <line x1="740" y1="120" x2="770" y2="120" stroke="rgba(196,120,32,.3)" stroke-width=".5"/>
+  </svg>
+
+  <div class="spine-grid">
+    <div class="spine-label">06 — Start met scherpte</div>
+    <div class="s06-content spine-content">
+      <h2 class="h-section reveal">
+        Twijfel is niet<br>
+        het probleem.<br>
+        <em>Te vroeg investeren wel.</em>
+      </h2>
+      <p class="p-body reveal d1">
+        Als uw bedrijf al genoeg beweegt, maar het resultaat achterblijft, is nog meer actie zelden het eerste antwoord.
+      </p>
+      <p class="p-body reveal d1">
+        Eerst moet duidelijk worden waar het echt vastloopt en wat nu als eerste moet gebeuren.
+      </p>
+
+      <div class="btn-row reveal d2" style="margin-top:56px">
+        <a class="btn-primary" href="/contact">
+          <span>Plan de Reality Check</span>
+          <span class="btn-arrow"></span>
+        </a>
+      </div>
+
+      <div class="s06-close reveal d3">
+        <span class="s06-close-text">Direction before action.</span>
+        <a class="btn-ghost" href="/contact">Contact opnemen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-brand">ORYEN</div>
+      <ul class="footer-nav">
+        <li><a href="/aanpak">Aanpak</a></li>
+        <li><a href="/cases">Cases</a></li>
+        <li><a href="/team">Team</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <ul class="footer-legal">
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/cookies">Cookies</a></li>
+      </ul>
+    </div>
+    <div class="footer-right">Direction before action. — oryen.be</div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold:.1, rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

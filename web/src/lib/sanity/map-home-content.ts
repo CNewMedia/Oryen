@@ -71,6 +71,11 @@ export function mergeHomeFromSanity(doc: SanityDoc | null, base: HomeContent): H
     ? forItemsRaw.map((x) => (typeof x === 'string' ? x : '')).filter(Boolean)
     : base.selection.forItems;
 
+  const forListRaw = sel.forList;
+  const forList = Array.isArray(forListRaw)
+    ? forListRaw.map((x) => (typeof x === 'string' ? x : '')).filter(Boolean)
+    : base.selection.forList ?? [];
+
   const notForRaw = sel.notFor;
   const notFor = Array.isArray(notForRaw)
     ? notForRaw.map((x) => (typeof x === 'string' ? x : '')).filter(Boolean)
@@ -100,6 +105,7 @@ export function mergeHomeFromSanity(doc: SanityDoc | null, base: HomeContent): H
       introHl: str(ap.introHl, base.approach.introHl),
       stepPrefix: str(ap.stepPrefix, base.approach.stepPrefix),
       steps: steps.length ? steps : base.approach.steps,
+      moreCta: str(ap.moreCta, base.approach.moreCta ?? ''),
     },
     proof: {
       spine: str(pr.spine, base.proof.spine),
@@ -113,6 +119,8 @@ export function mergeHomeFromSanity(doc: SanityDoc | null, base: HomeContent): H
       headline: str(sel.headline, base.selection.headline),
       headlineEm: str(sel.headlineEm, base.selection.headlineEm),
       forItems: forItems.length ? forItems : base.selection.forItems,
+      forLabel: str(sel.forLabel, base.selection.forLabel ?? ''),
+      forList: forList.length ? forList : base.selection.forList ?? [],
       notForLabel: str(sel.notForLabel, base.selection.notForLabel),
       notFor: notFor.length ? notFor : base.selection.notFor,
     },
@@ -121,6 +129,7 @@ export function mergeHomeFromSanity(doc: SanityDoc | null, base: HomeContent): H
       headline: str(ab.headline, base.about.headline),
       headlineEm: str(ab.headlineEm, base.about.headlineEm),
       statement: str(ab.statement, base.about.statement),
+      body: str(ab.body, base.about.body ?? ''),
       creds: str(ab.creds, base.about.creds),
       signature: str(ab.signature, base.about.signature),
       quote: str(ab.quote, base.about.quote),

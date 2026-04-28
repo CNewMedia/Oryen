@@ -1,28 +1,17 @@
-import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
-
-import { InnerPage } from '@/components/ui/inner-page';
+import { redirect } from 'next/navigation';
 
 type Props = { params: Promise<{ locale: string }> };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+/**
+ * Deprecated route — `/over-oryen` (NL) / `/about` (EN) no longer has a
+ * distinct role in the IA. The "people / trust" page is `/team`; positioning
+ * and creds live on the homepage. Permanent redirect so bookmarks, inbound
+ * links and legacy navigation entries resolve to the canonical page.
+ */
+export default async function OverOnsRedirect({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Pages' });
-  return {
-    title: `${t('about.title')} | ORYEN`,
-    description: t('about.intro'),
-  };
-}
-
-export default async function AboutPage({ params }: Props) {
-  await params;
-  const t = await getTranslations('Pages');
-
-  return (
-      <InnerPage
-        eyebrow={t('about.eyebrow')}
-        title={t('about.title')}
-        intro={t('about.intro')}
-      />
-  );
+  if (locale === 'en') {
+    redirect('/en/team');
+  }
+  redirect('/nl/team');
 }

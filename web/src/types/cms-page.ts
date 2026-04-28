@@ -6,7 +6,29 @@ export type OverviewHeaderContent = {
   intro: string;
 };
 
-export type ContactPageContent = OverviewHeaderContent & {
+export type ContactFormLabels = {
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
+  message: string;
+  submit: string;
+  optional: string;
+};
+
+export type ContactPageContent = {
+  hero: {
+    eyebrow: string;
+    headline: string;
+    sub: string;
+    primaryCta: string;
+    primaryCtaHref: string;
+    secondaryCta: string | null;
+    secondaryCtaHref: string | null;
+  };
+  expectations: { headline: string; body: string };
+  form: { headline: string; labels: ContactFormLabels };
+  reassurance: { body: string; note: string };
   seo: ResolvedPageSeo;
 };
 
@@ -25,6 +47,15 @@ export type ThankYouPageContent = {
 export type LegalPageContent = {
   eyebrow: string;
   title: string;
+  body: unknown[] | null;
+  seo: ResolvedPageSeo;
+};
+
+/** About page — `studio/schemas/documents/overOnsPage.ts` (`oryen.overOns.{locale}`). */
+export type OverOnsPageContent = {
+  eyebrow: string;
+  title: string;
+  intro: string;
   body: unknown[] | null;
   seo: ResolvedPageSeo;
 };

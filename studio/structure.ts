@@ -20,22 +20,6 @@ export const structure: StructureResolver = (S) =>
     .title('ORYEN')
     .items([
       S.listItem()
-        .title('Site-wide')
-        .id('site-wide')
-        .child(
-          S.list()
-            .title('Site-wide')
-            .items([
-              singleton(
-                S,
-                'oryen.realityCheck',
-                'realityCheckPage',
-                'Reality Check'
-              ),
-              singleton(S, 'oryen.overOns', 'overOnsPage', 'Over ons'),
-            ])
-        ),
-      S.listItem()
         .title('Nederlands')
         .id('locale-nl')
         .child(
@@ -46,28 +30,29 @@ export const structure: StructureResolver = (S) =>
                 S,
                 'oryen.siteSettings.nl',
                 'siteSettings',
-                'Site settings'
+                'Site-instellingen'
               ),
               singleton(S, 'oryen.homepage.nl', 'homepage', 'Homepage'),
               singleton(S, 'oryen.aanbod.nl', 'aanbodPage', 'Aanbod'),
+              singleton(S, 'oryen.aanpak.nl', 'aanpakPage', 'Aanpak'),
               singleton(
                 S,
                 'oryen.insightsOverview.nl',
                 'insightsOverviewPage',
-                'Insights — overview'
+                'Inzichten — overzicht'
               ),
               singleton(
                 S,
                 'oryen.casestudiesOverview.nl',
                 'casestudiesOverviewPage',
-                'Cases — overview'
+                'Cases — overzicht'
               ),
               singleton(S, 'oryen.contact.nl', 'contactPage', 'Contact'),
               singleton(
                 S,
                 'oryen.thankYou.nl',
                 'thankYouPage',
-                'Thank you'
+                'Bedankt-pagina'
               ),
               singleton(
                 S,
@@ -97,7 +82,8 @@ export const structure: StructureResolver = (S) =>
                 'Site settings'
               ),
               singleton(S, 'oryen.homepage.en', 'homepage', 'Homepage'),
-              singleton(S, 'oryen.aanbod.en', 'aanbodPage', 'Aanbod'),
+              singleton(S, 'oryen.aanbod.en', 'aanbodPage', 'Offer'),
+              singleton(S, 'oryen.aanpak.en', 'aanpakPage', 'Approach'),
               singleton(
                 S,
                 'oryen.insightsOverview.en',
@@ -134,7 +120,16 @@ export const structure: StructureResolver = (S) =>
       S.divider(),
       S.documentTypeListItem('caseStudy').title('Case studies'),
       S.documentTypeListItem('insightArticle').title('Insight articles'),
-      S.documentTypeListItem('service').title('Services'),
-      S.documentTypeListItem('teamMember').title('Team'),
-      S.documentTypeListItem('testimonial').title('Testimonials'),
+      S.listItem()
+        .title('Content library (not on site)')
+        .id('content-library')
+        .child(
+          S.list()
+            .title('Reference — not used in web app yet')
+            .items([
+              S.documentTypeListItem('service').title('Services'),
+              S.documentTypeListItem('teamMember').title('Team'),
+              S.documentTypeListItem('testimonial').title('Testimonials'),
+            ])
+        ),
     ]);

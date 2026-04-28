@@ -3,6 +3,12 @@ import { getTranslations } from 'next-intl/server';
 
 import { InsightArticleList } from '@/components/insights/insight-article-list';
 import { InnerPage } from '@/components/ui/inner-page';
+import {
+  alternatesInsightTag,
+  documentTitleAbsolute,
+  ogImagesForPage,
+} from '@/lib/metadata/defaults';
+import { getCachedSiteSettings } from '@/lib/sanity/cached-loaders';
 import { loadInsightArticleListByTag } from '@/lib/sanity/load-insights';
 
 type Props = { params: Promise<{ locale: string; tag: string }> };
@@ -10,10 +16,25 @@ type Props = { params: Promise<{ locale: string; tag: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, tag: rawTag } = await params;
   const tag = decodeURIComponent(rawTag);
-  const t = await getTranslations({ locale, namespace: 'Insights' });
+  const [t, settings] = await Promise.all([
+    getTranslations({ locale, namespace: 'Insights' }),
+    getCachedSiteSettings(locale),
+  ]);
+  const title = `${tag} — ${t('tagTitle')} | ORYEN`;
+  const description = t('tagIntro');
+  const images = ogImagesForPage(undefined);
   return {
-    title: `${tag} — ${t('tagTitle')} | ORYEN`,
-    description: t('tagIntro'),
+    title: documentTitleAbsolute(title),
+    description,
+    alternates: alternatesInsightTag(locale, tag),
+    openGraph: {
+      title,
+      description,
+      locale,
+      type: 'website',
+      siteName: settings.siteTitle,
+      ...(images ? { images } : {}),
+    },
   };
 }
 

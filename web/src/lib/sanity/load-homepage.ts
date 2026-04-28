@@ -1,6 +1,5 @@
 import { getBootstrapHomeContent } from '@/lib/sanity/bootstrap/local-bootstrap';
 import { getSanityClient } from '@/lib/sanity/client';
-import { EMPTY_HOME_CONTENT } from '@/lib/sanity/empty-content';
 import { mergeHomeFromSanity } from '@/lib/sanity/map-home-content';
 import { loadSiteSettings } from '@/lib/sanity/load-site-settings';
 import { urlForImage } from '@/lib/sanity/image';
@@ -13,7 +12,8 @@ function isRecord(v: unknown): v is Record<string, unknown> {
   return typeof v === 'object' && v !== null && !Array.isArray(v);
 }
 
-const QUERY = `*[_type == "homepage" && locale == $locale][0]`;
+/** Matches `web/scripts/seed-cms.ts` ids (`oryen.homepage.nl` / `oryen.homepage.en`). */
+const QUERY = `*[_type == "homepage" && (locale == $locale || _id == $id)][0]`;
 
 export type HomeImageUrls = {
   hero: string;
@@ -71,7 +71,7 @@ function resolveHomeSeo(
 const defaultImages: HomeImageUrls = {
   hero: '/images/rock.jpg',
   featured: '/images/HofvanCleve.jpg',
-  portrait: '/images/christophecnip.png',
+  portrait: '/images/team/christophe.jpg',
 };
 
 export async function loadHomepage(locale: string): Promise<{
@@ -89,7 +89,8 @@ export async function loadHomepage(locale: string): Promise<{
     };
   }
 
-  const doc = (await client.fetch(QUERY, { locale })) as SanityDoc | null;
+  const id = `oryen.homepage.${locale}`;
+  const doc = (await client.fetch(QUERY, { locale, id })) as SanityDoc | null;
   if (!doc) {
     console.warn(
       `[ORYEN] homepage missing for locale "${locale}"; using bootstrap shell. Seed CMS or publish the homepage document.`
@@ -101,7 +102,8 @@ export async function loadHomepage(locale: string): Promise<{
     };
   }
 
-  const content = mergeHomeFromSanity(doc, EMPTY_HOME_CONTENT);
+  /** Merge onto locale bootstrap so partial CMS never blanks fields the editor omitted. */
+  const content = mergeHomeFromSanity(doc, getBootstrapHomeContent(locale));
 
   const heroUrl = isRecord(doc) ? urlForImage(doc.heroBgImage as never) : undefined;
   const featUrl = isRecord(doc)
@@ -110,6 +112,18 @@ export async function loadHomepage(locale: string): Promise<{
   const portUrl = isRecord(doc)
     ? urlForImage(doc.portraitImage as never)
     : undefined;
+
+  if (
+    process.env.NODE_ENV === 'development' &&
+    isRecord(doc) &&
+    doc.portraitImage &&
+    typeof doc.portraitImage === 'object' &&
+    !portUrl
+  ) {
+    console.warn(
+      '[ORYEN] homepage portraitImage is set but no CDN URL was built (check asset ref / publish). Falling back to static portrait.'
+    );
+  }
 
   return {
     content,

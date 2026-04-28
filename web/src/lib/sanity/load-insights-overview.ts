@@ -9,7 +9,7 @@ function str(v: unknown, fallback: string): string {
   return typeof v === 'string' && v.trim() ? v : fallback;
 }
 
-const QUERY = `*[_type == "insightsOverviewPage" && locale == $locale][0]`;
+const QUERY = `*[_type == "insightsOverviewPage" && (locale == $locale || _id == $id)][0]`;
 
 export type InsightsOverviewData = {
   header: OverviewHeaderContent;
@@ -29,7 +29,8 @@ export async function loadInsightsOverview(
     };
   }
 
-  const doc = (await client.fetch(QUERY, { locale })) as Record<
+  const id = `oryen.insightsOverview.${locale}`;
+  const doc = (await client.fetch(QUERY, { locale, id })) as Record<
     string,
     unknown
   > | null;

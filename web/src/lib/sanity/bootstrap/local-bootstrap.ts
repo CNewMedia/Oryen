@@ -1,18 +1,23 @@
 /**
  * Offline / no-project-id bootstrap copy for ORYEN pages.
- * Source: `content/oryen-*.json` (extracted from legacy messages; not imported from `messages/` at runtime).
- * Remove this module once all environments use Sanity + seed only.
+ * Source: `content/oryen-*.json` (not imported from `messages/` at runtime).
  */
 import type { AanbodContent } from '@/types/aanbod';
+import type { AanpakPageContent } from '@/types/aanpak-page';
 import type {
+  ContactFormLabels,
   ContactPageContent,
   LegalPageContent,
+  OverOnsPageContent,
   OverviewHeaderContent,
   ThankYouPageContent,
 } from '@/types/cms-page';
 import type { HomeContent } from '@/types/home-content';
 import type { SiteSettingsResolved } from '@/types/site-settings';
 
+import { siteImages } from '@/lib/site-images';
+
+import { getLegalPageBody, getLegalPageDescription } from './content/legal-copy';
 import oryEn from './content/oryen-en.json';
 import oryNl from './content/oryen-nl.json';
 
@@ -26,19 +31,16 @@ export function getBootstrapHomeContent(locale: string): HomeContent {
   return pickOry(locale).Home as unknown as HomeContent;
 }
 
+export function getBootstrapAanpakPage(locale: string): AanpakPageContent {
+  const m = pickOry(locale);
+  const base = (m as unknown as { Aanpak: AanpakPageContent }).Aanpak;
+  /** Default: blueprint-only hero; set `heroImageUrl` in CMS for optional photo underlay. */
+  return { ...base };
+}
+
 export function getBootstrapAanbodContent(locale: string): AanbodContent {
   const m = pickOry(locale);
-  return {
-    meta: m.Aanbod.meta,
-    hero: m.Aanbod.hero,
-    offerClarity: m.Aanbod.offerClarity,
-    whatYouGet: m.Aanbod.whatYouGet,
-    howItWorks: m.Aanbod.howItWorks,
-    whatAfter: m.Aanbod.whatAfter,
-    pricing: m.Aanbod.pricing,
-    reassurance: m.Aanbod.reassurance,
-    closing: m.Aanbod.closing,
-  } as AanbodContent;
+  return { ...(m.Aanbod as unknown as AanbodContent) };
 }
 
 export function getBootstrapSiteSettings(locale: string): SiteSettingsResolved {
@@ -57,9 +59,13 @@ export function getBootstrapSiteSettings(locale: string): SiteSettingsResolved {
     footerBrandShort: m.Global.footer.brandShort,
     footerTagline: m.Global.footer.tagline,
     footerDomain: m.Global.footer.domain,
-    contactEmail: 'hello@oryen.be',
+    contactEmail: 'info@cnip.be',
     contactPhone: null,
-    legalLinks: [],
+    contactAddress: 'Ottergemsesteenweg Zuid 808 b125\n9000 Gent',
+    legalLinks: [
+      { label: m.Pages.privacy.eyebrow, href: '/privacy' },
+      { label: m.Pages.cookies.eyebrow, href: '/cookies' },
+    ],
     socialLinks: [],
     tracking: {
       gtmEnabled: false,
@@ -79,14 +85,15 @@ export function getBootstrapSiteSettings(locale: string): SiteSettingsResolved {
   };
 }
 
-export function getBootstrapContactPage(locale: string): ContactPageContent {
+export function getBootstrapOverOnsPage(locale: string): OverOnsPageContent {
   const m = pickOry(locale);
-  const p = m.Pages.contact;
+  const p = m.Pages.about;
   const title = `${p.title} | ${m.Meta.siteName}`;
   return {
     eyebrow: p.eyebrow,
     title: p.title,
     intro: p.intro,
+    body: null,
     seo: {
       title,
       description: p.intro,
@@ -96,6 +103,58 @@ export function getBootstrapContactPage(locale: string): ContactPageContent {
     },
   };
 }
+
+export function getBootstrapContactPage(locale: string): ContactPageContent {
+  const m = pickOry(locale);
+  const c = (m as unknown as { Contact: RawContact }).Contact;
+  const metaTitle = c.meta.title;
+  return {
+    hero: {
+      eyebrow: c.hero.eyebrow,
+      headline: c.hero.headline,
+      sub: c.hero.sub,
+      primaryCta: c.hero.primaryCta,
+      primaryCtaHref: c.hero.primaryCtaHref ?? '#contact-form',
+      secondaryCta: c.hero.secondaryCta ?? null,
+      secondaryCtaHref: c.hero.secondaryCtaHref ?? null,
+    },
+    expectations: {
+      headline: c.expectations.headline,
+      body: c.expectations.body,
+    },
+    form: {
+      headline: c.form.headline,
+      labels: c.form.labels as ContactFormLabels,
+    },
+    reassurance: {
+      body: c.reassurance.body,
+      note: c.reassurance.note,
+    },
+    seo: {
+      title: metaTitle,
+      description: c.meta.description,
+      ogTitle: metaTitle,
+      ogDescription: c.meta.description,
+      robotsIndex: true,
+    },
+  };
+}
+
+type RawContact = {
+  meta: { title: string; description: string };
+  hero: {
+    eyebrow: string;
+    headline: string;
+    sub: string;
+    primaryCta: string;
+    primaryCtaHref?: string;
+    secondaryCta?: string | null;
+    secondaryCtaHref?: string | null;
+  };
+  expectations: { headline: string; body: string };
+  form: { headline: string; labels: ContactFormLabels };
+  reassurance: { body: string; note: string };
+};
 
 export function getBootstrapThankYouPage(locale: string): ThankYouPageContent {
   const m = pickOry(locale);
@@ -119,7 +178,8 @@ export function getBootstrapThankYouPage(locale: string): ThankYouPageContent {
       description: p.intro,
       ogTitle: title,
       ogDescription: p.intro,
-      robotsIndex: true,
+      // Form confirmation — noindex by default.
+      robotsIndex: false,
     },
   };
 }
@@ -131,19 +191,16 @@ export function getBootstrapLegalPage(
   const m = pickOry(locale);
   const p = m.Pages[key];
   const title = `${p.title} | ${m.Meta.siteName}`;
-  const placeholder =
-    locale === 'nl'
-      ? 'Definitieve juridische tekst volgt in Sanity.'
-      : 'Final legal copy will be managed in Sanity.';
+  const description = getLegalPageDescription(locale, key);
   return {
     eyebrow: p.eyebrow,
     title: p.title,
-    body: null,
+    body: getLegalPageBody(locale, key),
     seo: {
       title,
-      description: placeholder,
+      description,
       ogTitle: title,
-      ogDescription: placeholder,
+      ogDescription: description,
       robotsIndex: true,
     },
   };

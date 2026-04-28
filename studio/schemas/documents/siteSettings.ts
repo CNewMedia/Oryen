@@ -78,6 +78,14 @@ export const siteSettings = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'contactAddress',
+      title: 'Contact address',
+      description:
+        'Displayed on the contact page. Use line breaks for street / postal line.',
+      type: 'text',
+      rows: 3,
+    }),
+    defineField({
       name: 'legalLinks',
       title: 'Legal / utility links',
       type: 'array',

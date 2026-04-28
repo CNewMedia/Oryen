@@ -3,22 +3,37 @@ import type { Metadata } from 'next';
 import { Link } from '@/i18n/navigation';
 
 import { InnerPage } from '@/components/ui/inner-page';
-import { getCachedThankYouPage } from '@/lib/sanity/cached-loaders';
+import {
+  alternatesForPath,
+  documentTitleAbsolute,
+  ogImagesForPage,
+} from '@/lib/metadata/defaults';
+import {
+  getCachedSiteSettings,
+  getCachedThankYouPage,
+} from '@/lib/sanity/cached-loaders';
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const { seo } = await getCachedThankYouPage(locale);
+  const [{ seo }, settings] = await Promise.all([
+    getCachedThankYouPage(locale),
+    getCachedSiteSettings(locale),
+  ]);
+  const images = ogImagesForPage(undefined);
   return {
-    title: seo.title,
+    title: documentTitleAbsolute(seo.title),
     description: seo.description,
     robots: seo.robotsIndex ? undefined : { index: false, follow: false },
+    alternates: alternatesForPath(locale, '/bedankt'),
     openGraph: {
       title: seo.ogTitle ?? seo.title,
       description: seo.ogDescription ?? seo.description,
       locale,
       type: 'website',
+      siteName: settings.siteTitle,
+      ...(images ? { images } : {}),
     },
   };
 }

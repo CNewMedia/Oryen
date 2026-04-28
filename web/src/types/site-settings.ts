@@ -32,6 +32,7 @@ export type SiteSettingsResolved = {
   footerDomain: string;
   contactEmail: string | null;
   contactPhone: string | null;
+  contactAddress: string | null;
   legalLinks: { label: string; href: string }[];
   socialLinks: { label: string; url: string }[];
   tracking: TrackingSettings;

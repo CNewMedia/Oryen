@@ -8,7 +8,7 @@ function str(v: unknown, fallback: string): string {
   return typeof v === 'string' && v.trim() ? v : fallback;
 }
 
-const QUERY = `*[_type == "legalPage" && locale == $locale && legalKey == $legalKey][0]`;
+const QUERY = `*[_type == "legalPage" && _id == $id][0]`;
 
 export async function loadLegalPage(
   locale: string,
@@ -19,10 +19,8 @@ export async function loadLegalPage(
   const client = getSanityClient();
   if (!client) return base;
 
-  const doc = (await client.fetch(QUERY, {
-    locale,
-    legalKey,
-  } as Record<string, string>)) as Record<string, unknown> | null;
+  const id = `oryen.legal.${locale}.${legalKey}`;
+  const doc = (await client.fetch(QUERY, { id })) as Record<string, unknown> | null;
   if (!doc) return base;
 
   const eyebrow = str(doc.eyebrow, base.eyebrow);

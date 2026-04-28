@@ -1,39 +1,38 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
+import type { ContactFormLabels } from '@/types/cms-page';
 
-export function ContactForm() {
-  const locale = useLocale();
-  const t = useTranslations('ContactForm');
+type Props = {
+  locale: string;
+  labels: ContactFormLabels;
+};
 
+export function ContactForm({ locale, labels }: Props) {
   return (
     <form
+      id="contact-form"
       action="/api/contact"
       method="post"
-      className="mt-10 max-w-xl space-y-6 border-t border-[var(--rule)] pt-10"
+      className="contact-form"
     >
       <input type="hidden" name="locale" value={locale} />
-      <div>
-        <label
-          htmlFor="name"
-          className="mb-2 block font-['DM_Mono',monospace] text-[0.55rem] uppercase tracking-[0.14em] text-[var(--ink3)]"
-        >
-          {t('name')}
+
+      <div className="contact-field">
+        <label htmlFor="name" className="contact-label">
+          {labels.name}
         </label>
         <input
           id="name"
           name="name"
           required
           autoComplete="name"
-          className="w-full border border-[var(--rule)] bg-white/60 px-4 py-3 text-[0.95rem] font-light text-[var(--ink)] outline-none ring-0 transition focus:border-[var(--ink3)]"
+          className="contact-input"
         />
       </div>
-      <div>
-        <label
-          htmlFor="email"
-          className="mb-2 block font-['DM_Mono',monospace] text-[0.55rem] uppercase tracking-[0.14em] text-[var(--ink3)]"
-        >
-          {t('email')}
+
+      <div className="contact-field">
+        <label htmlFor="email" className="contact-label">
+          {labels.email}
         </label>
         <input
           id="email"
@@ -41,42 +40,53 @@ export function ContactForm() {
           type="email"
           required
           autoComplete="email"
-          className="w-full border border-[var(--rule)] bg-white/60 px-4 py-3 text-[0.95rem] font-light text-[var(--ink)] outline-none transition focus:border-[var(--ink3)]"
+          className="contact-input"
         />
       </div>
-      <div>
-        <label
-          htmlFor="company"
-          className="mb-2 block font-['DM_Mono',monospace] text-[0.55rem] uppercase tracking-[0.14em] text-[var(--ink3)]"
-        >
-          {t('company')}{' '}
-          <span className="text-[var(--ink3)]/60">{t('companyOptional')}</span>
+
+      <div className="contact-field">
+        <label htmlFor="company" className="contact-label">
+          {labels.company}{' '}
+          <span className="contact-label-optional">{labels.optional}</span>
         </label>
         <input
           id="company"
           name="company"
           autoComplete="organization"
-          className="w-full border border-[var(--rule)] bg-white/60 px-4 py-3 text-[0.95rem] font-light text-[var(--ink)] outline-none transition focus:border-[var(--ink3)]"
+          className="contact-input"
         />
       </div>
-      <div>
-        <label
-          htmlFor="message"
-          className="mb-2 block font-['DM_Mono',monospace] text-[0.55rem] uppercase tracking-[0.14em] text-[var(--ink3)]"
-        >
-          {t('message')}
+
+      <div className="contact-field">
+        <label htmlFor="phone" className="contact-label">
+          {labels.phone}{' '}
+          <span className="contact-label-optional">{labels.optional}</span>
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          className="contact-input"
+        />
+      </div>
+
+      <div className="contact-field">
+        <label htmlFor="message" className="contact-label">
+          {labels.message}
         </label>
         <textarea
           id="message"
           name="message"
           required
           rows={6}
-          className="w-full resize-y border border-[var(--rule)] bg-white/60 px-4 py-3 text-[0.95rem] font-light text-[var(--ink)] outline-none transition focus:border-[var(--ink3)]"
+          className="contact-input contact-textarea"
         />
       </div>
-      <button type="submit" className="btn-primary !bg-[var(--ink)] !text-[var(--cream)]">
-        <span>{t('submit')}</span>
-        <span className="btn-arrow !bg-[var(--amber)]" />
+
+      <button type="submit" className="btn-primary contact-submit">
+        <span>{labels.submit}</span>
+        <span className="btn-arrow" />
       </button>
     </form>
   );

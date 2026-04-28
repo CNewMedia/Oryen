@@ -1,28 +1,45 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 
-import { InnerPage } from '@/components/ui/inner-page';
+import { AanpakPageView } from '@/components/aanpak/aanpak-page-view';
+import { AanpakHeroEffects } from '@/components/premium/premium-page-effects';
+import {
+  alternatesForPath,
+  documentTitleAbsolute,
+  ogImagesForPage,
+} from '@/lib/metadata/defaults';
+import { getCachedAanpak, getCachedSiteSettings } from '@/lib/sanity/cached-loaders';
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Pages' });
+  const [content, settings] = await Promise.all([
+    getCachedAanpak(locale),
+    getCachedSiteSettings(locale),
+  ]);
+  const images = ogImagesForPage(content.heroImageUrl);
   return {
-    title: `${t('aanpak.title')} | ORYEN`,
-    description: t('aanpak.intro'),
+    title: documentTitleAbsolute(content.meta.title),
+    description: content.meta.description,
+    alternates: alternatesForPath(locale, '/aanpak'),
+    openGraph: {
+      title: content.meta.title,
+      description: content.meta.description,
+      locale,
+      type: 'website',
+      siteName: settings.siteTitle,
+      ...(images ? { images } : {}),
+    },
   };
 }
 
 export default async function AanpakPage({ params }: Props) {
-  await params;
-  const t = await getTranslations('Pages');
-
+  const { locale } = await params;
+  const content = await getCachedAanpak(locale);
   return (
-      <InnerPage
-        eyebrow={t('aanpak.eyebrow')}
-        title={t('aanpak.title')}
-        intro={t('aanpak.intro')}
-      />
+    <>
+      <AanpakHeroEffects />
+      <AanpakPageView content={content} />
+    </>
   );
 }

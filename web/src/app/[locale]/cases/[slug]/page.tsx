@@ -3,23 +3,36 @@ import { getTranslations } from 'next-intl/server';
 
 import { CaseStudyDetailView } from '@/components/cases/case-study-detail';
 import { InnerPage } from '@/components/ui/inner-page';
+import {
+  alternatesCaseDetail,
+  documentTitleAbsolute,
+  ogImagesForPage,
+} from '@/lib/metadata/defaults';
+import { getCachedSiteSettings } from '@/lib/sanity/cached-loaders';
 import { requireCaseStudyBySlug } from '@/lib/sanity/load-case-studies';
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const data = await requireCaseStudyBySlug(locale, slug);
+  const [data, settings] = await Promise.all([
+    requireCaseStudyBySlug(locale, slug),
+    getCachedSiteSettings(locale),
+  ]);
   const { seo } = data;
+  const images = ogImagesForPage(data.heroImageUrl);
   return {
-    title: seo.title,
+    title: documentTitleAbsolute(seo.title),
     description: seo.description,
     robots: seo.robotsIndex ? undefined : { index: false, follow: false },
+    alternates: alternatesCaseDetail(locale, slug),
     openGraph: {
       title: seo.ogTitle ?? seo.title,
       description: seo.ogDescription ?? seo.description,
       locale,
       type: 'article',
+      siteName: settings.siteTitle,
+      ...(images ? { images } : {}),
     },
   };
 }

@@ -1,6 +1,7 @@
 import { type SchemaTypeDefinition } from 'sanity';
 
 import { aanbodPage } from './documents/aanbodPage';
+import { aanpakPage } from './documents/aanpakPage';
 import { caseStudy } from './documents/caseStudy';
 import { casestudiesOverviewPage } from './documents/casestudiesOverviewPage';
 import { contactPage } from './documents/contactPage';
@@ -10,7 +11,6 @@ import { homepage } from './documents/homepage';
 import { insightArticle } from './documents/insightArticle';
 import { insightsOverviewPage } from './documents/insightsOverviewPage';
 import { overOnsPage } from './documents/overOnsPage';
-import { realityCheckPage } from './documents/realityCheckPage';
 import { service } from './documents/service';
 import { siteSettings } from './documents/siteSettings';
 import { teamMember } from './documents/teamMember';
@@ -61,8 +61,8 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   homeOfferSection,
   siteSettings,
   homepage,
-  realityCheckPage,
   aanbodPage,
+  aanpakPage,
   casestudiesOverviewPage,
   insightsOverviewPage,
   overOnsPage,

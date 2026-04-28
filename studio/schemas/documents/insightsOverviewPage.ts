@@ -1,7 +1,5 @@
 import { defineField, defineType } from 'sanity';
 
-import { sectionsField } from './_shared';
-
 export const insightsOverviewPage = defineType({
   name: 'insightsOverviewPage',
   title: 'Insights (overview)',
@@ -30,7 +28,6 @@ export const insightsOverviewPage = defineType({
     defineField({ name: 'eyebrow', title: 'Eyebrow', type: 'string' }),
     defineField({ name: 'title', title: 'Title', type: 'string' }),
     defineField({ name: 'intro', title: 'Intro', type: 'text', rows: 4 }),
-    sectionsField,
   ],
   preview: {
     select: { title: 'internalTitle', locale: 'locale' },

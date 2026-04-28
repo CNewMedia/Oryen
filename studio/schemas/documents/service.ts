@@ -3,6 +3,8 @@ import { defineField, defineType } from 'sanity';
 export const service = defineType({
   name: 'service',
   title: 'Service',
+  description:
+    'Reference library only — not wired to the public site. Use for future service pages or internal reuse.',
   type: 'document',
   fields: [
     defineField({

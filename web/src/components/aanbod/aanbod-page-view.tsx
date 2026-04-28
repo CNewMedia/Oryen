@@ -1,208 +1,384 @@
-import { Link } from '@/i18n/navigation';
+import { Fragment } from 'react';
 
-import { siteImages } from '@/lib/site-images';
+import { Link } from '@/i18n/navigation';
 
 import type { AanbodContent } from '@/types/aanbod';
 
 type Props = { content: AanbodContent };
 
+/** Split `\n` / `<br/>` zodat editorial regeleindes renderen als echte `<br />`. */
+function RichBrLines({ text }: { text: string }) {
+  const normalized = text.replace(/&lt;br\s*\/?&gt;/gi, '<br>');
+  const parts = normalized.split(/<br\s*\/?>|\r?\n/i);
+  return (
+    <>
+      {parts.map((part, i) => (
+        <Fragment key={i}>
+          {i > 0 ? <br /> : null}
+          {part}
+        </Fragment>
+      ))}
+    </>
+  );
+}
+
+function HeroBlueprintRc() {
+  const pid = 'rcHeroGrid';
+  return (
+    <svg
+      className="rc-tpl-blueprint"
+      viewBox="0 0 900 700"
+      preserveAspectRatio="xMaxYMid slice"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <defs>
+        <pattern id={pid} width="40" height="40" patternUnits="userSpaceOnUse">
+          <path
+            d="M 40 0 L 0 0 0 40"
+            fill="none"
+            stroke="rgba(196,120,32,.13)"
+            strokeWidth=".5"
+          />
+        </pattern>
+      </defs>
+      <rect width="900" height="700" fill={`url(#${pid})`} />
+      <line
+        x1="0"
+        y1="350"
+        x2="900"
+        y2="350"
+        stroke="rgba(196,120,32,.18)"
+        strokeWidth=".6"
+      />
+      <line
+        x1="450"
+        y1="0"
+        x2="450"
+        y2="700"
+        stroke="rgba(196,120,32,.18)"
+        strokeWidth=".6"
+      />
+      <circle cx="450" cy="350" r="80" fill="none" stroke="rgba(196,120,32,.22)" strokeWidth=".6" />
+      <circle cx="450" cy="350" r="160" fill="none" stroke="rgba(196,120,32,.18)" strokeWidth=".6" />
+      <circle cx="450" cy="350" r="240" fill="none" stroke="rgba(196,120,32,.14)" strokeWidth=".6" />
+      <circle cx="450" cy="350" r="6" fill="rgba(196,120,32,.7)" />
+      <g transform="translate(580,260)" stroke="rgba(196,120,32,.5)" strokeWidth=".7" fill="none">
+        <line x1="-10" y1="0" x2="-4" y2="0" />
+        <line x1="4" y1="0" x2="10" y2="0" />
+        <line x1="0" y1="-10" x2="0" y2="-4" />
+        <line x1="0" y1="4" x2="0" y2="10" />
+      </g>
+    </svg>
+  );
+}
+
+function ClosingResolutionRc() {
+  const pid = 'rcCloseGrid';
+  return (
+    <svg
+      className="rc-tpl-resolution"
+      viewBox="0 0 800 500"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <defs>
+        <pattern id={pid} width="40" height="40" patternUnits="userSpaceOnUse">
+          <path
+            d="M 40 0 L 0 0 0 40"
+            fill="none"
+            stroke="rgba(196,120,32,.08)"
+            strokeWidth=".5"
+          />
+        </pattern>
+      </defs>
+      <rect width="800" height="500" fill={`url(#${pid})`} />
+      <circle cx="80" cy="360" r="16" fill="none" stroke="rgba(196,120,32,.45)" strokeWidth=".7" />
+      <text
+        x="80"
+        y="366"
+        textAnchor="middle"
+        fill="rgba(196,120,32,.7)"
+        fontFamily="DM Mono, monospace"
+        fontSize="10"
+        letterSpacing="1"
+      >
+        A
+      </text>
+      <path
+        d="M 96 360 C 280 360, 360 220, 520 180 S 680 120, 720 120"
+        fill="none"
+        stroke="rgba(196,120,32,.72)"
+        strokeWidth="1.1"
+      />
+      <circle cx="720" cy="120" r="22" fill="none" stroke="rgba(196,120,32,.7)" strokeWidth=".9" />
+      <circle cx="720" cy="120" r="5" fill="rgba(196,120,32,.9)" />
+      <circle cx="720" cy="120" r="44" fill="none" stroke="rgba(196,120,32,.22)" strokeWidth=".5" />
+      <line x1="720" y1="70" x2="720" y2="100" stroke="rgba(196,120,32,.3)" strokeWidth=".5" />
+      <line x1="740" y1="120" x2="770" y2="120" stroke="rgba(196,120,32,.3)" strokeWidth=".5" />
+    </svg>
+  );
+}
+
 /**
- * Premium offer page — zelfde ORYEN-tokens als homepage,
- * andere compositie: duidelijke hiërarchie, minder spine-herhaling, rustiger interactie (zie PremiumChrome).
+ * Reality Check offer page — aligned with `oryen-realitycheck-volledig.html`
+ * (blueprint hero + rail, wat-het-is, drie fases, outputs, fit, na-RC, closing).
  */
 export function AanbodPageView({ content }: Props) {
   const c = content;
-  const { howItWorks, offerClarity } = c;
+  const h = c.hero;
+  const anchor = h.secondaryCtaAnchor?.replace(/^#/, '') ?? 'hoe-het-gaat';
 
   return (
-    <div className="aanbod-page">
-      <section className="aanbod-hero hero">
-        <div className="hero-bg">
-          <img
-            id="heroImg"
-            src={siteImages.hero}
-            alt=""
-            className="loaded"
-          />
-        </div>
-        <div className="hero-spine on" id="heroSpine" />
+    <div className="aanbod-page rc-tpl-page">
+      <section className="hero rc-tpl-hero has-spine spine-dark">
+        {c.heroImageUrl ? (
+          <div className="hero-bg rc-tpl-hero-photo">
+            <img id="heroImg" src={c.heroImageUrl} alt="" />
+          </div>
+        ) : null}
+        <HeroBlueprintRc />
+        <div className="hero-spine" id="heroSpine" />
         <div className="hero-body">
           <div className="hero-spacer" />
-          <div className="aanbod-hero-grid">
-            <div className="aanbod-hero-main">
-              <h1 className="hero-hl reveal">
-                <span>{c.hero.headlineLine1}</span>
-                <em>{c.hero.headlineLine2Em}</em>
-              </h1>
-              <p className="hero-claim reveal delay-1">{c.hero.sub}</p>
-              <div className="hero-actions reveal delay-2">
-                <Link className="btn-primary" href="/contact">
-                  <span>{c.hero.primaryCta}</span>
-                  <span className="btn-arrow" />
-                </Link>
-                <Link className="btn-ghost" href="/aanpak">
-                  {c.hero.secondaryCta}
-                </Link>
+          <div className="spine-grid rc-tpl-hero-grid">
+            <div className="spine-label spine-label-dark">
+              <span>00 — Reality Check</span>
+            </div>
+            <div className="rc-tpl-hero-layout">
+              <div>
+                <p className="rc-tpl-hero-eyebrow reveal">{h.eyebrow}</p>
+                <h1 className="hero-hl rc-tpl-hero-hl reveal delay-1">
+                  <span>{h.headlineLine1}</span>
+                  <em>
+                    <RichBrLines text={h.headlineLine2Em} />
+                  </em>
+                </h1>
+                <p className="rc-tpl-hero-sub reveal delay-2">{h.sub}</p>
+                <div className="rc-tpl-hero-character reveal delay-3">
+                  {h.characterLines.map((line) => (
+                    <p key={line.slice(0, 48)}>{line}</p>
+                  ))}
+                </div>
+                <div className="hero-actions rc-tpl-hero-actions reveal delay-3">
+                  <Link className="btn-primary" href="/contact">
+                    <span>{h.primaryCta}</span>
+                    <span className="btn-arrow" />
+                  </Link>
+                  <a className="btn-ghost" href={`#${anchor}`}>
+                    {h.secondaryCta}
+                  </a>
+                </div>
               </div>
-            </div>
-            <aside className="aanbod-offer-frame reveal delay-1" aria-label={c.hero.offerFrame.label}>
-              <p className="aanbod-offer-frame-title">{c.hero.offerFrame.label}</p>
-              <ul className="aanbod-offer-frame-list">
-                {c.hero.offerFrame.pillars.map((line) => (
-                  <li key={line.slice(0, 40)}>{line}</li>
-                ))}
-              </ul>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      <section className="aanbod-clarity s-stelling has-spine spine-light">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-light">
-            <span>{offerClarity.eyebrow}</span>
-          </div>
-          <div className="spine-content aanbod-clarity-split">
-            <div className="aanbod-clarity-col">
-              <h2 className="aanbod-section-hl reveal">{offerClarity.leftTitle}</h2>
-              <p className="stelling-p reveal delay-1">{offerClarity.leftBody}</p>
-            </div>
-            <div className="aanbod-clarity-col aanbod-clarity-col--right">
-              <h2 className="aanbod-section-hl reveal">{offerClarity.rightTitle}</h2>
-              <p className="aanbod-clarity-lead reveal delay-1">{offerClarity.rightLead}</p>
-              <p className="stelling-p reveal delay-1">{offerClarity.forBody}</p>
-              <p className="aanbod-mini-lbl reveal delay-2">{offerClarity.welLabel}</p>
-              <ul className="aanbod-mini-list">
-                {offerClarity.welItems.map((item) => (
-                  <li key={item.slice(0, 24)} className="reveal delay-2">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="aanbod-mini-lbl reveal delay-2">{offerClarity.notForLabel}</p>
-              <ul className="aanbod-mini-list aanbod-mini-list--muted">
-                {offerClarity.notForItems.map((item) => (
-                  <li key={item.slice(0, 24)} className="reveal delay-2">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="aanbod-deliverables">
-        <div className="aanbod-deliverables-inner">
-          <p className="aanbod-deliverables-eyebrow reveal">{c.whatYouGet.eyebrow}</p>
-          <h2 className="aanbod-deliverables-hl reveal">{c.whatYouGet.headline}</h2>
-          <p className="aanbod-deliverables-sub reveal delay-1">{c.whatYouGet.subline}</p>
-          <ul className="aanbod-deliverables-grid">
-            {c.whatYouGet.items.map((item, i) => (
-              <li
-                key={item.slice(0, 32)}
-                className={`aanbod-deliverable-card reveal delay-${Math.min(i + 1, 3)}`}
-              >
-                <span className="aanbod-deliverable-n">{String(i + 1).padStart(2, '0')}</span>
-                <p className="aanbod-deliverable-txt">{item}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="aanbod-process">
-        <div className="aanbod-process-inner">
-          <h2 className="aanbod-process-hl reveal">{howItWorks.headline}</h2>
-          <div className="aanbod-process-steps">
-            {howItWorks.steps.map((step, i) => (
-              <div
-                key={step.n}
-                className={`aanbod-process-step reveal${i > 0 ? ` delay-${Math.min(i, 2)}` : ''}`}
-              >
-                <span className="aanbod-process-n">
-                  {howItWorks.stepPrefix} {step.n}
-                </span>
-                <h3 className="aanbod-process-title">{step.title}</h3>
-                <p className="aanbod-process-body">{step.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="aanbod-after" aria-labelledby="aanbod-after-heading">
-        <div className="aanbod-after-inner">
-          <p className="aanbod-after-eyebrow reveal">{c.whatAfter.eyebrow}</p>
-          <h2 className="aanbod-after-hl reveal" id="aanbod-after-heading">
-            {c.whatAfter.headline}
-          </h2>
-          <p className="aanbod-after-body reveal delay-1">{c.whatAfter.body}</p>
-          <ul className="aanbod-after-list">
-            {c.whatAfter.items.map((line, i) => (
-              <li
-                key={line.slice(0, 40)}
-                className={`reveal delay-${Math.min(i + 1, 3)}`}
-              >
-                {line}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="aanbod-package s-offer has-spine spine-dark" id="pricing">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-dark">
-            <span>{c.pricing.spine}</span>
-          </div>
-          <div className="spine-content">
-            <div className="aanbod-package-grid">
-              <div className="aanbod-package-primary">
-                <h2 className="offer-name reveal">{c.pricing.name}</h2>
-                <p className="offer-price reveal delay-1">{c.pricing.priceLine}</p>
-                <p className="offer-body reveal delay-2">{c.pricing.body}</p>
-                <p className="aanbod-included-title reveal delay-2">{c.pricing.includedTitle}</p>
-                <ul className="aanbod-included-list">
-                  {c.pricing.includedItems.map((line) => (
-                    <li key={line.slice(0, 32)} className="reveal delay-2">
-                      {line}
-                    </li>
+              <aside className="rc-tpl-hero-rail reveal delay-2" aria-label={h.offerFrame.label}>
+                <p className="rc-tpl-hero-rail-title">{h.offerFrame.label}</p>
+                <ul className="rc-tpl-hero-rail-list">
+                  {h.offerFrame.pillars.map((line) => (
+                    <li key={line.slice(0, 40)}>{line}</li>
                   ))}
                 </ul>
-                <span className="offer-line reveal delay-3" />
-                <Link
-                  className="offer-btn reveal delay-3"
-                  href="/contact"
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="rc-tpl-s01 has-spine spine-light">
+        <div className="spine-grid">
+          <div className="spine-label spine-label-light">
+            <span>{c.watHetIs.spine}</span>
+          </div>
+          <div className="spine-content">
+            <p className="rc-tpl-s-eyebrow reveal">{c.watHetIs.eyebrow}</p>
+            <h2 className="rc-tpl-s01-head reveal delay-1">
+              <RichBrLines text={c.watHetIs.headlineLine1} />
+              <br />
+              <em>
+                <RichBrLines text={c.watHetIs.headlineLine2Em} />
+              </em>
+            </h2>
+            <p className="rc-tpl-s01-body reveal delay-2">{c.watHetIs.body}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="rc-tpl-s02 has-spine spine-dark" id={anchor}>
+        <div className="spine-grid">
+          <div className="spine-label spine-label-dark">
+            <span>{c.howItWorks.spine}</span>
+          </div>
+          <div className="spine-content">
+            <p className="rc-tpl-s-eyebrow rc-tpl-s-eyebrow--on-dark reveal">
+              {c.howItWorks.eyebrow}
+            </p>
+            <h2 className="rc-tpl-h-section rc-tpl-h-section--on-dark reveal delay-1">
+              <RichBrLines text={c.howItWorks.headlineLine1} />
+              <br />
+              <em>
+                <RichBrLines text={c.howItWorks.headlineLine2Em} />
+              </em>
+            </h2>
+            <div className="rc-tpl-phases">
+              {c.howItWorks.steps.map((step, i) => (
+                <div
+                  key={step.n}
+                  className={`rc-tpl-phase reveal delay-${Math.min(i + 1, 3)}`}
                 >
-                  <span>{c.hero.primaryCta}</span>
-                  <span
-                    className="btn-arrow"
-                    style={{ background: 'var(--amber)' }}
-                  />
-                </Link>
+                  <p className="rc-tpl-phase-num">
+                    {c.howItWorks.stepPrefix} {step.n} — {step.title}
+                  </p>
+                  <h3 className="rc-tpl-phase-title">{step.title}</h3>
+                  <p className="rc-tpl-phase-body">{step.body}</p>
+                  {step.includes ? (
+                    <p className="rc-tpl-phase-includes">{step.includes}</p>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="rc-tpl-s03 has-spine spine-light">
+        <div className="spine-grid">
+          <div className="spine-label spine-label-light">
+            <span>{c.whatYouGet.spine ?? '03 — Wat u meeneemt'}</span>
+          </div>
+          <div className="spine-content">
+            <p className="rc-tpl-s-eyebrow reveal">{c.whatYouGet.eyebrow}</p>
+            <h2 className="rc-tpl-h-section reveal delay-1">
+              <RichBrLines text={c.whatYouGet.headlineLine1} />
+              <br />
+              <em>
+                <RichBrLines text={c.whatYouGet.headlineLine2Em} />
+              </em>
+            </h2>
+            <p className="rc-tpl-p-lead reveal delay-2">{c.whatYouGet.subline}</p>
+            <div className="rc-tpl-outputs">
+              {c.whatYouGet.outputs.map((row, i) => (
+                <div key={`${row.title.slice(0, 32)}-${i}`} className="rc-tpl-output-row reveal delay-2">
+                  <span className="rc-tpl-output-num">— {String(i + 1).padStart(2, '0')}</span>
+                  <div className="rc-tpl-output-body">
+                    <h3 className="rc-tpl-output-title">{row.title}</h3>
+                    {row.description ? (
+                      <p className="rc-tpl-output-desc">{row.description}</p>
+                    ) : null}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="rc-tpl-s04 has-spine spine-light">
+        <div className="spine-grid">
+          <div className="spine-label spine-label-light">
+            <span>{c.offerClarity.spine}</span>
+          </div>
+          <div className="spine-content">
+            <p className="rc-tpl-s-eyebrow reveal">{c.offerClarity.pastEyebrow}</p>
+            <h2 className="rc-tpl-h-section reveal delay-1">
+              {c.offerClarity.fitHeadlineLine1}
+              <br />
+              <em>{c.offerClarity.fitHeadlineEm}</em>
+              <br />
+              {c.offerClarity.fitHeadlineLine2}
+            </h2>
+            <p className="rc-tpl-s04-intro reveal delay-2">{c.offerClarity.fitIntro}</p>
+            <div className="rc-tpl-fit-grid">
+              <div className="rc-tpl-fit-wel reveal delay-2">
+                <p className="rc-tpl-fit-col-head">{c.offerClarity.welLabel}</p>
+                <ul className="rc-tpl-fit-list">
+                  {c.offerClarity.welItems.map((item) => (
+                    <li key={item.slice(0, 40)}>{item}</li>
+                  ))}
+                </ul>
               </div>
-              <div className="aanbod-package-secondary reveal delay-1">
-                <h3 className="offer-r-hl">{c.reassurance.headline}</h3>
-                <p className="offer-r-body">{c.reassurance.body}</p>
-                <p className="offer-note">{c.reassurance.note}</p>
+              <div className="rc-tpl-fit-niet reveal delay-3">
+                <p className="rc-tpl-fit-col-head">{c.offerClarity.notForLabel}</p>
+                <ul className="rc-tpl-fit-list">
+                  {c.offerClarity.notForItems.map((item) => (
+                    <li key={item.slice(0, 40)}>{item}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="aanbod-closing">
-        <div className="aanbod-closing-inner">
-          <p className="aanbod-closing-line reveal">{c.closing.line1}</p>
-          <p className="aanbod-closing-line aanbod-closing-line--em reveal delay-1">
-            {c.closing.line2}
-          </p>
-          <div className="aanbod-closing-cta reveal delay-2">
-            <Link className="btn-primary" href="/contact">
-              <span>{c.closing.ctaLabel}</span>
-              <span className="btn-arrow" />
-            </Link>
+      <section className="rc-tpl-s05 has-spine spine-light">
+        <div className="spine-grid">
+          <div className="spine-label spine-label-light">
+            <span>{c.whatAfter.spine}</span>
+          </div>
+          <div className="spine-content">
+            <p className="rc-tpl-s-eyebrow reveal">{c.whatAfter.eyebrow}</p>
+            <h2 className="rc-tpl-h-section reveal delay-1">
+              {c.whatAfter.headlineLine1}
+              <br />
+              <em>{c.whatAfter.headlineEm}</em>
+            </h2>
+            <div className="rc-tpl-s05-body">
+              {c.whatAfter.stanzas.map((stanza, i) => (
+                <p
+                  key={i}
+                  className={`rc-tpl-p-body reveal delay-2${stanza.italic ? ' rc-tpl-p-body--emph' : ''}`}
+                >
+                  {stanza.text}
+                </p>
+              ))}
+            </div>
+            <div className="rc-tpl-guarantee-grid reveal delay-3">
+              {c.whatAfter.guarantees.map((g) => (
+                <div key={g.mark} className="rc-tpl-guarantee">
+                  <span className="rc-tpl-guarantee-mark">{g.mark}</span>
+                  <span className="rc-tpl-guarantee-text">{g.text}</span>
+                </div>
+              ))}
+            </div>
+            <p className="rc-tpl-s05-signature reveal delay-3">{c.whatAfter.signature}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="rc-tpl-s06 has-spine spine-dark">
+        <ClosingResolutionRc />
+        <div className="spine-grid">
+          <div className="spine-label spine-label-dark">
+            <span>{c.closing.spine}</span>
+          </div>
+          <div className="spine-content rc-tpl-s06-content">
+            <h2 className="rc-tpl-h-section rc-tpl-h-section--on-dark reveal">
+              <RichBrLines text={c.closing.headlineLine1} />
+              <br />
+              <RichBrLines text={c.closing.headlineLine2} />
+              <br />
+              <em>
+                <RichBrLines text={c.closing.headlineEm} />
+              </em>
+            </h2>
+            <p className="rc-tpl-p-body rc-tpl-p-body--on-dark reveal delay-1">{c.closing.body1}</p>
+            <p className="rc-tpl-p-body rc-tpl-p-body--on-dark reveal delay-1">{c.closing.body2}</p>
+            <div className="hero-actions rc-tpl-s06-actions reveal delay-2">
+              <Link className="btn-primary" href="/contact">
+                <span>{c.closing.primaryCta}</span>
+                <span className="btn-arrow" />
+              </Link>
+            </div>
+            <div className="rc-tpl-s06-close reveal delay-3">
+              {c.closing.footnote ? (
+                <span className="rc-tpl-s06-close-text">{c.closing.footnote}</span>
+              ) : null}
+              <Link
+                className="btn-ghost"
+                href={(c.closing.secondaryCtaHref ?? '/contact') as never}
+              >
+                {c.closing.secondaryCta ?? 'Contact'}
+              </Link>
+            </div>
           </div>
         </div>
       </section>

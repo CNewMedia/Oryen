@@ -3,17 +3,38 @@ import { getTranslations } from 'next-intl/server';
 
 import { SanityRichText } from '@/components/sanity/sanity-rich-text';
 import { InnerPage } from '@/components/ui/inner-page';
-import { getCachedLegalPage } from '@/lib/sanity/cached-loaders';
+import {
+  alternatesForPath,
+  documentTitleAbsolute,
+  ogImagesForPage,
+} from '@/lib/metadata/defaults';
+import {
+  getCachedLegalPage,
+  getCachedSiteSettings,
+} from '@/lib/sanity/cached-loaders';
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const { seo } = await getCachedLegalPage(locale, 'privacy');
+  const [{ seo }, settings] = await Promise.all([
+    getCachedLegalPage(locale, 'privacy'),
+    getCachedSiteSettings(locale),
+  ]);
+  const images = ogImagesForPage(undefined);
   return {
-    title: seo.title,
+    title: documentTitleAbsolute(seo.title),
     description: seo.description,
     robots: seo.robotsIndex ? undefined : { index: false, follow: false },
+    alternates: alternatesForPath(locale, '/privacy'),
+    openGraph: {
+      title: seo.ogTitle ?? seo.title,
+      description: seo.ogDescription ?? seo.description,
+      locale,
+      type: 'website',
+      siteName: settings.siteTitle,
+      ...(images ? { images } : {}),
+    },
   };
 }
 

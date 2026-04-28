@@ -1,9 +1,12 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
-/** Globaal: cursor, spine progress, grain, reveals, nav — uit (36).html */
+/** Globaal: spine progress, grain, reveals, nav scroll — uit (36).html */
 export function PremiumChrome() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const nav = document.getElementById('mainNav');
     const onScrollNav = () => {
@@ -65,70 +68,53 @@ export function PremiumChrome() {
     grain();
     const grainIv = window.setInterval(grain, 80);
 
-    const ring = document.getElementById('cursorRing');
-    const dotEl = document.getElementById('cursorDot');
-    const onPointer = (e: PointerEvent) => {
-      const x = e.clientX;
-      const y = e.clientY;
-      ring?.style.setProperty(
-        'transform',
-        `translate(${x}px, ${y}px) translate(-50%, -50%)`
-      );
-      dotEl?.style.setProperty(
-        'transform',
-        `translate(${x}px, ${y}px) translate(-50%, -50%)`
-      );
-    };
-    window.addEventListener('pointermove', onPointer, { passive: true });
-
-    const sel = 'a, button, [role="button"], input, textarea, summary';
-    const onEnter = (e: MouseEvent) => {
-      if ((e.target as HTMLElement)?.closest?.(sel)) {
-        ring?.classList.add('hover');
-        dotEl?.classList.add('hover');
-      }
-    };
-    const onLeave = (e: MouseEvent) => {
-      const rel = e.relatedTarget as HTMLElement | null;
-      if (!rel?.closest?.(sel)) {
-        ring?.classList.remove('hover');
-        dotEl?.classList.remove('hover');
-      }
-    };
-    document.addEventListener('mouseover', onEnter);
-    document.addEventListener('mouseout', onLeave);
-
     return () => {
       window.removeEventListener('scroll', onScrollNav);
       window.removeEventListener('scroll', onScrollSpine);
       observer.disconnect();
       window.clearInterval(grainIv);
       c.remove();
-      window.removeEventListener('pointermove', onPointer);
-      document.removeEventListener('mouseover', onEnter);
-      document.removeEventListener('mouseout', onLeave);
     };
-  }, []);
+  }, [pathname]);
 
-  return (
-    <>
-      <div className="cursor-dot" id="cursorDot" />
-      <div className="cursor-ring" id="cursorRing" />
-      <div className="spine-progress" id="spineProgress" />
-    </>
-  );
+  return <div className="spine-progress" id="spineProgress" />;
 }
 
-/** Alleen homepage: hero spine, hero img load, signature animatie */
+/** Hero spine fade-in + background image `loaded` (shared with homepage / aanpak). */
+function attachHeroPhotoShell(): () => void {
+  const heroSpine = document.getElementById('heroSpine');
+  const spineTimer = window.setTimeout(() => heroSpine?.classList.add('on'), 500);
+
+  const heroImg = document.getElementById('heroImg') as HTMLImageElement | null;
+  const onHeroImgLoad = () => heroImg?.classList.add('loaded');
+  if (heroImg) {
+    if (heroImg.complete) onHeroImgLoad();
+    else heroImg.addEventListener('load', onHeroImgLoad);
+  }
+
+  return () => {
+    window.clearTimeout(spineTimer);
+    heroSpine?.classList.remove('on');
+    if (heroImg) {
+      heroImg.removeEventListener('load', onHeroImgLoad);
+      heroImg.classList.remove('loaded');
+    }
+  };
+}
+
+/** Aanpak: zelfde hero-foto shell als homepage (geen signature). */
+export function AanpakHeroEffects() {
+  useEffect(() => {
+    return attachHeroPhotoShell();
+  }, []);
+
+  return null;
+}
+
+/** Homepage: hero spine, hero img load, signature animatie */
 export function HomeHeroEffects() {
   useEffect(() => {
-    const heroSpine = document.getElementById('heroSpine');
-    window.setTimeout(() => heroSpine?.classList.add('on'), 500);
-
-    const heroImg = document.getElementById('heroImg') as HTMLImageElement | null;
-    const showHeroImg = () => heroImg?.classList.add('loaded');
-    if (heroImg?.complete) showHeroImg();
-    else heroImg?.addEventListener('load', showHeroImg);
+    const detachShell = attachHeroPhotoShell();
 
     const lines = document.querySelectorAll('.sig-line');
     const labels = document.querySelectorAll('.sig-label');
@@ -159,6 +145,7 @@ export function HomeHeroEffects() {
     }
 
     return () => {
+      detachShell();
       img?.removeEventListener('load', initSignature);
     };
   }, []);

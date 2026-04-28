@@ -45,6 +45,7 @@ export type HomeContent = {
     introHl: string;
     stepPrefix: string;
     steps: HomeApproachStep[];
+    moreCta?: string;
   };
   proof: {
     spine: string;
@@ -58,6 +59,8 @@ export type HomeContent = {
     headline: string;
     headlineEm: string;
     forItems: string[];
+    forLabel?: string;
+    forList?: string[];
     notForLabel: string;
     notFor: string[];
   };
@@ -66,6 +69,7 @@ export type HomeContent = {
     headline: string;
     headlineEm: string;
     statement: string;
+    body?: string;
     creds: string;
     signature: string;
     quote: string;

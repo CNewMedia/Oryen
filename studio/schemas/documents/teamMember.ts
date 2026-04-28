@@ -3,6 +3,8 @@ import { defineField, defineType } from 'sanity';
 export const teamMember = defineType({
   name: 'teamMember',
   title: 'Team member',
+  description:
+    'Reference library only — not wired to the public site. Use for bios or future team sections.',
   type: 'document',
   fields: [
     defineField({

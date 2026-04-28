@@ -3,6 +3,8 @@ import { defineField, defineType } from 'sanity';
 export const testimonial = defineType({
   name: 'testimonial',
   title: 'Testimonial',
+  description:
+    'Reference library only — not wired to the public site. Use for quotes or future social proof blocks.',
   type: 'document',
   fields: [
     defineField({

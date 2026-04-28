@@ -34,6 +34,16 @@ loadWebEnv();
 
 type Locale = 'nl' | 'en';
 
+type ContactLabels = {
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
+  message: string;
+  submit: string;
+  optional: string;
+};
+
 type OryBundle = {
   Meta: { siteName: string; defaultDescription: string };
   Global: {
@@ -43,6 +53,22 @@ type OryBundle = {
   Nav: { cta: string };
   Home: Record<string, unknown>;
   Aanbod: Record<string, unknown>;
+  Aanpak: Record<string, unknown>;
+  Contact: {
+    meta: { title: string; description: string };
+    hero: {
+      eyebrow: string;
+      headline: string;
+      sub: string;
+      primaryCta: string;
+      primaryCtaHref?: string;
+      secondaryCta?: string | null;
+      secondaryCtaHref?: string | null;
+    };
+    expectations: { headline: string; body: string };
+    form: { headline: string; labels: ContactLabels };
+    reassurance: { body: string; note: string };
+  };
   Pages: {
     contact: { eyebrow: string; title: string; intro: string };
     thankYou: { eyebrow: string; title: string; intro: string };
@@ -81,7 +107,8 @@ function siteSettingsDoc(locale: Locale, m: OryBundle): Record<string, unknown> 
     footerBrandShort: m.Global.footer.brandShort,
     footerTagline: m.Global.footer.tagline,
     footerDomain: m.Global.footer.domain,
-    contactEmail: 'hello@oryen.be',
+    contactEmail: 'info@cnip.be',
+    contactAddress: 'Ottergemsesteenweg Zuid 808 b125\n9000 Gent',
   };
 }
 
@@ -130,6 +157,27 @@ function aanbodDoc(locale: Locale, m: OryBundle): Record<string, unknown> {
   };
 }
 
+function aanpakDoc(locale: Locale, m: OryBundle): Record<string, unknown> {
+  const A = m.Aanpak as Record<string, unknown>;
+  const meta = A.meta as { title: string; description: string };
+  return {
+    _id: `oryen.aanpak.${locale}`,
+    _type: 'aanpakPage',
+    locale,
+    seo: {
+      metaTitle: meta.title,
+      metaDescription: meta.description,
+      robotsIndex: true,
+    },
+    hero: A.hero,
+    why: A.why,
+    lens: A.lens,
+    steps: A.steps,
+    methodBridge: A.methodBridge,
+    closing: A.closing,
+  };
+}
+
 function insightsOverviewDoc(locale: Locale, m: OryBundle): Record<string, unknown> {
   const p = m.Pages.insights;
   return {
@@ -145,7 +193,6 @@ function insightsOverviewDoc(locale: Locale, m: OryBundle): Record<string, unkno
     eyebrow: p.eyebrow,
     title: p.title,
     intro: p.intro,
-    sections: [],
   };
 }
 
@@ -164,26 +211,33 @@ function casesOverviewDoc(locale: Locale, m: OryBundle): Record<string, unknown>
     eyebrow: p.eyebrow,
     title: p.title,
     intro: p.intro,
-    sections: [],
   };
 }
 
 function contactDoc(locale: Locale, m: OryBundle): Record<string, unknown> {
-  const p = m.Pages.contact;
+  const c = m.Contact;
   return {
     _id: `oryen.contact.${locale}`,
     _type: 'contactPage',
     locale,
     internalTitle: 'Contact',
     seo: {
-      metaTitle: `${p.title} | ${m.Meta.siteName}`,
-      metaDescription: p.intro,
+      metaTitle: c.meta.title,
+      metaDescription: c.meta.description,
       robotsIndex: true,
     },
-    eyebrow: p.eyebrow,
-    title: p.title,
-    intro: p.intro,
-    sections: [],
+    hero: {
+      eyebrow: c.hero.eyebrow,
+      headline: c.hero.headline,
+      sub: c.hero.sub,
+      primaryCta: c.hero.primaryCta,
+      primaryCtaHref: c.hero.primaryCtaHref ?? '#contact-form',
+      secondaryCta: c.hero.secondaryCta ?? null,
+      secondaryCtaHref: c.hero.secondaryCtaHref ?? null,
+    },
+    expectations: c.expectations,
+    form: c.form,
+    reassurance: c.reassurance,
   };
 }
 
@@ -244,6 +298,7 @@ function allDocsForLocale(locale: Locale): Record<string, unknown>[] {
     siteSettingsDoc(locale, m),
     homepageDoc(locale, m),
     aanbodDoc(locale, m),
+    aanpakDoc(locale, m),
     insightsOverviewDoc(locale, m),
     casesOverviewDoc(locale, m),
     contactDoc(locale, m),
@@ -253,32 +308,23 @@ function allDocsForLocale(locale: Locale): Record<string, unknown>[] {
   ];
 }
 
-/** No locale field on schema — one document each for the whole site. */
-function realityCheckDoc(): Record<string, unknown> {
+function overOnsDoc(locale: Locale): Record<string, unknown> {
+  const m = loadBundle(locale);
+  const p = m.Pages.about;
   return {
-    _id: 'oryen.realityCheck',
-    _type: 'realityCheckPage',
-    internalTitle: 'Reality Check',
-    seo: {
-      metaTitle: 'Reality Check',
-      metaDescription: 'ORYEN',
-      robotsIndex: true,
-    },
-    sections: [],
-  };
-}
-
-function overOnsDoc(): Record<string, unknown> {
-  return {
-    _id: 'oryen.overOns',
+    _id: `oryen.overOns.${locale}`,
     _type: 'overOnsPage',
-    internalTitle: 'Over ons',
+    locale,
+    internalTitle: locale === 'nl' ? 'Over ons' : 'About',
     seo: {
-      metaTitle: 'Over ons',
-      metaDescription: 'ORYEN',
+      metaTitle: `${p.title} | ${m.Meta.siteName}`,
+      metaDescription: p.intro,
       robotsIndex: true,
     },
-    sections: [],
+    eyebrow: p.eyebrow,
+    title: p.title,
+    intro: p.intro,
+    body: [],
   };
 }
 
@@ -310,8 +356,8 @@ async function main(): Promise<void> {
   });
 
   const docs = [
-    realityCheckDoc(),
-    overOnsDoc(),
+    overOnsDoc('nl'),
+    overOnsDoc('en'),
     ...allDocsForLocale('nl'),
     ...allDocsForLocale('en'),
   ];
