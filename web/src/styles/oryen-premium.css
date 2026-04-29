@@ -3645,11 +3645,15 @@ body::before {
   background: var(--pine2);
   color: var(--cream);
   padding-top: clamp(2.5rem, 5vh, 3.75rem);
+  overflow: visible;
 }
 .aanpak-tpl-steps-wrap {
   max-width: 100%;
+  overflow: visible;
 }
 .aanpak-tpl-s03 .aanpak-tpl-h-section {
+  /* line-height 1.08 + large clamp(): caps need a hair of padding so nothing clips at the section edge */
+  padding-top: 0.22em;
   margin-bottom: clamp(2.5rem, 5vh, 5rem);
 }
 .aanpak-tpl-steps-grid {
@@ -3872,6 +3876,12 @@ body::before {
 .aanpak-page .has-spine.spine-dark .spine-content {
   padding-top: clamp(8vh, 11vh, 120px);
   padding-bottom: clamp(8vh, 11vh, 120px);
+}
+
+/* “02 — De vier stappen”: extra headroom so the section headline stays fully visible at all widths */
+.aanpak-page .aanpak-tpl-s03.has-spine.spine-dark .spine-content {
+  padding-top: calc(clamp(8vh, 11vh, 120px) + 0.75rem);
+  overflow: visible;
 }
 
 /* Rationale + lens: tighter vertical rhythm than full “stelling” sections */
