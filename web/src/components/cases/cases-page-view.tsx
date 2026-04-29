@@ -272,13 +272,17 @@ export function CasesPageView({ content, locale }: Props) {
                         <img className="cases-case-img cases-case-img--cover" src={heroSrc} alt="" />
                       ) : null}
                     </div>
-                    <div className="cases-editorial-copy">
+                    <div className="cases-editorial-copy cases-editorial-hof-intro">
                       <p className={`${catCls(copyTone)} reveal`}>{c.categoryLabel}</p>
                       <h2 className={`${tagCls(copyTone)} reveal delay-1`}>
                         <em>{c.tagline}</em>
                       </h2>
                       <CaseBodyParagraphs text={c.situation} className={`${bodyCls(copyTone)} reveal delay-2`} />
+                    </div>
+                    <div className="cases-editorial-hof-kpi">
                       <KpiStage c={c} tone={copyTone} />
+                    </div>
+                    <div className="cases-editorial-copy cases-editorial-hof-tail">
                       <p className={`${oryenCls(copyTone)} reveal delay-3`}>
                         <em>{c.oryenLine}</em>
                       </p>
