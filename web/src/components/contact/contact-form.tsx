@@ -45,41 +45,15 @@ export function ContactForm({ locale, labels }: Props) {
       </div>
 
       <div className="contact-field">
-        <label htmlFor="company" className="contact-label">
-          {labels.company}{' '}
-          <span className="contact-label-optional">{labels.optional}</span>
-        </label>
-        <input
-          id="company"
-          name="company"
-          autoComplete="organization"
-          className="contact-input"
-        />
-      </div>
-
-      <div className="contact-field">
-        <label htmlFor="phone" className="contact-label">
-          {labels.phone}{' '}
-          <span className="contact-label-optional">{labels.optional}</span>
-        </label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          autoComplete="tel"
-          className="contact-input"
-        />
-      </div>
-
-      <div className="contact-field">
         <label htmlFor="message" className="contact-label">
-          {labels.message}
+          {labels.message}{' '}
+          <span className="contact-label-optional">{labels.optional}</span>
         </label>
         <textarea
           id="message"
           name="message"
-          required
-          rows={6}
+          rows={5}
+          placeholder={labels.messagePlaceholder}
           className="contact-input contact-textarea"
         />
       </div>

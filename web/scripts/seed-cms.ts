@@ -37,9 +37,8 @@ type Locale = 'nl' | 'en';
 type ContactLabels = {
   name: string;
   email: string;
-  company: string;
-  phone: string;
   message: string;
+  messagePlaceholder: string;
   submit: string;
   optional: string;
 };
@@ -66,6 +65,7 @@ type OryBundle = {
       secondaryCtaHref?: string | null;
     };
     expectations: { headline: string; body: string };
+    mailto: { prompt: string; note: string };
     form: { headline: string; labels: ContactLabels };
     reassurance: { body: string; note: string };
   };
@@ -237,6 +237,7 @@ function contactDoc(locale: Locale, m: OryBundle): Record<string, unknown> {
       secondaryCtaHref: c.hero.secondaryCtaHref ?? null,
     },
     expectations: c.expectations,
+    mailto: c.mailto,
     form: c.form,
     reassurance: c.reassurance,
   };

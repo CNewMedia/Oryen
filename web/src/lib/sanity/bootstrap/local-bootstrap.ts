@@ -122,6 +122,10 @@ export function getBootstrapContactPage(locale: string): ContactPageContent {
       headline: c.expectations.headline,
       body: c.expectations.body,
     },
+    mailto: {
+      prompt: c.mailto.prompt,
+      note: c.mailto.note,
+    },
     form: {
       headline: c.form.headline,
       labels: c.form.labels as ContactFormLabels,
@@ -151,6 +155,7 @@ type RawContact = {
     secondaryCta?: string | null;
     secondaryCtaHref?: string | null;
   };
+  mailto: { prompt: string; note: string };
   expectations: { headline: string; body: string };
   form: { headline: string; labels: ContactFormLabels };
   reassurance: { body: string; note: string };

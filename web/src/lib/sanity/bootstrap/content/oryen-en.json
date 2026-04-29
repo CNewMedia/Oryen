@@ -300,29 +300,32 @@
   "Contact": {
     "meta": {
       "title": "Contact — ORYEN",
-      "description": "A concrete first conversation rather than a long intake. Tell us briefly what is at stake — we look at whether a Reality Check or another first conversation makes sense."
+      "description": "Tell us briefly what's at stake. Reply within one business day — or we check together whether a Reality Check fits."
     },
     "hero": {
       "eyebrow": "Contact",
-      "headline": "A concrete first conversation, not a long intake.",
-      "sub": "Tell us briefly what is at stake. We look at whether a Reality Check — or another first conversation — makes sense.",
-      "primaryCta": "Start the conversation",
+      "headline": "Tell us briefly what's at stake.",
+      "sub": "Christophe reads along. Reply within one business day, or we check together whether a Reality Check fits.",
+      "primaryCta": "",
       "primaryCtaHref": "#contact-form",
-      "secondaryCta": "See the Reality Check",
-      "secondaryCtaHref": "/aanbod"
+      "secondaryCta": null,
+      "secondaryCtaHref": null
+    },
+    "mailto": {
+      "prompt": "Prefer to email directly?",
+      "note": "A reply within one business day from Christophe."
     },
     "expectations": {
       "headline": "What to expect",
       "body": "No hand-off. No generic sales call. A first reply that looks sharply at whether this fits on substance."
     },
     "form": {
-      "headline": "Tell us briefly what is at stake",
+      "headline": "Contact form",
       "labels": {
         "name": "Name",
         "email": "Email",
-        "company": "Company",
-        "phone": "Phone",
-        "message": "Where is it stalling today?",
+        "message": "What’s going on?",
+        "messagePlaceholder": "Say briefly what’s going on or ask your question",
         "submit": "Send message",
         "optional": "(optional)"
       }
@@ -350,8 +353,8 @@
     },
     "contact": {
       "eyebrow": "Contact",
-      "title": "A concrete first conversation, not a long intake.",
-      "intro": "Tell us briefly what is at stake. We look at whether a Reality Check — or another first conversation — makes sense."
+      "title": "Tell us briefly what's at stake.",
+      "intro": "Christophe reads along. Reply within one business day, or we check together whether a Reality Check fits."
     },
     "reality": {
       "eyebrow": "Reality Check",

@@ -57,15 +57,23 @@ export async function loadContactPage(locale: string): Promise<ContactPageConten
   const labels: ContactFormLabels = {
     name: str(labelsRaw.name, base.form.labels.name),
     email: str(labelsRaw.email, base.form.labels.email),
-    company: str(labelsRaw.company, base.form.labels.company),
-    phone: str(labelsRaw.phone, base.form.labels.phone),
     message: str(labelsRaw.message, base.form.labels.message),
+    messagePlaceholder: str(
+      labelsRaw.messagePlaceholder,
+      base.form.labels.messagePlaceholder
+    ),
     submit: str(labelsRaw.submit, base.form.labels.submit),
     optional: str(labelsRaw.optional, base.form.labels.optional),
   };
   const form = {
     headline: str(formRaw.headline, base.form.headline),
     labels,
+  };
+
+  const mailtoRaw = isRecord(doc.mailto) ? doc.mailto : {};
+  const mailto = {
+    prompt: str(mailtoRaw.prompt, base.mailto.prompt),
+    note: str(mailtoRaw.note, base.mailto.note),
   };
 
   const reaRaw = isRecord(doc.reassurance) ? doc.reassurance : {};
@@ -76,5 +84,5 @@ export async function loadContactPage(locale: string): Promise<ContactPageConten
 
   const seo = resolvePageSeo(doc.seo, settings, hero.headline, hero.sub);
 
-  return { hero, expectations, form, reassurance, seo };
+  return { hero, mailto, expectations, form, reassurance, seo };
 }

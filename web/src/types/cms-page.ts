@@ -9,9 +9,8 @@ export type OverviewHeaderContent = {
 export type ContactFormLabels = {
   name: string;
   email: string;
-  company: string;
-  phone: string;
   message: string;
+  messagePlaceholder: string;
   submit: string;
   optional: string;
 };
@@ -26,6 +25,7 @@ export type ContactPageContent = {
     secondaryCta: string | null;
     secondaryCtaHref: string | null;
   };
+  mailto: { prompt: string; note: string };
   expectations: { headline: string; body: string };
   form: { headline: string; labels: ContactFormLabels };
   reassurance: { body: string; note: string };

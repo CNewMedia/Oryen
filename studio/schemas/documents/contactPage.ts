@@ -65,6 +65,25 @@ export const contactPage = defineType({
       ],
     }),
     defineField({
+      name: 'mailto',
+      title: 'Email alternative (under form)',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'prompt',
+          title: 'Prompt line',
+          description: 'e.g. “Prefer to email directly?”',
+          type: 'string',
+        }),
+        defineField({
+          name: 'note',
+          title: 'Supporting line',
+          description: 'e.g. reply timeframe.',
+          type: 'string',
+        }),
+      ],
+    }),
+    defineField({
       name: 'expectations',
       title: 'What to expect',
       type: 'object',
@@ -95,9 +114,12 @@ export const contactPage = defineType({
           fields: [
             defineField({ name: 'name', title: 'Name', type: 'string' }),
             defineField({ name: 'email', title: 'Email', type: 'string' }),
-            defineField({ name: 'company', title: 'Company', type: 'string' }),
-            defineField({ name: 'phone', title: 'Phone', type: 'string' }),
-            defineField({ name: 'message', title: 'Message', type: 'string' }),
+            defineField({ name: 'message', title: 'Message field label', type: 'string' }),
+            defineField({
+              name: 'messagePlaceholder',
+              title: 'Message placeholder',
+              type: 'string',
+            }),
             defineField({ name: 'submit', title: 'Submit button', type: 'string' }),
             defineField({
               name: 'optional',

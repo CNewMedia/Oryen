@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 
 import { ContactForm } from '@/components/contact/contact-form';
-import { Link } from '@/i18n/navigation';
 import {
   alternatesForPath,
   documentTitleAbsolute,
@@ -50,6 +49,7 @@ export default async function ContactPage({ params }: Props) {
     .filter(Boolean);
 
   const brand = settings.headerBrandWordmark || settings.siteTitle || 'ORYEN';
+  const mailEmail = settings.contactEmail ?? 'info@oryen.be';
 
   return (
     <div className="contact-page">
@@ -59,45 +59,59 @@ export default async function ContactPage({ params }: Props) {
             <span>{c.hero.eyebrow}</span>
           </div>
           <div className="spine-content contact-hero-content">
-            <p className="contact-eyebrow reveal">{c.hero.eyebrow}</p>
-            <h1 className="stelling-hl contact-hero-headline reveal delay-1">
-              {c.hero.headline}
-            </h1>
-            <p className="contact-hero-sub reveal delay-2">{c.hero.sub}</p>
-            <div className="contact-hero-actions reveal delay-3">
-              <a
-                href={c.hero.primaryCtaHref || '#contact-form'}
-                className="btn-primary"
-              >
-                <span>{c.hero.primaryCta}</span>
-                <span className="btn-arrow" />
+            <div className="contact-hero-split">
+              <div className="contact-hero-copy">
+                <p className="contact-eyebrow reveal">{c.hero.eyebrow}</p>
+                <h1 className="stelling-hl contact-hero-headline reveal delay-1">
+                  {c.hero.headline}
+                </h1>
+                <p className="contact-hero-sub reveal delay-2">{c.hero.sub}</p>
+              </div>
+              <div className="contact-hero-form-col reveal delay-2">
+                <h2 className="contact-form-sr-title">{c.form.headline}</h2>
+                <ContactForm locale={locale} labels={c.form.labels} />
+              </div>
+            </div>
+
+            <div className="contact-mailto-strip reveal delay-3">
+              <p className="contact-mailto-prompt">{c.mailto.prompt}</p>
+              <a href={`mailto:${mailEmail}`} className="contact-mailto-link">
+                {mailEmail}
               </a>
-              {c.hero.secondaryCta && c.hero.secondaryCtaHref ? (
-                c.hero.secondaryCtaHref.startsWith('/') ? (
-                  <Link
-                    href={c.hero.secondaryCtaHref as never}
-                    className="btn-ghost contact-hero-secondary"
-                  >
-                    {c.hero.secondaryCta}
-                  </Link>
-                ) : (
-                  <a
-                    href={c.hero.secondaryCtaHref}
-                    className="btn-ghost contact-hero-secondary"
-                  >
-                    {c.hero.secondaryCta}
-                  </a>
-                )
-              ) : null}
+              <p className="contact-mailto-note">{c.mailto.note}</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="contact-details has-spine spine-light">
+      <section className="contact-expectations has-spine spine-light">
         <div className="spine-grid">
           <div className="spine-label spine-label-light">
-            <span>Direct</span>
+            <span>{c.expectations.headline}</span>
+          </div>
+          <div className="spine-content contact-expectations-content">
+            <h2 className="contact-section-hl">{c.expectations.headline}</h2>
+            <p className="contact-expectations-body">{c.expectations.body}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-reassurance has-spine spine-light">
+        <div className="spine-grid">
+          <div className="spine-label spine-label-light">
+            <span>ORYEN</span>
+          </div>
+          <div className="spine-content contact-reassurance-content">
+            <p className="contact-reassurance-body">{c.reassurance.body}</p>
+            <p className="contact-reassurance-note">{c.reassurance.note}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-details contact-details--footer has-spine spine-light">
+        <div className="spine-grid">
+          <div className="spine-label spine-label-light">
+            <span>{locale === 'en' ? 'Details' : 'Gegevens'}</span>
           </div>
           <div className="spine-content contact-details-content">
             <dl className="contact-details-grid">
@@ -108,21 +122,16 @@ export default async function ContactPage({ params }: Props) {
                 <dd className="contact-details-value">{brand}</dd>
               </div>
 
-              {settings.contactEmail ? (
-                <div className="contact-details-row">
-                  <dt className="contact-details-label">
-                    {locale === 'en' ? 'Email' : 'E-mail'}
-                  </dt>
-                  <dd className="contact-details-value">
-                    <a
-                      href={`mailto:${settings.contactEmail}`}
-                      className="contact-details-link"
-                    >
-                      {settings.contactEmail}
-                    </a>
-                  </dd>
-                </div>
-              ) : null}
+              <div className="contact-details-row">
+                <dt className="contact-details-label">
+                  {locale === 'en' ? 'Email' : 'E-mail'}
+                </dt>
+                <dd className="contact-details-value">
+                  <a href={`mailto:${mailEmail}`} className="contact-details-link">
+                    {mailEmail}
+                  </a>
+                </dd>
+              </div>
 
               {settings.contactPhone ? (
                 <div className="contact-details-row">
@@ -155,42 +164,6 @@ export default async function ContactPage({ params }: Props) {
                 </div>
               ) : null}
             </dl>
-          </div>
-        </div>
-      </section>
-
-      <section className="contact-expectations has-spine spine-light">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-light">
-            <span>{c.expectations.headline}</span>
-          </div>
-          <div className="spine-content contact-expectations-content">
-            <h2 className="contact-section-hl">{c.expectations.headline}</h2>
-            <p className="contact-expectations-body">{c.expectations.body}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="contact-form-section has-spine spine-light">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-light">
-            <span>{c.form.headline}</span>
-          </div>
-          <div className="spine-content contact-form-content">
-            <h2 className="contact-section-hl">{c.form.headline}</h2>
-            <ContactForm locale={locale} labels={c.form.labels} />
-          </div>
-        </div>
-      </section>
-
-      <section className="contact-reassurance has-spine spine-light">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-light">
-            <span>ORYEN</span>
-          </div>
-          <div className="spine-content contact-reassurance-content">
-            <p className="contact-reassurance-body">{c.reassurance.body}</p>
-            <p className="contact-reassurance-note">{c.reassurance.note}</p>
           </div>
         </div>
       </section>

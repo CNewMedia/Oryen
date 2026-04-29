@@ -300,29 +300,32 @@
   "Contact": {
     "meta": {
       "title": "Contact — ORYEN",
-      "description": "Liever eerst een concreet eerste gesprek dan een lange intake. Vertel kort wat er speelt — ORYEN bekijkt of een Reality Check zinvol is."
+      "description": "Vertel kort wat er speelt. Antwoord binnen één werkdag — of we bekijken samen of een Reality Check past."
     },
     "hero": {
       "eyebrow": "Contact",
-      "headline": "Liever eerst een concreet gesprek dan een lange intake.",
-      "sub": "Vertel kort wat er speelt. We bekijken of een Reality Check of een ander eerste gesprek zinvol is.",
-      "primaryCta": "Plan een gesprek",
+      "headline": "Vertel kort wat er speelt.",
+      "sub": "Christophe leest mee. Antwoord binnen één werkdag, of we bekijken samen of een Reality Check past.",
+      "primaryCta": "",
       "primaryCtaHref": "#contact-form",
-      "secondaryCta": "Bekijk de Reality Check",
-      "secondaryCtaHref": "/aanbod"
+      "secondaryCta": null,
+      "secondaryCtaHref": null
+    },
+    "mailto": {
+      "prompt": "Liever rechtstreeks mailen?",
+      "note": "Antwoord binnen één werkdag van Christophe."
     },
     "expectations": {
       "headline": "Wat u mag verwachten",
       "body": "Geen doorschuifsysteem. Geen algemeen salesgesprek. Wel een eerste reactie die scherp bekijkt of dit inhoudelijk past."
     },
     "form": {
-      "headline": "Vertel kort wat er speelt",
+      "headline": "Contactformulier",
       "labels": {
         "name": "Naam",
         "email": "E-mail",
-        "company": "Bedrijf",
-        "phone": "Telefoon",
-        "message": "Waar loopt het vandaag vast?",
+        "message": "Wat speelt er?",
+        "messagePlaceholder": "Vertel kort wat er speelt of stel uw vraag",
         "submit": "Bericht versturen",
         "optional": "(optioneel)"
       }
@@ -350,8 +353,8 @@
     },
     "contact": {
       "eyebrow": "Contact",
-      "title": "Liever eerst een concreet gesprek dan een lange intake.",
-      "intro": "Vertel kort wat er speelt. We bekijken of een Reality Check of een ander eerste gesprek zinvol is."
+      "title": "Vertel kort wat er speelt.",
+      "intro": "Christophe leest mee. Antwoord binnen één werkdag, of we bekijken samen of een Reality Check past."
     },
     "reality": {
       "eyebrow": "Reality Check",
