@@ -13,13 +13,15 @@ const WILLEMS_SEO_PROOF_SRC = '/images/cases/willems-seo-dashboard.png';
 
 const CASE_UI = {
   nl: {
-    hofVideoCaption: 'In beeld: een fragment uit het werk.',
-    willemsProofCaption: 'SEO-prestaties (extract dashboard, 2024)',
+    willemsProofCaptionAbove: 'SEO-PRESTATIES — EXTRACT DASHBOARD, 2024',
+    willemsProofNote:
+      'Een momentopname uit een lopende rapportage. De grafieken volgen de evolutie over zes jaar partnership.',
     industrialFooter: 'Identiteit op verzoek confidentieel.',
   },
   en: {
-    hofVideoCaption: 'On screen: a fragment from the work.',
-    willemsProofCaption: 'SEO performance (dashboard extract, 2024)',
+    willemsProofCaptionAbove: 'SEO PERFORMANCE — EXTRACT DASHBOARD, 2024',
+    willemsProofNote:
+      'A snapshot from an ongoing report. The charts track evolution across six years of partnership.',
     industrialFooter: "Identity withheld at the client's request.",
   },
 } as const;
@@ -95,6 +97,32 @@ function oryenCls(t: CopyTone): string {
     : 'cases-case-oryen cases-case-oryen--divider cases-case-oryen--on-pine';
 }
 
+function KpiMetricLabel({ label }: { label: string }) {
+  const open = label.indexOf('(');
+  if (open !== -1) {
+    return (
+      <div className="cases-kpi-label-stack">
+        <span className="cases-kpi-label-line">{label.slice(0, open).trim()}</span>
+        <span className="cases-kpi-label-line cases-kpi-label-line--sub">{label.slice(open).trim()}</span>
+      </div>
+    );
+  }
+  const slash = label.indexOf('/');
+  if (slash > 0) {
+    return (
+      <div className="cases-kpi-label-stack">
+        <span className="cases-kpi-label-line">{label.slice(0, slash).trim()}</span>
+        <span className="cases-kpi-label-line cases-kpi-label-line--sub">{label.slice(slash).trim()}</span>
+      </div>
+    );
+  }
+  return (
+    <div className="cases-kpi-label-stack">
+      <span className="cases-kpi-label-line">{label}</span>
+    </div>
+  );
+}
+
 function KpiStage({
   c,
   tone,
@@ -104,14 +132,14 @@ function KpiStage({
 }) {
   return (
     <div className={`cases-kpi-stage ${tone === 'cream' ? 'cases-kpi-stage--cream' : 'cases-kpi-stage--pine'}`}>
-      <ul className="cases-kpi-strip" role="list">
+      <div className="cases-kpi-strip" role="list">
         {c.metrics.map((m) => (
-          <li key={`${c.slug}-${m.value}-${m.label}`} className="cases-kpi-item">
+          <div key={`${c.slug}-${m.value}-${m.label}`} className="cases-kpi-item" role="listitem">
             <span className="cases-kpi-value">{m.value}</span>
-            <span className="cases-kpi-label">{m.label}</span>
-          </li>
+            <KpiMetricLabel label={m.label} />
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
@@ -147,6 +175,7 @@ function IndustrialGraphicFixed({
       <p className="cases-industrial-top-label">{c.categoryLabel}</p>
       <p className="cases-industrial-big-num">{m0?.value ?? ''}</p>
       <p className="cases-industrial-leads-cap">{m0?.label ?? ''}</p>
+      <div className="cases-industrial-rule" aria-hidden="true" />
       <div className="cases-industrial-split-row">
         <span className="cases-industrial-split-cell">{m1?.value ?? ''}</span>
         <span className="cases-industrial-vbar" aria-hidden="true" />
@@ -159,35 +188,6 @@ function IndustrialGraphicFixed({
       <p className="cases-industrial-confidential">
         <em>{ui.industrialFooter}</em>
       </p>
-    </div>
-  );
-}
-
-function HofSecondaryVideo({
-  videoSrc,
-  posterSrc,
-  caption,
-}: {
-  videoSrc: string;
-  posterSrc: string;
-  caption: string;
-}) {
-  return (
-    <div className="cases-hof-video-block">
-      <div className="cases-hof-video-inner">
-        <video
-          className="cases-hof-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={posterSrc}
-        >
-          <source src={videoSrc} />
-        </video>
-      </div>
-      <p className="cases-hof-video-caption">{caption}</p>
     </div>
   );
 }
@@ -284,15 +284,6 @@ export function CasesPageView({ content, locale }: Props) {
                       </p>
                       <CaseBodyParagraphs text={c.outcome} className={`${bodyCls(copyTone)} reveal delay-3`} />
                     </div>
-                    {c.videoSrc ? (
-                      <div className="cases-editorial-span">
-                        <HofSecondaryVideo
-                          videoSrc={c.videoSrc}
-                          posterSrc={HOF_HERO_SRC}
-                          caption={ui.hofVideoCaption}
-                        />
-                      </div>
-                    ) : null}
                   </div>
                 </div>
               </div>
@@ -328,9 +319,12 @@ export function CasesPageView({ content, locale }: Props) {
                     </div>
                     <div className="cases-editorial-willems-proof">
                       <figure className="cases-willems-proof">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={WILLEMS_SEO_PROOF_SRC} alt="" className="cases-willems-proof-img" />
-                        <figcaption className="cases-willems-proof-cap">{ui.willemsProofCaption}</figcaption>
+                        <figcaption className="cases-willems-proof-cap">{ui.willemsProofCaptionAbove}</figcaption>
+                        <div className="cases-willems-proof-frame">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={WILLEMS_SEO_PROOF_SRC} alt="" className="cases-willems-proof-img" />
+                        </div>
+                        <p className="cases-willems-proof-note">{ui.willemsProofNote}</p>
                       </figure>
                     </div>
                     <div className="cases-editorial-copy cases-editorial-willems-tail">
