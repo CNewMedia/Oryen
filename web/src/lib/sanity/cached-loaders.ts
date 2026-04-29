@@ -3,7 +3,7 @@ import { cache } from 'react';
 import { loadAanbod } from '@/lib/sanity/load-aanbod';
 import { loadAanpak } from '@/lib/sanity/load-aanpak';
 import { loadCaseStudyList } from '@/lib/sanity/load-case-studies';
-import { loadCasesOverview } from '@/lib/sanity/load-cases-overview';
+import { loadCasesPage } from '@/lib/sanity/load-cases-page';
 import { loadContactPage } from '@/lib/sanity/load-contact';
 import { loadHomepage } from '@/lib/sanity/load-homepage';
 import { loadInsightArticleList } from '@/lib/sanity/load-insights';
@@ -25,7 +25,7 @@ export const getCachedLegalPage = cache(
     loadLegalPage(locale, legalKey)
 );
 export const getCachedInsightsOverview = cache(loadInsightsOverview);
-export const getCachedCasesOverview = cache(loadCasesOverview);
+export const getCachedCasesPage = cache(loadCasesPage);
 export const getCachedInsightArticleList = cache(loadInsightArticleList);
 export const getCachedCaseStudyList = cache(loadCaseStudyList);
 export const getCachedOverOnsPage = cache(loadOverOnsPage);

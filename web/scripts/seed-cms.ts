@@ -18,6 +18,9 @@ import { createClient } from '@sanity/client';
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
+import { CASES_PAGE_EN, CASES_PAGE_NL } from '../src/lib/sanity/bootstrap/cases-page-data';
+import type { CasesPageCase } from '../src/types/cases-page';
+
 /** Works when cwd is `web/` (npm workspace) or repo root. */
 function loadWebEnv(): void {
   const paths = [
@@ -197,22 +200,57 @@ function insightsOverviewDoc(locale: Locale, m: OryBundle): Record<string, unkno
   };
 }
 
-function casesOverviewDoc(locale: Locale, m: OryBundle): Record<string, unknown> {
-  const p = m.Pages.cases;
+function casesOverviewDoc(locale: Locale): Record<string, unknown> {
+  const CP = locale === 'nl' ? CASES_PAGE_NL : CASES_PAGE_EN;
   return {
     _id: `oryen.casestudiesOverview.${locale}`,
     _type: 'casestudiesOverviewPage',
     locale,
     internalTitle: 'Casestudies',
     seo: {
-      metaTitle: `${p.title} | ${m.Meta.siteName}`,
-      metaDescription: p.intro,
+      metaTitle: CP.meta.title,
+      metaDescription: CP.meta.description,
       robotsIndex: true,
     },
-    eyebrow: p.eyebrow,
-    title: p.title,
-    intro: p.intro,
+    hero: CP.hero,
+    disclaimer: CP.disclaimer,
   };
+}
+
+function caseStudyDoc(
+  locale: Locale,
+  c: CasesPageCase,
+  sortOrder: number
+): Record<string, unknown> {
+  const doc: Record<string, unknown> = {
+    _id: `oryen.caseStudy.${locale}.${c.slug}`,
+    _type: 'caseStudy',
+    locale,
+    title: c.title,
+    clientName: c.title,
+    sector: c.categoryLabel,
+    slug: { current: c.slug },
+    categoryLabel: c.categoryLabel,
+    tagline: c.tagline,
+    situation: c.situation,
+    oryenLine: c.oryenLine,
+    outcome: c.outcome,
+    whatEveryoneSaw: c.situation,
+    whatOryenSaw: c.oryenLine,
+    resultImpact: c.outcome,
+    summary: c.tagline,
+    metrics: c.metrics.map((m) => ({ value: m.value, label: m.label })),
+    displayMode: c.displayMode,
+    featured: false,
+    sortOrder,
+    seo: {
+      metaTitle: `${c.title} | ORYEN`,
+      metaDescription: c.tagline,
+      robotsIndex: true,
+    },
+  };
+  if (c.videoSrc) doc.overviewVideoUrl = c.videoSrc;
+  return doc;
 }
 
 function contactDoc(locale: Locale, m: OryBundle): Record<string, unknown> {
@@ -296,13 +334,16 @@ function legalDoc(
 
 function allDocsForLocale(locale: Locale): Record<string, unknown>[] {
   const m = loadBundle(locale);
+  const CP = locale === 'nl' ? CASES_PAGE_NL : CASES_PAGE_EN;
+  const caseStudyDocs = CP.cases.map((c, i) => caseStudyDoc(locale, c, i + 1));
   return [
     siteSettingsDoc(locale, m),
     homepageDoc(locale, m),
     aanbodDoc(locale, m),
     aanpakDoc(locale, m),
     insightsOverviewDoc(locale, m),
-    casesOverviewDoc(locale, m),
+    casesOverviewDoc(locale),
+    ...caseStudyDocs,
     contactDoc(locale, m),
     thankYouDoc(locale, m),
     legalDoc(locale, m, 'privacy'),

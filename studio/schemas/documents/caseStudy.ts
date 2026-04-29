@@ -44,6 +44,57 @@ export const caseStudy = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'categoryLabel',
+      title: 'Category label (cases overview, small caps)',
+      type: 'string',
+    }),
+    defineField({
+      name: 'tagline',
+      title: 'Tagline (italic lead)',
+      type: 'string',
+    }),
+    defineField({
+      name: 'situation',
+      title: 'Situation (overview)',
+      type: 'text',
+      rows: 6,
+      description:
+        'Cases overview narrative. Falls back to “What everyone saw” when empty.',
+    }),
+    defineField({
+      name: 'oryenLine',
+      title: 'ORYEN line (italic)',
+      type: 'text',
+      rows: 3,
+    }),
+    defineField({
+      name: 'outcome',
+      title: 'Outcome (overview)',
+      type: 'text',
+      rows: 6,
+      description: 'Falls back to “Result / impact” when empty.',
+    }),
+    defineField({
+      name: 'displayMode',
+      title: 'Overview visual mode',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Photo / video', value: 'photo' },
+          { title: 'Typographic (no photo)', value: 'typographic' },
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'photo',
+    }),
+    defineField({
+      name: 'overviewVideoUrl',
+      title: 'Overview video URL (optional)',
+      type: 'url',
+      description:
+        'Optional public URL to a video file (e.g. .mov). Poster uses hero visual when set.',
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',

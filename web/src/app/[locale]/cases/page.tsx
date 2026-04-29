@@ -1,25 +1,19 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 
-import { CaseStudyList } from '@/components/cases/case-study-list';
-import { InnerPage } from '@/components/ui/inner-page';
+import { CasesPageView } from '@/components/cases/cases-page-view';
 import {
   alternatesForPath,
   documentTitleAbsolute,
   ogImagesForPage,
 } from '@/lib/metadata/defaults';
-import {
-  getCachedCaseStudyList,
-  getCachedCasesOverview,
-  getCachedSiteSettings,
-} from '@/lib/sanity/cached-loaders';
+import { getCachedCasesPage, getCachedSiteSettings } from '@/lib/sanity/cached-loaders';
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const [{ seo }, settings] = await Promise.all([
-    getCachedCasesOverview(locale),
+    getCachedCasesPage(locale),
     getCachedSiteSettings(locale),
   ]);
   const images = ogImagesForPage(undefined);
@@ -41,15 +35,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CasesPage({ params }: Props) {
   const { locale } = await params;
-  const [{ header }, cases, t] = await Promise.all([
-    getCachedCasesOverview(locale),
-    getCachedCaseStudyList(locale),
-    getTranslations({ locale, namespace: 'Cases' }),
-  ]);
-
-  return (
-    <InnerPage eyebrow={header.eyebrow} title={header.title} intro={header.intro}>
-      <CaseStudyList cases={cases} emptyLabel={t('empty')} />
-    </InnerPage>
-  );
+  const { content } = await getCachedCasesPage(locale);
+  return <CasesPageView content={content} locale={locale} />;
 }

@@ -14,9 +14,11 @@ import type {
 } from '@/types/cms-page';
 import type { HomeContent } from '@/types/home-content';
 import type { SiteSettingsResolved } from '@/types/site-settings';
+import type { CasesPageContent } from '@/types/cases-page';
 
 import { siteImages } from '@/lib/site-images';
 
+import { CASES_PAGE_EN, CASES_PAGE_NL } from './cases-page-data';
 import { getLegalPageBody, getLegalPageDescription } from './content/legal-copy';
 import oryEn from './content/oryen-en.json';
 import oryNl from './content/oryen-nl.json';
@@ -220,11 +222,15 @@ export function getBootstrapInsightsOverview(locale: string): OverviewHeaderCont
   };
 }
 
+export function getBootstrapCasesPage(locale: string): CasesPageContent {
+  return locale === 'en' ? CASES_PAGE_EN : CASES_PAGE_NL;
+}
+
 export function getBootstrapCasesOverview(locale: string): OverviewHeaderContent {
-  const p = pickOry(locale).Pages.cases;
+  const p = getBootstrapCasesPage(locale);
   return {
-    eyebrow: p.eyebrow,
-    title: p.title,
-    intro: p.intro,
+    eyebrow: p.hero.eyebrow,
+    title: `${p.hero.headlineBefore} ${p.hero.headlineEm}`.trim(),
+    intro: p.hero.sub,
   };
 }

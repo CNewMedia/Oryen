@@ -25,9 +25,46 @@ export const casestudiesOverviewPage = defineType({
       initialValue: 'Casestudies',
     }),
     defineField({ name: 'seo', title: 'SEO', type: 'seo' }),
-    defineField({ name: 'eyebrow', title: 'Eyebrow', type: 'string' }),
-    defineField({ name: 'title', title: 'Title', type: 'string' }),
-    defineField({ name: 'intro', title: 'Intro', type: 'text', rows: 4 }),
+    defineField({
+      name: 'hero',
+      title: 'Hero',
+      type: 'object',
+      fields: [
+        defineField({ name: 'spine', title: 'Spine label', type: 'string' }),
+        defineField({
+          name: 'eyebrow',
+          title: 'Small caps label',
+          type: 'string',
+        }),
+        defineField({
+          name: 'headlineBefore',
+          title: 'Headline (before italic)',
+          type: 'string',
+        }),
+        defineField({
+          name: 'headlineEm',
+          title: 'Headline (italic, amber)',
+          type: 'string',
+        }),
+        defineField({ name: 'sub', title: 'Subtitle', type: 'text', rows: 4 }),
+      ],
+    }),
+    defineField({
+      name: 'disclaimer',
+      title: 'Disclaimer + CTA',
+      type: 'object',
+      fields: [
+        defineField({ name: 'eyebrow', title: 'Eyebrow', type: 'string' }),
+        defineField({ name: 'body', title: 'Body', type: 'text', rows: 6 }),
+        defineField({
+          name: 'ctaLabel',
+          title: 'CTA label',
+          description:
+            'Shown with PrimaryRcCtaLabel on mobile (short label may apply).',
+          type: 'string',
+        }),
+      ],
+    }),
   ],
   preview: {
     select: { title: 'internalTitle', locale: 'locale' },
