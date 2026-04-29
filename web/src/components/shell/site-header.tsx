@@ -124,6 +124,16 @@ export function SiteHeader({
         aria-label={primaryLabel}
       >
         <ul role="list">
+          <li className="nav-drawer-cta-row">
+            <Link
+              href="/aanbod"
+              onClick={() => setOpen(false)}
+              className="nav-drawer-cta"
+              tabIndex={open ? 0 : -1}
+            >
+              {ctaLabel}
+            </Link>
+          </li>
           {navItems.map((item) => (
             <li key={item.href}>
               <Link
@@ -136,16 +146,6 @@ export function SiteHeader({
               </Link>
             </li>
           ))}
-          <li className="nav-drawer-cta-row">
-            <Link
-              href="/aanbod"
-              onClick={() => setOpen(false)}
-              className="nav-drawer-cta"
-              tabIndex={open ? 0 : -1}
-            >
-              {ctaLabel}
-            </Link>
-          </li>
         </ul>
       </div>
     </nav>

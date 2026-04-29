@@ -70,6 +70,15 @@ export function HomePageView({
   const steps = t.approach.steps;
   const minis = t.proof.minis;
 
+  const offerSecondaryHead =
+    t.offer.secondaryHlBeforeEm?.trim() || t.offer.secondaryHlEm?.trim();
+  const offerSecondaryBody = t.offer.secondaryBody?.trim();
+  const offerSecondaryNote = t.offer.secondaryNote?.trim();
+  const hasSecondaryColumn =
+    !!(offerSecondaryHead || offerSecondaryBody || offerSecondaryNote);
+  const offerNoteOnlyAside =
+    !!offerSecondaryNote && !offerSecondaryHead && !offerSecondaryBody;
+
   return (
     <>
       <section className="hero">
@@ -288,56 +297,75 @@ export function HomePageView({
             <span>{t.offer.spine}</span>
           </div>
           <div className="spine-content">
-            <div className="offer-grid">
-              <div>
+            {offerNoteOnlyAside ? (
+              <div className="offer-grid offer-grid--note-aside">
                 <h2 className="offer-name reveal">{t.offer.name}</h2>
-                <p className="offer-body reveal delay-1">
-                  <RichBrLines text={t.offer.body} />
+                <p className="offer-note offer-note--aside reveal delay-1">
+                  <RichBrLines text={t.offer.secondaryNote ?? ''} />
                 </p>
-                <span className="offer-line reveal delay-2" />
-                <Link className="offer-btn reveal delay-3" href="/aanbod">
-                  <span>
-                    <PrimaryRcCtaLabel locale={locale} label={t.offer.ctaPrimary} />
-                  </span>
-                  <span
-                    className="btn-arrow"
-                    style={{ background: 'var(--amber)' }}
-                  />
-                </Link>
+                <div className="offer-main">
+                  <p className="offer-body reveal delay-1">
+                    <RichBrLines text={t.offer.body} />
+                  </p>
+                  <span className="offer-line reveal delay-2" />
+                  <Link className="offer-btn reveal delay-3" href="/aanbod">
+                    <span>
+                      <PrimaryRcCtaLabel locale={locale} label={t.offer.ctaPrimary} />
+                    </span>
+                    <span
+                      className="btn-arrow"
+                      style={{ background: 'var(--amber)' }}
+                    />
+                  </Link>
+                </div>
               </div>
-              <div className="reveal delay-1">
-                {(t.offer.secondaryHlBeforeEm?.trim() ||
-                  t.offer.secondaryHlEm?.trim() ||
-                  t.offer.secondaryBody?.trim() ||
-                  t.offer.secondaryNote?.trim()) ? (
-                  <>
-                    <h3 className="offer-r-hl">
-                      {(t.offer.secondaryHlBeforeEm?.trim() || t.offer.secondaryHlEm?.trim()) ? (
-                        <>
+            ) : (
+              <div className="offer-grid">
+                <div>
+                  <h2 className="offer-name reveal">{t.offer.name}</h2>
+                  <p className="offer-body reveal delay-1">
+                    <RichBrLines text={t.offer.body} />
+                  </p>
+                  <span className="offer-line reveal delay-2" />
+                  <Link className="offer-btn reveal delay-3" href="/aanbod">
+                    <span>
+                      <PrimaryRcCtaLabel locale={locale} label={t.offer.ctaPrimary} />
+                    </span>
+                    <span
+                      className="btn-arrow"
+                      style={{ background: 'var(--amber)' }}
+                    />
+                  </Link>
+                </div>
+                <div className="reveal delay-1">
+                  {hasSecondaryColumn ? (
+                    <>
+                      {offerSecondaryHead ? (
+                        <h3 className="offer-r-hl">
                           <span>
-                            <RichBrLines text={t.offer.secondaryHlBeforeEm} />
+                            <RichBrLines text={t.offer.secondaryHlBeforeEm ?? ''} />
                           </span>
                           <br />
                           <em>
-                            <RichBrLines text={t.offer.secondaryHlEm} />
+                            <RichBrLines text={t.offer.secondaryHlEm ?? ''} />
                           </em>
-                        </>
+                        </h3>
                       ) : null}
-                    </h3>
-                    {t.offer.secondaryBody?.trim() ? (
-                      <p className="offer-r-body">
-                        <RichBrLines text={t.offer.secondaryBody} />
-                      </p>
-                    ) : null}
-                    {t.offer.secondaryNote?.trim() ? (
-                      <p className="offer-note">
-                        <RichBrLines text={t.offer.secondaryNote} />
-                      </p>
-                    ) : null}
-                  </>
-                ) : null}
+                      {offerSecondaryBody ? (
+                        <p className="offer-r-body">
+                          <RichBrLines text={t.offer.secondaryBody} />
+                        </p>
+                      ) : null}
+                      {offerSecondaryNote ? (
+                        <p className="offer-note">
+                          <RichBrLines text={t.offer.secondaryNote} />
+                        </p>
+                      ) : null}
+                    </>
+                  ) : null}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>

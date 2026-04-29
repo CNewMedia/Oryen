@@ -354,7 +354,7 @@ img { display: block; max-width: 100%; }
 }
 .nav-drawer a:hover,
 .nav-drawer a.is-active { border-bottom-color: var(--amber); }
-.nav-drawer-cta-row { margin-top: .75rem; }
+.nav-drawer-cta-row { margin-bottom: 1.25rem; }
 .nav-drawer-cta {
   font-family: 'DM Mono', monospace !important;
   font-size: .9rem !important;
@@ -367,6 +367,14 @@ img { display: block; max-width: 100%; }
 @media (max-width: 900px) {
   .nav-primary { display: none; }
   .nav-toggle { display: inline-block; }
+}
+
+/* Header: hide redundant Reality Check text link on small phones — drawer + logo suffice */
+@media (max-width: 767px) {
+  .nav-cta { display: none; }
+}
+@media (max-width: 479px) {
+  .nav-logo-sub { display: none; }
 }
 
 /* ==========================================================================
@@ -1276,6 +1284,49 @@ img { display: block; max-width: 100%; }
   color: rgba(242,239,232,.3);
   padding-top: 1.5rem;
   border-top: var(--lw) solid rgba(196,120,32,.22);
+}
+
+/* Homepage offer: when aside is note-only, grid-placed siblings keep desktop “beside title” / mobile title → note → body */
+.offer-grid--note-aside {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+.offer-grid--note-aside .offer-name {
+  grid-column: 1;
+  grid-row: 1;
+}
+.offer-grid--note-aside .offer-note--aside {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  margin: 0;
+  padding-top: clamp(.6rem, 1.2vh, 1rem);
+  max-width: 28ch;
+}
+.offer-grid--note-aside .offer-main {
+  grid-column: 1;
+  grid-row: 2;
+}
+@media (max-width: 767px) {
+  .offer-grid--note-aside {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+  .offer-grid--note-aside .offer-name,
+  .offer-grid--note-aside .offer-note--aside,
+  .offer-grid--note-aside .offer-main {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .offer-grid--note-aside .offer-note--aside {
+    padding-top: 1rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* Homepage hero: single primary CTA on small screens */
+@media (max-width: 767px) {
+  .hero-actions .btn-ghost { display: none; }
 }
 
 /* ==========================================================================
@@ -2866,6 +2917,12 @@ footer::before {
   .minis { grid-template-columns: 1fr 1fr; }
   .selectie-grid { grid-template-columns: 1fr; gap: 4rem; }
   .offer-grid { grid-template-columns: 1fr; }
+  .offer-grid--note-aside .offer-name,
+  .offer-grid--note-aside .offer-note--aside,
+  .offer-grid--note-aside .offer-main {
+    grid-column: 1;
+    grid-row: auto;
+  }
   .over-grid { grid-template-columns: 1fr; }
   /* Portrait stays visible on tablet — just capped in width so it sits
    * elegantly above the quote/supporting copy when the grid collapses. */
