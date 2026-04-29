@@ -48,7 +48,6 @@ export default async function HomePage({ params }: Props) {
         images={homeData.imageUrls}
         contactEmail={contactEmail}
         seeAllCasesLabel={tNav('seeAllCases')}
-        meetTheTeamLabel={tNav('meetTheTeam')}
         locale={locale}
       />
     </>

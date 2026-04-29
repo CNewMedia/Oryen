@@ -31,7 +31,7 @@
       "titleLine2": "",
       "titleEm": "",
       "claim": "Often enough is already happening in your company.\nThere is communication. There is follow-up. Tools are used. Decisions are made.\n\nAnd yet the feeling remains: we are not getting out what we put in.",
-      "sub": "The question is not immediately whether more needs to be done.\n\nThe real question is: where does it go wrong today — and which intervention actually makes a difference now?",
+      "sub": "The question is not immediately whether more needs to be done.",
       "primaryCta": "Book a Reality Check conversation with Christophe",
       "secondaryCta": "See the approach"
     },
@@ -105,31 +105,28 @@
       ]
     },
     "selection": {
-      "spine": "04 — Who it is for",
-      "headline": "For those who first want to know",
-      "headlineEm": "where results are lost.",
-      "forItems": [
-        "ORYEN is for entrepreneurs, sales leads and decision-makers who feel a lot is happening, but the result is not in proportion to the effort.",
-        "For those who do not simply want more marketing, more sales pressure or a new tool — but first want to know where the cause is."
-      ],
-      "forLabel": "For you if",
+      "spine": "",
+      "headline": "",
+      "headlineEm": "",
+      "forItems": [],
+      "forLabel": "",
       "forList": [],
-      "notForLabel": "Not for you if",
+      "notForLabel": "",
       "notFor": []
     },
     "about": {
-      "spine": "05 — About ORYEN",
-      "headline": "Not doing more, faster.",
-      "headlineEm": "First deciding right.",
+      "spine": "",
+      "headline": "",
+      "headlineEm": "",
       "statement": "",
-      "body": "No classic agency structure. No layers of account management. A boutique team with Christophe Dejaeghere as strategic anchor — 23 years of experience with brands, with execution and with the people behind the brand. Directly approachable.\n\nORYEN does not look at marketing or sales as separate boxes, but at how they work together.",
+      "body": "",
       "creds": "",
       "signature": "",
       "postSignature": "",
-      "quote": "The most expensive decisions are usually not the big decisions.\nThey are the decisions taken too early."
+      "quote": ""
     },
     "offer": {
-      "spine": "06 — Offer",
+      "spine": "04 — Offer",
       "name": "Reality Check",
       "body": "The first paid moment where ORYEN gets sharp on where sales, marketing and follow-up lose results — and which intervention makes the difference first.\n\nNo casual intake. Not a sales conversation in disguise.\n\nYou leave with priorities and a concrete next step. Whether you continue with ORYEN after that, you decide only then.",
       "ctaPrimary": "Book a Reality Check conversation with Christophe",

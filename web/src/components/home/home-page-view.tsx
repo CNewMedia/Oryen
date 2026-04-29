@@ -56,7 +56,6 @@ type Props = {
   images: HomeImageUrls;
   contactEmail: string;
   seeAllCasesLabel: string;
-  meetTheTeamLabel: string;
   locale: string;
 };
 
@@ -65,14 +64,11 @@ export function HomePageView({
   images,
   contactEmail: _contactEmail,
   seeAllCasesLabel,
-  meetTheTeamLabel,
   locale,
 }: Props) {
   const t = home;
   const steps = t.approach.steps;
   const minis = t.proof.minis;
-  const forItems = t.selection.forItems;
-  const notFor = t.selection.notFor;
 
   return (
     <>
@@ -282,117 +278,6 @@ export function HomePageView({
               <span>{seeAllCasesLabel}</span>
               <span className="section-more-arrow" aria-hidden="true" />
             </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="s-selectie has-spine spine-dark">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-dark">
-            <span>{t.selection.spine}</span>
-          </div>
-          <div className="spine-content">
-            <div className="selectie-grid">
-              <div>
-                <h2 className="selectie-hl reveal">
-                  {t.selection.headline}
-                  <br />
-                  <em
-                    dangerouslySetInnerHTML={{
-                      __html: t.selection.headlineEm.replace(/\n/g, '<br/>'),
-                    }}
-                  />
-                </h2>
-                <div className="selectie-list reveal delay-1">
-                  {forItems.map((item) => (
-                    <p key={item.slice(0, 40)} className="sel-item">
-                      <RichBrLines text={item} />
-                    </p>
-                  ))}
-                </div>
-                {t.selection.forLabel && t.selection.forList && t.selection.forList.length > 0 ? (
-                  <div className="selectie-sub reveal delay-2">
-                    <span className="selectie-sub-lbl">{t.selection.forLabel}</span>
-                    <ul className="selectie-sub-list">
-                      {t.selection.forList.map((item) => (
-                        <li key={item.slice(0, 24)}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : null}
-              </div>
-              <div className="reveal delay-2">
-                {notFor.length > 0 ? (
-                  <>
-                    <span className="niet-lbl">{t.selection.notForLabel}</span>
-                    <ul className="niet-list">
-                      {notFor.map((item) => (
-                        <li key={item.slice(0, 24)}>{item}</li>
-                      ))}
-                    </ul>
-                  </>
-                ) : null}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="s-over has-spine spine-light">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-light">
-            <span>{t.about.spine}</span>
-          </div>
-          <div className="spine-content">
-            <div className="over-grid">
-              <div>
-                <h2 className="over-hl reveal">
-                  {t.about.headline}
-                  <br />
-                  <em
-                    dangerouslySetInnerHTML={{
-                      __html: t.about.headlineEm.replace(/\n/g, '<br/>'),
-                    }}
-                  />
-                </h2>
-                {t.about.statement ? (
-                  <p className="over-stmt reveal delay-1">{t.about.statement}</p>
-                ) : null}
-                {t.about.body ? (
-                  <p className="over-body reveal delay-1">
-                    <RichBrLines text={t.about.body} />
-                  </p>
-                ) : null}
-                {t.about.creds?.trim() ? (
-                  <p className="over-creds reveal delay-2">
-                    <RichBrLines text={t.about.creds} />
-                  </p>
-                ) : null}
-                {t.about.signature?.trim() ? (
-                  <div className="over-sig reveal delay-2">
-                    <span className="over-sig-line" />
-                    <span className="over-sig-txt">{t.about.signature}</span>
-                  </div>
-                ) : null}
-                {t.about.postSignature?.trim() ? (
-                  <p className="over-body reveal delay-2">
-                    <RichBrLines text={t.about.postSignature} />
-                  </p>
-                ) : null}
-                <Link className="section-more over-more reveal delay-3" href="/team">
-                  <span>{meetTheTeamLabel}</span>
-                  <span className="section-more-arrow" aria-hidden="true" />
-                </Link>
-              </div>
-              <div className="reveal delay-1">
-                <div className="over-portrait">
-                  <img src={images.portrait} alt="" />
-                </div>
-                <p className="over-quote">
-                  <RichBrLines text={t.about.quote} />
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
