@@ -132,6 +132,11 @@ img { display: block; max-width: 100%; }
   /* Step cards — homepage `.step`; reused by aanpak + Reality Check phases */
   --step-card-padding-y: clamp(2.6rem, 4.5vh, 5rem);
   --step-card-padding-x: clamp(1.2rem, 2.2vw, 3rem);
+
+  /* Large Cormorant section titles (line-height ~1.04–1.08): cap overshoot vs spine containers */
+  --oryen-serif-heading-cap-pad: 0.24em;
+  /* Bump spine-column top padding on pine sections (aanpak + Reality Check templates) */
+  --oryen-spine-dark-pad-extra: 0.65rem;
 }
 
 /* ==========================================================================
@@ -1789,6 +1794,7 @@ footer::before {
   font-size: clamp(2.4rem, 5vw, 4.5rem);
   line-height: 1.08;
   letter-spacing: -0.018em;
+  padding-top: var(--oryen-serif-heading-cap-pad);
   margin: 0 0 clamp(1.75rem, 3vh, 3rem);
   color: var(--ink);
 }
@@ -1813,6 +1819,7 @@ footer::before {
   font-size: clamp(2rem, 4.2vw, 3.75rem);
   line-height: 1.08;
   letter-spacing: -0.015em;
+  padding-top: var(--oryen-serif-heading-cap-pad);
   margin: 0 0 clamp(1.75rem, 3vh, 2.75rem);
   color: var(--ink);
 }
@@ -1856,6 +1863,7 @@ footer::before {
   background: var(--pine2);
   color: var(--cream);
   padding-bottom: clamp(2rem, 4vh, 2.5rem);
+  overflow: visible;
 }
 .rc-tpl-s02 .spine-content {
   padding-bottom: clamp(5rem, 10vh, 7rem);
@@ -2116,7 +2124,8 @@ footer::before {
   background: #0e1e18;
   color: var(--cream);
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 .rc-tpl-resolution {
   position: absolute;
@@ -2154,12 +2163,13 @@ footer::before {
 }
 
 .rc-tpl-page .has-spine.spine-light .spine-content {
-  padding-top: clamp(6vh, 9vh, 100px);
+  padding-top: calc(clamp(6vh, 9vh, 100px) + 0.35rem);
   padding-bottom: clamp(6vh, 9vh, 100px);
 }
 .rc-tpl-page .has-spine.spine-dark .spine-content {
-  padding-top: clamp(7vh, 11vh, 120px);
+  padding-top: calc(clamp(7vh, 11vh, 120px) + var(--oryen-spine-dark-pad-extra));
   padding-bottom: clamp(7vh, 11vh, 120px);
+  overflow: visible;
 }
 
 @media (max-width: 1100px) {
@@ -3076,6 +3086,7 @@ body::before {
   letter-spacing: -0.02em;
   color: var(--cream);
   max-width: 14ch;
+  padding-top: var(--oryen-serif-heading-cap-pad);
   margin: 0 0 clamp(1.75rem, 3vh, 2.5rem);
 }
 .team-editorial-hl em {
@@ -3240,6 +3251,7 @@ body::before {
   line-height: 1.1;
   letter-spacing: -0.018em;
   color: var(--ink);
+  padding-top: var(--oryen-serif-heading-cap-pad);
   margin: 0 0 clamp(1.75rem, 3vh, 2.5rem);
   max-width: 22ch;
 }
@@ -3277,6 +3289,7 @@ body::before {
   line-height: 1.08;
   letter-spacing: -0.02em;
   color: var(--cream);
+  padding-top: var(--oryen-serif-heading-cap-pad);
   margin: 0 0 clamp(1.5rem, 2.5vh, 2rem);
   max-width: 18ch;
 }
@@ -3539,6 +3552,7 @@ body::before {
   font-size: clamp(2.1rem, 4.2vw, 3.75rem);
   line-height: 1.08;
   letter-spacing: -0.018em;
+  padding-top: var(--oryen-serif-heading-cap-pad);
   margin: 0 0 clamp(1.5rem, 2.5vh, 2.25rem);
   color: var(--ink);
 }
@@ -3652,8 +3666,6 @@ body::before {
   overflow: visible;
 }
 .aanpak-tpl-s03 .aanpak-tpl-h-section {
-  /* line-height 1.08 + large clamp(): caps need a hair of padding so nothing clips at the section edge */
-  padding-top: 0.22em;
   margin-bottom: clamp(2.5rem, 5vh, 5rem);
 }
 .aanpak-tpl-steps-grid {
@@ -3771,7 +3783,8 @@ body::before {
   background: #0e1e18;
   color: var(--cream);
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 .aanpak-tpl-resolution {
   position: absolute;
@@ -3870,17 +3883,12 @@ body::before {
 }
 
 .aanpak-page .has-spine.spine-light .spine-content {
-  padding-top: clamp(7vh, 10vh, 110px);
+  padding-top: calc(clamp(7vh, 10vh, 110px) + 0.35rem);
   padding-bottom: clamp(7vh, 10vh, 110px);
 }
 .aanpak-page .has-spine.spine-dark .spine-content {
-  padding-top: clamp(8vh, 11vh, 120px);
+  padding-top: calc(clamp(8vh, 11vh, 120px) + var(--oryen-spine-dark-pad-extra));
   padding-bottom: clamp(8vh, 11vh, 120px);
-}
-
-/* “02 — De vier stappen”: extra headroom so the section headline stays fully visible at all widths */
-.aanpak-page .aanpak-tpl-s03.has-spine.spine-dark .spine-content {
-  padding-top: calc(clamp(8vh, 11vh, 120px) + 0.75rem);
   overflow: visible;
 }
 
