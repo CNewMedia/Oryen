@@ -6,6 +6,30 @@ import { PrimaryRcCtaLabel } from '@/components/shell/reality-check-cta-label';
 
 import type { CasesPageCase, CasesPageContent } from '@/types/cases-page';
 
+/** Visual-only asset URLs (bootstrap copy / paths unchanged). */
+const HOF_HERO_SRC = '/images/HofvanCleve.jpg';
+const WILLEMS_HERO_SRC = '/images/cases/willems-hero.webp';
+const WILLEMS_SEO_PROOF_SRC = '/images/cases/willems-seo-dashboard.png';
+
+const CASE_UI = {
+  nl: {
+    hofVideoCaption: 'In beeld: een fragment uit het werk.',
+    willemsProofCaption: 'SEO-prestaties (extract dashboard, 2024)',
+    industrialFooter: 'Identiteit op verzoek confidentieel.',
+  },
+  en: {
+    hofVideoCaption: 'On screen: a fragment from the work.',
+    willemsProofCaption: 'SEO performance (dashboard extract, 2024)',
+    industrialFooter: "Identity withheld at the client's request.",
+  },
+} as const;
+
+function resolveHeroSrc(c: CasesPageCase): string | null {
+  if (c.slug === 'hof-van-cleve') return HOF_HERO_SRC;
+  if (c.slug === 'willems-veranda') return WILLEMS_HERO_SRC;
+  return c.imageSrc;
+}
+
 function RichBrLines({ text }: { text: string }) {
   const lines = text.split(/\n/);
   return (
@@ -36,58 +60,136 @@ function CaseBodyParagraphs({ text, className }: { text: string; className: stri
   );
 }
 
-function CaseVisual({ c }: { c: CasesPageCase }) {
-  if (c.displayMode === 'typographic') {
-    return (
-      <div className="cases-case-type-visual" aria-hidden="true">
-        <svg className="cases-case-type-wave" viewBox="0 0 800 200" preserveAspectRatio="none">
-          <path
-            fill="none"
-            stroke="rgba(196,120,32,.35)"
-            strokeWidth="1.2"
-            d="M0 120 Q200 40 400 100 T800 80"
-          />
-          <path
-            fill="none"
-            stroke="rgba(242,239,232,.12)"
-            strokeWidth="1"
-            d="M0 150 Q250 90 500 130 T800 110"
-          />
-        </svg>
-        <div className="cases-case-type-visual-inner">
-          <p className="cases-case-type-mark">{c.title}</p>
-          <p className="cases-case-type-sub">{c.categoryLabel}</p>
-        </div>
-      </div>
-    );
-  }
+function toneClass(slug: string): 'cases-page-case--pine' | 'cases-page-case--cream' {
+  if (slug === 'willems-veranda') return 'cases-page-case--cream';
+  return 'cases-page-case--pine';
+}
 
-  if (c.videoSrc && c.imageSrc) {
-    return (
-      <div className="cases-case-media">
+function spineLab(slug: string): string {
+  return slug === 'willems-veranda'
+    ? 'spine-label spine-label-light'
+    : 'spine-label spine-label-dark';
+}
+
+type CopyTone = 'cream' | 'pine';
+
+function catCls(t: CopyTone): string {
+  return t === 'cream' ? 'cases-case-cat cases-case-cat--on-cream' : 'cases-case-cat cases-case-cat--on-pine';
+}
+
+function tagCls(t: CopyTone): string {
+  return t === 'cream'
+    ? 'cases-case-tagline cases-case-tagline--lg cases-case-tagline--on-cream'
+    : 'cases-case-tagline cases-case-tagline--lg cases-case-tagline--on-pine';
+}
+
+function bodyCls(t: CopyTone): string {
+  return t === 'cream'
+    ? 'cases-case-body cases-case-body--on-cream'
+    : 'cases-case-body cases-case-body--on-pine';
+}
+
+function oryenCls(t: CopyTone): string {
+  return t === 'cream'
+    ? 'cases-case-oryen cases-case-oryen--divider cases-case-oryen--on-cream'
+    : 'cases-case-oryen cases-case-oryen--divider cases-case-oryen--on-pine';
+}
+
+function KpiStage({
+  c,
+  tone,
+}: {
+  c: CasesPageCase;
+  tone: CopyTone;
+}) {
+  return (
+    <div className={`cases-kpi-stage ${tone === 'cream' ? 'cases-kpi-stage--cream' : 'cases-kpi-stage--pine'}`}>
+      <ul className="cases-kpi-strip" role="list">
+        {c.metrics.map((m) => (
+          <li key={`${c.slug}-${m.value}-${m.label}`} className="cases-kpi-item">
+            <span className="cases-kpi-value">{m.value}</span>
+            <span className="cases-kpi-label">{m.label}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/** Typographic anchor for industrial case — KPI values come from existing metrics (unchanged). */
+function IndustrialGraphicFixed({
+  c,
+  locale,
+}: {
+  c: CasesPageCase;
+  locale: string;
+}) {
+  const ui = locale === 'en' ? CASE_UI.en : CASE_UI.nl;
+  const [m0, m1, m2] = c.metrics;
+  return (
+    <div className="cases-industrial-graphic">
+      <svg className="cases-industrial-deco cases-industrial-deco--tr" viewBox="0 0 400 120" aria-hidden="true">
+        <path
+          fill="none"
+          stroke="rgba(196,120,32,.28)"
+          strokeWidth="1"
+          d="M0 90 Q80 40 160 70 T320 55 L400 48"
+        />
+      </svg>
+      <svg className="cases-industrial-deco cases-industrial-deco--bl" viewBox="0 0 400 120" aria-hidden="true">
+        <path
+          fill="none"
+          stroke="rgba(242,239,232,.08)"
+          strokeWidth="1"
+          d="M40 20 Q120 60 200 35 T360 50"
+        />
+      </svg>
+      <p className="cases-industrial-top-label">{c.categoryLabel}</p>
+      <p className="cases-industrial-big-num">{m0?.value ?? ''}</p>
+      <p className="cases-industrial-leads-cap">{m0?.label ?? ''}</p>
+      <div className="cases-industrial-split-row">
+        <span className="cases-industrial-split-cell">{m1?.value ?? ''}</span>
+        <span className="cases-industrial-vbar" aria-hidden="true" />
+        <span className="cases-industrial-split-cell">{m2?.value ?? ''}</span>
+      </div>
+      <div className="cases-industrial-split-sub">
+        <span>{m1?.label ?? ''}</span>
+        <span>{m2?.label ?? ''}</span>
+      </div>
+      <p className="cases-industrial-confidential">
+        <em>{ui.industrialFooter}</em>
+      </p>
+    </div>
+  );
+}
+
+function HofSecondaryVideo({
+  videoSrc,
+  posterSrc,
+  caption,
+}: {
+  videoSrc: string;
+  posterSrc: string;
+  caption: string;
+}) {
+  return (
+    <div className="cases-hof-video-block">
+      <div className="cases-hof-video-inner">
         <video
-          className="cases-case-video"
-          controls
+          className="cases-hof-video"
+          autoPlay
+          muted
+          loop
           playsInline
           preload="metadata"
-          poster={c.imageSrc}
+          poster={posterSrc}
         >
-          <source src={c.videoSrc} />
+          <source src={videoSrc} />
         </video>
       </div>
-    );
-  }
-
-  if (c.imageSrc) {
-    return (
-      <div className="cases-case-media">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="cases-case-img" src={c.imageSrc} alt="" />
-      </div>
-    );
-  }
-
-  return null;
+      <p className="cases-hof-video-caption">{caption}</p>
+    </div>
+  );
 }
 
 type Props = {
@@ -97,6 +199,7 @@ type Props = {
 
 export function CasesPageView({ content, locale }: Props) {
   const { hero, cases, disclaimer } = content;
+  const ui = locale === 'en' ? CASE_UI.en : CASE_UI.nl;
 
   return (
     <div className="cases-page">
@@ -108,89 +211,143 @@ export function CasesPageView({ content, locale }: Props) {
           <div className="spine-content cases-page-hero-inner">
             <p className="cases-page-hero-eyebrow reveal">{hero.eyebrow}</p>
             <h1 className="cases-page-hero-hl stelling-hl reveal delay-1">
-              <span>{hero.headlineBefore}</span>{' '}
-              <em className="cases-page-hero-em">{hero.headlineEm}</em>
+              <span className="cases-page-hero-line1">{hero.headlineBefore}</span>
+              <span className="cases-page-hero-line2">
+                <em className="cases-page-hero-em">{hero.headlineEm}</em>
+              </span>
             </h1>
             <p className="cases-page-hero-sub reveal delay-2">{hero.sub}</p>
           </div>
         </div>
       </section>
 
-      {cases.map((c, i) => (
-        <section
-          key={c.slug}
-          className={`cases-page-case has-spine ${i % 2 === 0 ? 'spine-light cases-page-case--cream' : 'spine-dark cases-page-case--pine'}`}
-        >
-          <div className="spine-grid">
-            <div
-              className={
-                i % 2 === 0 ? 'spine-label spine-label-light' : 'spine-label spine-label-dark'
-              }
-            >
-              <span>{String(i + 1).padStart(2, '0')} — CASE</span>
-            </div>
-            <div className="spine-content cases-page-case-inner">
-              <CaseVisual c={c} />
+      {cases.map((c, i) => {
+        const slug = c.slug;
+        const tc = toneClass(slug);
+        const copyTone: CopyTone = slug === 'willems-veranda' ? 'cream' : 'pine';
 
-              <p
-                className={
-                  i % 2 === 0
-                    ? 'cases-case-cat cases-case-cat--on-cream reveal'
-                    : 'cases-case-cat cases-case-cat--on-pine reveal'
-                }
-              >
-                {c.categoryLabel}
-              </p>
-              <h2
-                className={
-                  i % 2 === 0
-                    ? 'cases-case-tagline cases-case-tagline--on-cream reveal delay-1'
-                    : 'cases-case-tagline cases-case-tagline--on-pine reveal delay-1'
-                }
-              >
-                <em>{c.tagline}</em>
-              </h2>
+        if (slug === 'industrial-b2b-b2c') {
+          return (
+            <section key={slug} className={`cases-page-case has-spine spine-dark ${tc}`}>
+              <div className="spine-grid">
+                <div className={spineLab(slug)}>
+                  <span>{String(i + 1).padStart(2, '0')} — CASE</span>
+                </div>
+                <div className="spine-content cases-page-case-inner cases-page-case-inner--editorial">
+                  <div className="cases-editorial cases-editorial--industrial">
+                    <div className="cases-editorial-visual">
+                      <IndustrialGraphicFixed c={c} locale={locale} />
+                    </div>
+                    <div className="cases-editorial-copy">
+                      <p className={`${catCls(copyTone)} reveal`}>{c.categoryLabel}</p>
+                      <h2 className={`${tagCls(copyTone)} reveal delay-1`}>
+                        <em>{c.tagline}</em>
+                      </h2>
+                      <CaseBodyParagraphs text={c.situation} className={`${bodyCls(copyTone)} reveal delay-2`} />
+                      <p className={`${oryenCls(copyTone)} reveal delay-2`}>
+                        <em>{c.oryenLine}</em>
+                      </p>
+                      <CaseBodyParagraphs text={c.outcome} className={`${bodyCls(copyTone)} reveal delay-3`} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        }
 
-              <CaseBodyParagraphs
-                text={c.situation}
-                className={
-                  i % 2 === 0
-                    ? 'cases-case-body cases-case-body--on-cream reveal delay-2'
-                    : 'cases-case-body cases-case-body--on-pine reveal delay-2'
-                }
-              />
+        if (slug === 'hof-van-cleve') {
+          const heroSrc = resolveHeroSrc(c);
+          return (
+            <section key={slug} className={`cases-page-case has-spine spine-dark ${tc}`}>
+              <div className="spine-grid">
+                <div className={spineLab(slug)}>
+                  <span>{String(i + 1).padStart(2, '0')} — CASE</span>
+                </div>
+                <div className="spine-content cases-page-case-inner cases-page-case-inner--editorial">
+                  <div className="cases-editorial cases-editorial--hof">
+                    <div className="cases-editorial-visual cases-editorial-visual--cover">
+                      {heroSrc ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img className="cases-case-img cases-case-img--cover" src={heroSrc} alt="" />
+                      ) : null}
+                    </div>
+                    <div className="cases-editorial-copy">
+                      <p className={`${catCls(copyTone)} reveal`}>{c.categoryLabel}</p>
+                      <h2 className={`${tagCls(copyTone)} reveal delay-1`}>
+                        <em>{c.tagline}</em>
+                      </h2>
+                      <CaseBodyParagraphs text={c.situation} className={`${bodyCls(copyTone)} reveal delay-2`} />
+                      <KpiStage c={c} tone={copyTone} />
+                      <p className={`${oryenCls(copyTone)} reveal delay-3`}>
+                        <em>{c.oryenLine}</em>
+                      </p>
+                      <CaseBodyParagraphs text={c.outcome} className={`${bodyCls(copyTone)} reveal delay-3`} />
+                    </div>
+                    {c.videoSrc ? (
+                      <div className="cases-editorial-span">
+                        <HofSecondaryVideo
+                          videoSrc={c.videoSrc}
+                          posterSrc={HOF_HERO_SRC}
+                          caption={ui.hofVideoCaption}
+                        />
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        }
 
-              <ul className="cases-kpi-strip reveal delay-2">
-                {c.metrics.map((m) => (
-                  <li key={`${c.slug}-${m.value}-${m.label}`} className="cases-kpi-item">
-                    <span className="cases-kpi-value">{m.value}</span>
-                    <span className="cases-kpi-label">{m.label}</span>
-                  </li>
-                ))}
-              </ul>
+        if (slug === 'willems-veranda') {
+          const heroSrc = resolveHeroSrc(c);
+          return (
+            <section key={slug} className={`cases-page-case has-spine spine-light ${tc}`}>
+              <div className="spine-grid">
+                <div className={spineLab(slug)}>
+                  <span>{String(i + 1).padStart(2, '0')} — CASE</span>
+                </div>
+                <div className="spine-content cases-page-case-inner cases-page-case-inner--editorial">
+                  <div className="cases-editorial cases-editorial--willems">
+                    <div className="cases-editorial-copy cases-editorial-willems-intro">
+                      <p className={`${catCls(copyTone)} reveal`}>{c.categoryLabel}</p>
+                      <h2 className={`${tagCls(copyTone)} reveal delay-1`}>
+                        <em>{c.tagline}</em>
+                      </h2>
+                      <CaseBodyParagraphs text={c.situation} className={`${bodyCls(copyTone)} reveal delay-2`} />
+                    </div>
+                    <div className="cases-editorial-visual cases-editorial-willems-hero">
+                      {heroSrc ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img className="cases-case-img" src={heroSrc} alt="" />
+                      ) : null}
+                    </div>
+                    <div className="cases-editorial-willems-kpi">
+                      <KpiStage c={c} tone={copyTone} />
+                    </div>
+                    <div className="cases-editorial-willems-proof">
+                      <figure className="cases-willems-proof">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={WILLEMS_SEO_PROOF_SRC} alt="" className="cases-willems-proof-img" />
+                        <figcaption className="cases-willems-proof-cap">{ui.willemsProofCaption}</figcaption>
+                      </figure>
+                    </div>
+                    <div className="cases-editorial-copy cases-editorial-willems-tail">
+                      <p className={`${oryenCls(copyTone)} reveal delay-2`}>
+                        <em>{c.oryenLine}</em>
+                      </p>
+                      <CaseBodyParagraphs text={c.outcome} className={`${bodyCls(copyTone)} reveal delay-3`} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        }
 
-              <p
-                className={
-                  i % 2 === 0
-                    ? 'cases-case-oryen cases-case-oryen--on-cream reveal delay-3'
-                    : 'cases-case-oryen cases-case-oryen--on-pine reveal delay-3'
-                }
-              >
-                <em>{c.oryenLine}</em>
-              </p>
-
-              <CaseBodyParagraphs
-                text={c.outcome}
-                className={
-                  i % 2 === 0
-                    ? 'cases-case-body cases-case-body--on-cream reveal delay-3'
-                    : 'cases-case-body cases-case-body--on-pine reveal delay-3'
-                }
-              />
-            </div>
-          </div>
-        </section>
-      ))}
+        throw new Error(`Unhandled cases slug: ${slug}`);
+      })}
 
       <section className="cases-page-disclaimer has-spine spine-light">
         <div className="spine-grid">
