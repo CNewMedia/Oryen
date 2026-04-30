@@ -663,7 +663,7 @@ img { display: block; max-width: 100%; }
   margin-top: .5vh;
   margin-bottom: 3vh;
 }
-.stelling-hl em { font-style: italic; color: var(--ink); }
+.stelling-hl em { font-style: italic; }
 
 /* Diagnoselijn: drie horizontale lijnen die zoeken */
 .diag-line {
@@ -2207,7 +2207,10 @@ img { display: block; max-width: 100%; }
   border-bottom-color: rgba(15, 14, 11, .1);
 }
 .cases-case-oryen--on-cream em { color: rgba(196, 120, 32, .92); }
-.cases-case-oryen--on-pine em { color: rgba(196, 120, 32, .95); }
+.cases-page-case--pine .cases-case-oryen.cases-case-oryen--on-pine em,
+.cases-case-oryen--on-pine em {
+  color: rgba(196, 120, 32, .95);
+}
 
 /* Disclaimer */
 .cases-page-disclaimer .spine-content {
