@@ -64,8 +64,17 @@
     "cookies": {
       "eyebrow": "Cookies",
       "title": "Cookiebeleid",
-      "intro": ""
+      "intro": "",
+      "consentNotice": "Bij uw eerste bezoek vragen wij of u akkoord gaat met onze cookies. U kan deze keuze altijd herzien door uw browser-cookies voor oryen.be te wissen — dan verschijnt de keuze opnieuw."
     }
+  },
+  "CookieBanner": {
+    "ariaTitle": "Cookies en toestemming",
+    "body": "ORYEN gebruikt cookies om te begrijpen welke bedrijven onze site bezoeken. Dat helpt ons om relevante gesprekken te voeren — niet om u te volgen. U beslist.",
+    "accept": "Accepteren",
+    "decline": "Weigeren",
+    "policyLink": "Lees ons cookiebeleid",
+    "footerPreferences": "Cookievoorkeuren"
   },
   "Errors": {
     "notFound": "Deze pagina bestaat niet of is verplaatst.",

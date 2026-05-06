@@ -52,6 +52,9 @@ export default async function CookiesPage({ params }: Props) {
           {t('cookies.intro')}
         </p>
       )}
+      <p className="stelling-p mt-8 max-w-prose text-[var(--ink2)]">
+        {t('cookies.consentNotice')}
+      </p>
     </InnerPage>
   );
 }

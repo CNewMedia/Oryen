@@ -1,3 +1,4 @@
+import { FooterCookiePreferences } from '@/components/shell/footer-cookie-preferences';
 import { FooterLanguageSwitch } from '@/components/shell/footer-language-switch';
 import { Link } from '@/i18n/navigation';
 import type { PathnameHref } from '@/i18n/routing';
@@ -60,6 +61,7 @@ export function SiteFooter({
           </nav>
         ) : null}
         <FooterLanguageSwitch />
+        <FooterCookiePreferences />
       </div>
       <div className="footer-right">
         <span className="footer-base">

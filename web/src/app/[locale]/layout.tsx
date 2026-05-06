@@ -5,6 +5,8 @@ import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 
 import { TrackingScripts } from '@/components/analytics/tracking-scripts';
+import { CookieBanner } from '@/components/cookie-banner';
+import { LeadinfoLoader } from '@/components/leadinfo-loader';
 import { PremiumChrome } from '@/components/premium/premium-page-effects';
 import { SiteFooter, type FooterNavItem } from '@/components/shell/site-footer';
 import { SiteHeader, type HeaderNavItem } from '@/components/shell/site-header';
@@ -90,17 +92,19 @@ export default async function LocaleLayout({ children, params }: Props) {
           navItems={primaryNavItems}
         />
         <main>{children}</main>
+        <SiteFooter
+          brandShort={settings.footerBrandShort}
+          tagline={settings.footerTagline}
+          domain={settings.footerDomain}
+          primaryLinks={footerPrimary}
+          primaryLabel={tNav('utility')}
+          legalLinks={settings.legalLinks}
+          legalLabel={tNav('legal')}
+          socialLinks={settings.socialLinks}
+        />
+        <CookieBanner />
+        <LeadinfoLoader />
       </NextIntlClientProvider>
-      <SiteFooter
-        brandShort={settings.footerBrandShort}
-        tagline={settings.footerTagline}
-        domain={settings.footerDomain}
-        primaryLinks={footerPrimary}
-        primaryLabel={tNav('utility')}
-        legalLinks={settings.legalLinks}
-        legalLabel={tNav('legal')}
-        socialLinks={settings.socialLinks}
-      />
     </>
   );
 }

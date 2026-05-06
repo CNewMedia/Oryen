@@ -2388,6 +2388,145 @@ footer::before {
 }
 
 /* ==========================================================================
+   COOKIE CONSENT BANNER (GDPR — Leadinfo loads only after accept)
+   ========================================================================== */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: var(--pine);
+  color: var(--cream);
+  border-top: 1px solid var(--amber);
+  box-shadow: 0 -12px 40px rgba(12, 26, 20, 0.45);
+  padding: 1.15rem var(--P) 1.35rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+.cookie-banner-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  align-items: stretch;
+}
+.cookie-banner-body {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(242, 239, 232, 0.95);
+  margin: 0;
+  font-weight: 400;
+}
+.cookie-banner-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+}
+.cookie-banner-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+}
+.cookie-banner-btn {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  padding: 0.72rem 1.35rem;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color .2s, color .2s, border-color .2s;
+  width: 100%;
+  border: 1px solid transparent;
+}
+.cookie-banner-btn-primary {
+  background: var(--cream);
+  color: var(--pine);
+  border-color: var(--cream);
+}
+.cookie-banner-btn-primary:hover {
+  background: #fff;
+  color: var(--pine);
+}
+.cookie-banner-btn-secondary {
+  background: transparent;
+  color: var(--cream);
+  border-color: rgba(242, 239, 232, 0.65);
+}
+.cookie-banner-btn-secondary:hover {
+  border-color: var(--cream);
+  color: #fff;
+}
+.cookie-banner-policy {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 232, 0.62);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  align-self: center;
+  margin-top: 0.15rem;
+}
+.cookie-banner-policy:hover {
+  color: var(--cream);
+}
+@media (min-width: 768px) {
+  .cookie-banner-inner {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .cookie-banner-text {
+    flex: 1;
+    min-width: 0;
+    max-width: 42rem;
+  }
+  .cookie-banner-aside {
+    flex-shrink: 0;
+    width: auto;
+    min-width: 15rem;
+    align-items: flex-end;
+  }
+  .cookie-banner-buttons {
+    flex-direction: row;
+    width: auto;
+    justify-content: flex-end;
+  }
+  .cookie-banner-btn {
+    width: auto;
+    min-width: 7.5rem;
+  }
+  .cookie-banner-policy {
+    align-self: flex-end;
+    text-align: right;
+  }
+}
+
+.footer-cookie-pref {
+  margin: 0.5rem 0 0;
+}
+.footer-cookie-pref-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(242, 239, 232, 0.52);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.footer-cookie-pref-btn:hover {
+  color: rgba(242, 239, 232, 0.85);
+}
+
+/* ==========================================================================
    AANBOD / OFFER PAGE (compositie, zelfde tokens als homepage)
    ========================================================================== */
 .aanbod-page {
