@@ -17,6 +17,21 @@ export function ContactForm({ locale, labels }: Props) {
     >
       <input type="hidden" name="locale" value={locale} />
 
+      {/* Honeypot — leave empty; filled submissions are discarded server-side. */}
+      <div
+        className="contact-honeypot"
+        aria-hidden="true"
+      >
+        <label htmlFor="contact_company">Company</label>
+        <input
+          id="contact_company"
+          name="contact_company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="contact-field">
         <label htmlFor="name" className="contact-label">
           {labels.name}
