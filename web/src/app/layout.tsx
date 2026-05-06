@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 
 import './globals.css';
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="antialiased" suppressHydrationWarning>
         {children}
+        <Analytics />
       </body>
     </html>
   );
