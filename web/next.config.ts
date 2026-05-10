@@ -57,24 +57,40 @@ const nextConfig: NextConfig = {
     ],
   },
   /**
-   * Legacy CNIP → ORYEN (locale-prefixed routes). Non-matching URLs fall through to normal routing (404 where applicable).
-   * `permanent: true` → cached permanent redirect (Next uses HTTP 308).
+   * Legacy CNIP / oude ORYEN → huidige locale-routes. Eerste match wint: specifieke `/algemeen/*`
+   * vóór de `/algemeen/:path*` catch-all. Geen match → normale routing.
+   * `permanent: true` → permanente redirect (Next gebruikt HTTP 308).
    */
   async redirects() {
     return [
+      // A — /algemeen exact vóór catch-all
+      { source: '/algemeen/cookiebeleid', destination: '/nl/cookies', permanent: true },
+      { source: '/algemeen/copyright', destination: '/nl', permanent: true },
       { source: '/algemeen/contacteer-cnip', destination: '/nl/contact', permanent: true },
+      { source: '/algemeen/privacy-policy', destination: '/nl/privacy', permanent: true },
       { source: '/algemeen/contact', destination: '/nl/contact', permanent: true },
-      { source: '/en/contact-cnip', destination: '/en/contact', permanent: true },
       { source: '/algemeen/over-ons', destination: '/nl/team', permanent: true },
+      { source: '/algemeen/:path*', destination: '/nl', permanent: true },
+
+      // B — oude blogs (specifieker eerst)
+      { source: '/en/blog/:path*', destination: '/en', permanent: true },
+      { source: '/nl/blog/:path*', destination: '/nl', permanent: true },
+      { source: '/blog/:path*', destination: '/nl', permanent: true },
+
+      // A — overige statische legacy (NL)
+      { source: '/reality-check', destination: '/nl/reality-check', permanent: true },
+      { source: '/case-study', destination: '/nl/cases', permanent: true },
+
+      // Eerder gedefinieerde CNIP-routes
+      { source: '/en/contact-cnip', destination: '/en/contact', permanent: true },
       { source: '/en/about-us', destination: '/en/team', permanent: true },
       { source: '/diensten/:path*', destination: '/nl/aanpak', permanent: true },
       { source: '/services/:path*', destination: '/en/approach', permanent: true },
 
-      { source: '/blog/:path*', destination: '/nl', permanent: true },
-      { source: '/en/blog/:path*', destination: '/en', permanent: true },
-
+      // C — generieke fallbacks (laat in de lijst om /nl/* niet te overschaduwen)
       { source: '/contact', destination: '/nl/contact', permanent: true },
       { source: '/home', destination: '/nl', permanent: true },
+      { source: '/index', destination: '/nl', permanent: true },
     ];
   },
 };
