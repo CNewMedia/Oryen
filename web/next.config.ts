@@ -56,6 +56,27 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'cdn.eu.sanity.io', pathname: '/images/**' },
     ],
   },
+  /**
+   * Legacy CNIP → ORYEN (locale-prefixed routes). Non-matching URLs fall through to normal routing (404 where applicable).
+   * `permanent: true` → cached permanent redirect (Next uses HTTP 308).
+   */
+  async redirects() {
+    return [
+      { source: '/algemeen/contacteer-cnip', destination: '/nl/contact', permanent: true },
+      { source: '/algemeen/contact', destination: '/nl/contact', permanent: true },
+      { source: '/en/contact-cnip', destination: '/en/contact', permanent: true },
+      { source: '/algemeen/over-ons', destination: '/nl/team', permanent: true },
+      { source: '/en/about-us', destination: '/en/team', permanent: true },
+      { source: '/diensten/:path*', destination: '/nl/aanpak', permanent: true },
+      { source: '/services/:path*', destination: '/en/approach', permanent: true },
+
+      { source: '/blog/:path*', destination: '/nl', permanent: true },
+      { source: '/en/blog/:path*', destination: '/en', permanent: true },
+
+      { source: '/contact', destination: '/nl/contact', permanent: true },
+      { source: '/home', destination: '/nl', permanent: true },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);
