@@ -104,6 +104,7 @@ export function SiteHeader({
         <Link className="nav-cta" href="/aanbod">
           {ctaLabel}
         </Link>
+        {/* Hit area ≥44px via .nav-toggle (see oryen-premium.css); icon stays visually compact. */}
         <button
           type="button"
           className={`nav-toggle${open ? ' is-open' : ''}`}

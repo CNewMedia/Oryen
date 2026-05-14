@@ -257,7 +257,7 @@ img { display: block; max-width: 100%; }
 .nav-primary li { margin: 0; }
 .nav-link {
   font-family: 'DM Mono', monospace;
-  font-size: .74rem;
+  font-size: .78rem;
   letter-spacing: .1em;
   text-transform: uppercase;
   text-decoration: none;
@@ -288,30 +288,36 @@ img { display: block; max-width: 100%; }
   gap: 1rem;
 }
 
-/* Mobile toggle (hamburger) — hidden on desktop */
+/* Mobile toggle (hamburger) — hidden on desktop.
+ * 44×44px minimum hit target (WCAG 2.5.5); bars stay ~24px wide / 9px apart visually. */
 .nav-toggle {
   display: none;
-  width: 28px;
-  height: 24px;
+  box-sizing: border-box;
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
   padding: 0;
+  margin: 0;
   background: transparent;
   border: 0;
   position: relative;
   cursor: pointer;
+  flex-shrink: 0;
 }
 .nav-toggle span {
   position: absolute;
-  left: 2px;
-  right: 2px;
+  left: 10px;
+  right: 10px;
   height: 1px;
   background: var(--ink);
   transition: transform .3s cubic-bezier(.4,0,.2,1), top .3s cubic-bezier(.4,0,.2,1), background .3s;
 }
-.nav-toggle span:nth-child(1) { top: 7px; }
-.nav-toggle span:nth-child(2) { top: 16px; }
+.nav-toggle span:nth-child(1) { top: 17px; }
+.nav-toggle span:nth-child(2) { top: 26px; }
 .nav--over-dark:not(.scrolled) .nav-toggle span { background: rgba(242,239,232,.82); }
-.nav-toggle.is-open span:nth-child(1) { top: 11px; transform: rotate(45deg); }
-.nav-toggle.is-open span:nth-child(2) { top: 11px; transform: rotate(-45deg); }
+.nav-toggle.is-open span:nth-child(1) { top: 22px; transform: rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2) { top: 22px; transform: rotate(-45deg); }
 
 /* Mobile drawer (full-screen panel) */
 .nav-drawer {
@@ -640,7 +646,7 @@ img { display: block; max-width: 100%; }
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
-.spine-label-light span { color: rgba(15,14,11,.45); }
+.spine-label-light span { color: rgba(15,14,11,.60); }
 .spine-label-dark  span { color: rgba(242,239,232,.52); }
 .spine-content {
   padding: clamp(14vh,18vh,170px) var(--P) clamp(14vh,18vh,170px) clamp(2.8rem,4vw,5.5rem);
@@ -2022,7 +2028,7 @@ img { display: block; max-width: 100%; }
 }
 .cases-industrial-split-sub span {
   font-family: 'DM Mono', monospace;
-  font-size: .54rem;
+  font-size: clamp(.75rem, 1.85vw, .82rem);
   letter-spacing: .11em;
   text-transform: uppercase;
   color: rgba(242, 239, 232, .88);
@@ -2091,8 +2097,8 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
-.cases-case-cat--on-cream { color: rgba(15, 14, 11, .42); }
-.cases-case-cat--on-pine { color: rgba(242, 239, 232, .38); }
+.cases-case-cat--on-cream { color: rgba(15, 14, 11, .55); }
+.cases-case-cat--on-pine { color: rgba(242, 239, 232, .55); }
 
 .cases-case-tagline em { font-style: italic; color: var(--amber); }
 
@@ -2168,16 +2174,16 @@ img { display: block; max-width: 100%; }
   letter-spacing: .1em;
 }
 .cases-page-case--cream .cases-kpi-label-line {
-  color: rgba(15, 14, 11, .48);
+  color: rgba(15, 14, 11, .55);
 }
 .cases-page-case--cream .cases-kpi-label-line--sub {
-  color: rgba(15, 14, 11, .4);
+  color: rgba(15, 14, 11, .55);
 }
 .cases-page-case--pine .cases-kpi-label-line {
-  color: rgba(242, 239, 232, .52);
+  color: rgba(242, 239, 232, .55);
 }
 .cases-page-case--pine .cases-kpi-label-line--sub {
-  color: rgba(242, 239, 232, .42);
+  color: rgba(242, 239, 232, .55);
 }
 
 @media (max-width: 1023px) {
@@ -2299,7 +2305,7 @@ footer {
 .footer-legal a,
 .footer-social a {
   font-family: 'DM Mono', monospace;
-  font-size: 0.64rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   color: rgba(242, 239, 232, 0.52);
   text-decoration: none;
@@ -2352,14 +2358,14 @@ footer::before {
 }
 .footer-brand {
   font-family: 'Cormorant Garamond', serif;
-  font-size: .78rem;
+  font-size: .8rem;
   letter-spacing: .45em;
   text-transform: uppercase;
   color: rgba(242, 239, 232, 0.62);
 }
 .footer-base {
   font-family: 'DM Mono', monospace;
-  font-size: .64rem;
+  font-size: .75rem;
   letter-spacing: .08em;
   color: rgba(242, 239, 232, 0.52);
 }
