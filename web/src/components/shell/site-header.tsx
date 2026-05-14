@@ -54,10 +54,13 @@ export function SiteHeader({
 
   useEffect(() => {
     if (!open) return;
-    const { overflow } = document.body.style;
+    const prevBodyOverflow = document.body.style.overflow;
+    const prevHtmlOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = overflow;
+      document.body.style.overflow = prevBodyOverflow;
+      document.documentElement.style.overflow = prevHtmlOverflow;
     };
   }, [open]);
 
@@ -76,54 +79,71 @@ export function SiteHeader({
   const isDarkHero = DARK_HERO_ROUTES.has(pathname);
 
   return (
-    <nav
-      className={`nav${isDarkHero ? ' nav--over-dark' : ''}`}
-      id="mainNav"
-      aria-label={primaryLabel}
-    >
-      <Link className="nav-logo" href="/">
-        <span className="nav-logo-name">{brandWordmark}</span>
-        <span className="nav-logo-line" />
-        <span className="nav-logo-sub">{tagline}</span>
-      </Link>
-
-      <ul className="nav-primary" role="list">
-        {navItems.map((item) => (
-          <li key={item.href}>
-            <Link
-              href={item.href}
-              className={`nav-link${isActive(item.href) ? ' is-active' : ''}`}
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      <div className="nav-end">
-        <Link className="nav-cta" href="/aanbod">
-          {ctaLabel}
+    <>
+      <nav
+        className={`nav${isDarkHero ? ' nav--over-dark' : ''}`}
+        id="mainNav"
+        aria-label={primaryLabel}
+      >
+        <Link className="nav-logo" href="/">
+          <span className="nav-logo-name">{brandWordmark}</span>
+          <span className="nav-logo-line" />
+          <span className="nav-logo-sub">{tagline}</span>
         </Link>
-        {/* Hit area ≥44px via .nav-toggle (see oryen-premium.css); icon stays visually compact. */}
-        <button
-          type="button"
-          className={`nav-toggle${open ? ' is-open' : ''}`}
-          aria-expanded={open}
-          aria-controls="navDrawer"
-          aria-label={open ? closeMenuLabel : openMenuLabel}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span />
-          <span />
-        </button>
-      </div>
 
+        <ul className="nav-primary" role="list">
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className={`nav-link${isActive(item.href) ? ' is-active' : ''}`}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="nav-end">
+          <Link className="nav-cta" href="/aanbod">
+            {ctaLabel}
+          </Link>
+          {/* Hit area ≥44px via .nav-toggle (see oryen-premium.css); icon stays visually compact. */}
+          <button
+            type="button"
+            className={`nav-toggle${open ? ' is-open' : ''}`}
+            aria-expanded={open}
+            aria-controls="navDrawer"
+            aria-label={open ? closeMenuLabel : openMenuLabel}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span />
+            <span />
+          </button>
+        </div>
+      </nav>
+
+      {/* Outside <nav> so position:fixed is viewport-relative (nav uses backdrop-filter). */}
       <div
         id="navDrawer"
         className={`nav-drawer${open ? ' is-open' : ''}`}
+        role={open ? 'dialog' : undefined}
+        aria-modal={open ? true : undefined}
         aria-hidden={!open}
         aria-label={primaryLabel}
       >
+        <div className="nav-drawer-top">
+          <span className="nav-drawer-top-spacer" aria-hidden="true" />
+          <button
+            type="button"
+            className="nav-drawer-close"
+            aria-label={closeMenuLabel}
+            tabIndex={open ? 0 : -1}
+            onClick={() => setOpen(false)}
+          >
+            <span className="nav-drawer-close-icon" aria-hidden="true" />
+          </button>
+        </div>
         <ul role="list">
           <li className="nav-drawer-cta-row">
             <Link
@@ -149,6 +169,6 @@ export function SiteHeader({
           ))}
         </ul>
       </div>
-    </nav>
+    </>
   );
 }
