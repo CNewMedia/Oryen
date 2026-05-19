@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stripweb 3.0 — Plan voor digitale groei</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B0B0A; --surface: #14140F; --surface-2: #1C1C16; --surface-3: #232318;
+    --line: #2A2A22; --line-soft: #1F1F18;
+    --text: #F2EFE6; --text-dim: #A8A293; --text-mute: #66614F;
+    --accent: #E0B868; --accent-bright: #F5D58A; --accent-soft: #8A7449;
+    --critical: #D85555; --critical-soft: #6B2424;
+    --positive: #82B87C; --positive-soft: #3A5237;
+    --info: #7AA8CC;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Fraunces', Georgia, serif; line-height: 1.65; -webkit-font-smoothing: antialiased; font-feature-settings: 'kern' 1, 'liga' 1; }
+  ::selection { background: var(--accent); color: var(--bg); }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* === MASTHEAD === */
+  .masthead {
+    padding: 80px 80px 60px; position: relative;
+    background: radial-gradient(ellipse at top right, rgba(224,184,104,0.06), transparent 60%);
+    border-bottom: 1px solid var(--line);
+  }
+  .masthead::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent) 0%, var(--accent-bright) 50%, var(--accent) 100%); }
+  .crumbs { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-mute); letter-spacing: 0.25em; text-transform: uppercase; display: flex; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; align-items: center; }
+  .crumbs span.x { color: var(--accent); font-weight: 700; }
+  .crumbs .dot { width: 3px; height: 3px; background: var(--text-mute); border-radius: 50%; }
+  h1.title {
+    font-size: clamp(48px, 7vw, 96px); font-weight: 300; line-height: 0.95;
+    letter-spacing: -0.035em; margin-bottom: 24px;
+  }
+  h1.title em { color: var(--accent); font-style: italic; font-weight: 400; }
+  .subtitle { color: var(--text-dim); font-size: 21px; max-width: 720px; line-height: 1.55; margin-top: 24px; }
+  .subtitle strong { color: var(--text); font-weight: 500; }
+  .meta { display: flex; gap: 56px; margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+  .meta-item .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; color: var(--text-mute); text-transform: uppercase; display: block; margin-bottom: 8px; }
+  .meta-item .value { font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--text); font-weight: 500; }
+
+  /* === SECTIONS === */
+  section { padding: 100px 80px; border-bottom: 1px solid var(--line); position: relative; }
+  section::before {
+    content: attr(data-num);
+    position: absolute; top: 60px; left: 80px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.3em;
+  }
+  .section-num { display: none; }
+  section > h2:first-of-type, section > .section-num + h2 { margin-top: 8px; }
+
+  h2 {
+    font-size: clamp(32px, 4.5vw, 56px); font-weight: 300; line-height: 1.05;
+    letter-spacing: -0.025em; margin-bottom: 20px; max-width: 900px;
+    color: var(--text);
+  }
+  h2 em { color: var(--accent); font-style: italic; font-weight: 400; }
+  h2 .pos { color: var(--positive); font-style: italic; font-weight: 400; }
+  h2 .crit { color: var(--critical); font-style: italic; font-weight: 400; }
+  .lede {
+    font-size: 21px; color: var(--text-dim); max-width: 760px;
+    margin-bottom: 56px; line-height: 1.55; font-weight: 300;
+  }
+  .lede strong { color: var(--text); font-weight: 500; }
+  h3 {
+    font-size: 26px; font-weight: 400; margin: 64px 0 20px;
+    font-style: italic; color: var(--text); letter-spacing: -0.01em;
+    max-width: 800px;
+  }
+  h3.first { margin-top: 32px; }
+  h3::before {
+    content: ""; display: inline-block; width: 24px; height: 1px;
+    background: var(--accent); vertical-align: middle; margin-right: 16px;
+  }
+  p {
+    max-width: 760px; margin-bottom: 22px;
+    color: var(--text-dim); font-size: 18px; line-height: 1.7;
+  }
+  p strong { color: var(--text); font-weight: 600; }
+  p em { color: var(--accent); font-style: italic; font-weight: 400; }
+
+  /* === PROOF GRID === */
+  .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 48px 0; }
+  .proof-item {
+    background: var(--surface); padding: 36px 32px;
+    transition: background 0.2s; position: relative;
+  }
+  .proof-item:hover { background: var(--surface-2); }
+  .proof-item::after {
+    content: ""; position: absolute; bottom: 0; left: 0; width: 32px; height: 2px;
+    background: var(--accent); opacity: 0.6;
+  }
+  .proof-item .num {
+    font-family: 'JetBrains Mono', monospace; font-size: 44px; color: var(--accent);
+    font-weight: 500; line-height: 1; margin-bottom: 16px; letter-spacing: -0.03em;
+  }
+  .proof-item .desc { font-size: 14px; color: var(--text-dim); line-height: 1.55; }
+  .proof-item .desc strong { color: var(--text); display: block; margin-bottom: 6px; font-weight: 500; font-size: 15px; }
+
+  /* === HERO STAT (large block stats) === */
+  .hero-stat {
+    background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--line); border-left: 3px solid var(--positive);
+    padding: 56px; margin: 48px 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px;
+  }
+  .hero-stat .big { font-family: 'JetBrains Mono', monospace; font-size: 64px; font-weight: 600; color: var(--positive); line-height: 1; letter-spacing: -0.04em; }
+  .hero-stat .big.gold { color: var(--accent); }
+  .hero-stat .big.crit { color: var(--critical); }
+  .hero-stat .label-big { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 16px; font-weight: 700; }
+  .hero-stat .desc { color: var(--text-dim); font-size: 15px; margin-top: 20px; line-height: 1.55; max-width: 280px; }
+
+  /* === STAT GRID (smaller stat cells) === */
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 40px 0; }
+  .stat-cell { background: var(--surface); padding: 32px 28px; transition: background 0.2s; }
+  .stat-cell:hover { background: var(--surface-2); }
+  .stat-cell .l { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 14px; font-weight: 700; }
+  .stat-cell .v { font-family: 'JetBrains Mono', monospace; font-size: 32px; color: var(--text); font-weight: 500; letter-spacing: -0.03em; line-height: 1; }
+  .stat-cell .d { font-size: 13px; color: var(--text-mute); margin-top: 10px; line-height: 1.45; }
+  .stat-cell.critical .v { color: var(--critical); }
+  .stat-cell.positive .v { color: var(--positive); }
+  .stat-cell.accent .v { color: var(--accent); }
+  .stat-cell.info .v { color: var(--info); }
+
+  /* === CALLOUTS === */
+  .callout {
+    background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    padding: 40px; margin: 40px 0; max-width: 900px; position: relative;
+  }
+  .callout.warn { border-left-color: var(--critical); background: linear-gradient(135deg, rgba(216,85,85,0.04), transparent); }
+  .callout.good { border-left-color: var(--positive); background: linear-gradient(135deg, rgba(130,184,124,0.04), transparent); }
+  .callout.info { border-left-color: var(--info); background: linear-gradient(135deg, rgba(122,168,204,0.04), transparent); }
+  .callout .head {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 16px; font-weight: 700;
+  }
+  .callout.warn .head { color: var(--critical); }
+  .callout.good .head { color: var(--positive); }
+  .callout.info .head { color: var(--info); }
+  .callout p { margin-bottom: 14px; color: var(--text); max-width: none; font-size: 17px; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout p strong { color: var(--accent); font-weight: 600; }
+  .callout.good p strong { color: var(--positive); }
+  .callout.warn p strong { color: var(--critical); }
+  .callout.info p strong { color: var(--info); }
+
+  /* === PULL QUOTE === */
+  .pull-quote {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px; font-style: italic; font-weight: 300;
+    color: var(--accent-bright); line-height: 1.35;
+    max-width: 800px; margin: 56px auto; padding: 0 40px;
+    text-align: center; letter-spacing: -0.015em;
+    position: relative;
+  }
+  .pull-quote::before, .pull-quote::after {
+    content: ""; position: absolute; left: 50%; width: 60px; height: 1px;
+    background: var(--accent); opacity: 0.5; transform: translateX(-50%);
+  }
+  .pull-quote::before { top: -24px; }
+  .pull-quote::after { bottom: -24px; }
+
+  /* === SCENARIOS === */
+  .scenarios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px 0; }
+  .scenario {
+    background: var(--surface); border: 1px solid var(--line);
+    padding: 36px; position: relative; transition: all 0.25s;
+  }
+  .scenario:hover { background: var(--surface-2); transform: translateY(-2px); }
+  .scenario.featured {
+    border-color: var(--accent); background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    box-shadow: 0 0 0 1px var(--accent), 0 12px 40px rgba(224,184,104,0.08);
+  }
+  .scenario.featured::before {
+    content: "AANBEVOLEN"; position: absolute; top: -12px; left: 28px;
+    background: var(--accent); color: var(--bg); padding: 5px 14px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  }
+  .scenario .name { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--text-mute); text-transform: uppercase; margin-bottom: 20px; font-weight: 700; }
+  .scenario.featured .name { color: var(--accent); }
+  .scenario .budget { font-family: 'JetBrains Mono', monospace; font-size: 36px; color: var(--text); font-weight: 500; margin-bottom: 4px; letter-spacing: -0.03em; }
+  .scenario.featured .budget { color: var(--accent-bright); }
+  .scenario .budget-sub { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-mute); margin-bottom: 28px; }
+  .scenario .row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  .scenario .row:last-of-type { border-bottom: none; }
+  .scenario .row .k { color: var(--text-mute); }
+  .scenario .row .v { color: var(--text); font-weight: 500; }
+  .scenario .row .v.pos { color: var(--positive); }
+  .scenario .note { color: var(--text-dim); font-size: 14px; margin-top: 20px; line-height: 1.55; max-width: none; }
+
+  /* === SYMPTOMS LIST === */
+  .symptoms { margin: 40px 0; max-width: 900px; }
+  .symptom {
+    display: grid; grid-template-columns: 48px 1fr; gap: 24px;
+    padding: 24px 0; border-bottom: 1px solid var(--line);
+    transition: padding 0.2s;
+  }
+  .symptom:hover { padding-left: 8px; }
+  .symptom .icon {
+    color: var(--critical); font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; font-weight: 700; padding-top: 4px;
+    background: linear-gradient(135deg, rgba(216,85,85,0.1), transparent);
+    border-left: 2px solid var(--critical);
+    padding-left: 12px; padding-top: 6px; padding-bottom: 6px;
+  }
+  .symptom .text { color: var(--text-dim); font-size: 17px; line-height: 1.6; }
+
+  /* === PHASES === */
+  .phases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 40px 0; position: relative; }
+  .phase {
+    background: var(--surface); padding: 40px 32px; position: relative;
+    transition: background 0.2s;
+  }
+  .phase:hover { background: var(--surface-2); }
+  .phase::before {
+    content: ""; position: absolute; top: 0; left: 0; height: 3px;
+    width: 100%; background: var(--accent);
+    opacity: 0.3; transition: opacity 0.2s;
+  }
+  .phase:hover::before { opacity: 1; }
+  .phase .ph-num { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.25em; margin-bottom: 12px; font-weight: 700; }
+  .phase .ph-name { font-size: 24px; font-weight: 400; font-style: italic; margin-bottom: 16px; color: var(--text); }
+  .phase .ph-budget { font-family: 'JetBrains Mono', monospace; font-size: 30px; color: var(--text); margin-bottom: 8px; letter-spacing: -0.03em; }
+  .phase .ph-rev { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--positive); margin-bottom: 20px; font-weight: 500; }
+  .phase p { font-size: 14px; color: var(--text-dim); margin-bottom: 0; max-width: none; line-height: 1.6; }
+
+  /* === TABLES === */
+  table.compare { width: 100%; max-width: 900px; border-collapse: collapse; margin: 32px 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  table.compare th, table.compare td { text-align: left; padding: 16px 18px; border-bottom: 1px solid var(--line); }
+  table.compare th { color: var(--text-mute); text-transform: uppercase; font-size: 10px; letter-spacing: 0.22em; font-weight: 700; background: var(--surface); }
+  table.compare td { color: var(--text-dim); }
+  table.compare td.r { text-align: right; }
+  table.compare tr:hover td { background: var(--surface-2); color: var(--text); }
+  table.compare td:first-child { color: var(--text); font-weight: 500; }
+
+  /* === COMMITMENTS === */
+  .commit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0; }
+  .commit { background: var(--surface); border: 1px solid var(--line); padding: 40px; transition: all 0.2s; }
+  .commit:hover { background: var(--surface-2); border-color: var(--line); }
+  .commit h4 { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.25em; color: var(--accent); text-transform: uppercase; margin-bottom: 24px; font-weight: 700; }
+  .commit ul { list-style: none; }
+  .commit li { padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--text-dim); font-size: 15px; position: relative; padding-left: 28px; line-height: 1.55; }
+  .commit li:last-child { border-bottom: none; }
+  .commit li::before { content: "→"; position: absolute; left: 0; top: 14px; color: var(--accent); font-weight: 700; }
+  .commit li strong { color: var(--text); }
+  .commit.sw { border-top: 3px solid var(--info); }
+  .commit.sw h4 { color: var(--info); }
+  .commit.sw li::before { color: var(--info); }
+  .commit.cnip { border-top: 3px solid var(--positive); }
+  .commit.cnip h4 { color: var(--positive); }
+  .commit.cnip li::before { color: var(--positive); }
+
+  /* === SEMRUSH GRID === */
+  .semrush-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); margin: 32px 0;
+  }
+  .semrush-cell {
+    background: var(--surface); padding: 28px 20px;
+    position: relative; transition: background 0.2s;
+  }
+  .semrush-cell:hover { background: var(--surface-2); }
+  .semrush-cell.highlight {
+    background: linear-gradient(180deg, rgba(130,184,124,0.06), var(--surface));
+  }
+  .semrush-cell.highlight::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+    background: var(--positive);
+  }
+  .semrush-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 9px;
+    letter-spacing: 0.2em; color: var(--text-mute);
+    text-transform: uppercase; margin-bottom: 10px; font-weight: 700;
+  }
+  .semrush-value {
+    font-family: 'JetBrains Mono', monospace; font-size: 28px;
+    font-weight: 600; color: var(--text); line-height: 1;
+    letter-spacing: -0.02em; margin-bottom: 8px;
+  }
+  .semrush-cell.highlight .semrush-value { color: var(--text); }
+  .semrush-trend {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--text-mute); font-weight: 500;
+  }
+  .semrush-trend.pos { color: var(--positive); }
+  .semrush-trend.pos::before { content: "▲ "; }
+  .semrush-trend.neg { color: var(--critical); }
+  .semrush-trend.neg::before { content: "▼ "; }
+
+  /* === CHART BLOCK === */
+  .chart-block {
+    background: linear-gradient(135deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--line); padding: 40px; margin: 48px 0;
+    position: relative; overflow: hidden;
+  }
+  .chart-block::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 60px;
+    background: var(--accent);
+  }
+  .chart-block .chart-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 8px; flex-wrap: wrap; gap: 16px;
+  }
+  .chart-block .chart-title {
+    font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400;
+    font-style: italic; color: var(--text); line-height: 1.2;
+  }
+  .chart-block .chart-source {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    color: var(--text-mute); letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .chart-block .chart-sub {
+    font-size: 15px; color: var(--text-dim); margin-bottom: 28px;
+    max-width: 800px; line-height: 1.5;
+  }
+  .chart-block .chart-key {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--line);
+  }
+  .chart-block .key-item .key-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; font-weight: 700;
+  }
+  .chart-block .key-item.start .key-label { color: var(--accent); }
+  .chart-block .key-item.peak .key-label { color: var(--positive); }
+  .chart-block .key-item.now .key-label { color: var(--critical); }
+  .chart-block .key-item .key-value {
+    font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 600;
+    color: var(--text); margin-bottom: 4px; letter-spacing: -0.02em;
+  }
+  .chart-block .key-item .key-note { font-size: 13px; color: var(--text-dim); line-height: 1.4; }
+
+  /* === TL;DR — KEY DECISIONS BANNER === */
+  .tldr {
+    background: linear-gradient(135deg, rgba(224,184,104,0.08), rgba(20,20,15,0.6));
+    border: 1px solid var(--accent-soft); border-left: 4px solid var(--accent);
+    padding: 48px; margin: 40px 0 56px; max-width: 1100px;
+    position: relative; overflow: hidden;
+  }
+  .tldr::before {
+    content: ""; position: absolute; top: 0; right: 0; width: 200px; height: 100%;
+    background: radial-gradient(circle at top right, rgba(245,213,138,0.06), transparent 70%);
+    pointer-events: none;
+  }
+  .tldr-head {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.28em;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 32px; font-weight: 700;
+    position: relative;
+  }
+  .tldr-head::after {
+    content: ""; display: block; width: 60px; height: 2px;
+    background: var(--accent); margin-top: 14px; opacity: 0.6;
+  }
+  .tldr-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    position: relative; z-index: 1;
+  }
+  .tldr-item {
+    padding: 0; transition: transform 0.2s;
+  }
+  .tldr-item:hover { transform: translateY(-2px); }
+  .tldr-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.15em; margin-bottom: 14px;
+    display: inline-block; padding: 4px 10px;
+    background: rgba(224,184,104,0.1); border: 1px solid var(--accent-soft);
+  }
+  .tldr-title {
+    font-family: 'Fraunces', serif; font-size: 24px; font-weight: 400;
+    color: var(--text); margin-bottom: 14px; line-height: 1.2;
+    font-style: italic;
+  }
+  .tldr-text {
+    font-size: 15px; color: var(--text-dim); line-height: 1.6;
+  }
+
+  /* === TOC === */
+  .toc {
+    background: linear-gradient(135deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--line); padding: 40px; margin: 40px 0; max-width: 900px;
+  }
+  .toc h4 { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.25em; color: var(--accent); text-transform: uppercase; margin-bottom: 24px; font-weight: 700; }
+  .toc ol { list-style: none; counter-reset: tocstep; }
+  .toc li { counter-increment: tocstep; padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 20px; transition: padding 0.2s; }
+  .toc li:hover { padding-left: 12px; }
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before { content: counter(tocstep, decimal-leading-zero); font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); letter-spacing: 0.1em; min-width: 32px; font-weight: 700; }
+  .toc li a { color: var(--text-dim); text-decoration: none; font-size: 18px; transition: color 0.2s; }
+  .toc li a:hover { color: var(--accent); }
+
+  /* === FOOTER === */
+  footer {
+    padding: 80px 60px; text-align: center; color: var(--text-mute);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    background: linear-gradient(180deg, var(--bg), var(--surface));
+  }
+  footer::before { content: ""; display: block; width: 60px; height: 1px; background: var(--accent); margin: 0 auto 32px; opacity: 0.5; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .masthead { padding: 48px 24px 32px; }
+    section { padding: 64px 24px; }
+    section::before { left: 24px; top: 40px; }
+    .stat-grid, .proof-grid { grid-template-columns: repeat(2, 1fr); }
+    .scenarios { grid-template-columns: 1fr; }
+    .phases { grid-template-columns: 1fr; }
+    .hero-stat { grid-template-columns: 1fr; padding: 32px; gap: 32px; }
+    .hero-stat .big { font-size: 48px; }
+    .commit-grid { grid-template-columns: 1fr; }
+    .pull-quote { font-size: 22px; padding: 0 16px; }
+    .symptom { grid-template-columns: 40px 1fr; gap: 16px; }
+    .tldr { padding: 32px 24px; }
+    .tldr-grid { grid-template-columns: 1fr; gap: 24px; }
+    .chart-block { padding: 24px; }
+    .chart-block .chart-key { grid-template-columns: 1fr; gap: 16px; padding-top: 20px; margin-top: 24px; }
+    .semrush-grid { grid-template-columns: repeat(2, 1fr); }
+    .semrush-value { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="crumbs">
+    <span>STRATEGISCH PLAN</span>
+    <span class="dot"></span>
+    <span class="x">STRIPWEB.BE</span>
+    <span class="dot"></span>
+    <span>2026</span>
+    <span class="dot"></span>
+    <span>OPGESTELD DOOR CNIP</span>
+  </div>
+  <h1 class="title">Stripweb <em>3.0</em><br>Plan voor digitale groei<em>.</em></h1>
+  <p class="subtitle">Een onderbouwd groeiscenario op basis van wat aantoonbaar werkt: SEO-fundament, contentmotor, paid kanaal en een eigen e-mailbasis. Met ROI-projecties per hefboom en een gefaseerd actieplan voor de komende 6 maanden.</p>
+  <div class="meta">
+    <div class="meta-item"><span class="label">Basis analyse</span><span class="value">5 apr → 17 mei 2026</span></div>
+    <div class="meta-item"><span class="label">Geanalyseerde orders</span><span class="value">3.061</span></div>
+    <div class="meta-item"><span class="label">Bewezen CPA paid (feb)</span><span class="value">€ 4,75</span></div>
+    <div class="meta-item"><span class="label">Bronnen</span><span class="value">Exopera + GA4 + Google Ads + server-logs</span></div>
+  </div>
+</div>
+
+<section data-num="§ 00 — LEESWIJZER">
+  <div class="section-num">§ 00 — LEESWIJZER</div>
+  <h2>Van diagnose naar <span class="pos">groei</span>.</h2>
+  <p class="lede">De aanleiding voor dit plan was de zwakke zondag van 17 mei. Wat de diepteanalyse toont, is groter dan die ene dag. De infrastructuur staat overeind en levert al meetbare resultaten. Het paid kanaal draait sinds 1 april zonder mediabudget, in afwachting van een interne beslissing over voortzetting. En er ligt één architecturale grens aan de basis van meerdere uitdagingen. Dit plan zet die uitdagingen om in een onderbouwd groeispoor.</p>
+
+  <div class="tldr">
+    <div class="tldr-head">DRIE BESLISSINGEN — DE KERN VAN HET PLAN</div>
+    <div class="tldr-grid">
+      <div class="tldr-item">
+        <div class="tldr-num">01</div>
+        <div class="tldr-title">Google Ads heractiveren</div>
+        <div class="tldr-text">Campagnes draaien sinds 1 april zonder mediabudget. Voorstel: € 2.000/maand testbudget gedurende 90 dagen. Februari leverde € 4,75 CPA op € 1.750 spend.</div>
+      </div>
+      <div class="tldr-item">
+        <div class="tldr-num">02</div>
+        <div class="tldr-title">E-mailprogramma opzetten</div>
+        <div class="tldr-text">Op nieuws.stripweb.be — blog-abonnementen per interesse (manga, Belgische strips, reeksen, releases). HubSpot capture + SendGrid verzending.</div>
+      </div>
+      <div class="tldr-item">
+        <div class="tldr-num">03</div>
+        <div class="tldr-title">Tracking + remarketing</div>
+        <div class="tldr-text">Samen met Digital Minds een traject opzetten rond server-side tagging. Vandaag is 1 op 3 webshoporders zichtbaar in GA4 — basisvoorwaarde voor werkende remarketing en optimalisatie.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h4>INHOUD</h4>
+    <ol>
+      <li><a href="#s1">Wat we hebben opgebouwd — bewijs uit eigen data</a></li>
+      <li><a href="#s2">De architecturale grens — één oorzaak, meerdere symptomen</a></li>
+      <li><a href="#s3">Hefboom 1 — Paid heractivering met ROI-projectie</a></li>
+      <li><a href="#s4">Hefboom 2 — Eigen e-mailbasis via blog-abonnementen</a></li>
+      <li><a href="#s5">Hefboom 3 — Tracking-doorbraak als multiplier</a></li>
+      <li><a href="#s6">Zondag 17 mei — kort, met leerpunt</a></li>
+      <li><a href="#s7">Gefaseerd plan over 6 maanden</a></li>
+      <li><a href="#s8">Wat we vragen, wat we leveren</a></li>
+    </ol>
+  </div>
+</section>
+
+<section id="s1" data-num="§ 01 — BEWIJS">
+  <div class="section-num">§ 01 — BEWIJS</div>
+  <h2>Wat <em>al werkt</em> — gemeten, niet beweerd.</h2>
+  <p class="lede">Het is belangrijk om eerst stil te staan bij wat aantoonbaar functioneert. Zes bewijsstromen onderbouwen dat de digitale fundering van Stripweb solide is — al toont één ervan ook waarom voortdurende aandacht nodig blijft. Het groeiplan bouwt voort op deze basis.</p>
+
+  <div class="proof-grid">
+    <div class="proof-item">
+      <div class="num">703k</div>
+      <div class="desc"><strong>Indexering-piek april</strong>Door uitgevoerde canonical/hreflang-fixes piekte de indexering op 703.185 pagina's mid-april (vs 226k bij start meting februari). Sindsdien zien we een terugval — dit vraagt vervolgonderzoek met Digital Minds.</div>
+    </div>
+    <div class="proof-item">
+      <div class="num">−70%</div>
+      <div class="desc"><strong>Erosie afgeremd</strong>SEO-fixes hebben de organische daling verminderd van ~22 naar 6,5 verloren clicks per dag per maand.</div>
+    </div>
+    <div class="proof-item">
+      <div class="num">+201%</div>
+      <div class="desc"><strong>Subdomein groeit</strong>nieuws.stripweb.be levert sinds lancering een meervoudige stijging in organisch verkeer.</div>
+    </div>
+    <div class="proof-item">
+      <div class="num">145</div>
+      <div class="desc"><strong>Blog-artikelen geschreven</strong>Reeksgidsen op nieuws.stripweb.be — content-engine die organische zichtbaarheid opbouwt. Ranken: De Rode Ridder, Jommeke, Largo Winch, Bakelandt.</div>
+    </div>
+    <div class="proof-item">
+      <div class="num">€ 608k</div>
+      <div class="desc"><strong>Long tail YTD</strong>Over 1.350 productlijnen — 42,5% van de totale omzet. De catalogus rendeert breed.</div>
+    </div>
+    <div class="proof-item">
+      <div class="num">+18%</div>
+      <div class="desc"><strong>Webshopgroei jan 2026</strong>vs januari 2025 (€ 89.102 vs € 75.456). AOV +30% vs 2024-jaargemiddelde.</div>
+    </div>
+  </div>
+
+  <h3>En paid? Februari 2026 is het sterkste bewijs.</h3>
+  <p>Wanneer Google Ads structureel actief draaide, presteerde het ruim boven de e-commerce industrie-benchmark. Februari 2026 — toen het kanaal volop liep — toont wat het kanaal voor Stripweb kan betekenen.</p>
+
+  <div class="stat-grid">
+    <div class="stat-cell positive"><div class="l">Conversies februari</div><div class="v">368</div><div class="d">over 6.530 clicks</div></div>
+    <div class="stat-cell positive"><div class="l">Kost per conversie</div><div class="v">€ 4,75</div><div class="d">benchmark e-commerce: € 15-40</div></div>
+    <div class="stat-cell accent"><div class="l">Mediabudget</div><div class="v">€ 1.750</div><div class="d">februari spend</div></div>
+    <div class="stat-cell accent"><div class="l">Conversieratio</div><div class="v">5,6%</div><div class="d">van klik naar conversie</div></div>
+  </div>
+
+  <p>In maart liep het kanaal nog door op kleinere schaal (€ 748 spend, 71,62 conversies, € 10,44 per conversie) en hield daar nog steeds een resultaat ver onder de industrie-gemiddelden vol. De combinatie van beide maanden bewijst: <strong>er is reële commerciële vraag op Stripweb's productcatalogus, en die vraag is met paid advertising effectief activeerbaar.</strong></p>
+
+  <h3>De indexering-curve — bewijs én alarm tegelijk</h3>
+  <p>Eén bewijsstroom verdient een aparte blik, omdat hij twee verhalen tegelijk vertelt. De geïndexeerde pagina's van stripweb.be (Google Search Console) tonen het rechtstreekse effect van de SEO-fixes die afgelopen maanden werden uitgevoerd — en wijzen tegelijk naar een actueel probleem dat we niet kunnen negeren.</p>
+
+  <div class="chart-block">
+    <div class="chart-head">
+      <div class="chart-title">Geïndexeerde pagina's van stripweb.be</div>
+      <div class="chart-source">Bron: Google Search Console · 21 feb → 15 mei 2026</div>
+    </div>
+    <div class="chart-sub">De curve verdrievoudigde tussen begin maart en mid-april als gevolg van de uitgevoerde canonical-, hreflang- en JSON-LD-fixes. Sinds eind april zien we een terugval die we samen met Digital Minds moeten onderzoeken.</div>
+
+    <svg viewBox="0 0 1200 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+      <defs>
+        <linearGradient id="indexedGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#E0B868" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#E0B868" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <line x1="80" y1="40" x2="1140" y2="40" stroke="#2A2A22" stroke-dasharray="2,4"/><text x="68" y="44" text-anchor="end" fill="#66614F" font-family="JetBrains Mono" font-size="11">703k</text>
+      <line x1="80" y1="112" x2="1140" y2="112" stroke="#2A2A22" stroke-dasharray="2,4"/><text x="68" y="116" text-anchor="end" fill="#66614F" font-family="JetBrains Mono" font-size="11">527k</text>
+      <line x1="80" y1="185" x2="1140" y2="185" stroke="#2A2A22" stroke-dasharray="2,4"/><text x="68" y="189" text-anchor="end" fill="#66614F" font-family="JetBrains Mono" font-size="11">351k</text>
+      <line x1="80" y1="258" x2="1140" y2="258" stroke="#2A2A22" stroke-dasharray="2,4"/><text x="68" y="262" text-anchor="end" fill="#66614F" font-family="JetBrains Mono" font-size="11">175k</text>
+      <line x1="80" y1="330" x2="1140" y2="330" stroke="#2A2A22" stroke-dasharray="2,4"/><text x="68" y="334" text-anchor="end" fill="#66614F" font-family="JetBrains Mono" font-size="11">0</text>
+      <path d="M 80.0,330 L 80.0,236.6 L 92.8,241.0 L 105.5,241.0 L 118.3,241.0 L 131.1,250.9 L 143.9,250.9 L 156.6,250.9 L 169.4,250.9 L 182.2,250.9 L 194.9,250.9 L 207.7,250.9 L 220.5,256.5 L 233.3,256.5 L 246.0,256.5 L 258.8,256.5 L 271.6,257.4 L 284.3,257.4 L 297.1,257.4 L 309.9,259.2 L 322.7,259.2 L 335.4,259.2 L 348.2,259.2 L 361.0,259.2 L 373.7,258.9 L 386.5,258.9 L 399.3,249.2 L 412.0,249.2 L 424.8,249.2 L 437.6,249.2 L 450.4,221.6 L 463.1,221.6 L 475.9,221.6 L 488.7,204.4 L 501.4,204.4 L 514.2,204.4 L 527.0,204.4 L 539.8,181.0 L 552.5,181.0 L 565.3,181.0 L 578.1,80.8 L 590.8,80.8 L 603.6,80.8 L 616.4,80.8 L 629.2,67.1 L 641.9,67.1 L 654.7,54.0 L 667.5,54.0 L 680.2,54.0 L 693.0,54.0 L 705.8,50.4 L 718.6,50.4 L 731.3,50.4 L 744.1,40.0 L 756.9,40.0 L 769.6,40.0 L 782.4,40.0 L 795.2,47.5 L 808.0,47.5 L 820.7,47.5 L 833.5,75.4 L 846.3,75.4 L 859.0,75.4 L 871.8,75.4 L 884.6,96.1 L 897.3,96.1 L 910.1,96.1 L 922.9,177.1 L 935.7,177.1 L 948.4,177.1 L 961.2,177.1 L 974.0,229.4 L 986.7,229.4 L 999.5,229.4 L 1012.3,254.2 L 1025.1,254.2 L 1037.8,254.2 L 1050.6,254.2 L 1063.4,265.7 L 1076.1,265.7 L 1088.9,265.7 L 1101.7,275.2 L 1114.5,275.2 L 1127.2,275.2 L 1140.0,275.2 L 1140.0,330 Z" fill="url(#indexedGrad)"/>
+      <path d="M 80.0,236.6 L 92.8,241.0 L 105.5,241.0 L 118.3,241.0 L 131.1,250.9 L 143.9,250.9 L 156.6,250.9 L 169.4,250.9 L 182.2,250.9 L 194.9,250.9 L 207.7,250.9 L 220.5,256.5 L 233.3,256.5 L 246.0,256.5 L 258.8,256.5 L 271.6,257.4 L 284.3,257.4 L 297.1,257.4 L 309.9,259.2 L 322.7,259.2 L 335.4,259.2 L 348.2,259.2 L 361.0,259.2 L 373.7,258.9 L 386.5,258.9 L 399.3,249.2 L 412.0,249.2 L 424.8,249.2 L 437.6,249.2 L 450.4,221.6 L 463.1,221.6 L 475.9,221.6 L 488.7,204.4 L 501.4,204.4 L 514.2,204.4 L 527.0,204.4 L 539.8,181.0 L 552.5,181.0 L 565.3,181.0 L 578.1,80.8 L 590.8,80.8 L 603.6,80.8 L 616.4,80.8 L 629.2,67.1 L 641.9,67.1 L 654.7,54.0 L 667.5,54.0 L 680.2,54.0 L 693.0,54.0 L 705.8,50.4 L 718.6,50.4 L 731.3,50.4 L 744.1,40.0 L 756.9,40.0 L 769.6,40.0 L 782.4,40.0 L 795.2,47.5 L 808.0,47.5 L 820.7,47.5 L 833.5,75.4 L 846.3,75.4 L 859.0,75.4 L 871.8,75.4 L 884.6,96.1 L 897.3,96.1 L 910.1,96.1 L 922.9,177.1 L 935.7,177.1 L 948.4,177.1 L 961.2,177.1 L 974.0,229.4 L 986.7,229.4 L 999.5,229.4 L 1012.3,254.2 L 1025.1,254.2 L 1037.8,254.2 L 1050.6,254.2 L 1063.4,265.7 L 1076.1,265.7 L 1088.9,265.7 L 1101.7,275.2 L 1114.5,275.2 L 1127.2,275.2 L 1140.0,275.2" stroke="#E0B868" stroke-width="2.5" fill="none"/>
+      <circle cx="80.0" cy="236.6" r="5" fill="#E0B868" stroke="#0B0B0A" stroke-width="2"/>
+      <text x="90.0" y="224.6" fill="#A8A293" font-family="JetBrains Mono" font-size="11" font-weight="700">START</text>
+      <text x="90.0" y="238.6" fill="#F2EFE6" font-family="JetBrains Mono" font-size="13" font-weight="700">226k</text>
+      <text x="90.0" y="252.6" fill="#66614F" font-family="JetBrains Mono" font-size="10">21 feb</text>
+      <line x1="744.1" y1="25.0" x2="744.1" y2="70.0" stroke="#82B87C" stroke-dasharray="3,3" stroke-width="1.5"/>
+      <circle cx="744.1" cy="40.0" r="6" fill="#82B87C" stroke="#0B0B0A" stroke-width="2"/>
+      <text x="744.1" y="58.0" text-anchor="middle" fill="#82B87C" font-family="JetBrains Mono" font-size="11" font-weight="700">PIEK ×3</text>
+      <text x="744.1" y="74.0" text-anchor="middle" fill="#F2EFE6" font-family="JetBrains Mono" font-size="15" font-weight="700">703k</text>
+      <circle cx="1140.0" cy="275.2" r="6" fill="#D85555" stroke="#0B0B0A" stroke-width="2"/>
+      <text x="1130.0" y="257.2" text-anchor="end" fill="#D85555" font-family="JetBrains Mono" font-size="11" font-weight="700">NU</text>
+      <text x="1130.0" y="271.2" text-anchor="end" fill="#F2EFE6" font-family="JetBrains Mono" font-size="13" font-weight="700">132k</text>
+      <text x="1130.0" y="285.2" text-anchor="end" fill="#66614F" font-family="JetBrains Mono" font-size="10">15 mei</text>
+      <text x="80" y="352" text-anchor="start" fill="#A8A293" font-family="JetBrains Mono" font-size="11" font-weight="600">feb</text>
+      <text x="182" y="352" text-anchor="start" fill="#A8A293" font-family="JetBrains Mono" font-size="11" font-weight="600">mrt</text>
+      <text x="578" y="352" text-anchor="start" fill="#A8A293" font-family="JetBrains Mono" font-size="11" font-weight="600">apr</text>
+      <text x="961" y="352" text-anchor="start" fill="#A8A293" font-family="JetBrains Mono" font-size="11" font-weight="600">mei</text>
+    </svg>
+
+    <div class="chart-key">
+      <div class="key-item start">
+        <div class="key-label">START — 21 FEB</div>
+        <div class="key-value">226.414</div>
+        <div class="key-note">Beginpunt voor de SEO-traject-meting</div>
+      </div>
+      <div class="key-item peak">
+        <div class="key-label">PIEK — 14 APR</div>
+        <div class="key-value">703.185</div>
+        <div class="key-note">×3 t.o.v. start — direct gevolg van uitgevoerde fixes</div>
+      </div>
+      <div class="key-item now">
+        <div class="key-label">VANDAAG — 15 MEI</div>
+        <div class="key-value">132.901</div>
+        <div class="key-note">Terugval onder beginpunt — vraagt vervolgonderzoek</div>
+      </div>
+    </div>
+  </div>
+
+  <p>Dit is een belangrijk signaal. De SEO-fixes hebben aantoonbaar gewerkt — Google heeft in april driemaal zoveel pagina's geïndexeerd als bij de start van de meting. Maar sinds eind april zien we een sterke terugval. Voor zover wij weten zijn er in die periode geen essentiële wijzigingen door ons aangevraagd of aan ons meegedeeld. Daarom lijkt het aangewezen om dit samen met Digital Minds technisch te onderzoeken. Mogelijke oorzaken — een Google-algoritme update, een hernieuwd canonical-conflict, een onverwachte robots.txt-blokkade, of een verschuiving in de Exopera-configuratie — zijn allemaal in scope van dat onderzoek. Dit is een van de drie concrete vraagstukken voor het traject van hefboom 3.</p>
+
+  <div class="callout good">
+    <div class="head">WAT DIT BETEKENT</div>
+    <p>Stripweb beschikt over een digitale infrastructuur die converteert. SEO werkt structureel, content wordt geïndexeerd, productfeed draait, en paid advertising heeft in februari en maart 2026 aangetoond dat het effectief commerciële vraag kan activeren — met een kost per conversie van € 4,75 in februari. <strong>De vraag is niet "werkt digitaal voor Stripweb" — dat is bewezen.</strong> De vraag is: hoe zetten we deze basis om in versnelde groei?</p>
+  </div>
+
+  <h3>Het uitvoeringsdossier — wat de afgelopen 6 maanden werd gerealiseerd</h3>
+  <p>Het is belangrijk om transparant te zijn over wat er onder de motorkap is gebeurd. De cijfers hierboven zijn geen toeval — ze zijn het resultaat van een systematische aanpak met concreet uitgevoerd werk:</p>
+
+  <table class="compare">
+    <thead>
+      <tr><th>Domein</th><th>Concrete realisatie</th><th class="r">Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Canonical / hreflang</td><td>Volledige briefing met code per paginatype, uitgevoerd door Emile</td><td class="r">✓ Live — piek 703k mid-april</td></tr>
+      <tr><td>Product JSON-LD</td><td>Structured data met ISBN, author, offers, aggregateRating, publisher</td><td class="r">✓ Live</td></tr>
+      <tr><td>Robots.txt + AI-bots</td><td>Allow-regels voor GPTBot/ClaudeBot/PerplexityBot/Applebot/Googleother. Disallow crawl-traps (.asp, /zoeken)</td><td class="r">✓ Live</td></tr>
+      <tr><td>Cloudflare AI-config</td><td>AI Crawl Control + IP-whitelisting voor SEO-tools</td><td class="r">✓ Live</td></tr>
+      <tr><td>nieuws.stripweb.be</td><td>Subdomein opgezet op HubSpot — omzeilt Exopera URL-beperkingen</td><td class="r">✓ Live</td></tr>
+      <tr><td>Content-engine</td><td>Geautomatiseerd publicatiesysteem met 145 blog-artikelen op nieuws.stripweb.be</td><td class="r">✓ Live & geïndexeerd</td></tr>
+      <tr><td>SEO-contentplan</td><td>15 blog-artikelen voor gemiste high-volume keywords (Solo Leveling 18.100, Alice in Borderland 14.800, Suske en Wiske 5.400…)</td><td class="r">✓ Plan klaar, uitvoering loopt</td></tr>
+      <tr><td>HubSpot custom object 'Bestelling'</td><td>Properties + historische data 2024/2025/2026 import-klaar</td><td class="r">✓ Live</td></tr>
+      <tr><td>Looker Studio dashboard</td><td>GA4 + Google Ads gekoppeld voor wekelijkse rapportage</td><td class="r">✓ Live</td></tr>
+      <tr><td>Merchant Center / Channable</td><td>Productfeed geanalyseerd, 9 kwaliteitsissues op 16.931 producten in pipeline voor optimalisatie</td><td class="r">✓ Operationeel</td></tr>
+      <tr><td>Database-audit</td><td>Volledige doorlichting Exopera-architectuur, prijsstructuren, klantengroepen</td><td class="r">✓ Afgerond</td></tr>
+      <tr><td>Linkbuilding & domeinautoriteit</td><td>Outreach naar strip-blogs, recensiesites en relevante uitgevers + interne linkstrategie via reeksgidsen. 370 backlinks op nieuws.stripweb.be, +31,67% groei (Semrush)</td><td class="r">✓ Loopt</td></tr>
+      <tr><td>Cross-domain strategie</td><td>Bdweb.fr loskoppeling lopende, conform afgesproken plan</td><td class="r">In uitvoering</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="head">CONCREET — RESULTAAT VAN HET WERK</div>
+    <p>Eind 2025 lag Stripweb op een dalende organische curve, met 2,88 miljoen pagina's niet-geïndexeerd door Google wegens canonical-conflict, geen structured data, AI-bots geblokkeerd, en geen content die concurreerde met De Poort. <strong>Vandaag is de tracking-architectuur ingericht, de indexering piekte mid-april op 703k pagina's (vs 226k bij start meting), AI-systemen kunnen Stripweb bereiken, en draait er een content-engine met 145 blog-artikelen op nieuws.stripweb.be.</strong> Januari 2026 toonde +18% webshopgroei, AOV steeg met 30% — meetbaar effect van het gelegde werk. De huidige terugval in indexering (132k op 15 mei) vraagt vervolgonderzoek met Digital Minds — een belangrijk onderdeel van hefboom 3.</p>
+  </div>
+
+  <h3>Externe validatie — nieuws.stripweb.be in Semrush</h3>
+  <p>De cijfers hieronder zijn objectief gemeten door Semrush (onafhankelijke SEO-monitoring tool). Ze tonen wat het content- en linkbuilding-werk op nieuws.stripweb.be vandaag oplevert.</p>
+
+  <div class="semrush-grid">
+    <div class="semrush-cell">
+      <div class="semrush-label">SITE HEALTH</div>
+      <div class="semrush-value">86%</div>
+      <div class="semrush-trend neg">−1</div>
+    </div>
+    <div class="semrush-cell">
+      <div class="semrush-label">VISIBILITY</div>
+      <div class="semrush-value">16,78%</div>
+      <div class="semrush-trend neg">−0,58 (6h)</div>
+    </div>
+    <div class="semrush-cell highlight">
+      <div class="semrush-label">ORGANIC TRAFFIC</div>
+      <div class="semrush-value">1.600</div>
+      <div class="semrush-trend pos">+20,56%</div>
+    </div>
+    <div class="semrush-cell highlight">
+      <div class="semrush-label">ORGANIC KEYWORDS</div>
+      <div class="semrush-value">950</div>
+      <div class="semrush-trend pos">+47,06%</div>
+    </div>
+    <div class="semrush-cell highlight">
+      <div class="semrush-label">BACKLINKS</div>
+      <div class="semrush-value">370</div>
+      <div class="semrush-trend pos">+31,67%</div>
+    </div>
+    <div class="semrush-cell">
+      <div class="semrush-label">AI VISIBILITY</div>
+      <div class="semrush-value">20</div>
+      <div class="semrush-trend">43 mentions</div>
+    </div>
+  </div>
+
+  <p>Drie cijfers verdienen specifieke aandacht. <strong>+47% groei in organic keywords</strong> bewijst dat de content-engine systematisch nieuwe zoekwoorden vangt — Stripweb verschijnt voor steeds bredere zoekvragen. <strong>+31,67% groei in backlinks</strong> toont dat de linkbuilding-aanpak werkt: outreach naar strip-blogs, recensiesites en relevante uitgevers, gecombineerd met sterke interne linkstructuur vanuit de reeksgidsen, levert effectieve domeinautoriteit op. <strong>+20,56% organisch verkeer</strong> is het commerciële gevolg daarvan. Dit zijn geen projecties — dit is wat het werk vandaag al doet.</p>
+</section>
+
+<section id="s2" data-num="§ 02 — DE GRENS">
+  <div class="section-num">§ 02 — DE GRENS</div>
+  <h2>Eén architecturale grens, <em>vier symptomen</em>.</h2>
+  <p class="lede">Bij het samenleggen van de data wordt duidelijk dat meerdere uitdagingen rond Stripweb terug te voeren zijn op één onderliggende technische beperking: de Exopera-filterarchitectuur op de e-commerce site. Deze grens manifesteert zich op vier manieren.</p>
+
+  <div class="symptoms">
+    <div class="symptom">
+      <div class="icon">01</div>
+      <div class="text"><strong style="color:var(--text)">GA4-tracking blokkeert.</strong> Zodra gtag.js op alle pagina's actief is, conflicteert de tag met de filter-laadlogica van de cataloguspagina. Resultaat: ~33,7% van orders zichtbaar in rapportage.</div>
+    </div>
+    <div class="symptom">
+      <div class="icon">02</div>
+      <div class="text"><strong style="color:var(--text)">HubSpot capture werkt niet.</strong> Dezelfde filterarchitectuur belet het inrichten van een betrouwbare e-mailcapture op stripweb.be zelf. Lead-capture moet daarom via een ander kanaal.</div>
+    </div>
+    <div class="symptom">
+      <div class="icon">03</div>
+      <div class="text"><strong style="color:var(--text)">Serverside tagging samen met Digital Minds op te zetten.</strong> Werkbare tagging is anno 2026 geen optie meer maar een operationele basisvoorwaarde voor e-commerce — zonder werkende pixel geen betrouwbare conversion tracking, geen goede Performance Max-optimalisatie, geen structurele remarketing. Een server-side GTM-container in de Exopera-architectuur is het traject dat we hiervoor voorstellen, idealiter samen met Digital Minds uit te werken.</div>
+    </div>
+    <div class="symptom">
+      <div class="icon">04</div>
+      <div class="text"><strong style="color:var(--text)">Beperkt nieuw verkeer.</strong> Zonder actief paid kanaal is Stripweb sterk afhankelijk van bestaande klanten en SEO. Server-logs van 17 mei tonen dat slechts ~650 nieuwe bezoekers via zoekmachines binnenkwamen — een fractie van wat met actief paid mogelijk is.</div>
+    </div>
+  </div>
+
+  <div class="callout good">
+    <div class="head">WAT CNIP DEED OM HIER HEEN TE WERKEN</div>
+    <p>De strategische keuze om <strong>nieuws.stripweb.be</strong> op te zetten als apart subdomein — los van Exopera — was een directe respons op deze architecturale grens. Dat subdomein draait volledig op HubSpot: reeksgidsen worden er gepubliceerd, content wordt er geïndexeerd, en SEO levert er meetbare resultaten (+201%). Het bewijst dat Stripweb digitaal wél kan groeien — als we de juiste infrastructuur kiezen.</p>
+    <p>Het Groeiplan bouwt voort op deze logica: we benutten wat werkt (subdomein, blogs, SEO) en stellen voor om de e-mailbasis daar te ankeren, terwijl de tracking-doorbraak parallel loopt met Digital Minds.</p>
+  </div>
+
+  <h3>De database-complexiteit — waarom een snelle platformwissel geen oplossing is</h3>
+  <p>Bij de database-audit van Exopera in de voorbije maanden werd duidelijk dat de platformkeuze geen lichtzinnige beslissing is. Stripweb's commerciële logica is dermate verweven met de huidige architectuur dat een overhaaste migratie naar een standaardplatform (Shopify, BigCommerce, ...) de commerciële werking grondig kan verstoren. De voornaamste bevindingen:</p>
+
+  <table class="compare">
+    <thead>
+      <tr><th>Architectureel element</th><th>Wat het inhoudt</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Productcatalogus</td><td>~300.000 SKU's met titel-, taal-, formaat- en uitgever-varianten — schaal waarop Shopify Standard onmiddellijk vastloopt</td></tr>
+      <tr><td>Prijsstructuur</td><td>Klantengroepen, bibliotheekkortingen, uitgever-inkoopkortingen, loyaliteitsprijzen en abonnementsmodellen verweven in de database</td></tr>
+      <tr><td>Bibliotheken als klantsegment</td><td>Aparte facturatie- en kortingsregels per bibliotheek — niet via standaard B2B-modules op te lossen</td></tr>
+      <tr><td>Striptaal naast voertaal</td><td>Klanten kiezen taal van interface (NL/FR/EN) én taal van de strip — vier URL-prefixen (/nl-nl/, /fr-nl/, /nl-en/, /fr-en/) die mee moeten in elke migratie</td></tr>
+      <tr><td>Winkel ↔ webshop integratie</td><td>Fysieke winkel in Kortrijk werkt met dezelfde voorraad- en kassasystemen — een puur online platform vraagt parallelle infrastructuur</td></tr>
+      <tr><td>Verzending</td><td>Bpost + GLS koppelingen op artikelniveau, Local Inventory feed voor winkel-zichtbaarheid</td></tr>
+      <tr><td>Channable-feed</td><td>30.636 producten via XML-feed naar Google Shopping BE + Local Inventory, met categorie-mapping en regels</td></tr>
+    </tbody>
+  </table>
+
+  <p>De Cnip-analyse van februari-maart 2026 vergeleek Shopify, Shopware 6 en Odoo als migratiekandidaten. <strong>Conclusie: geen van deze drie biedt een one-click overstap.</strong> Shopify loopt vast op het prijscomplexiteits-vraagstuk. Shopware 6 is technisch geschikt maar vraagt aanzienlijk maatwerk voor de migratie van bibliotheek-logica en de Channable/Local Inventory koppelingen. Odoo is een ERP met webshop, maar vereist een implementatiepartner.</p>
+
+  <p>De aanbevolen aanpak — en dit is een keuze die Cnip al eerder heeft voorgesteld — is een <strong>gefaseerd traject</strong>: verder optimaliseren binnen Exopera waar mogelijk (de uitgevoerde SEO-fixes bewijzen dat dit substantieel kan), en parallel de migratie evalueren met een MVP-test van het meest geschikte platform. Geen overhaaste wissels, geen one-size-fits-all denken. <em>De SEO-aanbevelingen op lange termijn blijven gelden — die mogen niet ondergesneeuwd raken door korte-termijn beslissingen.</em></p>
+</section>
+
+<section id="s3" data-num="§ 03 — HEFBOOM 1 — PAID">
+  <div class="section-num">§ 03 — HEFBOOM 1</div>
+  <h2>Paid heractivering met <span class="pos">bewezen tractie</span>.</h2>
+  <p class="lede">Paid is het kanaal dat onmiddellijk inzetbaar is. De data van februari 2026 — de laatste maand met volledig actief paid — geeft een betrouwbaar referentiepunt: 6.530 clicks, 368 conversies, gemiddelde kost per conversie van € 4,75 op een mediabudget van € 1.750. Dit is geen projectie, dit zijn gerealiseerde Google Ads-cijfers.</p>
+
+  <div class="stat-grid">
+    <div class="stat-cell positive"><div class="l">Februari clicks</div><div class="v">6.530</div><div class="d">commerciële instroom</div></div>
+    <div class="stat-cell positive"><div class="l">Februari conversies</div><div class="v">368</div><div class="d">5,64% conversieratio</div></div>
+    <div class="stat-cell accent"><div class="l">Kost per conversie</div><div class="v">€ 4,75</div><div class="d">benchmark e-commerce: € 15-40</div></div>
+    <div class="stat-cell accent"><div class="l">Mediabudget</div><div class="v">€ 1.750</div><div class="d">februari spend</div></div>
+  </div>
+
+  <div class="callout">
+    <div class="head">DE FEITELIJKE STAND VAN ZAKEN</div>
+    <p>Het Google Ads-kanaal staat sinds 1 april stil. In de mail van Celien op 12 maart werd schriftelijk gemeld dat Stripweb intern beslist had om het budget niet aan te vullen en <em>"vanaf april terug aan te vullen"</em>. Dat is niet gebeurd, waardoor de campagnes sinds 1 april zonder mediabudget draaien.</p>
+    <p>De beslissing over het budget willen wij niet in tussenkomen — dat is een interne keuze van Stripweb. Wat we wel kunnen aanreiken zijn de cijfers waarop die beslissing kan worden genomen. Februari 2026 — de laatste volledige maand met actief budget — leverde 368 conversies aan € 4,75 per conversie op € 1.750 spend (industrie-benchmark voor e-commerce: € 15-40). <strong>Het kanaal werkt voor Stripweb.</strong> Op die basis stellen wij hieronder voor om de campagnes te heractiveren met een testbudget en wekelijkse rapportering, zodat de beslissing na 90 dagen op verse data genomen kan worden.</p>
+  </div>
+
+  <h3 class="first">Drie budget-scenario's, gebaseerd op februari-tractie</h3>
+  <p>Alle scenario's gaan uit van een vergelijkbare campagne-opzet als februari (Performance Max-108 + Search BE/NL Winkel/Shop). De projecties hieronder zijn op basis van de gerealiseerde februari-kost-per-conversie. <strong>Belangrijk: we sturen in de eerste fase niet blind op ROAS</strong>, maar op een combinatie van Google Ads-data, Exopera-orders en omzetontwikkeling — omdat de tracking vandaag nog niet volledig betrouwbaar is en een harde ROAS pas correct meetbaar wordt na de tracking-doorbraak in hefboom 3.</p>
+
+  <div class="scenarios">
+    <div class="scenario">
+      <div class="name">SCENARIO A — VOORZICHTIG</div>
+      <div class="budget">€ 1.000 / mnd</div>
+      <div class="budget-sub">~ € 33 / dag</div>
+      <div class="row"><span class="k">Verwachte conversies</span><span class="v">~ 210 / mnd</span></div>
+      <div class="row"><span class="k">CPA-doel</span><span class="v">€ 4,75</span></div>
+      <div class="row"><span class="k">Kanalen</span><span class="v">PMax + Search</span></div>
+      <p class="note">Kanaal opnieuw activeren met beperkte uitgaven. Lager dan februari, dus minder volume voor het Performance Max-algoritme om optimaal te leren.</p>
+    </div>
+
+    <div class="scenario featured">
+      <div class="name">SCENARIO B — AANBEVOLEN TEST</div>
+      <div class="budget">€ 2.000 / mnd</div>
+      <div class="budget-sub">~ € 65 / dag</div>
+      <div class="row"><span class="k">Verwachte conversies</span><span class="v">~ 420 / mnd</span></div>
+      <div class="row"><span class="k">CPA-doel</span><span class="v">€ 4,75</span></div>
+      <div class="row"><span class="k">Doorlooptijd</span><span class="v">90 dagen</span></div>
+      <p class="note">Sluit aan op bewezen februari-volume, met iets extra ruimte. Groot genoeg voor zinvolle leerdata, klein genoeg om verspilling te beperken zolang tracking niet sluitend is.</p>
+    </div>
+
+    <div class="scenario">
+      <div class="name">SCENARIO C — OPSCHALING</div>
+      <div class="budget">€ 3.500–5.000</div>
+      <div class="budget-sub">~ € 115-165 / dag</div>
+      <div class="row"><span class="k">Verwachte conversies</span><span class="v">~ 735-1050 / mnd</span></div>
+      <div class="row"><span class="k">Voorwaarde</span><span class="v">tracking-fix</span></div>
+      <div class="row"><span class="k">Fase</span><span class="v">na maand 3</span></div>
+      <p class="note">Pas in te zetten na de tracking-doorbraak (hefboom 3) en stabiele feedcontrole. Zonder die voorwaarden dreigt het algoritme te bieden op onzichtbare conversies.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="head">DATA-GEDREVEN AANBEVELING</div>
+    <p><strong>Scenario B (€ 2.000/maand) gedurende 90 dagen, met wekelijkse opvolging en maandelijkse evaluatie.</strong> Niet als losse campagne, maar als vaste commerciële motor naast SEO, Merchant Center, reeksgidsen en e-mail.</p>
+    <p>Waarom dit niveau: het sluit aan op het bewezen februari-volume waar de campagnes commercieel werkten. Lager (€ 750-1.000) geeft het Performance Max-algoritme te weinig leerdata om te optimaliseren. Hoger (€ 3.000+) is verspilling zolang de tracking niet betrouwbaar genoeg is om elke euro correct toe te wijzen.</p>
+    <p>Resultaatmeting in deze fase gebeurt op drie bronnen tegelijk: <strong>Google Ads-data</strong> (waarop we de campagnes ook werkelijk optimaliseren — CPA, biedstrategie, doelgroepen), <strong>Exopera-orderontwikkeling</strong> als onafhankelijke validatie (matcht het Google-verhaal met de werkelijke verkoop?), en <strong>weekly-over-weekly omzetgroei</strong> als brede commerciële indicator. Dat geeft een eerlijk beeld zelfs vóór de tracking-fix volledig doorgevoerd is — al blijft de tracking-doorbraak (hefboom 3) de basisvoorwaarde voor échte attributie per kanaal.</p>
+  </div>
+
+  <h3>Gerichte uitbreiding — TikTok-pilot voor manga</h3>
+  <p>Google Ads is het primaire paid kanaal voor de volledige Stripweb-catalogus. Voor één specifieke productcategorie — manga — is TikTok een complementair kanaal dat we apart willen testen in fase 2.</p>
+
+  <p><strong>Waarom enkel manga, niet de hele catalogus?</strong> De productpagina-data van 17 mei toont manga goed voor ongeveer 9-12% van de productpagina-bezoeken op stripweb.be — een reële categorie maar geen meerderheidsproduct. Op TikTok daarentegen is #BookTok en #MangaTok bewezen sterk: jonge manga-kopers ontdekken nieuwe titels via deze kanalen. Voor BD en klassieke Belgische strips is het TikTok-publiek te beperkt om te verantwoorden; voor manga is er reële tractie te halen.</p>
+
+  <p><strong>Aanpak.</strong> Het pilot-traject is bewust voorzichtig opgezet:</p>
+  <ul style="color:var(--text-dim);font-size:17px;margin:16px 0 24px 24px;max-width:830px;">
+    <li style="margin-bottom:10px;"><strong style="color:var(--text)">Fase 2 (maand 3-4):</strong> Organische TikTok-content over manga-nieuwigheden — 2 video's per week op basis van cover-visuals, preview-pagina's en korte cover-reveal animaties. Géén mediabudget.</li>
+    <li style="margin-bottom:10px;"><strong style="color:var(--text)">Fase 3 (maand 5-6):</strong> Indien organische pilot tractie toont (engagement, volgers, doorklikken naar manga-pagina's), uitbreiding naar betaald: TikTok Ads testbudget € 300-500/maand puur op manga-titels.</li>
+    <li style="margin-bottom:10px;"><strong style="color:var(--text)">Content-aanpak:</strong> Visueel materiaal komt uit de bestaande productcatalogus (covers, beperkte preview-art). Geen camera-werk of acteurs vereist. Eén punt van aandacht: voor sommige Japanse manga-uitgevers gelden strikte regels rond het tonen van interieurpagina's — Cnip bewaakt de juiste perimeter.</li>
+  </ul>
+
+  <p>Dit positioneert TikTok niet als een 4de hoofdkanaal, maar als een gerichte experimentele uitbreiding waar het rendement aannemelijk is. Het verzwakt de focus van het Groeiplan niet, en het voegt iets toe dat aansluit op een groeiende markttrend.</p>
+</section>
+
+<section id="s4" data-num="§ 04 — HEFBOOM 2 — E-MAIL">
+  <div class="section-num">§ 04 — HEFBOOM 2</div>
+  <h2>Een <em>eigen</em> e-mailbasis — onafhankelijk van Google.</h2>
+  <p class="lede">Tijdens onze gesprekken werd duidelijk dat Stripweb een blog-abonnementssysteem wil: bezoekers schrijven zich in op specifieke onderwerpen (reeksen, auteurs, genres) en worden verwittigd zodra er nieuwe content komt. Dit is een geweldig idee — en het is precies het kanaal dat Stripweb digitaal anti-fragile maakt.</p>
+
+  <h3 class="first">Waarom dit nu het juiste moment is</h3>
+  <p>Een eigen e-mailbasis lost meerdere zwaktepunten tegelijk op. Het is het enige acquisitiekanaal dat Stripweb <strong>volledig zelf bezit</strong> — los van Google-algoritmes, los van paid-budgetten, los van Exopera tracking. Bovendien is e-mail conversies trackbaar via webhooks/UTM-parameters, wat het hele gtag.js-probleem omzeilt: <em>eindelijk een acquisitiekanaal waar we 100% zicht hebben op wat werkt.</em></p>
+
+  <h3>Technische opzet</h3>
+  <p>De architectuur volgt de logica die voor SEO werkte: <strong>capture en e-mailprogramma op nieuws.stripweb.be</strong>, niet op de e-commerce site. HubSpot houdt de subscriptions, segmentatie en triggers. SendGrid verzorgt de verzending kosten-efficiënt (~€ 15-90/maand bij dit volume, factor 10 goedkoper dan HubSpot Marketing Hub).</p>
+
+  <p>Bezoekers van de blog kunnen zich abonneren op specifieke topics: een reeks, een auteur, een uitgever, of het algemene nieuws. Bij elke nieuwe blog op dat topic vertrekt automatisch een gepersonaliseerde e-mail naar de gekwalificeerde subscribers met link naar zowel de blog als de relevante productpagina's op stripweb.be.</p>
+
+  <h3>Projectie — onderbouwd</h3>
+  <div class="stat-grid">
+    <div class="stat-cell info"><div class="l">Maandelijks volume</div><div class="v">~13.500</div><div class="d">sessies met paid actief</div></div>
+    <div class="stat-cell accent"><div class="l">Opt-in rate</div><div class="v">1,5%</div><div class="d">industrie-benchmark e-commerce</div></div>
+    <div class="stat-cell positive"><div class="l">Nieuwe subscribers</div><div class="v">~200</div><div class="d">per maand</div></div>
+    <div class="stat-cell positive"><div class="l">Basis na 6 maanden</div><div class="v">~1.100</div><div class="d">gekwalificeerde contacten</div></div>
+  </div>
+
+  <p>Bij een conservatieve schatting van € 2 omzet per subscriber per maand (e-commerce industrie-benchmark) genereert deze basis na 6 maanden circa <strong>€ 2.200 extra maandomzet</strong>, en groeit verder organisch door zonder bijkomende acquisitiekost. Op jaarbasis groeit deze post substantieel naar € 4.000-6.000 maandelijkse herhaalomzet.</p>
+
+  <div class="callout good">
+    <div class="head">DE STRATEGISCHE WAARDE — GROTER DAN DE CIJFERS</div>
+    <p>Een eigen e-mailbasis betekent dat Stripweb niet meer 100% afhankelijk is van Google's algoritmes. Het is een tweede acquisitiekanaal naast paid en SEO, met de hoogste ROI in digitale marketing (industrie-benchmark: € 38 ROI per € 1 spend). Het werkt door als paid hapert. Het werkt door als SEO een dip heeft. Het maakt Stripweb van "winkel waar mensen belanden" naar <em>"bron die mensen volgen."</em></p>
+  </div>
+
+  <h3>Seizoenscampagnes als natuurlijke aanhechting</h3>
+  <p>Seizoensmomenten — Vaderdag, Moederdag, terug-naar-school, eindejaar, Valentijn — zijn de natuurlijke pieken waarop een gerichte e-mail + content + paid samenwerking maximaal rendeert. In dit Groeiplan worden zulke momenten <strong>geïntegreerd in fase 1 en fase 2</strong> als concrete uitvoeringsmomenten van de drie hefbomen samen: gerichte blog-content (SEO), promotie via paid (Google Ads + sociale kanalen), en uitstuur via de groeiende e-mailbasis.</p>
+
+  <p>Voor de eerstvolgende — <strong>Vaderdag op 14 juni 2026</strong> — verwerken we de reeds bestaande blog-content en de aangereikte campagne-input in een uitvoeringsvoorstel met realistisch tijdpad, mediabudget en KPI-doelen. Stripweb levert input en thematische richting; Cnip vertaalt dat naar een onderbouwd uitvoeringsplan dat past binnen het bredere Groeiplan. Zo blijft elke activatie meetbaar en past ze binnen het bredere groeispoor.</p>
+</section>
+
+<section id="s5" data-num="§ 05 — HEFBOOM 3 — MEETLAAG">
+  <div class="section-num">§ 05 — HEFBOOM 3</div>
+  <h2>De meetlaag — <em>basisvoorwaarde voor stuurbare groei</em>.</h2>
+  <p class="lede">Betrouwbare tracking is de basisvoorwaarde om paid advertising, SEO, e-mail en conversie correct te sturen. Zonder betrouwbare meetlaag sturen we deels blind: het algoritme van Performance Max optimaliseert op onvolledige signalen, e-mailattributie blijft een schatting, en SEO-investeringen kunnen niet correct gewogen worden tegen andere kanalen. Dit lossen we niet in week 1 op — maar wel als parallel spoor naast de commerciële heractivering.</p>
+
+  <h3 class="first">Het verschil in cijfers</h3>
+  <div class="stat-grid">
+    <div class="stat-cell info"><div class="l">GA4 toont</div><div class="v">584</div><div class="d">purchases over 5 weken</div></div>
+    <div class="stat-cell accent"><div class="l">Exopera toont</div><div class="v">1.731</div><div class="d">werkelijke webshop-orders</div></div>
+    <div class="stat-cell critical"><div class="l">Tracking-rate</div><div class="v">33,7%</div><div class="d">één op drie zichtbaar</div></div>
+    <div class="stat-cell critical"><div class="l">Onzichtbaar</div><div class="v">1.147</div><div class="d">orders niet in rapportage</div></div>
+  </div>
+
+  <h3>Wat de fix oplevert</h3>
+  <p>Server-side tagging (Google Tag Manager Server Container) omzeilt het gtag.js/filter-conflict door tracking-events vanaf de Exopera-server naar GA4 te sturen, zonder browser-side tag te activeren op de cataloguspagina. Dit is de duurzame oplossing en moet samen met Digital Minds worden uitgewerkt.</p>
+
+  <p>Industrie-benchmark voor een correct uitgevoerde server-side implementatie: tracking-rate naar 80-90%. Dat heeft een direct effect op het rendement van paid: <strong>met meer zichtbare conversies optimaliseert Performance Max op betere signalen</strong>, biedt het beter op winnende producten en target het accurater. Industrie-benchmark voor de impact op paid-efficiency: 20-40% verbetering.</p>
+
+  <h3>Het tweede kritieke gevolg — remarketing</h3>
+  <p>Een onbetrouwbare tracking heeft een tweede, even zwaar wegend gevolg dat in dit dossier herhaaldelijk werd aangehaald: <strong>zonder werkende pixel geen remarketing</strong>. Anno 2026 is remarketing geen optie — het is de basis van elke serieuze e-commerce paid-strategie. Concreet: bezoekers die op stripweb.be terechtkomen, productpagina's bekijken, of zelfs toevoegen aan winkelmandje zonder af te rekenen, kunnen vandaag niet structureel worden teruggehaald via gerichte advertenties op Google, YouTube of het Display-netwerk. Iedere euro paid gaat naar cold traffic, terwijl warm publiek — bezoekers die al interesse toonden — verloren raakt.</p>
+
+  <p>De cijfers van 17 mei illustreren dit concreet: 36 mensen voegden in het ochtendvenster toe aan winkelmandje zonder af te rekenen. In een werkende remarketing-setup zouden deze 36 bezoekers binnen 24 uur opnieuw geadverteerd worden — met de specifieke producten die ze bekeken hadden. Vandaag bestaat die mogelijkheid eenvoudig niet. Hetzelfde geldt voor de duizenden bezoekers van vorige weken: zonder remarketing-pixel zijn ze digitaal niet terug te bereiken.</p>
+
+  <div class="callout info">
+    <div class="head">CONCREET — WAT VERANDERT NA DE FIX</div>
+    <p>Voorbeeld op basis van paid-scenario B (€ 2.000/maand): met 25% efficiency-verbetering daalt de gerealiseerde kost per conversie verder, of stijgt het aantal conversies bij gelijk budget. Dit is geen extra investering — het is dezelfde euro die meer oplevert.</p>
+    <p>Even belangrijk: de meetlaag-fix maakt het mogelijk om <strong>echte ROAS te berekenen</strong> in plaats van te schatten. Zolang tracking onvolledig is, blijft elk ROAS-cijfer een benadering. Pas met server-side tagging kunnen we Google Ads, GA4 en Exopera-orders correct op elkaar afstemmen en de werkelijke omzetbijdrage per kanaal hard onderbouwen.</p>
+    <p><strong>En remarketing wordt eindelijk operationeel.</strong> Warm publiek — bezoekers die al productinteresse toonden — kan dan terug worden bereikt met gerichte campagnes. Dit verlaagt de gemiddelde acquisitiekost én verhoogt de conversie-ratio van paid substantieel.</p>
+    <p>De fix rendeert óók de e-mailattributie en de SEO-investeringen beter — niet alleen paid.</p>
+  </div>
+</section>
+
+<section id="s6" data-num="§ 06 — ZONDAG 17 MEI">
+  <div class="section-num">§ 06 — ZONDAG 17 MEI</div>
+  <h2>De server-logs vertellen <em>een ander verhaal</em>.</h2>
+  <p class="lede">De zwakke zondag van 17 mei was de aanleiding voor deze diepteanalyse. De technische logs wijzen niet meteen op een volledige serveruitval. De orderdata toont wel een commercieel zwakke dag — en dat patroon wijst direct naar de hefbomen van dit Groeiplan: actieve paid instroom, betrouwbare tracking, en betere heractivatie via e-mail.</p>
+
+  <h3 class="first">Wat de server zegt — vier feiten</h3>
+  <div class="stat-grid">
+    <div class="stat-cell positive"><div class="l">5xx Server errors</div><div class="v">0</div><div class="d">geen enkele crash, hele dag</div></div>
+    <div class="stat-cell positive"><div class="l">Totaal requests</div><div class="v">272k</div><div class="d">verwerkt zonder server-errors</div></div>
+    <div class="stat-cell positive"><div class="l">Mini-cart hits 8-12u</div><div class="v">87</div><div class="d">allemaal status 200 (success)</div></div>
+    <div class="stat-cell positive"><div class="l">Unieke menselijke IPs 8-12u</div><div class="v">~7.900</div><div class="d">verkeer was aanwezig</div></div>
+  </div>
+
+  <p>De server-logs van Exopera tussen 8:00 en 12:00 wijzen niet op een technische verstoring: geen 5xx server-errors, mini-cart en cart-pagina's leverden status 200, POST-requests (formulieren, winkelmandje-acties) gingen door zonder fouten. <strong>Op basis van de beschikbare logs is er geen indicatie van een serveruitval.</strong> Een diepere analyse vraagt nog een definitieve technische bevestiging vanuit Digital Minds-kant.</p>
+
+  <h3>Het echte patroon: zwakke conversie, niet zwakke infrastructuur</h3>
+  <p>Wat de logs wel laten zien is een gedragspatroon. Bezoekers waren er in normale aantallen, ze klikten op productpagina's, ze voegden toe aan winkelmandje — maar rondden minder vaak af dan in de rest van de dag.</p>
+
+  <div class="stat-grid">
+    <div class="stat-cell info"><div class="l">Cart-acties ochtend (8-12u)</div><div class="v">41</div><div class="d">unieke mensen voegden toe</div></div>
+    <div class="stat-cell critical"><div class="l">Orders voltooid ochtend</div><div class="v">5</div><div class="d">cart-naar-order ratio: 12%</div></div>
+    <div class="stat-cell info"><div class="l">Cart-acties rest van dag</div><div class="v">165</div><div class="d">unieke mensen voegden toe</div></div>
+    <div class="stat-cell positive"><div class="l">Orders voltooid rest van dag</div><div class="v">34</div><div class="d">cart-naar-order ratio: 21%</div></div>
+  </div>
+
+  <p>De cart-naar-order conversie in de ochtend was <strong>40% lager</strong> dan in de rest van de dag (12% vs 21%). Dat is een gedragspatroon, niet een infrastructuur-fout. Mensen kwamen, ze keken, ze legden producten in het winkelmandje — en lieten ze vervolgens staan.</p>
+
+  <h3>Externe nieuwe bezoekers: zeer beperkt</h3>
+  <p>Een tweede vaststelling uit de logs is even relevant. Van de bezoekers van 17 mei kwam slechts <strong>~650 via zoekmachines</strong> (Google, Bing, Yahoo). Het overige verkeer was overwegend direct of via de zustersite bdweb.fr — dus bestaande klanten die de site al kennen. Zonder actief paid kanaal komt er nauwelijks nieuwe instroom binnen.</p>
+
+  <div class="callout good">
+    <div class="head">DE HEFBOOM IS PRECIES WAT DIT GROEIPLAN VOORSTELT</div>
+    <p>Het patroon van 17 mei — 36 mensen die toevoegden aan winkelmandje maar niet bestelden — is <strong>exact het scenario waarvoor paid retargeting en e-mailcampagnes bestaan</strong>. In een werkende setup zouden deze 36 bezoekers binnen 24 uur een retargeting-advertentie zien (paid kanaal) of een herinneringsmail krijgen (e-mailbasis op nieuws.stripweb.be).</p>
+    <p>Het beperkte nieuwe verkeer — ~650 search-bezoekers op een zondag — toont eveneens dat <strong>Stripweb momenteel zwaar leunt op SEO en bestaande bezoekers</strong>. Een actief paid kanaal levert exact het type nieuwe instroom dat ontbreekt: onbekende bezoekers met koopintentie die via gerichte advertenties op productpagina's belanden.</p>
+    <p>Met andere woorden: <em>17 mei is geen incident, het is een illustratie van waarom dit Groeiplan nu nodig is.</em></p>
+  </div>
+
+  <h3>Het leerpunt — monitoring vooruit</h3>
+  <p>Ook al was er geen technische fout: een dag met -50% in orders moet sneller opgemerkt worden dan via een mail op maandagochtend. In het actieplan komt daarom een dagelijkse omzet-per-uur alerting (Exopera-gedreven, niet GA4-afhankelijk) plus wekelijkse status-flash met expliciete account-checks (Google Ads, Merchant Center, indexatie). Dit zit ingebakken in de wekelijkse opvolging die we voorstellen.</p>
+</section>
+
+<section id="s7" data-num="§ 07 — TIJDPAD">
+  <div class="section-num">§ 07 — TIJDPAD</div>
+  <h2>Drie fasen, <em>zes maanden</em>, oplopende activatie.</h2>
+  <p class="lede">De drie hefbomen lopen in fasen die op elkaar voortbouwen. Elke fase heeft een eigen budgetniveau, eigen mijlpalen, en een eigen beslismoment voor doorgroei. De cijfers zijn geen omzetbelofte — het zijn referentiekaders op basis van februari-tractie, met wekelijkse opvolging en maandelijkse bijsturing.</p>
+
+  <div class="phases">
+    <div class="phase">
+      <div class="ph-num">FASE 1 — MAAND 1-3</div>
+      <div class="ph-name">Heractivering</div>
+      <div class="ph-budget">€ 2.000/mnd</div>
+      <div class="ph-rev">→ paid + e-mail opstart</div>
+      <p>Paid hervatten op aanbevolen testbudget (sluit aan op februari-volume). E-mailprogramma technisch opzetten op nieuws.stripweb.be (HubSpot capture + SendGrid). Wekelijkse status-flash starten met account-monitoring ingebouwd.</p>
+    </div>
+    <div class="phase">
+      <div class="ph-num">FASE 2 — MAAND 3-4</div>
+      <div class="ph-name">Meetlaag + TikTok-pilot</div>
+      <div class="ph-budget">€ 2.000-2.500/mnd</div>
+      <div class="ph-rev">→ tracking-fix + TikTok organisch</div>
+      <p>Server-side tagging realiseren samen met Digital Minds. Paid stabiel houden tijdens de implementatie. Eerste 500+ e-mail subscribers actief, eerste gerichte topic-campagnes. <strong>TikTok-pilot voor manga-categorie</strong>: 2 organische video's per week op basis van cover-visuals en preview-pagina's (geen mediabudget in deze fase).</p>
+    </div>
+    <div class="phase">
+      <div class="ph-num">FASE 3 — MAAND 5-6</div>
+      <div class="ph-name">Opschaling</div>
+      <div class="ph-budget">€ 3.500-5.000/mnd</div>
+      <div class="ph-rev">→ data-gedreven schaling + TikTok-Ads</div>
+      <p>Met betrouwbare meetlaag en gegroeide e-mailbasis: paid opschalen op basis van bewezen rendement. Concrete ROAS voor het eerst écht meetbaar. E-mailprogramma rendeert structureel. <strong>TikTok-Ads test</strong> op manga-categorie (€ 300-500/mnd) als organische pilot tractie toont.</p>
+    </div>
+  </div>
+
+  <div class="callout good">
+    <div class="head">WAT HET PLAN OPLEVERT — ORDE VAN GROOTTE</div>
+    <p>Februari 2026 toonde dat € 1.750 mediabudget 368 conversies opleverde aan € 4,75 per conversie. Op de aanbevolen € 2.000/maand voor fase 1 sluit dit aan op een vergelijkbare tractie. <strong>Op kwartaalbasis (€ 6.000 mediabudget): orde van grootte 1.200+ paid-conversies</strong>, plus de organische instroom uit SEO en reeksgidsen die parallel blijven groeien.</p>
+    <p>Belangrijk: we sturen niet op één projectiecijfer. We meten via drie bronnen tegelijk — Google Ads-data (waarop we de campagnes optimaliseren), Exopera-orderontwikkeling als onafhankelijke validatie, en weekly-over-weekly omzetgroei — en bijsturen elke maand op basis van wat we werkelijk zien. Een harde "€ X omzet over 6 maanden"-belofte zou suggereren dat het rendement een vaste uitkomst is. Dat is het niet: het rendement hangt af van uitvoeringskwaliteit, seizoenseffect, productfeed-onderhoud en de tracking-doorbraak.</p>
+  </div>
+</section>
+
+<section id="s8" data-num="§ 08 — COMMITMENTS">
+  <div class="section-num">§ 08 — COMMITMENTS</div>
+  <h2>Wat we vragen, wat we leveren.</h2>
+  <p class="lede">Een groeispoor werkt alleen als de verantwoordelijkheden helder zijn. Hier zijn ze.</p>
+
+  <div class="commit-grid">
+    <div class="commit sw">
+      <h4>WAT WE VAN STRIPWEB VRAGEN</h4>
+      <ul>
+        <li>Beslissing over hervatting Google Ads-budget op aanbevolen niveau (€ 2.000/maand gedurende 90 dagen als testfase)</li>
+        <li>Groen licht voor server-side tagging-traject samen met Digital Minds</li>
+        <li>Groen licht voor uitrol e-mailprogramma op nieuws.stripweb.be (HubSpot + SendGrid)</li>
+        <li>Digital Minds-medewerking voor de goedgekeurde Exopera-aanpassingen volgens concrete planning</li>
+        <li>Beslismoment na fase 1 (maand 2): doorgaan met fase 2 op basis van eerste resultaten</li>
+        <li><strong>Continuïteit en consistente uitvoering:</strong> actieve commerciële kanalen krijgen tijd om te renderen, en strategische lange-termijn-aanbevelingen blijven evenwaardig met operationele korte-termijn keuzes</li>
+      </ul>
+    </div>
+    <div class="commit cnip">
+      <h4>WAT CNIP LEVERT</h4>
+      <ul>
+        <li>Dagelijks beheer paid (Performance Max, Search BE/NL, Shopping) inclusief biedoptimalisatie</li>
+        <li>Verder verloop SEO en content-engine (nieuws.stripweb.be, blog-artikelen)</li>
+        <li>Volledige opzet en beheer e-mailprogramma (capture, segmentatie, campagnes, automation)</li>
+        <li>Wekelijkse status-flash met KPI's, account-status en openstaande beslissingen</li>
+        <li>Account-monitoring met automatische alerting bij dreigende uitval (Google Ads, Merchant Center)</li>
+        <li>Maandelijkse omzet-en-groei rapportage met meet-baselines (Exopera + GA4 naast elkaar)</li>
+        <li><strong>Channable productfeed-tooling</strong> (gedragen door Cnip): rechtstreekse ondersteuning van Google Shopping BE + Local Inventory feed met categorie-mapping en regels — essentiële onderbouw van paid advertising</li>
+        <li>Optimalisatie van de 9 openstaande feedkwaliteits-issues (item_group_id, sale_price, short_title) op de 16.931 producten in de feed</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Tot slot</h3>
+  <p>De afgelopen maanden is er stevig werk verzet aan de digitale basis van Stripweb. De indexering steeg tijdelijk van 226k naar 703k pagina's (mid-april) — al zien we sinds eind april een terugval die we moeten onderzoeken. Organische erosie afgeremd, nieuws.stripweb.be in volle groei, reeksgidsen die ranken. Die basis levert meetbare resultaten op — en het paid kanaal heeft in februari nog aangetoond wat het commercieel kan.</p>
+
+  <p>Wat er nu moet gebeuren is geen heruitvinding. Wel commerciële activatie van wat klaarstaat: paid opnieuw aanzetten, e-mail uitbouwen, samen met Digital Minds de tracking op orde krijgen, openstaande optimalisaties laten uitvoeren, en op basis van de opgebouwde database-kennis een traject onderzoeken voor een nieuwe website-laag bovenop het huidige Exopera-ERP — of de vernieuwing van het ERP zelf. Een Go / No-Go op die bredere vraag opent de mogelijkheid om de pistes en hun impact te bespreken en voor te leggen.</p>
+
+  <p>Het Groeiplan zet ondertussen de eerste vier sporen onmiddellijk in gang, met wekelijkse opvolging en duidelijke beslismomenten per fase. Niet wachten — werken aan wat aantoonbaar rendeert, terwijl het bredere strategische gesprek parallel loopt.</p>
+</section>
+
+<footer>
+  Stripweb 3.0 · Plan voor digitale groei · Opgesteld door Cnip · Mei 2026
+</footer>
+
+</body>
+</html>
