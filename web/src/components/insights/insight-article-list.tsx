@@ -5,73 +5,85 @@ import type { InsightListItem } from '@/types/insight';
 type Props = {
   articles: InsightListItem[];
   emptyLabel: string;
+  locale: string;
+  readMoreLabel: string;
 };
 
-export function InsightArticleList({ articles, emptyLabel }: Props) {
+function truncateExcerpt(text: string, max = 200): string {
+  const trimmed = text.trim();
+  if (trimmed.length <= max) return trimmed;
+  const slice = trimmed.slice(0, max).trimEnd();
+  const lastSpace = slice.lastIndexOf(' ');
+  const cut = lastSpace > max * 0.6 ? slice.slice(0, lastSpace) : slice;
+  return `${cut}...`;
+}
+
+function formatPublishedDate(publishedAt: string, locale: string): string {
+  return new Date(publishedAt)
+    .toLocaleDateString(locale === 'nl' ? 'nl-BE' : 'en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+    .toUpperCase();
+}
+
+export function InsightArticleList({
+  articles,
+  emptyLabel,
+  locale,
+  readMoreLabel,
+}: Props) {
   if (articles.length === 0) {
-    return <p className="stelling-p text-[var(--ink2)]">{emptyLabel}</p>;
+    return <p className="stelling-p insights-list-empty">{emptyLabel}</p>;
   }
 
   return (
-    <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
-      {articles.map((a) => (
-        <li key={a._id}>
-          <article className="group flex h-full flex-col border border-[var(--line)] bg-[var(--cream)]/60 p-6 transition hover:border-[var(--ink3)]">
-            {a.heroImageUrl ? (
-              <div className="relative mb-4 aspect-[16/9] w-full overflow-hidden bg-[var(--line)]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={a.heroImageUrl}
-                  alt=""
-                  className="h-full w-full object-cover transition group-hover:scale-[1.02]"
-                />
-              </div>
-            ) : null}
-            <p className="mb-2 text-xs uppercase tracking-[0.12em] text-[var(--ink3)]">
-              {a.publishedAt
-                ? new Date(a.publishedAt).toLocaleDateString(undefined, {
-                    year: 'numeric',
-                    month: 'short',
-                    day: 'numeric',
-                  })
-                : '—'}
-              {a.readingMinutes != null ? ` · ${a.readingMinutes} min` : ''}
-            </p>
-            <h2 className="stelling-hl mb-3 text-xl !leading-snug">
-              <Link
-                className="hover:text-[var(--ink2)]"
-                href={{
-                  pathname: '/insights/[slug]',
-                  params: { slug: a.slug },
-                }}
-              >
-                {a.title}
+    <ul className="insights-list">
+      {articles.map((a) => {
+        const excerpt = a.excerpt ? truncateExcerpt(a.excerpt) : null;
+        const href = {
+          pathname: '/insights/[slug]',
+          params: { slug: a.slug },
+        } as const;
+
+        return (
+          <li key={a._id} className="insights-list-item">
+            <article className="insights-list-article">
+              {a.publishedAt || a.authorName ? (
+                <p className="insights-list-meta">
+                  {a.publishedAt ? (
+                    <time dateTime={a.publishedAt}>
+                      {formatPublishedDate(a.publishedAt, locale)}
+                    </time>
+                  ) : null}
+                  {a.publishedAt && a.authorName ? (
+                    <span className="insights-list-meta-sep" aria-hidden="true">
+                      {' · '}
+                    </span>
+                  ) : null}
+                  {a.authorName ? (
+                    <span className="insights-list-meta-author">
+                      {a.authorName.toUpperCase()}
+                    </span>
+                  ) : null}
+                </p>
+              ) : null}
+              <h2 className="insights-list-title">
+                <Link className="insights-list-title-link" href={href}>
+                  {a.title}
+                </Link>
+              </h2>
+              {excerpt ? (
+                <p className="insights-list-excerpt stelling-p">{excerpt}</p>
+              ) : null}
+              <Link className="insights-list-more" href={href}>
+                {readMoreLabel}
               </Link>
-            </h2>
-            {a.excerpt ? (
-              <p className="stelling-p mb-4 flex-1 text-[var(--ink2)]">
-                {a.excerpt}
-              </p>
-            ) : null}
-            {a.tags && a.tags.length > 0 ? (
-              <div className="mt-auto flex flex-wrap gap-2">
-                {a.tags.map((t) => (
-                  <Link
-                    key={t}
-                    className="rounded-full border border-[var(--line)] px-3 py-1 text-xs text-[var(--ink3)] hover:border-[var(--ink3)]"
-                    href={{
-                      pathname: '/insights/tag/[tag]',
-                      params: { tag: t },
-                    }}
-                  >
-                    {t}
-                  </Link>
-                ))}
-              </div>
-            ) : null}
-          </article>
-        </li>
-      ))}
+            </article>
+          </li>
+        );
+      })}
     </ul>
   );
 }

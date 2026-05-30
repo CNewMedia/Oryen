@@ -52,7 +52,12 @@ export default async function InsightsTagPage({ params }: Props) {
       title={tag}
       intro={t('tagIntro')}
     >
-      <InsightArticleList articles={articles} emptyLabel={t('empty')} />
+      <InsightArticleList
+        articles={articles}
+        emptyLabel={t('empty')}
+        locale={locale}
+        readMoreLabel={t('readMore')}
+      />
     </InnerPage>
   );
 }

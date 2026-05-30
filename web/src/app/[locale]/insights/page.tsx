@@ -48,8 +48,18 @@ export default async function InsightsOverviewPage({ params }: Props) {
   ]);
 
   return (
-    <InnerPage eyebrow={header.eyebrow} title={header.title} intro={header.intro}>
-      <InsightArticleList articles={articles} emptyLabel={t('empty')} />
+    <InnerPage
+      className="insights-overview"
+      eyebrow={header.eyebrow}
+      title={header.title}
+      intro={header.intro}
+    >
+      <InsightArticleList
+        articles={articles}
+        emptyLabel={t('empty')}
+        locale={locale}
+        readMoreLabel={t('readMore')}
+      />
     </InnerPage>
   );
 }

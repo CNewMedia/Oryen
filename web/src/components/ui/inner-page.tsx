@@ -5,12 +5,27 @@ type InnerPageProps = {
   title: ReactNode;
   intro?: ReactNode;
   children?: ReactNode;
+  /** Optional modifier on the outer section (e.g. insights overview spacing). */
+  className?: string;
 };
 
 /** Inner pages: cream band + spine rhythm aligned with homepage system. */
-export function InnerPage({ eyebrow, title, intro, children }: InnerPageProps) {
+export function InnerPage({
+  eyebrow,
+  title,
+  intro,
+  children,
+  className,
+}: InnerPageProps) {
   return (
-    <section className="has-spine spine-light min-h-[70vh] bg-[var(--cream)] pt-[100px] pb-24">
+    <section
+      className={[
+        'has-spine spine-light min-h-[70vh] bg-[var(--cream)] pt-[100px] pb-24',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
       <div className="spine-grid">
         <div className="spine-label spine-label-light">
           {eyebrow ? <span>{eyebrow}</span> : <span>ORYEN</span>}

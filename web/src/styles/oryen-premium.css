@@ -2536,6 +2536,124 @@ footer::before {
 }
 
 /* ==========================================================================
+   INSIGHTS OVERVIEW (editorial article list)
+   ========================================================================== */
+.insights-overview .spine-content > .stelling-p:last-child {
+  margin-bottom: clamp(4rem, 6vw, 5rem) !important;
+}
+
+.insights-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 52rem;
+}
+
+.insights-list-item + .insights-list-item {
+  border-top: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
+  margin-top: clamp(3rem, 5vw, 4rem);
+  padding-top: clamp(3rem, 5vw, 4rem);
+}
+
+.insights-list-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ink) 60%, transparent);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.15rem;
+}
+
+.insights-list-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.15;
+  margin: 0 0 1.25rem;
+  max-width: 28ch;
+}
+
+@media (min-width: 768px) {
+  .insights-list-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  }
+}
+
+.insights-list-title-link {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.insights-list-title-link:hover {
+  color: var(--ink2);
+}
+
+.insights-list-excerpt {
+  margin: 0 0 1.25rem !important;
+  max-width: 62ch;
+  color: var(--ink2) !important;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.insights-list-more {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ink) 70%, transparent);
+  text-decoration: none;
+  display: inline-block;
+  padding-bottom: 2px;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.insights-list-more::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  height: 1px;
+  background: color-mix(in srgb, var(--ink) 35%, transparent);
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.insights-list-more:hover {
+  color: var(--ink);
+}
+
+.insights-list-more:hover::after {
+  right: 0;
+}
+
+.insights-list-empty {
+  max-width: 42ch;
+}
+
+@media (max-width: 767px) {
+  .insights-list-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .insights-list-meta-sep {
+    display: none;
+  }
+}
+
+/* ==========================================================================
    INSIGHT ARTICLES (file-based knowledge articles)
    ========================================================================== */
 .insight-article-title {
