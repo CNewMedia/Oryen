@@ -94,6 +94,7 @@ export function mergeHomeFromSanity(doc: SanityDoc | null, base: HomeContent): H
     diagnosis: {
       spine: str(d.spine, base.diagnosis.spine),
       headlineEm: str(d.headlineEm, base.diagnosis.headlineEm),
+      entityIntro: str(d.entityIntro, base.diagnosis.entityIntro ?? ''),
       p1: str(d.p1, base.diagnosis.p1),
       focus: str(d.focus, base.diagnosis.focus),
     },

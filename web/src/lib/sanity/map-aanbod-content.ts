@@ -2,15 +2,48 @@ import type {
   AanbodBodyStanza,
   AanbodClosing,
   AanbodContent,
+  AanbodFaq,
   AanbodGuarantee,
   AanbodOutputRow,
   AanbodWatHetIs,
+  FaqItem,
 } from '@/types/aanbod';
 
 type SanityDoc = Record<string, unknown>;
 
 function isRecord(v: unknown): v is Record<string, unknown> {
   return typeof v === 'object' && v !== null && !Array.isArray(v);
+}
+
+function str(v: unknown, fallback: string): string {
+  return typeof v === 'string' ? v : fallback;
+}
+
+function parseFaqItems(raw: unknown): FaqItem[] {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .map((item) => {
+      if (!isRecord(item)) return null;
+      const question = str(item.question, '').trim();
+      const answer = str(item.answer, '').trim();
+      if (!question || !answer) return null;
+      return { question, answer };
+    })
+    .filter((x): x is FaqItem => x !== null);
+}
+
+function mergeFaq(docFaq: unknown, base?: AanbodFaq): AanbodFaq | undefined {
+  const baseItems = base?.items ?? [];
+  if (!isRecord(docFaq)) {
+    return baseItems.length ? base : undefined;
+  }
+  const fromDoc = parseFaqItems(docFaq.items);
+  const items = fromDoc.length ? fromDoc : baseItems;
+  if (!items.length) return undefined;
+  return {
+    eyebrow: str(docFaq.eyebrow, base?.eyebrow ?? ''),
+    items,
+  };
 }
 
 function splitDisplayHeadline(
@@ -225,10 +258,15 @@ function sanitizeAanbodFromBase(merged: AanbodContent, base: AanbodContent): Aan
   const mergedRest = { ...merged };
   delete (mergedRest as Record<string, unknown>).watHetIs;
   delete (mergedRest as Record<string, unknown>).whatAfter;
+  const faq =
+    merged.faq?.items?.length ? merged.faq : base.faq?.items?.length ? base.faq : undefined;
+
   const out: AanbodContent = {
     ...mergedRest,
     hero: {
       ...merged.hero,
+      definitionIntro:
+        merged.hero.definitionIntro?.trim() || base.hero.definitionIntro || '',
       offerFrame,
       characterLines: Array.isArray(merged.hero.characterLines)
         ? merged.hero.characterLines
@@ -261,6 +299,7 @@ function sanitizeAanbodFromBase(merged: AanbodContent, base: AanbodContent): Aan
     },
     ...(whatAfter ? { whatAfter } : {}),
     closing,
+    ...(faq ? { faq } : {}),
   };
   if (pricing) out.pricing = pricing;
   if (reassurance) out.reassurance = reassurance;
@@ -353,6 +392,9 @@ function mergeSanity(base: AanbodContent, doc: SanityDoc): AanbodContent {
       closing: { ...base.closing, ...doc.closing } as AanbodContent['closing'],
     };
   }
+
+  const faq = mergeFaq(doc.faq, base.faq);
+  if (faq) out = { ...out, faq };
 
   return sanitizeAanbodFromBase(out, base);
 }

@@ -116,15 +116,19 @@ function siteSettingsDoc(locale: Locale, m: OryBundle): Record<string, unknown> 
 }
 
 function homepageDoc(locale: Locale, m: OryBundle): Record<string, unknown> {
-  const H = m.Home as Record<string, unknown>;
+  const H = m.Home as Record<string, unknown> & {
+    meta?: { title?: string; description?: string };
+  };
+  const homeMeta = H.meta;
   return {
     _id: `oryen.homepage.${locale}`,
     _type: 'homepage',
     locale,
     internalTitle: 'Homepage',
     seo: {
-      metaTitle: m.Meta.siteName,
-      metaDescription: m.Meta.defaultDescription,
+      metaTitle: homeMeta?.title?.trim() || m.Meta.siteName,
+      metaDescription:
+        homeMeta?.description?.trim() || m.Meta.defaultDescription,
       robotsIndex: true,
     },
     hero: H.hero,
@@ -158,6 +162,7 @@ function aanbodDoc(locale: Locale, m: OryBundle): Record<string, unknown> {
     ...(A.pricing != null ? { pricing: A.pricing } : {}),
     ...(A.reassurance != null ? { reassurance: A.reassurance } : {}),
     closing: A.closing,
+    ...(A.faq != null ? { faq: A.faq } : {}),
   };
 }
 

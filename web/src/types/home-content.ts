@@ -34,6 +34,8 @@ export type HomeContent = {
   diagnosis: {
     spine: string;
     headlineEm: string;
+    /** Answer-first entity line (AEO) — shown in Diagnose section. */
+    entityIntro?: string;
     p1: string;
     focus: string;
   };

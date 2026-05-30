@@ -1,7 +1,7 @@
 {
   "Meta": {
     "siteName": "ORYEN",
-    "defaultDescription": "Direction before action. ORYEN shows where sales, marketing and follow-up lose results."
+    "defaultDescription": "ORYEN is a strategic diagnosis for Flemish B2B companies that feel a lot is happening, but results are lagging. Direction before action."
   },
   "Global": {
     "header": {
@@ -26,6 +26,10 @@
     "team": "Team"
   },
   "Home": {
+    "meta": {
+      "title": "ORYEN — Direction before action",
+      "description": "ORYEN is a strategic diagnosis for Flemish B2B companies that feel a lot is happening, but results are lagging. ORYEN first determines where things get commercially stuck — and only then what needs to happen first."
+    },
     "hero": {
       "titleLine1": "ORYEN shows where sales, marketing and follow-up lose results.",
       "titleLine2": "",
@@ -38,6 +42,7 @@
     "diagnosis": {
       "spine": "01 — Diagnosis",
       "headlineEm": "Not every problem\ncalls for more marketing.",
+      "entityIntro": "ORYEN is a strategic diagnosis for Flemish B2B companies that feel a lot is happening, but results are lagging. ORYEN first determines where things get commercially stuck — and only then what needs to happen first.",
       "p1": "Sometimes it sits in sales. In follow-up. In the proposition. In tools, people or internal coordination. Sometimes in a decision made too early.\n\nYet the same thing often happens: another agency, a new tool, an extra campaign, more budget.\n\nWhile the real cause has not been named sharply enough.\n\nORYEN does not only look at what happens — but at what sits underneath.",
       "focus": ""
     },
@@ -206,6 +211,7 @@
       "eyebrow": "Reality Check",
       "headlineLine1": "The Reality Check.",
       "headlineLine2Em": "A sharp first decision moment.",
+      "definitionIntro": "A Reality Check is a paid diagnosis in which ORYEN exposes where sales, marketing and follow-up are losing results today, which intervention makes the first difference, and what you better not do yet. Not an audit, not a brainstorm, not a sales conversation. One defined decision moment, directly with Christophe.",
       "sub": "Not another casual introduction. Not another quote for execution. But a defined path that makes visible where sales, marketing and follow-up lose results — and which intervention really makes a difference now.\n\nThe same approach that underpinned work with clients such as Hof van Cleve, Willems Veranda and Concordia Textiles.",
       "characterLines": [],
       "primaryCta": "Book a Reality Check conversation with Christophe",
@@ -295,6 +301,31 @@
       "footnote": "",
       "secondaryCta": "",
       "secondaryCtaHref": ""
+    },
+    "faq": {
+      "eyebrow": "Frequently asked questions",
+      "items": [
+        {
+          "question": "What's the difference between ORYEN and a marketing agency?",
+          "answer": "An agency starts with execution: campaigns, content, a website, ads. ORYEN starts with the cause. First determine where things get commercially stuck and what needs to happen first, only then decide whether anything needs to be executed at all — and by whom."
+        },
+        {
+          "question": "Is it worth doing a diagnosis before you invest?",
+          "answer": "Usually yes. The most expensive mistake is spending money on a new campaign, tool or employee while the real blockage is elsewhere. A Reality Check brings that order into view before you commit time, money or people again."
+        },
+        {
+          "question": "For which companies is a Reality Check valuable?",
+          "answer": "For B2B companies that are already investing and moving, but feel that results don't match the effort. Not for those seeking quick execution or confirmation of a decision already made."
+        },
+        {
+          "question": "What do I get concretely after a Reality Check?",
+          "answer": "A clear picture of where things get stuck, a first decision framework with priorities, and a 90-day course — including a stop-list of what you better not do yet."
+        },
+        {
+          "question": "What does a Reality Check cost?",
+          "answer": "A Reality Check starts from a few thousand euros, depending on scope, number of stakeholders, and the complexity of your systems. You know the exact price after a brief first contact, in which we first determine whether a Reality Check is valuable for you."
+        }
+      ]
     }
   },
   "Contact": {

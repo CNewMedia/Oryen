@@ -2479,6 +2479,63 @@ footer::before {
 }
 
 /* ==========================================================================
+   AEO — FAQ (Reality Check, open list for crawlers + readers)
+   ========================================================================== */
+.aeo-faq {
+  background: var(--cream);
+  color: var(--ink);
+}
+.aeo-faq-inner {
+  padding-top: clamp(4rem, 8vh, 6rem);
+  padding-bottom: clamp(4rem, 10vh, 7rem);
+}
+.aeo-faq-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 clamp(2.5rem, 5vh, 3.5rem);
+  max-width: 22ch;
+}
+.aeo-faq-list {
+  margin: 0;
+  padding: 0;
+  max-width: 52rem;
+}
+.aeo-faq-item {
+  margin: 0;
+  padding: 0 0 clamp(3rem, 5vh, 4rem);
+  border-bottom: 1px solid var(--rule);
+}
+.aeo-faq-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.aeo-faq-question {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  line-height: 1.25;
+  font-style: italic;
+  color: var(--ink);
+  margin: 0 0 1rem;
+}
+.aeo-faq-answer {
+  margin: 0;
+}
+.aeo-faq-answer p {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: clamp(1rem, 1.08vw, 1.05rem);
+  line-height: 1.76;
+  color: var(--ink2);
+  margin: 0;
+  max-width: 56ch;
+}
+
+/* ==========================================================================
    COOKIE CONSENT BANNER (GDPR — Leadinfo loads only after accept)
    ========================================================================== */
 .cookie-banner {
@@ -2698,6 +2755,15 @@ footer::before {
   font-style: italic;
   color: var(--amber);
   font-weight: 300;
+}
+.rc-tpl-hero-definition {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: clamp(1.02rem, 1.15vw, 1.12rem);
+  line-height: 1.65;
+  color: rgba(242, 239, 232, 0.82);
+  max-width: 42rem;
+  margin-bottom: clamp(1rem, 2vh, 1.5rem);
 }
 .rc-tpl-hero-sub {
   font-family: 'Jost', sans-serif;

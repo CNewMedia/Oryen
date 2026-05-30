@@ -1,4 +1,7 @@
-import { getBootstrapHomeContent } from '@/lib/sanity/bootstrap/local-bootstrap';
+import {
+  getBootstrapHomeContent,
+  getBootstrapHomeMeta,
+} from '@/lib/sanity/bootstrap/local-bootstrap';
 import { getSanityClient } from '@/lib/sanity/client';
 import { mergeHomeFromSanity } from '@/lib/sanity/map-home-content';
 import { loadSiteSettings } from '@/lib/sanity/load-site-settings';
@@ -31,15 +34,17 @@ export type HomeSeoResolved = {
 
 function resolveHomeSeo(
   doc: SanityDoc | null,
-  settings: SiteSettingsResolved
+  settings: SiteSettingsResolved,
+  locale: string
 ): HomeSeoResolved {
+  const bootstrapMeta = getBootstrapHomeMeta(locale);
+
   if (!doc || !isRecord(doc.seo)) {
     return {
-      title: settings.defaultMetaTitle,
-      description: settings.defaultMetaDescription,
-      ogTitle: settings.defaultOgTitle ?? settings.defaultMetaTitle,
-      ogDescription:
-        settings.defaultOgDescription ?? settings.defaultMetaDescription,
+      title: bootstrapMeta.title,
+      description: bootstrapMeta.description,
+      ogTitle: bootstrapMeta.title,
+      ogDescription: bootstrapMeta.description,
       robotsIndex: settings.defaultRobotsIndex,
     };
   }
@@ -47,11 +52,11 @@ function resolveHomeSeo(
   const mt =
     typeof s.metaTitle === 'string' && s.metaTitle.trim()
       ? s.metaTitle
-      : settings.defaultMetaTitle;
+      : bootstrapMeta.title;
   const md =
     typeof s.metaDescription === 'string' && s.metaDescription.trim()
       ? s.metaDescription
-      : settings.defaultMetaDescription;
+      : bootstrapMeta.description;
   const ogT =
     typeof s.ogTitle === 'string' && s.ogTitle.trim() ? s.ogTitle : mt;
   const ogD =
@@ -85,7 +90,7 @@ export async function loadHomepage(locale: string): Promise<{
     return {
       content: getBootstrapHomeContent(locale),
       imageUrls: defaultImages,
-      seo: resolveHomeSeo(null, settings),
+      seo: resolveHomeSeo(null, settings, locale),
     };
   }
 
@@ -98,7 +103,7 @@ export async function loadHomepage(locale: string): Promise<{
     return {
       content: getBootstrapHomeContent(locale),
       imageUrls: defaultImages,
-      seo: resolveHomeSeo(null, settings),
+      seo: resolveHomeSeo(null, settings, locale),
     };
   }
 
@@ -132,6 +137,6 @@ export async function loadHomepage(locale: string): Promise<{
       featured: featUrl ?? defaultImages.featured,
       portrait: portUrl ?? defaultImages.portrait,
     },
-    seo: resolveHomeSeo(doc, settings),
+    seo: resolveHomeSeo(doc, settings, locale),
   };
 }

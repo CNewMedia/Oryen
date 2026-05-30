@@ -16,6 +16,16 @@ export type AanbodGuarantee = {
   text: string;
 };
 
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export type AanbodFaq = {
+  eyebrow?: string;
+  items: FaqItem[];
+};
+
 export type AanbodBodyStanza = {
   text: string;
   /** Renders as emphasised body (template third paragraph). */
@@ -59,6 +69,8 @@ export type AanbodContent = {
     eyebrow: string;
     headlineLine1: string;
     headlineLine2Em: string;
+    /** Answer-first definition (AEO) — shown above hero sub. */
+    definitionIntro?: string;
     sub: string;
     /** Left-border character lines under the sub (template). */
     characterLines: string[];
@@ -131,6 +143,8 @@ export type AanbodContent = {
     items?: string[];
   };
   closing: AanbodClosing;
+  /** FAQ block (AEO) — end of Reality Check page. */
+  faq?: AanbodFaq;
   /**
    * Legacy product / reassurance blocks — not rendered in the Reality Check
    * template; kept for Sanity merge and gradual CMS migration.

@@ -33,6 +33,18 @@ export function getBootstrapHomeContent(locale: string): HomeContent {
   return pickOry(locale).Home as unknown as HomeContent;
 }
 
+export function getBootstrapHomeMeta(locale: string): {
+  title: string;
+  description: string;
+} {
+  const home = pickOry(locale).Home as { meta?: { title?: string; description?: string } };
+  const m = pickOry(locale).Meta;
+  return {
+    title: home.meta?.title?.trim() || m.siteName,
+    description: home.meta?.description?.trim() || m.defaultDescription,
+  };
+}
+
 export function getBootstrapAanpakPage(locale: string): AanpakPageContent {
   const m = pickOry(locale);
   const base = (m as unknown as { Aanpak: AanpakPageContent }).Aanpak;

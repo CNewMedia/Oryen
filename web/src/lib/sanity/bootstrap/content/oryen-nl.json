@@ -1,7 +1,7 @@
 {
   "Meta": {
     "siteName": "ORYEN",
-    "defaultDescription": "Direction before action. ORYEN toont waar sales, marketing en opvolging resultaat verliezen."
+    "defaultDescription": "ORYEN is een strategische doorlichting voor Vlaamse B2B-bedrijven die voelen dat er veel gebeurt, maar dat het resultaat achterblijft. Direction before action."
   },
   "Global": {
     "header": {
@@ -26,6 +26,10 @@
     "team": "Team"
   },
   "Home": {
+    "meta": {
+      "title": "ORYEN — Direction before action",
+      "description": "ORYEN is een strategische doorlichting voor Vlaamse B2B-bedrijven die voelen dat er veel gebeurt, maar dat het resultaat achterblijft. ORYEN bepaalt eerst waar het commercieel vastloopt — en pas daarna wat eerst moet gebeuren."
+    },
     "hero": {
       "titleLine1": "ORYEN toont waar sales, marketing en opvolging resultaat verliezen.",
       "titleLine2": "",
@@ -38,6 +42,7 @@
     "diagnosis": {
       "spine": "01 — Diagnose",
       "headlineEm": "Niet elk probleem\nvraagt meer marketing.",
+      "entityIntro": "ORYEN is een strategische doorlichting voor Vlaamse B2B-bedrijven die voelen dat er veel gebeurt, maar dat het resultaat achterblijft. ORYEN bepaalt eerst waar het commercieel vastloopt — en pas daarna wat eerst moet gebeuren.",
       "p1": "Soms zit het in sales. In opvolging. In de propositie. In tools, mensen of interne afstemming. Soms in een keuze die te vroeg werd gemaakt.\n\nToch gebeurt vaak hetzelfde: een bureau erbij, een nieuwe tool, een extra campagne, meer budget.\n\nTerwijl de echte oorzaak nog niet scherp benoemd is.\n\nORYEN kijkt niet alleen naar wat er gebeurt — maar naar wat eronder zit.",
       "focus": ""
     },
@@ -206,6 +211,7 @@
       "eyebrow": "Reality Check",
       "headlineLine1": "De Reality Check.",
       "headlineLine2Em": "Een scherp eerste beslismoment.",
+      "definitionIntro": "Een Reality Check is een betaalde doorlichting waarin ORYEN blootlegt waar sales, marketing en opvolging vandaag resultaat verliezen, welke ingreep eerst verschil maakt, en wat u beter nog niet doet. Geen audit, geen brainstorm, geen verkoopgesprek. Eén afgebakend beslismoment, rechtstreeks met Christophe.",
       "sub": "Niet nog een vrijblijvende kennismaking. Niet nog een offerte voor uitvoering. Wel een afgebakend traject dat zichtbaar maakt waar sales, marketing en opvolging resultaat verliezen — en welke ingreep nu echt verschil maakt.\n\nDezelfde aanpak die de basis legde voor cases zoals Hof van Cleve, Willems Veranda en Concordia Textiles.",
       "characterLines": [],
       "primaryCta": "Plan een Reality Check-gesprek met Christophe",
@@ -295,6 +301,31 @@
       "footnote": "",
       "secondaryCta": "",
       "secondaryCtaHref": ""
+    },
+    "faq": {
+      "eyebrow": "Veelgestelde vragen",
+      "items": [
+        {
+          "question": "Wat is het verschil tussen ORYEN en een marketingbureau?",
+          "answer": "Een bureau begint met uitvoering: campagnes, content, een website, advertenties. ORYEN begint met de oorzaak. Eerst bepalen waar het commercieel vastloopt en wat eerst moet, pas daarna beslissen of er überhaupt iets uitgevoerd moet worden — en door wie."
+        },
+        {
+          "question": "Loont het om eerst een doorlichting te doen vóór je investeert?",
+          "answer": "Meestal wel. De duurste fout is geld steken in een nieuwe campagne, tool of medewerker terwijl de echte blokkade ergens anders zit. Een Reality Check brengt die volgorde in beeld vóór u opnieuw tijd, geld of mensen inzet."
+        },
+        {
+          "question": "Voor welke bedrijven is een Reality Check zinvol?",
+          "answer": "Voor B2B-bedrijven die al investeren en bewegen, maar voelen dat het resultaat niet in verhouding staat tot de inspanning. Niet voor wie vooral snelle uitvoering zoekt of bevestiging wil van een beslissing die al genomen is."
+        },
+        {
+          "question": "Wat krijg ik concreet na een Reality Check?",
+          "answer": "Een helder beeld van waar het vastloopt, een eerste besliskader met prioriteiten, en een koerslijn van 90 dagen — inclusief een stoplijst van wat u beter nog niet doet."
+        },
+        {
+          "question": "Wat kost een Reality Check?",
+          "answer": "Een Reality Check start vanaf enkele duizenden euro's, afhankelijk van omvang, aantal stakeholders en de complexiteit van uw systemen. U weet de exacte prijs na een kort eerste contact, waarin we eerst nagaan of een Reality Check voor u zinvol is."
+        }
+      ]
     }
   },
   "Contact": {

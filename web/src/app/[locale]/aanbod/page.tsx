@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import { AanbodPageView } from '@/components/aanbod/aanbod-page-view';
+import { FaqJsonLd } from '@/components/faq/faq-json-ld';
 import { AanpakHeroEffects } from '@/components/premium/premium-page-effects';
 import {
   alternatesForPath,
@@ -37,8 +38,13 @@ export default async function AanbodPage({ params }: Props) {
   const { locale } = await params;
   const content = await getCachedAanbod(locale);
 
+  const faqItems = content.faq?.items ?? [];
+
   return (
     <>
+      {faqItems.length > 0 ? (
+        <FaqJsonLd items={faqItems} scriptId={`faq-json-ld-${locale}`} />
+      ) : null}
       <AanpakHeroEffects />
       <AanbodPageView content={content} locale={locale} />
     </>

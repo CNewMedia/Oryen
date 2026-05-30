@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 
+import { FaqSection } from '@/components/faq/faq-section';
 import { PrimaryRcCtaLabel } from '@/components/shell/reality-check-cta-label';
 import { Link } from '@/i18n/navigation';
 
@@ -156,7 +157,14 @@ export function AanbodPageView({ content, locale }: Props) {
                     <RichBrLines text={h.headlineLine2Em} />
                   </em>
                 </h1>
-                <p className="rc-tpl-hero-sub reveal delay-2">
+                {h.definitionIntro?.trim() ? (
+                  <p className="rc-tpl-hero-definition reveal delay-2">
+                    <RichBrLines text={h.definitionIntro} />
+                  </p>
+                ) : null}
+                <p
+                  className={`rc-tpl-hero-sub reveal${h.definitionIntro?.trim() ? ' delay-3' : ' delay-2'}`}
+                >
                   <RichBrLines text={h.sub} />
                 </p>
                 <div className="rc-tpl-hero-character reveal delay-3">
@@ -424,6 +432,8 @@ export function AanbodPageView({ content, locale }: Props) {
           </div>
         </div>
       </section>
+
+      {c.faq?.items.length ? <FaqSection faq={c.faq} /> : null}
     </div>
   );
 }

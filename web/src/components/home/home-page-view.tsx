@@ -151,6 +151,11 @@ export function HomePageView({
             <DiagLine className="diag-line reveal delay-1" />
             <div className="stelling-grid">
               <div className="reveal delay-2">
+                {t.diagnosis.entityIntro?.trim() ? (
+                  <p className="stelling-p">
+                    <RichBrLines text={t.diagnosis.entityIntro} />
+                  </p>
+                ) : null}
                 <p className="stelling-p">
                   <RichBrLines text={t.diagnosis.p1} />
                 </p>
