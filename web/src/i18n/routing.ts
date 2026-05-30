@@ -1,5 +1,7 @@
 import { defineRouting } from 'next-intl/routing';
 
+import { getSiteUrl } from '@/lib/site-url';
+
 export const locales = ['nl', 'en'] as const;
 export type Locale = (typeof locales)[number];
 
@@ -30,8 +32,6 @@ export const routing = defineRouting({
   pathnames: localizedPathnames,
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://oryen.be';
-
 /** Localized path segment for a locale (leading slash, no locale prefix). */
 export function getLocalizedPathname(locale: string, href: PathnameHref): string {
   const def = localizedPathnames[href];
@@ -41,7 +41,7 @@ export function getLocalizedPathname(locale: string, href: PathnameHref): string
 
 /** Full absolute canonical URL for SEO `alternates.canonical`. */
 export function absoluteCanonicalUrl(locale: string, href: PathnameHref): string {
-  const base = SITE_URL.replace(/\/$/, '');
+  const base = getSiteUrl().replace(/\/$/, '');
   const seg = getLocalizedPathname(locale, href);
   const path = seg === '/' ? '' : seg;
   return `${base}/${locale}${path}`;

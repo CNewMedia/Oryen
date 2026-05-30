@@ -9,7 +9,9 @@ import {
 import { loadCaseStudyList } from '@/lib/sanity/load-case-studies';
 import { loadInsightArticleList } from '@/lib/sanity/load-insights';
 
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://oryen.be').replace(/\/$/, '');
+import { getSiteUrl } from '@/lib/site-url';
+
+const SITE_URL = getSiteUrl().replace(/\/$/, '');
 
 /** Canonical public routes (homepage + static pages + overview pages).
  *  Deprecated / noindex routes (`/over-oryen`, `/bedankt`, `/reality-check`,

@@ -12,10 +12,9 @@ import { SiteFooter, type FooterNavItem } from '@/components/shell/site-footer';
 import { SiteHeader, type HeaderNavItem } from '@/components/shell/site-header';
 import { LocaleHtmlLang } from '@/components/system/locale-html-lang';
 import { defaultOgImageField } from '@/lib/metadata/defaults';
+import { getSiteUrl } from '@/lib/site-url';
 import { getCachedSiteSettings } from '@/lib/sanity/cached-loaders';
 import { locales } from '@/i18n/routing';
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://oryen.be';
 
 /**
  * CMS-backed routes: always revalidate so Studio publishes are not stuck behind a stale RSC cache.
@@ -36,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const settings = await getCachedSiteSettings(locale);
   const ogImages = defaultOgImageField();
   return {
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(getSiteUrl()),
     // String fallback only — no `title.template`; routes set the full string via `title.absolute`.
     title: settings.defaultMetaTitle,
     description: settings.defaultMetaDescription,

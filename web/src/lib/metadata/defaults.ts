@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import type { PathnameHref } from '@/i18n/routing';
 import { absoluteCanonicalUrl, getLocalizedPathname } from '@/i18n/routing';
 import { siteImages } from '@/lib/site-images';
+import { getSiteUrl } from '@/lib/site-url';
 
 /**
  * Strategy B (single rule): every page sets the full `<title>` string via `absolute`,
@@ -12,12 +13,17 @@ export function documentTitleAbsolute(fullTitle: string): Metadata['title'] {
   return { absolute: fullTitle };
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://oryen.be';
-
 /** Make OG `images[].url` absolute (Next expects absolute URLs for social cards). */
 export function absoluteOgImageUrl(url: string): string {
-  if (url.startsWith('http://') || url.startsWith('https://')) return url;
-  return `${SITE_URL.replace(/\/$/, '')}${url.startsWith('/') ? '' : '/'}${url}`;
+  const siteUrl = getSiteUrl().replace(/\/$/, '');
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    if (url.includes('vercel.app')) {
+      const path = url.replace(/^https?:\/\/[^/]+/, '') || '/';
+      return `${siteUrl}${path.startsWith('/') ? path : `/${path}`}`;
+    }
+    return url;
+  }
+  return `${siteUrl}${url.startsWith('/') ? '' : '/'}${url}`;
 }
 
 /**
@@ -31,7 +37,7 @@ export function defaultOgImageField(): NonNullable<Metadata['openGraph']>['image
     const url =
       raw.startsWith('http://') || raw.startsWith('https://')
         ? raw
-        : `${SITE_URL.replace(/\/$/, '')}${raw.startsWith('/') ? '' : '/'}${raw}`;
+        : `${getSiteUrl().replace(/\/$/, '')}${raw.startsWith('/') ? '' : '/'}${raw}`;
     return [{ url }];
   }
   return [{ url: absoluteOgImageUrl(siteImages.hero) }];
@@ -61,7 +67,7 @@ export function alternatesForPath(
 /** Canonical for dynamic routes (case/insight slug, tag filter). */
 /** Case study detail — `/cases` is the same segment for nl and en. */
 export function alternatesCaseDetail(locale: string, slug: string): Metadata['alternates'] {
-  const base = SITE_URL.replace(/\/$/, '');
+  const base = getSiteUrl().replace(/\/$/, '');
   const nl = `${base}/nl/cases/${slug}`;
   const en = `${base}/en/cases/${slug}`;
   return {
@@ -72,7 +78,7 @@ export function alternatesCaseDetail(locale: string, slug: string): Metadata['al
 
 /** Insight article — NL uses `/inzichten`, EN uses `/insights`. */
 export function alternatesInsightDetail(locale: string, slug: string): Metadata['alternates'] {
-  const base = SITE_URL.replace(/\/$/, '');
+  const base = getSiteUrl().replace(/\/$/, '');
   const nl = `${base}/nl${getLocalizedPathname('nl', '/insights')}/${slug}`;
   const en = `${base}/en${getLocalizedPathname('en', '/insights')}/${slug}`;
   return {
@@ -83,7 +89,7 @@ export function alternatesInsightDetail(locale: string, slug: string): Metadata[
 
 /** Insights tag filter. */
 export function alternatesInsightTag(locale: string, tag: string): Metadata['alternates'] {
-  const base = SITE_URL.replace(/\/$/, '');
+  const base = getSiteUrl().replace(/\/$/, '');
   const enc = encodeURIComponent(tag);
   const nl = `${base}/nl${getLocalizedPathname('nl', '/insights')}/tag/${enc}`;
   const en = `${base}/en${getLocalizedPathname('en', '/insights')}/tag/${enc}`;
