@@ -8,8 +8,8 @@ import {
   documentTitleAbsolute,
   ogImagesForPage,
 } from '@/lib/metadata/defaults';
+import { loadMergedInsightArticleList } from '@/lib/insights/merge-insight-lists';
 import {
-  getCachedInsightArticleList,
   getCachedInsightsOverview,
   getCachedSiteSettings,
 } from '@/lib/sanity/cached-loaders';
@@ -43,7 +43,7 @@ export default async function InsightsOverviewPage({ params }: Props) {
   const { locale } = await params;
   const [{ header }, articles, t] = await Promise.all([
     getCachedInsightsOverview(locale),
-    getCachedInsightArticleList(locale),
+    loadMergedInsightArticleList(locale),
     getTranslations({ locale, namespace: 'Insights' }),
   ]);
 

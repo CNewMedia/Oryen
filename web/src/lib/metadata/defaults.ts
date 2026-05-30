@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import type { PathnameHref } from '@/i18n/routing';
+import type { StaticPathnameHref } from '@/i18n/routing';
 import { absoluteCanonicalUrl, getLocalizedPathname } from '@/i18n/routing';
 import { siteImages } from '@/lib/site-images';
 import { getSiteUrl } from '@/lib/site-url';
@@ -53,7 +53,7 @@ export function ogImagesForPage(
 
 export function alternatesForPath(
   locale: string,
-  href: PathnameHref
+  href: StaticPathnameHref
 ): Metadata['alternates'] {
   return {
     canonical: absoluteCanonicalUrl(locale, href),

@@ -12,6 +12,11 @@ export const localizedPathnames = {
   '/aanpak': { nl: '/aanpak', en: '/approach' },
   '/cases': '/cases',
   '/insights': { nl: '/inzichten', en: '/insights' },
+  '/insights/[slug]': { nl: '/inzichten/[slug]', en: '/insights/[slug]' },
+  '/insights/tag/[tag]': {
+    nl: '/inzichten/tag/[tag]',
+    en: '/insights/tag/[tag]',
+  },
   '/over-oryen': { nl: '/over-oryen', en: '/about' },
   '/team': '/team',
   '/contact': '/contact',
@@ -23,6 +28,14 @@ export const localizedPathnames = {
 
 export type PathnameHref = keyof typeof localizedPathnames;
 
+const dynamicPathnames = ['/insights/[slug]', '/insights/tag/[tag]'] as const;
+
+/** Nav, sitemap static routes, and metadata — excludes dynamic pathname templates. */
+export type StaticPathnameHref = Exclude<
+  PathnameHref,
+  (typeof dynamicPathnames)[number]
+>;
+
 export const routing = defineRouting({
   locales,
   defaultLocale: 'nl',
@@ -33,14 +46,20 @@ export const routing = defineRouting({
 });
 
 /** Localized path segment for a locale (leading slash, no locale prefix). */
-export function getLocalizedPathname(locale: string, href: PathnameHref): string {
+export function getLocalizedPathname(
+  locale: string,
+  href: PathnameHref | StaticPathnameHref
+): string {
   const def = localizedPathnames[href];
   if (typeof def === 'string') return def;
   return locale === 'en' ? def.en : def.nl;
 }
 
 /** Full absolute canonical URL for SEO `alternates.canonical`. */
-export function absoluteCanonicalUrl(locale: string, href: PathnameHref): string {
+export function absoluteCanonicalUrl(
+  locale: string,
+  href: PathnameHref | StaticPathnameHref
+): string {
   const base = getSiteUrl().replace(/\/$/, '');
   const seg = getLocalizedPathname(locale, href);
   const path = seg === '/' ? '' : seg;

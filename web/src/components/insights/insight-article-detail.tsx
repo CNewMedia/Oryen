@@ -39,7 +39,10 @@ export function InsightArticleDetailView({ article }: Props) {
             <Link
               key={t}
               className="rounded-full border border-[var(--line)] px-3 py-1 text-xs text-[var(--ink3)] hover:border-[var(--ink3)]"
-              href={`/insights/tag/${encodeURIComponent(t)}` as never}
+              href={{
+                pathname: '/insights/tag/[tag]',
+                params: { tag: t },
+              }}
             >
               {t}
             </Link>

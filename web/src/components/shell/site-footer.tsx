@@ -1,9 +1,9 @@
 import { FooterCookiePreferences } from '@/components/shell/footer-cookie-preferences';
 import { FooterLanguageSwitch } from '@/components/shell/footer-language-switch';
 import { Link } from '@/i18n/navigation';
-import type { PathnameHref } from '@/i18n/routing';
+import type { StaticPathnameHref } from '@/i18n/routing';
 
-export type FooterNavItem = { label: string; href: PathnameHref };
+export type FooterNavItem = { label: string; href: StaticPathnameHref };
 
 type Props = {
   brandShort: string;

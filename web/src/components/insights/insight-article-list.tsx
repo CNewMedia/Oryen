@@ -40,7 +40,10 @@ export function InsightArticleList({ articles, emptyLabel }: Props) {
             <h2 className="stelling-hl mb-3 text-xl !leading-snug">
               <Link
                 className="hover:text-[var(--ink2)]"
-                href={`/insights/${a.slug}` as never}
+                href={{
+                  pathname: '/insights/[slug]',
+                  params: { slug: a.slug },
+                }}
               >
                 {a.title}
               </Link>
@@ -56,7 +59,10 @@ export function InsightArticleList({ articles, emptyLabel }: Props) {
                   <Link
                     key={t}
                     className="rounded-full border border-[var(--line)] px-3 py-1 text-xs text-[var(--ink3)] hover:border-[var(--ink3)]"
-                    href={`/insights/tag/${encodeURIComponent(t)}` as never}
+                    href={{
+                      pathname: '/insights/tag/[tag]',
+                      params: { tag: t },
+                    }}
                   >
                     {t}
                   </Link>

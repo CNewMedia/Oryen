@@ -1,8 +1,10 @@
 import {
   getLocalizedPathname,
   localizedPathnames,
-  type PathnameHref,
+  type StaticPathnameHref,
 } from '@/i18n/routing';
+
+const dynamicPathnames = new Set(['/insights/[slug]', '/insights/tag/[tag]']);
 
 /** Path from `usePathname()` (no locale prefix), normalized. */
 function normalizePath(pathname: string): string {
@@ -13,12 +15,13 @@ function normalizePath(pathname: string): string {
   return p;
 }
 
-export function pathnameToStaticHref(pathname: string): PathnameHref | null {
+export function pathnameToStaticHref(pathname: string): StaticPathnameHref | null {
   const p = normalizePath(pathname);
   if (p === '/') return '/';
 
   for (const [key, def] of Object.entries(localizedPathnames)) {
-    const href = key as PathnameHref;
+    if (dynamicPathnames.has(key)) continue;
+    const href = key as StaticPathnameHref;
     if (typeof def === 'string') {
       if (def === p) return href;
     } else {
@@ -28,7 +31,7 @@ export function pathnameToStaticHref(pathname: string): PathnameHref | null {
   return null;
 }
 
-function buildLocalizedUrl(locale: 'nl' | 'en', href: PathnameHref): string {
+function buildLocalizedUrl(locale: 'nl' | 'en', href: StaticPathnameHref): string {
   const seg = getLocalizedPathname(locale, href);
   return seg === '/' ? `/${locale}` : `/${locale}${seg}`;
 }

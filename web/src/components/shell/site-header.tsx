@@ -3,9 +3,9 @@
 import { useEffect, useState } from 'react';
 
 import { Link, usePathname } from '@/i18n/navigation';
-import { localizedPathnames, type PathnameHref } from '@/i18n/routing';
+import { localizedPathnames, type StaticPathnameHref } from '@/i18n/routing';
 
-export type HeaderNavItem = { label: string; href: PathnameHref };
+export type HeaderNavItem = { label: string; href: StaticPathnameHref };
 
 type Props = {
   brandWordmark: string;

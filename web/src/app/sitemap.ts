@@ -4,10 +4,10 @@ import {
   absoluteCanonicalUrl,
   getLocalizedPathname,
   locales,
-  type PathnameHref,
+  type StaticPathnameHref,
 } from '@/i18n/routing';
 import { loadCaseStudyList } from '@/lib/sanity/load-case-studies';
-import { loadInsightArticleList } from '@/lib/sanity/load-insights';
+import { loadMergedInsightArticleList } from '@/lib/insights/merge-insight-lists';
 
 import { getSiteUrl } from '@/lib/site-url';
 
@@ -16,7 +16,7 @@ const SITE_URL = getSiteUrl().replace(/\/$/, '');
 /** Canonical public routes (homepage + static pages + overview pages).
  *  Deprecated / noindex routes (`/over-oryen`, `/bedankt`, `/reality-check`,
  *  `/privacy`, `/cookies`, `/insights/tag/*`) are intentionally excluded. */
-const STATIC_ROUTES: PathnameHref[] = [
+const STATIC_ROUTES: StaticPathnameHref[] = [
   '/',
   '/aanpak',
   '/aanbod',
@@ -26,20 +26,22 @@ const STATIC_ROUTES: PathnameHref[] = [
   '/contact',
 ];
 
-function priorityFor(href: PathnameHref): number {
+function priorityFor(href: StaticPathnameHref): number {
   if (href === '/') return 1;
   if (href === '/aanbod') return 0.9;
   if (href === '/aanpak') return 0.8;
   return 0.7;
 }
 
-function changeFreqFor(href: PathnameHref): MetadataRoute.Sitemap[number]['changeFrequency'] {
+function changeFreqFor(
+  href: StaticPathnameHref
+): MetadataRoute.Sitemap[number]['changeFrequency'] {
   if (href === '/cases' || href === '/insights') return 'weekly';
   return 'monthly';
 }
 
 /** Shared `alternates.languages` map for a given canonical key. */
-function languagesFor(href: PathnameHref): Record<string, string> {
+function languagesFor(href: StaticPathnameHref): Record<string, string> {
   return Object.fromEntries(locales.map((l) => [l, absoluteCanonicalUrl(l, href)]));
 }
 
@@ -76,7 +78,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic: insight articles per locale.
   const insightLists = await Promise.all(
-    locales.map(async (locale) => ({ locale, list: await loadInsightArticleList(locale) }))
+    locales.map(async (locale) => ({
+      locale,
+      list: await loadMergedInsightArticleList(locale),
+    }))
   );
   const insightEntries: MetadataRoute.Sitemap = insightLists.flatMap(({ locale, list }) => {
     const base = getLocalizedPathname(locale, '/insights');
@@ -84,11 +89,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .filter((a) => a.slug)
       .map((a) => {
         const lastModified = a.publishedAt ? new Date(a.publishedAt) : now;
+        const isFileArticle = a._id.startsWith('file:');
         return {
           url: `${SITE_URL}/${locale}${base}/${a.slug}`,
           lastModified,
           changeFrequency: 'monthly' as const,
-          priority: 0.5,
+          priority: isFileArticle ? 0.7 : 0.5,
         };
       });
   });
