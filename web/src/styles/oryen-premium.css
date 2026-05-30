@@ -2797,6 +2797,65 @@ footer::before {
   text-decoration-color: var(--amber);
   gap: 12px;
 }
+
+.insight-inline-link {
+  color: var(--amber);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--amber-l);
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
+}
+
+.insight-inline-link:hover,
+.insight-inline-link:focus-visible {
+  color: #9a5010;
+  text-decoration-color: var(--amber);
+}
+
+.insight-article-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.insight-article-table {
+  width: 100%;
+  min-width: 32rem;
+  border-collapse: collapse;
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(0.95rem, 1vw, 1rem);
+  line-height: 1.55;
+}
+
+.insight-article-table th,
+.insight-article-table td {
+  border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  padding: 0.85rem 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.insight-article-table thead th {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ink) 65%, transparent);
+  background: color-mix(in srgb, var(--amber) 6%, var(--cream));
+}
+
+.insight-article-table tbody th {
+  font-weight: 500;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--cream) 92%, var(--ink) 8%);
+  width: 22%;
+}
+
+.insight-article-table tbody td {
+  color: var(--ink2);
+}
 .insight-article-page + .aeo-faq {
   margin-top: 0;
 }

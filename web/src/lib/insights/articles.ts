@@ -1,13 +1,22 @@
 import type { InsightListItem } from '@/types/insight';
 
+import { marketingbureauVersusDoorlichting } from '@/lib/insights/content/marketingbureau-versus-strategische-doorlichting';
+
 export type InsightArticleFaqItem = {
   question: string;
   answer: string;
 };
 
+export type InsightArticleTableRow = {
+  label: string;
+  bureau: string;
+  doorlichting: string;
+};
+
 export type InsightArticleSection =
   | { kind: 'h2'; heading: string; paragraphs: string[] }
-  | { kind: 'h3'; heading: string; paragraphs: string[] };
+  | { kind: 'h3'; heading: string; paragraphs: string[] }
+  | { kind: 'table'; heading: string; rows: InsightArticleTableRow[] };
 
 /** File-based insight article — add new entries to `INSIGHT_ARTICLES` only. */
 export type FileInsightArticle = {
@@ -48,7 +57,7 @@ const waaromMarketingSales: FileInsightArticle = {
       heading: 'Meer doen lost het zelden op',
       paragraphs: [
         'Er gebeurt in de meeste bedrijven al genoeg. Er wordt gecommuniceerd, opgevolgd, geïnvesteerd in tools en beslist. Toch blijft het gevoel: hier halen we niet uit wat erin zit.',
-        'De reflex is dan om iets toe te voegen. Een extra campagne. Een nieuwe website. Een CRM. Meer salesdruk. Een bureau erbij. Maar wie niet weet waar het precies vastloopt, voegt iets toe aan een systeem dat de bestaande lekken niet dicht. Het resultaat is meer beweging, niet meer resultaat.',
+        'De reflex is dan om iets toe te voegen. Een extra campagne. Een nieuwe website. Een CRM. Meer salesdruk. Een bureau erbij. Maar wie niet weet waar het precies vastloopt, voegt iets toe aan een systeem dat de bestaande lekken niet dicht. Het resultaat is meer beweging, niet meer resultaat. Twijfelt u of u een bureau of eerst een [strategische doorlichting](/inzichten/marketingbureau-versus-strategische-doorlichting) nodig hebt, begin daar.',
         'De juiste vraag is niet of er nog iets bij moet. De vraag is waar de commerciële werking vandaag kracht verliest.',
       ],
     },
@@ -178,7 +187,10 @@ const waaromMarketingSales: FileInsightArticle = {
 };
 
 /** All file-based articles — append new articles here. */
-export const INSIGHT_ARTICLES: FileInsightArticle[] = [waaromMarketingSales];
+export const INSIGHT_ARTICLES: FileInsightArticle[] = [
+  marketingbureauVersusDoorlichting,
+  waaromMarketingSales,
+];
 
 export function getFileInsightArticles(locale: string): FileInsightArticle[] {
   if (locale !== 'nl') return [];

@@ -1,3 +1,4 @@
+import { InlineLinkedText } from '@/lib/richtext/inline-linked-text';
 import type { AanbodFaq } from '@/types/aanbod';
 
 type Props = {
@@ -28,7 +29,12 @@ export function FaqSection({ faq }: Props) {
               >
                 <dt className="aeo-faq-question">{item.question}</dt>
                 <dd className="aeo-faq-answer">
-                  <p>{item.answer}</p>
+                  <p>
+                    <InlineLinkedText
+                      text={item.answer}
+                      linkClassName="insight-inline-link"
+                    />
+                  </p>
                 </dd>
               </div>
             ))}
