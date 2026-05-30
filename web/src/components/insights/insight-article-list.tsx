@@ -49,7 +49,7 @@ export function InsightArticleList({
 
         return (
           <li key={a._id} className="insights-list-item">
-            <article className="insights-list-article">
+            <article className="insights-list-card">
               {a.publishedAt || a.authorName ? (
                 <p className="insights-list-meta">
                   {a.publishedAt ? (
@@ -78,7 +78,10 @@ export function InsightArticleList({
                 <p className="insights-list-excerpt stelling-p">{excerpt}</p>
               ) : null}
               <Link className="insights-list-more" href={href}>
-                {readMoreLabel}
+                <span className="insights-list-more-text">{readMoreLabel}</span>
+                <span className="insights-list-more-arrow" aria-hidden="true">
+                  →
+                </span>
               </Link>
             </article>
           </li>
