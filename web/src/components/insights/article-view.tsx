@@ -51,7 +51,7 @@ export function ArticleView({ article }: Props) {
       </div>
 
       <p className="insight-article-cta-wrap">
-        <Link className="btn-primary" href={article.cta.href}>
+        <Link className="insight-article-cta" href={article.cta.href}>
           {article.cta.label}
         </Link>
       </p>

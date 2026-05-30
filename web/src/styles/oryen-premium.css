@@ -623,6 +623,7 @@ img { display: block; max-width: 100%; }
   text-decoration: none;
   padding: .95rem 2.6rem;
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   transition: gap .3s, color .4s;
   white-space: nowrap;
@@ -631,13 +632,18 @@ img { display: block; max-width: 100%; }
   content: '';
   position: absolute;
   inset: 0;
+  z-index: -1;
   background: var(--ink);
   transform: translateX(-101%);
   transition: transform .45s cubic-bezier(.4,0,.2,1);
 }
 .btn-primary:hover::before { transform: translateX(0); }
 .btn-primary:hover { color: var(--cream); gap: 18px; }
-.btn-primary span { position: relative; z-index: 1; }
+.btn-primary span,
+.btn-arrow {
+  position: relative;
+  z-index: 1;
+}
 .btn-arrow {
   position: relative;
   z-index: 1;
@@ -2730,6 +2736,66 @@ footer::before {
 .insight-article-cta-wrap {
   margin: 2.5rem 0 0;
   padding-top: 0.5rem;
+}
+
+/* Editorial CTA + in-body links — orange hover, no ink fill overlay */
+.insight-article-cta,
+.insight-article-body a {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(1rem, 1.08vw, 1.05rem);
+  font-weight: 400;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--amber-l);
+  background: none;
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
+}
+
+.insight-article-cta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-underline-offset: 4px;
+}
+
+.insight-article-cta:hover,
+.insight-article-cta:focus-visible,
+.insight-article-body a:hover,
+.insight-article-body a:focus-visible {
+  color: var(--amber);
+  text-decoration-color: var(--amber);
+  background: none;
+}
+
+.insight-article .btn-primary::before {
+  display: none;
+}
+
+.insight-article .btn-primary {
+  padding: 0;
+  background: none;
+  overflow: visible;
+  white-space: normal;
+  text-transform: none;
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(1rem, 1.08vw, 1.05rem);
+  letter-spacing: normal;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--amber-l);
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
+}
+
+.insight-article .btn-primary:hover {
+  color: var(--amber);
+  text-decoration-color: var(--amber);
+  gap: 12px;
 }
 .insight-article-page + .aeo-faq {
   margin-top: 0;
