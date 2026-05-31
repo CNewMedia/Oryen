@@ -1,9 +1,6 @@
 import type { FileInsightArticle } from '@/lib/insights/articles';
 
-/**
- * Spoke 1 — bureau vs strategische doorlichting.
- * Verify body copy against the approved Deel 1 manuscript before major edits.
- */
+/** Spoke 1 — bureau vs strategische doorlichting (goedgekeurde Deel 1-tekst). */
 export const marketingbureauVersusDoorlichting: FileInsightArticle = {
   slug: 'marketingbureau-versus-strategische-doorlichting',
   locale: 'nl',
@@ -16,30 +13,22 @@ export const marketingbureauVersusDoorlichting: FileInsightArticle = {
   publishedDate: '2026-05-31',
   modifiedDate: '2026-05-31',
   lead:
-    'Een marketingbureau en een strategische doorlichting worden vaak in één adem genoemd, maar ze beginnen op een ander punt. Een bureau voert uit wat u vraagt: campagnes, content, een website, advertenties, branding. Een strategische doorlichting zoekt eerst de oorzaak — waar uw commerciële werking vandaag kracht verliest, in welke volgorde u iets moet aanpassen, en wat u beter nog niet doet. Pas wanneer die volgorde helder is, is extra uitvoering zinvol — en weet u of een bureau, een intern team of geen nieuwe investering de volgende stap is.',
+    'Een marketingbureau begint bij uitvoering: het maakt en runt campagnes, content, websites en advertenties om meer zichtbaarheid en leads te halen. Een strategische doorlichting begint een stap eerder, bij de oorzaak: ze onderzoekt waar sales, marketing en opvolging vandaag resultaat verliezen en wat eerst moet worden aangepakt — vóór er nieuw budget naar uitvoering gaat. Het bureau lost op door te doen. De doorlichting bepaalt eerst óf, wat en in welke volgorde er iets moet gebeuren.',
   sections: [
     {
-      kind: 'h2',
-      heading: 'Waarom het verschil ertoe doet',
+      kind: 'h3',
+      heading: 'Het bureau start bij de oplossing',
       paragraphs: [
-        'Veel bedrijven merken dat er al genoeg gebeurt — en toch blijft het resultaat achter. De reflex is dan: een bureau erbij, een nieuwe campagne, een tool, meer budget. Dat kan werken als de commerciële logica klopt. Als die niet klopt, versterkt u vooral de bestaande lekken.',
-        'Daarom is het nuttig om scherp te zien wat u vandaag eigenlijk nodig hebt: uitvoering, of eerst inzicht in waar het vastloopt. Dat onderscheid bepaalt of uw volgende euro verschil maakt of vooral beweging toevoegt.',
+        'Een marketingbureau is gebouwd om uit te voeren. Je komt er met een vraag — meer leads, een nieuwe website, een campagne — en het bureau levert dat. Dat is nuttig wanneer je al weet wat je nodig hebt.',
+        'Het risico zit in het vertrekpunt. Een bureau veronderstelt meestal dat het antwoord in marketing ligt, want dat is wat het verkoopt. De vraag "is meer marketing hier eigenlijk wel de juiste zet?" wordt zelden eerst gesteld. Zo komt budget terecht op de uitvoering van een oplossing waarvan nog niet vaststaat dat ze het echte probleem raakt.',
       ],
     },
     {
-      kind: 'h2',
-      heading: 'Wat een marketingbureau typisch doet',
+      kind: 'h3',
+      heading: 'De doorlichting start bij de oorzaak',
       paragraphs: [
-        'Een marketingbureau start vanuit een opdracht: meer zichtbaarheid, betere content, een nieuwe site, campagnes, social, branding. Het levert expertise en capaciteit om dat uit te voeren — vaak snel en professioneel.',
-        'Sterke bureaus denken mee over aanpak, doelgroep en kanalen. Maar de scope blijft meestal binnen marketing en communicatie. De vraag “waar verliest het geheel vandaag commercieel kracht — en wat moet eerst?” staat zelden centraal vóór de uitvoering begint.',
-      ],
-    },
-    {
-      kind: 'h2',
-      heading: 'Wat een strategische doorlichting doet',
-      paragraphs: [
-        'Een strategische doorlichting start vanuit de werking: aanbod, positionering, marketing, sales, opvolging, tools en prioriteit. Niet “wat zouden we nog kunnen doen?”, maar “waar zit de breuk — en wat eerst?”',
-        'Het resultaat is geen campagneplan of designbrief, maar een besliskader: waar het vastloopt, welke ingreep eerst verschil maakt, en wat u bewust nog niet doet. Uitvoering komt daarna — als die überhaupt nodig is.',
+        'Een strategische doorlichting draait de volgorde om. Ze begint niet met wat er gemaakt moet worden, maar met de vraag waar het commercieel vastloopt. Soms ligt dat bij marketing. Vaak ergens anders: in de positionering, de opvolging, de afstemming tussen sales en marketing, de tools of een keuze die te vroeg gemaakt werd.',
+        'Pas als die oorzaak scherp is, volgt de beslissing over wat eerst moet — en wat beter nog wacht. Daardoor kan een doorlichting net zo goed concluderen dat je géén nieuwe campagne nodig hebt, maar eerst iets intern moet rechtzetten. Een bureau dat van campagnes leeft, komt zelden tot die conclusie.',
       ],
     },
     {
@@ -47,60 +36,42 @@ export const marketingbureauVersusDoorlichting: FileInsightArticle = {
       heading: 'Het verschil in één tabel',
       rows: [
         {
-          label: 'Startpunt',
-          bureau:
-            'U vraagt uitvoering: campagne, site, content, ads, branding.',
-          doorlichting:
-            'U zoekt eerst waar commercieel resultaat vandaag weglekt.',
+          label: 'Vertrekpunt',
+          bureau: 'de oplossing (uitvoering)',
+          doorlichting: 'de oorzaak (diagnose)',
         },
         {
-          label: 'Vraag',
-          bureau: '“Hoe doen we dit goed?”',
-          doorlichting: '“Wat moet eerst — en wat niet?”',
+          label: 'Eerste vraag',
+          bureau: 'wat gaan we maken?',
+          doorlichting: 'waar verliest het resultaat kracht?',
         },
         {
-          label: 'Output',
-          bureau: 'Plannen, assets, campagnes, rapporten per kanaal.',
+          label: 'Uitkomst',
+          bureau: 'campagnes, content, website, leads',
           doorlichting:
-            'Oorzaak, volgorde, prioriteit en een stoplijst vóór investering.',
+            'een helder beeld van de breuk, prioriteiten en volgorde',
+        },
+        {
+          label: 'Belang',
+          bureau: 'meer doen',
+          doorlichting:
+            'het juiste eerst doen — en weten wat je beter laat',
         },
         {
           label: 'Wanneer zinvol',
-          bureau:
-            'Als de richting grotendeels klopt en u vooral capaciteit of vakkennis zoekt.',
+          bureau: 'als je weet wat je nodig hebt',
           doorlichting:
-            'Als veel gebeurt maar resultaat achterblijft en de oorzaak diffuus voelt.',
-        },
-        {
-          label: 'Risico zonder voorafgaande scherpte',
-          bureau:
-            'Mooiere marketing op een zwakke commerciële flow.',
-          doorlichting:
-            'Geen uitvoering — tenzij u daarna zelf of met partners uitvoert.',
+            'als je veel doet maar te weinig resultaat ziet',
         },
       ],
     },
     {
-      kind: 'h2',
-      heading: 'Wanneer heb je een bureau nodig?',
+      kind: 'h3',
+      heading: 'Welke heb je wanneer nodig?',
       paragraphs: [
-        'Een bureau past wanneer u weet wat u wilt bereiken, de doelgroep en propositie grotendeels kloppen, en vooral uitvoering of schaal zoekt. Denk aan een campagne die u intern niet aankan, een site die professioneel moet worden uitgewerkt, of content met vaste cadans.',
-      ],
-    },
-    {
-      kind: 'h2',
-      heading: 'Wanneer is een doorlichting eerst zinvol?',
-      paragraphs: [
-        'Een doorlichting past wanneer u al investeert maar niet uit de moeite haalt wat u ervan verwacht — of wanneer sales, marketing en opvolging niet op één lijn zitten. Ook wanneer u twijfelt of de volgende investering (tool, hire, campagne) de echte blokkade raakt.',
-        'Wie eerst wil begrijpen [waar marketing en sales niet renderen](/inzichten/waarom-marketing-sales-niet-rendeert), voorkomt dat een bureau de symptomen aanpakt terwijl de oorzaak blijft liggen.',
-      ],
-    },
-    {
-      kind: 'h2',
-      heading: 'Hoe ORYEN in die volgorde past',
-      paragraphs: [
-        'ORYEN is geen marketingbureau en geen uitvoeringsfabriek. ORYEN is een strategische doorlichting: een Reality Check die blootlegt waar sales, marketing en opvolging resultaat verliezen — en welke stap nu echt telt.',
-        'Wilt u weten hoe zo’n doorlichting concreet verloopt en wat u erna in handen heeft? Lees de [Reality Check-pagina](/aanbod). Daarna beslist u bewust of uitvoering — intern, via een bureau of helemaal niet — de logische volgende stap is.',
+        'De twee sluiten elkaar niet uit, maar de volgorde telt. Een doorlichting is zinvol wanneer je het gevoel hebt dat er al genoeg gebeurt, maar dat [het resultaat niet in verhouding staat tot de inspanning](/inzichten/waarom-marketing-sales-niet-rendeert) — of wanneer je op het punt staat opnieuw te investeren in een tool, campagne of medewerker zonder zeker te zijn dat dat de juiste zet is.',
+        'Een bureau is zinvol wanneer de richting al vaststaat en het werk vooral om goede uitvoering draait. De fout die geld kost, is uitvoering inschakelen vóór de oorzaak scherp is. Dan betaal je voor beweging in plaats van resultaat.',
+        'Dat is waarom ORYEN met een [Reality Check](/aanbod) begint en niet met een offerte voor uitvoering: eerst weten waar het vastloopt, dan pas kiezen wat nodig is — en door wie.',
       ],
     },
   ],
@@ -112,19 +83,19 @@ export const marketingbureauVersusDoorlichting: FileInsightArticle = {
     heading: 'Veelgestelde vragen',
     items: [
       {
-        question: 'Kan een bureau ook strategisch meedenken?',
+        question: 'Is een strategische doorlichting niet gewoon een dure intake?',
         answer:
-          'Ja — veel bureaus denken mee over positionering en kanalen. Maar hun economisch model en scope blijven meestal uitvoeringsgericht. Een doorlichting is geen campagne-review: die kijkt naar de hele commerciële werking en naar wat u beter nog niet doet.',
+          'Nee. Een intake dient om een opdracht te verkopen. Een doorlichting kan net concluderen dat je beter níéts uitvoert vóór een onderliggend probleem is opgelost. Het is een beslismoment, geen verkoopstap.',
       },
       {
-        question: 'Is een strategische doorlichting hetzelfde als een audit?',
+        question: 'Kan een marketingbureau die diagnose niet zelf doen?',
         answer:
-          'Nee. Een audit somt vaak op wat er is: processen, tools, rapporten. Een doorlichting benoemt waar het vastloopt, in welke volgorde u ingrijpt, en wat u bewust laat liggen. Minder inventaris, meer beslissing.',
+          'Soms wel, maar er zit een belangenconflict in: een partij die van uitvoering leeft, heeft er baat bij dat het antwoord uitvoering is. Een doorlichting is waardevol juist omdat ze ook "nu niet doen" als uitkomst kan hebben.',
       },
       {
-        question: 'Moet ik mijn bureau stopzetten voor een doorlichting?',
+        question: 'Wat als de doorlichting toch uitwijst dat ik marketing nodig heb?',
         answer:
-          'Niet per se. Een doorlichting helpt u bepalen of het bureau op het juiste probleem werkt — of dat eerst iets anders moet. Soms versterkt u daarna het bureau met scherpere opdracht; soms pauzeert u uitvoering tot de volgorde klopt.',
+          'Dan weet je dat met zekerheid, en bovendien wélke marketing en in welke volgorde. Je investeert dan gericht in plaats van op een vermoeden. De diagnose maakt de uitvoering die erna komt effectiever.',
       },
     ],
   },
