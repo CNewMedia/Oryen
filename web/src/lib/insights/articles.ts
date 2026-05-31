@@ -31,7 +31,9 @@ export type FileInsightArticle = {
   lead: string;
   excerpt?: string;
   sections: InsightArticleSection[];
-  cta: { label: string; href: '/contact' };
+  /** Optional pull quote rendered after the first section (hub only). */
+  pullQuote?: string;
+  cta: { label: string };
   faq: {
     heading: string;
     items: InsightArticleFaqItem[];
@@ -58,7 +60,6 @@ const waaromMarketingSales: FileInsightArticle = {
       paragraphs: [
         'Er gebeurt in de meeste bedrijven al genoeg. Er wordt gecommuniceerd, opgevolgd, geïnvesteerd in tools en beslist. Toch blijft het gevoel: hier halen we niet uit wat erin zit.',
         'De reflex is dan om iets toe te voegen. Een extra campagne. Een nieuwe website. Een CRM. Meer salesdruk. Een bureau erbij. Maar wie niet weet waar het precies vastloopt, voegt iets toe aan een systeem dat de bestaande lekken niet dicht. Het resultaat is meer beweging, niet meer resultaat. Twijfelt u of u een bureau of eerst een [strategische doorlichting](/inzichten/marketingbureau-versus-strategische-doorlichting) nodig hebt, begin daar.',
-        'De juiste vraag is niet of er nog iets bij moet. De vraag is waar de commerciële werking vandaag kracht verliest.',
       ],
     },
     {
@@ -154,9 +155,10 @@ const waaromMarketingSales: FileInsightArticle = {
       ],
     },
   ],
+  pullQuote:
+    'De juiste vraag is niet of er nog iets bij moet. De vraag is waar de commerciële werking vandaag kracht verliest.',
   cta: {
     label: 'Plan een Reality Check-gesprek met Christophe',
-    href: '/contact',
   },
   faq: {
     heading: 'Veelgestelde vragen',

@@ -1,9 +1,11 @@
-import { Link } from '@/i18n/navigation';
 import { InlineLinkedText } from '@/lib/richtext/inline-linked-text';
+import { PullQuote } from '@/components/insights/pull-quote';
+import { RealityCheckCTA } from '@/components/insights/reality-check-cta';
 import type { FileInsightArticle, InsightArticleSection } from '@/lib/insights/articles';
 
 type Props = {
   article: FileInsightArticle;
+  locale: string;
 };
 
 function renderParagraph(text: string, key: string) {
@@ -60,9 +62,9 @@ function renderSection(section: InsightArticleSection) {
   );
 }
 
-export function ArticleView({ article }: Props) {
+export function ArticleView({ article, locale }: Props) {
   const publishedLabel = new Date(article.publishedDate).toLocaleDateString(
-    'nl-BE',
+    locale === 'nl' ? 'nl-BE' : 'en-GB',
     { year: 'numeric', month: 'long', day: 'numeric' }
   );
 
@@ -79,14 +81,17 @@ export function ArticleView({ article }: Props) {
       </header>
 
       <div className="insight-article-body">
-        {article.sections.map((section) => renderSection(section))}
+        {article.sections.map((section, index) => (
+          <div key={`${section.kind}-${section.heading}`}>
+            {renderSection(section)}
+            {index === 0 && article.pullQuote ? (
+              <PullQuote>{article.pullQuote}</PullQuote>
+            ) : null}
+          </div>
+        ))}
       </div>
 
-      <p className="insight-article-cta-wrap">
-        <Link className="insight-article-cta" href={article.cta.href}>
-          {article.cta.label}
-        </Link>
-      </p>
+      <RealityCheckCTA locale={locale} label={article.cta.label} />
     </article>
   );
 }

@@ -88,7 +88,7 @@ export default async function InsightArticlePage({ params }: Props) {
               <span>INZICHTEN</span>
             </div>
             <div className="spine-content insight-article-page !pt-[clamp(4rem,8vh,6rem)]">
-              <ArticleView article={fileArticle} />
+              <ArticleView article={fileArticle} locale={locale} />
             </div>
           </div>
         </section>

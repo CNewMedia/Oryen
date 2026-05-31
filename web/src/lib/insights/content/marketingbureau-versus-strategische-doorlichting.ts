@@ -77,7 +77,6 @@ export const marketingbureauVersusDoorlichting: FileInsightArticle = {
   ],
   cta: {
     label: 'Plan een Reality Check-gesprek met Christophe',
-    href: '/contact',
   },
   faq: {
     heading: 'Veelgestelde vragen',
