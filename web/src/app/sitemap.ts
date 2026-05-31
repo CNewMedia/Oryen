@@ -14,8 +14,8 @@ import { getSiteUrl } from '@/lib/site-url';
 const SITE_URL = getSiteUrl().replace(/\/$/, '');
 
 /** Canonical public routes (homepage + static pages + overview pages).
- *  Deprecated / noindex routes (`/over-oryen`, `/bedankt`, `/reality-check`,
- *  `/privacy`, `/cookies`, `/insights/tag/*`) are intentionally excluded. */
+ *  Excluded: `/bedankt`, `/privacy`, `/cookies`, `/insights/tag/*`, and legacy
+ *  redirects (`/reality-check`, `/over-oryen`, `/about`) that 301 to canonical URLs. */
 const STATIC_ROUTES: StaticPathnameHref[] = [
   '/',
   '/aanpak',

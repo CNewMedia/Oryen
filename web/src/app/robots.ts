@@ -7,18 +7,17 @@ const SITE_URL = getSiteUrl();
 /**
  * Crawler policy for the ORYEN site.
  *
- * - Allow all public pages.
- * - Disallow Studio, internal API, Next runtime assets, deprecated redirects,
- *   insight tag facets (thin/duplicate), and the thank-you confirmation.
- * - Reference the sitemap so search engines discover localized routes and
- *   dynamic cases/insights.
+ * - Allow public pages (Reality Check lives on /aanbod|/offer; team on /team;
+ *   insights on /inzichten|/insights).
+ * - Block Studio, API, thank-you, and insight tag facets.
+ * - Disallow /_next but allow static chunks for rendering.
  */
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow: ['/', '/_next/static'],
         disallow: [
           '/studio',
           '/studio/',
@@ -27,9 +26,6 @@ export default function robots(): MetadataRoute.Robots {
           '/_next',
           '/*/bedankt',
           '/*/thank-you',
-          '/*/reality-check',
-          '/*/over-oryen',
-          '/*/about',
           '/*/insights/tag/',
           '/*/inzichten/tag/',
         ],

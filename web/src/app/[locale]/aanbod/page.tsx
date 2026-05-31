@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: documentTitleAbsolute(content.meta.title),
     description: content.meta.description,
+    robots: { index: true, follow: true },
     alternates: alternatesForPath(locale, '/aanbod'),
     openGraph: {
       title: content.meta.title,
