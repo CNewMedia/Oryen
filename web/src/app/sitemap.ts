@@ -21,7 +21,6 @@ const STATIC_ROUTES: StaticPathnameHref[] = [
   '/aanpak',
   '/aanbod',
   '/cases',
-  '/insights',
   '/team',
   '/contact',
 ];
@@ -59,6 +58,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       alternates: { languages },
     }));
   });
+
+  // Insights overview: NL only. /en/insights is noindex while there are no EN articles —
+  // revert to STATIC_ROUTES + locales.map when EN content is live.
+  const insightsOverviewEntries: MetadataRoute.Sitemap = [
+    {
+      url: absoluteCanonicalUrl('nl', '/insights'),
+      lastModified: now,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+      alternates: { languages: { nl: absoluteCanonicalUrl('nl', '/insights') } },
+    },
+  ];
 
   // Dynamic: case studies per locale.
   const caseLists = await Promise.all(
@@ -99,5 +110,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       });
   });
 
-  return [...staticEntries, ...caseEntries, ...insightEntries];
+  return [...staticEntries, ...insightsOverviewEntries, ...caseEntries, ...insightEntries];
 }

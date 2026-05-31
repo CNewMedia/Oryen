@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { InsightArticleList } from '@/components/insights/insight-article-list';
 import { InnerPage } from '@/components/ui/inner-page';
 import {
-  alternatesForPath,
+  alternatesInsightsOverview,
   documentTitleAbsolute,
   ogImagesForPage,
 } from '@/lib/metadata/defaults';
@@ -26,8 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: documentTitleAbsolute(seo.title),
     description: seo.description,
-    robots: { index: true, follow: true },
-    alternates: alternatesForPath(locale, '/insights'),
+    robots:
+      locale === 'en'
+        ? { index: false, follow: false }
+        : { index: true, follow: true },
+    alternates: alternatesInsightsOverview(locale),
     openGraph: {
       title: seo.ogTitle ?? seo.title,
       description: seo.ogDescription ?? seo.description,
