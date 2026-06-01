@@ -36,6 +36,7 @@ function buildArticleJsonLd(article: FileInsightArticle, locale: string) {
     },
     datePublished: article.publishedDate,
     dateModified: article.modifiedDate,
+    inLanguage: locale === 'en' ? 'en' : 'nl',
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': pageUrl,

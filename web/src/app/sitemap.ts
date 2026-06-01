@@ -7,6 +7,7 @@ import {
   type StaticPathnameHref,
 } from '@/i18n/routing';
 import { loadCaseStudyList } from '@/lib/sanity/load-case-studies';
+import { getInsightSlugPair } from '@/lib/insights/insight-slug-pairs';
 import { loadMergedInsightArticleList } from '@/lib/insights/merge-insight-lists';
 
 import { getSiteUrl } from '@/lib/site-url';
@@ -23,6 +24,7 @@ const STATIC_ROUTES: StaticPathnameHref[] = [
   '/cases',
   '/team',
   '/contact',
+  '/insights',
 ];
 
 function priorityFor(href: StaticPathnameHref): number {
@@ -59,18 +61,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
   });
 
-  // Insights overview: NL only. /en/insights is noindex while there are no EN articles —
-  // revert to STATIC_ROUTES + locales.map when EN content is live.
-  const insightsOverviewEntries: MetadataRoute.Sitemap = [
-    {
-      url: absoluteCanonicalUrl('nl', '/insights'),
-      lastModified: now,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-      alternates: { languages: { nl: absoluteCanonicalUrl('nl', '/insights') } },
-    },
-  ];
-
   // Dynamic: case studies per locale.
   const caseLists = await Promise.all(
     locales.map(async (locale) => ({ locale, list: await loadCaseStudyList(locale) }))
@@ -101,14 +91,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .map((a) => {
         const lastModified = a.publishedAt ? new Date(a.publishedAt) : now;
         const isFileArticle = a._id.startsWith('file:');
+        const pair =
+          isFileArticle && a.slug
+            ? getInsightSlugPair(locale, a.slug)
+            : null;
+        const languages = pair
+          ? {
+              nl: `${SITE_URL}/nl${getLocalizedPathname('nl', '/insights')}/${pair.nl}`,
+              en: `${SITE_URL}/en${getLocalizedPathname('en', '/insights')}/${pair.en}`,
+            }
+          : undefined;
         return {
           url: `${SITE_URL}/${locale}${base}/${a.slug}`,
           lastModified,
           changeFrequency: 'monthly' as const,
           priority: isFileArticle ? 0.7 : 0.5,
+          ...(languages ? { alternates: { languages } } : {}),
         };
       });
   });
 
-  return [...staticEntries, ...insightsOverviewEntries, ...caseEntries, ...insightEntries];
+  return [...staticEntries, ...caseEntries, ...insightEntries];
 }

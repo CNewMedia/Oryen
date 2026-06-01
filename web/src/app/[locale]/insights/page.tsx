@@ -26,10 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: documentTitleAbsolute(seo.title),
     description: seo.description,
-    robots:
-      locale === 'en'
-        ? { index: false, follow: false }
-        : { index: true, follow: true },
+    robots: { index: true, follow: true },
     alternates: alternatesInsightsOverview(locale),
     openGraph: {
       title: seo.ogTitle ?? seo.title,

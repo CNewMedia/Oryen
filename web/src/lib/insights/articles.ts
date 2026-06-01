@@ -1,6 +1,8 @@
 import type { InsightListItem } from '@/types/insight';
 
+import { marketingAgencyVersusStrategicDiagnosis } from '@/lib/insights/content/marketing-agency-versus-strategic-diagnosis';
 import { marketingbureauVersusDoorlichting } from '@/lib/insights/content/marketingbureau-versus-strategische-doorlichting';
+import { whyMarketingAndSalesDontDeliver } from '@/lib/insights/content/why-marketing-and-sales-dont-deliver';
 
 export type InsightArticleFaqItem = {
   question: string;
@@ -21,7 +23,7 @@ export type InsightArticleSection =
 /** File-based insight article — add new entries to `INSIGHT_ARTICLES` only. */
 export type FileInsightArticle = {
   slug: string;
-  locale: 'nl';
+  locale: 'nl' | 'en';
   title: string;
   metaTitle: string;
   metaDescription: string;
@@ -191,11 +193,12 @@ const waaromMarketingSales: FileInsightArticle = {
 /** All file-based articles — append new articles here. */
 export const INSIGHT_ARTICLES: FileInsightArticle[] = [
   marketingbureauVersusDoorlichting,
+  marketingAgencyVersusStrategicDiagnosis,
   waaromMarketingSales,
+  whyMarketingAndSalesDontDeliver,
 ];
 
 export function getFileInsightArticles(locale: string): FileInsightArticle[] {
-  if (locale !== 'nl') return [];
   return INSIGHT_ARTICLES.filter((a) => a.locale === locale);
 }
 

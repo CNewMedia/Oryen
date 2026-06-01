@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import type { StaticPathnameHref } from '@/i18n/routing';
 import { absoluteCanonicalUrl, getLocalizedPathname } from '@/i18n/routing';
+import { getInsightSlugPair } from '@/lib/insights/insight-slug-pairs';
 import { siteImages } from '@/lib/site-images';
 import { getSiteUrl } from '@/lib/site-url';
 
@@ -64,16 +65,9 @@ export function alternatesForPath(
   };
 }
 
-/**
- * Insights overview — no hreflang to /en/insights while EN hub is noindex (no articles).
- * Revert to `alternatesForPath` when EN insight articles go live.
- */
+/** Insights overview — nl ↔ en hub. */
 export function alternatesInsightsOverview(locale: string): Metadata['alternates'] {
-  const canonical = absoluteCanonicalUrl(locale, '/insights');
-  return {
-    canonical,
-    languages: { [locale]: canonical },
-  };
+  return alternatesForPath(locale, '/insights');
 }
 
 /** Canonical for dynamic routes (case/insight slug, tag filter). */
@@ -88,9 +82,19 @@ export function alternatesCaseDetail(locale: string, slug: string): Metadata['al
   };
 }
 
-/** Insight article — self-referencing hreflang only (no EN alternate until EN article exists). */
+/** Insight article — cross-locale hreflang for paired file articles. */
 export function alternatesInsightDetail(locale: string, slug: string): Metadata['alternates'] {
-  const canonical = `${getSiteUrl().replace(/\/$/, '')}/${locale}${getLocalizedPathname(locale, '/insights')}/${slug}`;
+  const base = getSiteUrl().replace(/\/$/, '');
+  const pair = getInsightSlugPair(locale, slug);
+  if (pair) {
+    const nl = `${base}/nl${getLocalizedPathname('nl', '/insights')}/${pair.nl}`;
+    const en = `${base}/en${getLocalizedPathname('en', '/insights')}/${pair.en}`;
+    return {
+      canonical: locale === 'en' ? en : nl,
+      languages: { nl, en },
+    };
+  }
+  const canonical = `${base}/${locale}${getLocalizedPathname(locale, '/insights')}/${slug}`;
   return {
     canonical,
     languages: { [locale]: canonical },

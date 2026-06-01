@@ -16,8 +16,12 @@ function renderParagraph(text: string, key: string) {
   );
 }
 
-function renderSection(section: InsightArticleSection) {
+function renderSection(section: InsightArticleSection, locale: string) {
   if (section.kind === 'table') {
+    const colAgency =
+      locale === 'en' ? 'Marketing agency' : 'Marketingbureau';
+    const colDiagnosis =
+      locale === 'en' ? 'Strategic diagnosis' : 'Strategische doorlichting';
     return (
       <section key={section.heading} className="insight-article-block">
         <h2 className="insight-article-h2">{section.heading}</h2>
@@ -26,8 +30,8 @@ function renderSection(section: InsightArticleSection) {
             <thead>
               <tr>
                 <th scope="col" />
-                <th scope="col">Marketingbureau</th>
-                <th scope="col">Strategische doorlichting</th>
+                <th scope="col">{colAgency}</th>
+                <th scope="col">{colDiagnosis}</th>
               </tr>
             </thead>
             <tbody>
@@ -83,7 +87,7 @@ export function ArticleView({ article, locale }: Props) {
       <div className="insight-article-body">
         {article.sections.map((section, index) => (
           <div key={`${section.kind}-${section.heading}`}>
-            {renderSection(section)}
+            {renderSection(section, locale)}
             {index === 0 && article.pullQuote ? (
               <PullQuote>{article.pullQuote}</PullQuote>
             ) : null}
