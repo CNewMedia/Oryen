@@ -55,11 +55,12 @@ html {
 [id] { scroll-margin-top: 90px; }
 body {
   font-family: 'Jost', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
+  font-size: var(--text-body);
+  line-height: var(--text-body-lh);
   background: #F2EFE8;
   color: #0F0E0B;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.7;
   overflow-x: hidden;
 }
 img { display: block; max-width: 100%; }
@@ -117,7 +118,7 @@ img { display: block; max-width: 100%; }
   --cream:   #F2EFE8;
   --ink:     #0F0E0B;
   --ink2:    #2A2720;
-  --ink3:    #706A62;
+  --ink3:    #5C564E;
   --amber:   #C47820;
   --amber-l: rgba(196,120,32,.45);
   --amber-s: rgba(196,120,32,.18);
@@ -137,6 +138,15 @@ img { display: block; max-width: 100%; }
   --oryen-serif-heading-cap-pad: 0.24em;
   /* Bump spine-column top padding on pine sections (aanpak + Reality Check templates) */
   --oryen-spine-dark-pad-extra: 0.65rem;
+
+  /* Readability floor (surgical pass — no redesign) */
+  --text-body: 1.0625rem;
+  --text-body-lh: 1.55;
+  --text-nav: 0.9375rem;
+  --text-label: 0.8125rem;
+  --text-on-dark: rgba(242, 239, 232, 0.92);
+  --text-on-dark-muted: rgba(242, 239, 232, 0.78);
+  --read-max: min(680px, 100%);
 }
 
 /* ==========================================================================
@@ -5022,8 +5032,8 @@ body::before {
 }
 .team-christophe-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: clamp(2rem, 5vw, 3.5rem);
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(2rem, 5vw, 3rem);
   align-items: start;
 }
 .team-christophe-photo {
@@ -5031,7 +5041,7 @@ body::before {
   overflow: hidden;
   border-radius: 2px;
   aspect-ratio: 4 / 5;
-  max-width: 520px;
+  max-width: 340px;
 }
 .team-christophe-photo img {
   width: 100%;
@@ -5040,13 +5050,14 @@ body::before {
   display: block;
 }
 .team-section-hl {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
-  font-weight: 400;
-  line-height: 1.15;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.28;
   letter-spacing: -0.01em;
   margin: 0 0 1.25rem;
   color: var(--ink);
+  overflow: visible;
 }
 .team-prose-section-inner,
 .team-network-inner {
@@ -5087,7 +5098,8 @@ body::before {
 }
 .team-network-photo {
   margin: 0 auto 0.85rem;
-  width: clamp(88px, 12vw, 140px);
+  width: 80px;
+  height: 80px;
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 50%;
@@ -6087,4 +6099,117 @@ body::before {
   .aanpak-who-grid { grid-template-columns: 1fr; }
   .aanpak-cta-row { gap: 1.25rem; }
   .aanpak-closing-actions { gap: 1.25rem; }
+}
+
+/* ==========================================================================
+   SURGICAL READABILITY FIX (post-revert — no redesign)
+   ========================================================================== */
+.nav-link {
+  font-size: var(--text-nav);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.nav-cta {
+  font-size: var(--text-nav);
+  font-weight: 600;
+}
+.stelling-p,
+.team-prose-p,
+.team-network-intro,
+.team-hero-lead,
+.team-closing-lead {
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--text-body-lh);
+}
+.spine-label-light span {
+  color: rgba(15, 14, 11, 0.72);
+  font-size: var(--text-label);
+  font-weight: 500;
+}
+.spine-label-dark span {
+  color: var(--text-on-dark-muted);
+  font-size: var(--text-label);
+  font-weight: 500;
+}
+.step-n {
+  font-size: var(--text-label);
+  font-weight: 600;
+  color: var(--text-on-dark-muted);
+}
+.step-q {
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--text-body-lh);
+  color: var(--text-on-dark-muted);
+  max-width: 24ch;
+}
+.offer-body,
+.offer-deliverables li,
+.offer-solutions-note {
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--text-body-lh);
+  color: var(--text-on-dark-muted);
+  max-width: var(--read-max);
+}
+.offer-deliverables li {
+  color: var(--text-on-dark);
+}
+
+/* Cases: equal story text; HvC photo unchanged */
+.s-bewijs .feat-hl,
+.s-bewijs .mini-subtitle {
+  font-family: 'Jost', sans-serif;
+  font-size: var(--text-body);
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--text-body-lh);
+  letter-spacing: 0;
+  color: var(--ink2);
+  margin-bottom: 0;
+}
+.s-bewijs .feat-hl {
+  margin-bottom: 0;
+}
+
+/* Reality Check page: normal prose width */
+.rc-tpl-page .spine-content {
+  min-width: 0;
+}
+.rc-tpl-p-body,
+.rc-tpl-s01-body,
+.rc-tpl-p-lead,
+.rc-tpl-hero-sub,
+.rc-tpl-hero-definition,
+.rc-tpl-s05-body,
+.rc-tpl-phase-body,
+.rc-tpl-output-desc,
+.rc-tpl-fit-list li,
+.rc-tpl-s04-intro {
+  max-width: var(--read-max);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--text-body-lh);
+}
+.rc-tpl-p-body--on-dark,
+.rc-tpl-phase-body {
+  color: var(--text-on-dark-muted);
+}
+.rc-tpl-s01-body {
+  font-family: 'Jost', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--ink2);
+}
+.rc-tpl-output-body {
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+}
+@media (max-width: 768px) {
+  .team-christophe-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-christophe-photo {
+    max-width: 280px;
+  }
 }

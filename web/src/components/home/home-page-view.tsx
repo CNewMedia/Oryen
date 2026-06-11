@@ -273,12 +273,9 @@ export function HomePageView({
           <div className="feat-body">
             <span className="feat-ghost">01</span>
             <div className="feat-client">{t.proof.featured.client}</div>
-            <h3
-              className="feat-hl"
-              dangerouslySetInnerHTML={{
-                __html: t.proof.featured.title.replace(/\n/g, '<br />'),
-              }}
-            />
+            <p className="mini-subtitle">
+              <RichBrLines text={t.proof.featured.title} />
+            </p>
             <div className="feat-dl">
               {t.proof.featured.line1 ? (
                 <div>
