@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 import { HomePageView } from '@/components/home/home-page-view';
+import { HomeHeroEffects } from '@/components/premium/premium-page-effects';
 import {
   alternatesForPath,
   documentTitleAbsolute,
@@ -37,13 +38,18 @@ export default async function HomePage({ params }: Props) {
     getCachedSiteSettings(locale),
     getTranslations({ locale, namespace: 'Nav' }),
   ]);
+  const contactEmail = settings.contactEmail ?? 'hello@oryen.be';
 
   return (
-    <HomePageView
-      home={homeData.content}
-      brandTagline={settings.headerTagline}
-      seeAllCasesLabel={tNav('seeAllCases')}
-      locale={locale}
-    />
+    <>
+      <HomeHeroEffects />
+      <HomePageView
+        home={homeData.content}
+        images={homeData.imageUrls}
+        contactEmail={contactEmail}
+        seeAllCasesLabel={tNav('seeAllCases')}
+        locale={locale}
+      />
+    </>
   );
 }

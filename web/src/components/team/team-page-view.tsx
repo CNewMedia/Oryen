@@ -10,23 +10,79 @@ type Props = { content: TeamContent; locale: string };
 
 const SOLUTIONS_URL = 'https://oryen.solutions';
 
+function TeamHeroScaffold() {
+  return (
+    <svg
+      className="team-hero-scaffold"
+      viewBox="0 0 800 600"
+      preserveAspectRatio="xMaxYMid slice"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <pattern id="team-hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path
+            d="M 40 0 L 0 0 0 40"
+            fill="none"
+            stroke="rgba(196,120,32,.18)"
+            strokeWidth="0.5"
+          />
+        </pattern>
+      </defs>
+      <rect width="800" height="600" fill="url(#team-hero-grid)" />
+      <line
+        x1="0"
+        y1="300"
+        x2="800"
+        y2="300"
+        stroke="rgba(196,120,32,.22)"
+        strokeWidth="0.8"
+      />
+      <line
+        x1="500"
+        y1="0"
+        x2="500"
+        y2="600"
+        stroke="rgba(196,120,32,.22)"
+        strokeWidth="0.8"
+      />
+      <circle cx="500" cy="300" r="4" fill="rgba(196,120,32,.55)" />
+      <circle
+        cx="500"
+        cy="300"
+        r="60"
+        fill="none"
+        stroke="rgba(196,120,32,.22)"
+        strokeWidth="0.6"
+      />
+      <circle
+        cx="500"
+        cy="300"
+        r="120"
+        fill="none"
+        stroke="rgba(196,120,32,.16)"
+        strokeWidth="0.6"
+      />
+    </svg>
+  );
+}
+
 function ParagraphWithSolutions({ text }: { text: string }) {
   if (!text.includes('ORYEN Solutions')) {
-    return <p className="os-body">{text}</p>;
+    return <p className="team-prose-p">{text}</p>;
   }
   const bits = text.split('ORYEN Solutions');
   return (
-    <p className="os-body">
+    <p className="team-prose-p">
       {bits.map((bit, i) => (
         <Fragment key={i}>
           {bit}
           {i < bits.length - 1 ? (
             <a
-              className="os-link"
+              className="team-solutions-link"
               href={SOLUTIONS_URL}
               rel="noopener noreferrer"
               target="_blank"
-              style={{ border: 'none', padding: 0 }}
             >
               ORYEN Solutions
             </a>
@@ -44,7 +100,7 @@ function ProseBody({ text, linkSolutions }: { text: string; linkSolutions?: bool
         linkSolutions ? (
           <ParagraphWithSolutions key={i} text={block} />
         ) : (
-          <p key={i} className="os-body">
+          <p key={i} className="team-prose-p">
             {block}
           </p>
         )
@@ -53,42 +109,67 @@ function ProseBody({ text, linkSolutions }: { text: string; linkSolutions?: bool
   );
 }
 
+function SectionBody({
+  body,
+  linkSolutions,
+}: {
+  body: string;
+  linkSolutions?: boolean;
+}) {
+  return <ProseBody text={body} linkSolutions={linkSolutions} />;
+}
+
 export function TeamPageView({ content: c, locale }: Props) {
   return (
-    <div className="os-page os-team-page">
-      <section className="os-section os-team-hero" aria-labelledby="team-hero-heading">
-        <div className="os-container">
-          <p className="os-eyebrow reveal">{c.hero.eyebrow}</p>
-          <h1 className="os-display reveal delay-1" id="team-hero-heading">
-            {c.hero.headlineLine1}
-            <span className="os-h2-em">{c.hero.headlineLine2Em}</span>
-          </h1>
-          <p className="os-body reveal delay-2" style={{ whiteSpace: 'pre-line' }}>
-            {c.hero.sub}
-          </p>
+    <div className="team-page">
+      <section className="team-hero-dark has-spine spine-dark" aria-labelledby="team-hero-heading">
+        <TeamHeroScaffold />
+        <div className="spine-grid">
+          <div className="spine-label spine-label-dark">
+            <span>{c.hero.eyebrow}</span>
+          </div>
+          <div className="spine-content team-hero-dark-inner">
+            <p className="team-hero-eyebrow-mono reveal">{c.hero.eyebrow}</p>
+            <h1 className="team-editorial-hl reveal delay-1" id="team-hero-heading">
+              {c.hero.headlineLine1}
+              <br />
+              <em>{c.hero.headlineLine2Em}</em>
+            </h1>
+            <p className="team-hero-lead reveal delay-2" style={{ whiteSpace: 'pre-line' }}>
+              {c.hero.sub}
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="os-christophe" aria-labelledby="team-christophe-heading">
-        <div className="os-container">
-          <div className="os-christophe-grid">
-            <figure className="os-christophe-photo reveal">
-              <Image
-                src={c.christophe.photo}
-                alt={c.christophe.alt}
-                width={1920}
-                height={1080}
-                quality={92}
-                sizes="(max-width: 768px) 92vw, 480px"
-                priority
-              />
-            </figure>
-            <div>
-              <h2 className="os-h2 reveal" id="team-christophe-heading">
-                {c.christophe.heading}
-              </h2>
-              <div className="reveal delay-1">
-                <ProseBody text={c.christophe.body} />
+      <section
+        className="team-christophe has-spine spine-light"
+        aria-labelledby="team-christophe-heading"
+      >
+        <div className="spine-grid">
+          <div className="spine-label spine-label-light">
+            <span>{c.christophe.spineLabel}</span>
+          </div>
+          <div className="spine-content team-christophe-inner">
+            <div className="team-christophe-grid">
+              <figure className="team-christophe-photo reveal">
+                <Image
+                  src={c.christophe.photo}
+                  alt={c.christophe.alt}
+                  width={1920}
+                  height={1080}
+                  quality={92}
+                  sizes="(max-width: 768px) 92vw, (max-width: 1100px) 46vw, 520px"
+                  priority
+                />
+              </figure>
+              <div className="team-christophe-copy">
+                <h2 className="team-section-hl reveal" id="team-christophe-heading">
+                  {c.christophe.heading}
+                </h2>
+                <div className="team-prose reveal delay-1">
+                  <ProseBody text={c.christophe.body} />
+                </div>
               </div>
             </div>
           </div>
@@ -98,66 +179,83 @@ export function TeamPageView({ content: c, locale }: Props) {
       {c.sections.map((section, i) => (
         <section
           key={section.heading}
-          className="os-team-section"
+          className="team-prose-section has-spine spine-light"
           aria-labelledby={`team-section-${i}`}
         >
-          <div className="os-container">
-            <h2 className="os-h2 reveal" id={`team-section-${i}`}>
-              {section.heading}
-            </h2>
-            <div className={`reveal delay-${Math.min(i + 1, 3)}`}>
-              <ProseBody text={section.body} linkSolutions={section.linkSolutions} />
+          <div className="spine-grid">
+            <div className="spine-label spine-label-light" aria-hidden="true">
+              <span />
+            </div>
+            <div className="spine-content team-prose-section-inner">
+              <h2 className="team-section-hl reveal" id={`team-section-${i}`}>
+                {section.heading}
+              </h2>
+              <div className={`team-prose reveal delay-${Math.min(i + 1, 3)}`}>
+                <SectionBody body={section.body} linkSolutions={section.linkSolutions} />
+              </div>
             </div>
           </div>
         </section>
       ))}
 
-      <section className="os-team-section" aria-labelledby="team-network-heading">
-        <div className="os-container">
-          <h2 className="os-h2 reveal" id="team-network-heading">
-            {c.network.heading}
-          </h2>
-          <p className="os-body reveal delay-1">{c.network.intro}</p>
-          <ul className="os-network-grid">
-            {c.network.members.map((m, i) => (
-              <li
-                key={m.slug}
-                className={`os-network-card reveal delay-${Math.min(i + 1, 3)}`}
-              >
-                <figure className="os-network-photo">
-                  <Image
-                    src={m.photo}
-                    alt={m.alt}
-                    width={800}
-                    height={800}
-                    quality={88}
-                    sizes="88px"
-                  />
-                </figure>
-                <p className="os-network-name">{m.name}</p>
-                <p className="os-network-role">{m.role}</p>
-              </li>
-            ))}
-          </ul>
+      <section
+        className="team-network has-spine spine-light"
+        aria-labelledby="team-network-heading"
+      >
+        <div className="spine-grid">
+          <div className="spine-label spine-label-light">
+            <span>{c.network.spineLabel}</span>
+          </div>
+          <div className="spine-content team-network-inner">
+            <h2 className="team-section-hl reveal" id="team-network-heading">
+              {c.network.heading}
+            </h2>
+            <p className="team-network-intro reveal delay-1">{c.network.intro}</p>
+            <ul className="team-network-grid">
+              {c.network.members.map((m, i) => (
+                <li
+                  key={m.slug}
+                  className={`team-network-card reveal delay-${Math.min(i + 1, 3)}`}
+                >
+                  <figure className="team-network-photo">
+                    <Image
+                      src={m.photo}
+                      alt={m.alt}
+                      width={800}
+                      height={800}
+                      quality={88}
+                      sizes="(max-width: 560px) 40vw, 140px"
+                    />
+                  </figure>
+                  <p className="team-network-name">{m.name}</p>
+                  <p className="team-network-role">{m.role}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section className="os-section os-section--forest os-team-closing">
-        <div className="os-container">
-          <p className="os-eyebrow reveal">{c.closing.spineLabel}</p>
-          <h2 className="os-h2 reveal delay-1">{c.closing.heading}</h2>
-          <p className="os-body reveal delay-2">{c.closing.body}</p>
-          <div className="os-actions reveal delay-3">
-            <Link
-              className="os-btn-primary btn-primary"
-              href={c.closing.primaryCtaHref as never}
-              locale={locale}
-            >
-              <span>
-                <PrimaryRcCtaLabel locale={locale} label={c.closing.primaryCta} />
-              </span>
-              <span className="btn-arrow" />
-            </Link>
+      <section className="team-closing-dark has-spine spine-dark">
+        <div className="spine-grid">
+          <div className="spine-label spine-label-dark">
+            <span>{c.closing.spineLabel}</span>
+          </div>
+          <div className="spine-content team-closing-dark-inner">
+            <h2 className="team-closing-head reveal">{c.closing.heading}</h2>
+            <p className="team-closing-lead reveal delay-1">{c.closing.body}</p>
+            <div className="team-closing-actions reveal delay-2">
+              <Link
+                className="btn-primary"
+                href={c.closing.primaryCtaHref as never}
+                locale={locale}
+              >
+                <span>
+                  <PrimaryRcCtaLabel locale={locale} label={c.closing.primaryCta} />
+                </span>
+                <span className="btn-arrow" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
