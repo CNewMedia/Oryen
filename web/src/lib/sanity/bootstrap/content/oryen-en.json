@@ -23,7 +23,7 @@
     "cta": "Reality Check",
     "openMenu": "Menu",
     "closeMenu": "Close",
-    "team": "Team"
+    "team": "About ORYEN"
   },
   "Home": {
     "meta": {
@@ -369,8 +369,8 @@
     },
     "insights": {
       "eyebrow": "Insights",
-      "title": "Think before acting.",
-      "intro": "Articles about commercial choices, marketing that doesn't pay off, sales follow-up, digital systems, and the question that must come before every investment: where does it really stall?"
+      "title": "Insights",
+      "intro": "Articles about commercial choices, marketing that doesn't pay off, sales follow-up, digital systems and the question that must come before every investment: where does it really stall?"
     },
     "about": {
       "eyebrow": "About ORYEN",

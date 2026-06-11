@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Fragment } from 'react';
 
 import { PrimaryRcCtaLabel } from '@/components/shell/reality-check-cta-label';
 import { Link } from '@/i18n/navigation';
@@ -6,6 +7,8 @@ import { Link } from '@/i18n/navigation';
 import type { TeamContent } from '@/types/team';
 
 type Props = { content: TeamContent; locale: string };
+
+const SOLUTIONS_URL = 'https://oryen.solutions';
 
 function TeamHeroScaffold() {
   return (
@@ -64,6 +67,58 @@ function TeamHeroScaffold() {
   );
 }
 
+function ParagraphWithSolutions({ text }: { text: string }) {
+  if (!text.includes('ORYEN Solutions')) {
+    return <p className="team-prose-p">{text}</p>;
+  }
+  const bits = text.split('ORYEN Solutions');
+  return (
+    <p className="team-prose-p">
+      {bits.map((bit, i) => (
+        <Fragment key={i}>
+          {bit}
+          {i < bits.length - 1 ? (
+            <a
+              className="team-solutions-link"
+              href={SOLUTIONS_URL}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              ORYEN Solutions
+            </a>
+          ) : null}
+        </Fragment>
+      ))}
+    </p>
+  );
+}
+
+function ProseBody({ text, linkSolutions }: { text: string; linkSolutions?: boolean }) {
+  return (
+    <>
+      {text.split(/\n\n+/).map((block, i) =>
+        linkSolutions ? (
+          <ParagraphWithSolutions key={i} text={block} />
+        ) : (
+          <p key={i} className="team-prose-p">
+            {block}
+          </p>
+        )
+      )}
+    </>
+  );
+}
+
+function SectionBody({
+  body,
+  linkSolutions,
+}: {
+  body: string;
+  linkSolutions?: boolean;
+}) {
+  return <ProseBody text={body} linkSolutions={linkSolutions} />;
+}
+
 export function TeamPageView({ content: c, locale }: Props) {
   return (
     <div className="team-page">
@@ -88,76 +143,95 @@ export function TeamPageView({ content: c, locale }: Props) {
       </section>
 
       <section
-        className="team-dark-grid has-spine spine-dark"
-        aria-labelledby="team-grid-heading"
+        className="team-christophe has-spine spine-light"
+        aria-labelledby="team-christophe-heading"
       >
         <div className="spine-grid">
-          <div className="spine-label spine-label-dark">
-            <span>{c.team.spineLabel}</span>
+          <div className="spine-label spine-label-light">
+            <span>{c.christophe.spineLabel}</span>
           </div>
-          <div className="spine-content team-dark-grid-inner">
-            <h2 className="team-grid-intro-hl reveal" id="team-grid-heading">
-              {c.team.intro}
-            </h2>
-            <div className="team-modules-grid">
-              {c.team.members.map((m, i) => (
-                <article
-                  key={m.slug}
-                  className={`team-module reveal delay-${Math.min(i + 1, 3)}${
-                    i === 0 ? ' team-module--principal' : ''
-                  }`}
-                >
-                  <figure className="team-module-photo">
-                    <Image
-                      src={m.photo}
-                      alt={m.alt}
-                      width={1920}
-                      height={1080}
-                      quality={92}
-                      sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, (max-width: 1100px) 32vw, 280px"
-                      priority={i < 2}
-                    />
-                  </figure>
-                  <p className="team-module-num">{m.num}</p>
-                  <h3 className="team-module-name">{m.name}</h3>
-                  <p className="team-module-role">{m.role}</p>
-                  <div className="team-module-divider" aria-hidden="true" />
-                  {m.italicLine ? (
-                    <div className="team-module-bio-stack">
-                      <p className="team-module-bio" style={{ whiteSpace: 'pre-line' }}>
-                        {m.body}
-                      </p>
-                      <p className="team-module-bio-quote">{m.italicLine}</p>
-                      {m.bodyAfter ? (
-                        <p className="team-module-bio" style={{ whiteSpace: 'pre-line' }}>
-                          {m.bodyAfter}
-                        </p>
-                      ) : null}
-                    </div>
-                  ) : (
-                    <p className="team-module-bio" style={{ whiteSpace: 'pre-line' }}>
-                      {m.body}
-                    </p>
-                  )}
-                </article>
-              ))}
+          <div className="spine-content team-christophe-inner">
+            <div className="team-christophe-grid">
+              <figure className="team-christophe-photo reveal">
+                <Image
+                  src={c.christophe.photo}
+                  alt={c.christophe.alt}
+                  width={1920}
+                  height={1080}
+                  quality={92}
+                  sizes="(max-width: 768px) 92vw, (max-width: 1100px) 46vw, 520px"
+                  priority
+                />
+              </figure>
+              <div className="team-christophe-copy">
+                <h2 className="team-section-hl reveal" id="team-christophe-heading">
+                  {c.christophe.heading}
+                </h2>
+                <div className="team-prose reveal delay-1">
+                  <ProseBody text={c.christophe.body} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="team-collab-strip has-spine spine-light">
+      {c.sections.map((section, i) => (
+        <section
+          key={section.heading}
+          className="team-prose-section has-spine spine-light"
+          aria-labelledby={`team-section-${i}`}
+        >
+          <div className="spine-grid">
+            <div className="spine-label spine-label-light" aria-hidden="true">
+              <span />
+            </div>
+            <div className="spine-content team-prose-section-inner">
+              <h2 className="team-section-hl reveal" id={`team-section-${i}`}>
+                {section.heading}
+              </h2>
+              <div className={`team-prose reveal delay-${Math.min(i + 1, 3)}`}>
+                <SectionBody body={section.body} linkSolutions={section.linkSolutions} />
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
+
+      <section
+        className="team-network has-spine spine-light"
+        aria-labelledby="team-network-heading"
+      >
         <div className="spine-grid">
           <div className="spine-label spine-label-light">
-            <span>{c.collaboration.spineLabel}</span>
+            <span>{c.network.spineLabel}</span>
           </div>
-          <div className="spine-content team-collab-strip-inner">
-            <h2 className="team-collab-head reveal">
-              {c.collaboration.headlineLine1}
-              <br />
-              <em>{c.collaboration.headlineLine2Em}</em>
+          <div className="spine-content team-network-inner">
+            <h2 className="team-section-hl reveal" id="team-network-heading">
+              {c.network.heading}
             </h2>
-            <p className="team-collab-body reveal delay-1">{c.collaboration.lead}</p>
+            <p className="team-network-intro reveal delay-1">{c.network.intro}</p>
+            <ul className="team-network-grid">
+              {c.network.members.map((m, i) => (
+                <li
+                  key={m.slug}
+                  className={`team-network-card reveal delay-${Math.min(i + 1, 3)}`}
+                >
+                  <figure className="team-network-photo">
+                    <Image
+                      src={m.photo}
+                      alt={m.alt}
+                      width={800}
+                      height={800}
+                      quality={88}
+                      sizes="(max-width: 560px) 40vw, 140px"
+                    />
+                  </figure>
+                  <p className="team-network-name">{m.name}</p>
+                  <p className="team-network-role">{m.role}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -168,21 +242,18 @@ export function TeamPageView({ content: c, locale }: Props) {
             <span>{c.closing.spineLabel}</span>
           </div>
           <div className="spine-content team-closing-dark-inner">
-            <h2 className="team-closing-head reveal">
-              {c.closing.headlineLine1}
-              <br />
-              <em>{c.closing.headlineLine2Em}</em>
-            </h2>
+            <h2 className="team-closing-head reveal">{c.closing.heading}</h2>
             <p className="team-closing-lead reveal delay-1">{c.closing.body}</p>
             <div className="team-closing-actions reveal delay-2">
-              <Link className="btn-primary" href={c.closing.primaryCtaHref as never}>
+              <Link
+                className="btn-primary"
+                href={c.closing.primaryCtaHref as never}
+                locale={locale}
+              >
                 <span>
                   <PrimaryRcCtaLabel locale={locale} label={c.closing.primaryCta} />
                 </span>
                 <span className="btn-arrow" />
-              </Link>
-              <Link className="btn-ghost" href={c.closing.secondaryCtaHref as never}>
-                {c.closing.secondaryCta}
               </Link>
             </div>
           </div>

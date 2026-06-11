@@ -8,7 +8,7 @@ import type { HomeImageUrls } from '@/lib/sanity/load-homepage';
 
 import { PrimaryRcCtaLabel } from '@/components/shell/reality-check-cta-label';
 
-import { HomeBrandArchitecture, HomeSolutionsBridge } from './home-brand-blocks';
+import { HomeBrandArchitecture } from './home-brand-blocks';
 
 import { DiagLine } from './diag-line';
 
@@ -312,9 +312,11 @@ export function HomePageView({
                   <RichBrLines text={m.body} />
                 </p>
               ) : null}
-              <p className="mini-result">
-                <RichBrLines text={m.result} />
-              </p>
+              {m.result?.trim() ? (
+                <p className="mini-result">
+                  <RichBrLines text={m.result} />
+                </p>
+              ) : null}
             </div>
           ))}
         </div>
@@ -371,8 +373,6 @@ export function HomePageView({
           </div>
         </div>
       </section>
-
-      <HomeSolutionsBridge locale={locale} />
 
       <section className="s-home-insights has-spine spine-light" aria-labelledby="home-insights-hl">
         <div className="spine-grid">

@@ -5008,6 +5008,116 @@ body::before {
     width: 100%;
     text-align: center;
   }
+  .team-christophe-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-network-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ── Over ORYEN: Christophe anchor + prose + network ── */
+.team-christophe-inner {
+  padding-block: clamp(3.5rem, 8vh, 5.5rem);
+}
+.team-christophe-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+.team-christophe-photo {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  aspect-ratio: 4 / 5;
+  max-width: 520px;
+}
+.team-christophe-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.team-section-hl {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem;
+  color: var(--ink);
+}
+.team-prose-section-inner,
+.team-network-inner {
+  padding-block: clamp(2.5rem, 6vh, 4rem);
+  max-width: 46rem;
+}
+.team-prose-p {
+  font-size: clamp(1rem, 1.35vw, 1.08rem);
+  line-height: 1.72;
+  color: var(--ink2);
+  margin: 0 0 1.1rem;
+}
+.team-prose-p:last-child {
+  margin-bottom: 0;
+}
+.team-solutions-link {
+  color: var(--amber);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.team-network-intro {
+  font-size: clamp(1rem, 1.35vw, 1.08rem);
+  line-height: 1.72;
+  color: var(--ink2);
+  margin: 0 0 clamp(2rem, 4vh, 2.75rem);
+  max-width: 42rem;
+}
+.team-network-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.team-network-card {
+  text-align: center;
+}
+.team-network-photo {
+  margin: 0 auto 0.85rem;
+  width: clamp(88px, 12vw, 140px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.team-network-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.team-network-name {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  margin: 0 0 0.25rem;
+  color: var(--ink);
+}
+.team-network-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.45;
+  color: var(--ink3);
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .team-network-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /* ==========================================================================

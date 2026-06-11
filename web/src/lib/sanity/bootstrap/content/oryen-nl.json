@@ -23,60 +23,60 @@
     "cta": "Reality Check",
     "openMenu": "Menu",
     "closeMenu": "Sluiten",
-    "team": "Team"
+    "team": "Over ORYEN"
   },
   "Home": {
     "meta": {
       "title": "ORYEN — Direction before action",
-      "description": "ORYEN toont waar sales, marketing en opvolging resultaat verliezen. Eerst weten waar het commercieel vastloopt — dan pas kiezen wat nodig is."
+      "description": "ORYEN maakt duidelijk waar het commercieel vastloopt — en wat eerst moet worden aangepakt."
     },
     "hero": {
-      "titleLine1": "ORYEN toont waar sales, marketing en opvolging resultaat verliezen.",
+      "titleLine1": "ORYEN maakt duidelijk waar het commercieel vastloopt — en wat eerst moet worden aangepakt.",
       "titleLine2": "",
       "titleEm": "",
-      "claim": "",
+      "claim": "We onderzoeken waarom marketing, sales en opvolging niet het resultaat opleveren dat u verwacht, vóór u opnieuw investeert in campagnes, tools, websites of extra uitvoerende partners.",
       "sub": "",
       "primaryCta": "Plan een Reality Check",
       "secondaryCta": "Bekijk de aanpak"
     },
     "recognition": {
       "headline": "Er gebeurt vaak al genoeg.",
-      "body": "Er gebeurt vaak al genoeg in uw bedrijf.\nEr wordt gecommuniceerd. Er wordt opgevolgd. Er worden tools gebruikt. Er worden beslissingen genomen.\n\nMaar toch blijft het gevoel:\n\nhier halen we niet uit wat erin zit.\n\nDe vraag is dan niet meteen of er méér moet gebeuren.\n\nDe echte vraag is:\n\nwaar gaat het vandaag mis — en welke ingreep maakt nu echt verschil?",
+      "body": "Er wordt gecommuniceerd. Er wordt opgevolgd. Er worden tools gebruikt. Er worden beslissingen genomen.\n\nMaar toch blijft het gevoel: hier halen we niet uit wat erin zit.\n\nDe vraag is dan niet of er méér moet gebeuren. De echte vraag is: waar gaat het vandaag mis — en welke ingreep maakt nu echt verschil?",
       "cta": "Plan een Reality Check"
     },
     "diagnosis": {
       "spine": "01 — Diagnose",
       "headlineEm": "Niet elk probleem\nvraagt meer marketing.",
-      "p1": "Soms zit het in sales.\nSoms in opvolging.\nSoms in de propositie.\nSoms in tools.\nSoms in mensen.\nSoms in interne afstemming.\nSoms in een keuze die te vroeg werd gemaakt.\n\nToch gebeurt vaak hetzelfde:\ner komt een bureau bij, een nieuwe tool, een extra campagne, meer budget of meer druk op het team.\n\nTerwijl de echte oorzaak nog niet scherp genoeg benoemd is.\n\nORYEN kijkt niet alleen naar wat er gebeurt.\nWe kijken naar wat eronder zit:\n\nwaar loopt aandacht verloren?\nwaar haakt opvolging af?\nwaar wordt verkoop moeilijker dan nodig?\nwaar wordt marketing ruis in plaats van hefboom?\nwaar klopt de gekozen oplossing niet met het echte probleem?",
+      "p1": "Soms zit het probleem in sales. Soms in opvolging. Soms in de propositie. Soms in tools, mensen of interne afstemming. Soms in een keuze die te vroeg of zonder samenhang werd gemaakt.\n\nToch gebeurt vaak hetzelfde: er komt een bureau bij, een nieuwe tool, een extra campagne of meer budget. Terwijl de echte oorzaak nog niet scherp genoeg benoemd is.\n\nORYEN kijkt niet alleen naar wat er gebeurt. We kijken naar wat eronder zit.",
       "focus": ""
     },
     "approach": {
       "spine": "02 — Aanpak",
       "headline": "Eerst weten waar resultaat verloren gaat.",
       "headlineEm": "Dan pas kiezen wat nodig is.",
-      "note1": "ORYEN maakt duidelijk waar sales, marketing en opvolging elkaar versterken — of net tegenwerken.\n\nNiet om nog meer ruis te creëren.\nWel om scherp te krijgen:\n\nwat vandaag resultaat tegenhoudt;\nwaar tijd, budget of energie verloren gaat;\nwelke aanname niet klopt;\nwat nu prioriteit heeft;\nwat beter nog wacht;\nen welke ingreep eerst verschil maakt.",
+      "note1": "",
       "introHl": "",
       "stepPrefix": "Stap",
       "steps": [
         {
           "n": "01",
           "name": "In kaart brengen",
-          "q": "Wat gebeurt er vandaag al?\n\nWe kijken naar aanbod, doelgroep, communicatie, sales, opvolging, tools en interne keuzes.\n\nNiet vanuit theorie.\nWel vanuit de vraag:\n\nwat doet dit vandaag met resultaat?"
+          "q": "Wat gebeurt er vandaag al?"
         },
         {
           "n": "02",
           "name": "Resultaat toetsen",
-          "q": "Waar blijft het resultaat achter?\n\nNiet alleen in cijfers, maar ook in signalen:\n\nleads die niet goed passen;\nopvolging die te traag of te versnipperd loopt;\nsales die moeite heeft om het verschil uit te leggen;\nmarketing die wel zichtbaar is, maar weinig beweging brengt;\ntools die meer complexiteit dan grip geven;\nklanten die afhaken, twijfelen of blijven vergelijken."
+          "q": "Waar blijft het resultaat achter?"
         },
         {
           "n": "03",
           "name": "Oorzaak bepalen",
-          "q": "Waar zit de echte oorzaak?\n\nIn de propositie?\nIn doelgroepkeuze?\nIn sales?\nIn marketing?\nIn opvolging?\nIn tools?\nIn mensen?\nIn interne afstemming?\nOf in een beslissing die logisch leek, maar vertrok van een verkeerde aanname?\n\nDat onderscheid maakt het verschil.\n\nWant wie het verkeerde probleem oplost, blijft investeren zonder wezenlijke vooruitgang."
+          "q": "Waar zit de echte oorzaak?"
         },
         {
           "n": "04",
           "name": "Keuze maken",
-          "q": "Wat moet eerst worden aangepakt?\n\nNiet alles tegelijk.\nNiet nog een lijst met losse acties.\n\nWel een heldere prioriteit:\n\ndit eerst.\ndit nog niet.\ndit stopzetten.\ndit anders bekijken.\n\nZo ontstaat richting vóór uitvoering."
+          "q": "Wat moet eerst worden aangepakt?"
         }
       ],
       "moreCta": "Bekijk de volledige aanpak"
@@ -87,51 +87,52 @@
       "headlineEm": "Daarna pas de uitvoering.",
       "featured": {
         "client": "Hof van Cleve",
-        "title": "Een driesterren-restaurant met onaantastbare reputatie, maar weinig binding bij een jonger publiek dat het toekomstig clienteel moest worden.",
-        "line1": "Niet commercieel zichtbaarder maken. Wel het merk aantrekkelijk maken bij een nieuwe generatie zonder de klasse te verliezen.",
-        "line2": "Vier jaar gericht werken aan betrokkenheid en jeugdiger merkgevoel. Tot een jongere overnemer de fakkel kon overnemen.",
+        "title": "Een driesterrenrestaurant met onaantastbare reputatie, maar weinig binding bij een jonger publiek dat het toekomstig cliënteel moest worden. Niet commercieel zichtbaarder maken. Wel het merk aantrekkelijk maken bij een nieuwe generatie zonder de klasse te verliezen. Vier jaar gericht werken aan betrokkenheid en jeugdiger merkgevoel. Tot een jongere overnemer de fakkel kon overnemen.",
+        "line1": "",
+        "line2": "",
         "line3": ""
       },
       "minis": [
         {
           "client": "Willems Veranda",
-          "subtitle": "Sterk vakmanschap, maar online nauwelijks vindbaar — en dus afgesloten van hoe klanten vandaag zoeken en kiezen.",
-          "body": "Niet eerst meer reclame. Eerst de digitale aansluiting maken die er nog niet was.",
-          "result": "Dat maakte het merk structureel beter vindbaar, met tientallen kernzoektermen in de top drie."
+          "subtitle": "Sterk vakmanschap, maar online nauwelijks vindbaar — en dus afgesloten van hoe klanten vandaag zoeken en kiezen. Niet eerst meer reclame. Eerst de digitale aansluiting maken die er nog niet was. Dat maakte het merk structureel beter vindbaar, met tientallen kernzoektermen in de top drie.",
+          "body": "",
+          "result": ""
         },
         {
           "client": "Concordia Textiles",
-          "subtitle": "Digitalisering die intern vastliep op uiteenlopende verwachtingen en een complexe structuur.",
-          "body": "Niet meteen uitrollen. Eerst intern op één lijn krijgen wat haalbaar, wenselijk en prioritair was.",
-          "result": "Dat maakte de digitalisering uitvoerbaar, met draagvlak en duidelijke prioriteiten."
+          "subtitle": "Digitalisering die intern vastliep op uiteenlopende verwachtingen en een complexe structuur. Niet meteen uitrollen. Eerst intern op één lijn krijgen wat haalbaar, wenselijk en prioritair was. Dat maakte de digitalisering uitvoerbaar, met draagvlak en duidelijke prioriteiten.",
+          "body": "",
+          "result": ""
         },
         {
           "client": "BMW — lokale dealer",
-          "subtitle": "Sterke positie, maar communicatief niet te onderscheiden van andere dealers in de regio.",
-          "body": "Niet eerst meer budget. Eerst kiezen wat hen lokaal écht anders maakte.",
-          "result": "Dat bracht opnieuw digitale aanvragen op gang uit de eigen regio."
+          "subtitle": "Sterke positie, maar communicatief niet te onderscheiden van andere dealers in de regio. Niet eerst meer budget. Eerst kiezen wat hen lokaal écht anders maakte. Dat bracht opnieuw digitale aanvragen op gang uit de eigen regio.",
+          "body": "",
+          "result": ""
         }
       ]
     },
     "offer": {
       "spine": "04 — Reality Check",
-      "name": "Reality Check",
-      "body": "De Reality Check is het eerste betaalde moment waarin ORYEN scherp krijgt waar sales, marketing en opvolging resultaat verliezen — en welke ingreep eerst verschil maakt.\n\nGeen vrijblijvende intake.\nGeen verkoopgesprek in vermomming.\nGeen lange lijst met losse aanbevelingen.\n\nWel een scherp eerste beslismoment waarmee duidelijk wordt:\n\nwat vandaag resultaat tegenhoudt;\nwaar de oorzaak waarschijnlijk zit;\nwat nu prioriteit heeft;\nwat voorlopig geen zin heeft;\nwelke volgende stap logisch is.",
-      "price": "€2.950 ex btw",
+      "name": "Een scherp eerste beslismoment.",
+      "body": "De Reality Check is het eerste betaalde moment waarin ORYEN scherp krijgt waar sales, marketing en opvolging resultaat verliezen — en welke ingreep eerst verschil maakt.\n\nGeen vrijblijvende intake.\nGeen verkoopgesprek in vermomming.\nGeen lange lijst met losse aanbevelingen.\n\nWel één compacte commerciële scorecard met:",
+      "price": "€2.950 excl. btw",
       "deliverables": [
-        "Commerciële scorecard — waar het commercieel vastloopt, in één helder beeld",
-        "Eerste besliskader — wat nu prioriteit heeft, wat wacht, en waarom",
-        "90-dagen koerslijn — korte horizon met focus",
-        "Stoplijst — wat u beter nog niet doet vóór de basis klopt"
+        "waar het commercieel vastloopt",
+        "wat nu prioriteit heeft",
+        "wat beter nog wacht",
+        "welke volgende stap logisch is",
+        "wat u beter niet doet vóór de basis klopt"
       ],
-      "solutionsNote": "Wanneer uit de diagnose blijkt dat uw digitale infrastructuur, website of platform de groei blokkeert, zetten we de strategie om in tastbare producten via ons executielabel ORYEN Solutions.",
+      "solutionsNote": "Daarna beslist u zelf of u zelfstandig verdergaat, met uw bestaande partners werkt, of ORYEN inschakelt voor verdere begeleiding of digitale productbouw via ORYEN Solutions.",
       "ctaPrimary": "Plan een Reality Check met Christophe",
       "secondaryNote": "Geen automatisch traject.\nRechtstreeks met Christophe."
     },
     "insights": {
       "spine": "05 — Inzichten",
-      "headline": "Artikels over commerciële keuzes",
-      "intro": "waar loopt het werkelijk vast?",
+      "headline": "Denken vóór doen.",
+      "intro": "Artikels over commerciële keuzes, marketing die niet rendeert, salesopvolging, digitale systemen en de vraag die vóór elke investering moet komen:\n\nwaar loopt het werkelijk vast?",
       "cta": "Bekijk de inzichten"
     }
   },
@@ -368,8 +369,8 @@
     },
     "insights": {
       "eyebrow": "Inzichten",
-      "title": "Artikels over commerciële keuzes",
-      "intro": "Artikels over commerciële keuzes — waar loopt het werkelijk vast?"
+      "title": "Inzichten",
+      "intro": "Artikels over commerciële keuzes, marketing die niet rendeert, salesopvolging, digitale systemen en de vraag die vóór elke investering moet komen: waar loopt het werkelijk vast?"
     },
     "about": {
       "eyebrow": "Over ORYEN",

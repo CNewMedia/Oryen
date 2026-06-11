@@ -1,23 +1,21 @@
 /**
- * Team page content — lightweight, locally-sourced (no CMS wiring yet).
- * If/when `teamMember` schema is wired, this module can be replaced by a loader.
+ * Over ORYEN page content — in-repo (no CMS).
+ * Route stays `/team` for SEO; labels read "Over ORYEN" / "About ORYEN".
  */
 
-export type TeamMember = {
-  /** Stable slug used for keys; also used if we later add anchors. */
+export type TeamNetworkMember = {
   slug: string;
-  /** Display index, e.g. "01" (shown above the name). */
-  num: string;
   name: string;
   role: string;
-  body: string;
-  /** Optional italic line between `body` and `bodyAfter` (e.g. Christophe’s quote). */
-  italicLine?: string;
-  /** Remaining bio after `italicLine`; supports `\n\n` paragraphs. */
-  bodyAfter?: string;
   photo: string;
-  /** Alt text for the portrait. */
   alt: string;
+};
+
+export type TeamProseSection = {
+  heading: string;
+  body: string;
+  /** When true, link "ORYEN Solutions" inside the body. */
+  linkSolutions?: boolean;
 };
 
 export type TeamContent = {
@@ -28,26 +26,25 @@ export type TeamContent = {
     headlineLine2Em: string;
     sub: string;
   };
-  team: {
+  christophe: {
     spineLabel: string;
-    /** Short editorial line above the grid (serves as section heading). */
-    intro: string;
-    members: TeamMember[];
+    heading: string;
+    body: string;
+    photo: string;
+    alt: string;
   };
-  collaboration: {
+  sections: TeamProseSection[];
+  network: {
     spineLabel: string;
-    headlineLine1: string;
-    headlineLine2Em: string;
-    lead: string;
+    heading: string;
+    intro: string;
+    members: TeamNetworkMember[];
   };
   closing: {
     spineLabel: string;
-    headlineLine1: string;
-    headlineLine2Em: string;
+    heading: string;
     body: string;
     primaryCta: string;
     primaryCtaHref: string;
-    secondaryCta: string;
-    secondaryCtaHref: string;
   };
 };
