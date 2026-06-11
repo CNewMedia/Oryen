@@ -28,12 +28,10 @@ function stripTrailing(path: string): string {
  * so `usePathname()` matches regardless of locale URL shape.
  */
 const DARK_HERO_ROUTES = new Set<string>([
-  '/',
   localizedPathnames['/aanbod'].nl,
   localizedPathnames['/aanbod'].en,
   localizedPathnames['/aanpak'].nl,
   localizedPathnames['/aanpak'].en,
-  localizedPathnames['/team'],
 ]);
 
 export function SiteHeader({

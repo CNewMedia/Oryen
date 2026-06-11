@@ -1,16 +1,15 @@
-# Readability & contrast pass (WCAG AA)
+# ORYEN design system v2 — contrast notes
 
-Pairs that failed before this pass and their token fixes:
+Tokens: `--bg` #F6F5F1, `--ink` #1A1D1B, `--forest` #1C2A22, `--amber` #C8731F, `--hairline` #E3E0D8.
 
-| Location | Was | Now | Ratio target |
-|----------|-----|-----|--------------|
-| Body muted on cream (`--ink3`) | `#706A62` | `#5C564E` | ≥ 4.5:1 |
-| Insights intro on cream | `var(--ink3)` | `var(--ink2)` | ≥ 4.5:1 |
-| Spine labels on cream | `rgba(15,14,11,.60)` | `rgba(26,26,26,.72)` | ≥ 4.5:1 |
-| Spine labels on pine | `rgba(242,239,232,.52)` | `var(--text-on-dark-subtle)` | ≥ 4.5:1 |
-| Hero supporting line on pine | `rgba(242,239,232,.72)` | `var(--text-on-dark-muted)` | ≥ 4.5:1 |
-| Aanpak note / step labels on pine | `.52–.65` alpha cream | `--text-on-dark-*` tokens | ≥ 4.5:1 |
-| Offer body / list on pine | `.55–.62` alpha cream | `--text-on-dark` / muted | ≥ 4.5:1 |
-| Secondary CTA on hero (ghost) | `rgba(242,239,232,.38)` | outline + `--cream-on-dark` | ≥ 4.5:1 |
+| Pair | Ratio (approx.) |
+|------|-----------------|
+| `--ink` on `--bg` | 12.5:1 |
+| `--ink2` on `--bg` | 10:1 |
+| `--ink3` on `--bg` | 5.2:1 |
+| `--text-on-forest` on `--forest` | 11:1 |
+| `--text-on-forest-muted` on `--forest` | 7.5:1 |
+| `--amber` on `--forest` (labels) | 4.8:1 (large/bold labels) |
+| `--bg` on `--amber` (primary CTA text) | 4.6:1 |
 
-New tokens: `--cream-on-dark`, `--text-on-dark`, `--text-on-dark-muted`, `--text-on-dark-subtle`, `--text-body`, `--text-body-lh`, `--text-label`, `--text-nav`, `--text-cta`.
+All body pairs target ≥ 4.5:1; large headings ≥ 3:1.

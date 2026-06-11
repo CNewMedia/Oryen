@@ -3,17 +3,13 @@ import { Fragment } from 'react';
 import { Link } from '@/i18n/navigation';
 
 import type { HomeContent } from '@/types/home-content';
-import type { HomeImageUrls } from '@/lib/sanity/load-homepage';
 
 import { PrimaryRcCtaLabel } from '@/components/shell/reality-check-cta-label';
 
 import { HomeBrandArchitecture } from './home-brand-blocks';
 
-import { DiagLine } from './diag-line';
-
 const SOLUTIONS_URL = 'https://oryen.solutions';
 
-/** Subtle case-type labels (design metadata — not body copy). */
 const CASE_TAGS: Record<string, { nl: string; en: string }> = {
   'Hof van Cleve': { nl: 'richting', en: 'direction' },
   'Willems Veranda': { nl: 'digitale aansluiting', en: 'digital connection' },
@@ -22,7 +18,6 @@ const CASE_TAGS: Record<string, { nl: string; en: string }> = {
   'BMW — local dealer': { nl: 'lokaal onderscheid', en: 'local distinction' },
 };
 
-/** Split op `<br/>` of newline in copy en render echte `<br />`. */
 function RichBrLines({ text }: { text: string }) {
   const normalized = text.replace(/&lt;br\s*\/?&gt;/gi, '<br>');
   const parts = normalized.split(/<br\s*\/?>|\r?\n/i);
@@ -38,7 +33,6 @@ function RichBrLines({ text }: { text: string }) {
   );
 }
 
-/** Blokken gescheiden door lege regels (\n\n); binnen een blok: echte regeleinden. */
 function RichBlocks({
   text,
   className,
@@ -71,7 +65,7 @@ function SolutionsNote({ text }: { text: string }) {
   const idx = text.indexOf(marker);
   if (idx === -1) {
     return (
-      <p className="offer-solutions-note">
+      <p className="os-product-note">
         <RichBrLines text={text} />
       </p>
     );
@@ -79,7 +73,7 @@ function SolutionsNote({ text }: { text: string }) {
   const before = text.slice(0, idx);
   const after = text.slice(idx + marker.length);
   return (
-    <p className="offer-solutions-note">
+    <p className="os-product-note">
       <RichBrLines text={before} />
       <a
         className="offer-solutions-link"
@@ -94,22 +88,37 @@ function SolutionsNote({ text }: { text: string }) {
   );
 }
 
+function ScorecardMotif({ locale }: { locale: string }) {
+  const isNl = locale === 'nl';
+  const labels = isNl ? ['Nu', 'Straks', 'Niet nu'] : ['Now', 'Later', 'Not now'];
+
+  return (
+    <aside className="os-scorecard reveal delay-2" aria-hidden="true">
+      <p className="os-scorecard-title">{isNl ? 'Prioriteit' : 'Priority'}</p>
+      {labels.map((label, i) => (
+        <div key={label} className="os-scorecard-row">
+          <span
+            className={`os-scorecard-priority${
+              i === 1 ? ' os-scorecard-priority--later' : i === 2 ? ' os-scorecard-priority--not' : ''
+            }`}
+          >
+            {label}
+          </span>
+          <span className="os-scorecard-line" />
+        </div>
+      ))}
+    </aside>
+  );
+}
+
 type Props = {
   home: HomeContent;
-  images: HomeImageUrls;
-  contactEmail: string;
+  brandTagline: string;
   seeAllCasesLabel: string;
   locale: string;
 };
 
-export function HomePageView({
-  home,
-  images,
-  contactEmail: _contactEmail,
-  seeAllCasesLabel,
-  locale,
-}: Props) {
-  const t = home;
+export function HomePageView({ home: t, brandTagline, seeAllCasesLabel, locale }: Props) {
   const steps = t.approach.steps;
   const minis = t.proof.minis;
   const isNl = locale === 'nl';
@@ -118,279 +127,212 @@ export function HomePageView({
     : t.offer.spine;
 
   const proofCases = [
-    {
-      num: '01',
-      client: t.proof.featured.client,
-      text: t.proof.featured.title,
-    },
-    ...minis.map((m, i) => ({
-      num: String(i + 2).padStart(2, '0'),
+    { client: t.proof.featured.client, text: t.proof.featured.title },
+    ...minis.map((m) => ({
       client: m.client,
       text: m.subtitle || m.body,
     })),
   ];
 
   return (
-    <>
-      <section className="hero">
-        <div className="hero-bg">
-          <img id="heroImg" src={images.hero} alt="" />
-        </div>
-        <div className="hero-spine" id="heroSpine" />
-        <div className="hero-body">
-          <div className="hero-spacer" />
-          <div className="hero-text">
-            <h1 className="hero-hl reveal">
-              <span>
+    <div className="os-page">
+      <section className="os-section os-hero" aria-labelledby="home-hero-hl">
+        <div className="os-container">
+          <div className="os-hero-grid">
+            <div>
+              <p className="os-eyebrow reveal">{brandTagline}</p>
+              <h1 className="os-display reveal delay-1" id="home-hero-hl">
                 {t.hero.titleLine1}
-                {t.hero.titleLine2 ? (
-                  <>
-                    <br />
-                    {t.hero.titleLine2}
-                  </>
-                ) : null}
-              </span>
-              {t.hero.titleEm?.trim() ? (
-                <em
-                  dangerouslySetInnerHTML={{
-                    __html: t.hero.titleEm.replace(/\n/g, '<br />'),
-                  }}
-                />
+              </h1>
+              {t.hero.claim?.trim() ? (
+                <RichBlocks text={t.hero.claim} className="os-lead reveal delay-2" />
               ) : null}
-            </h1>
-            {t.hero.claim?.trim() ? (
-              <RichBlocks text={t.hero.claim} className="hero-claim" revealDelay="delay-1" />
-            ) : null}
-            {t.hero.sub?.trim() ? (
-              <RichBlocks text={t.hero.sub} className="hero-sub" revealDelay="delay-2" />
-            ) : null}
-            <div className="hero-actions reveal delay-3">
-              <Link className="btn-primary" href="/aanbod" locale={locale}>
+              <div className="os-actions reveal delay-3">
+                <Link className="os-btn-primary btn-primary" href="/aanbod" locale={locale}>
+                  <span>
+                    <PrimaryRcCtaLabel locale={locale} label={t.hero.primaryCta} />
+                  </span>
+                  <span className="btn-arrow" />
+                </Link>
+                <Link className="os-btn-secondary btn-ghost" href="/aanpak" locale={locale}>
+                  {t.hero.secondaryCta}
+                </Link>
+              </div>
+            </div>
+            <ScorecardMotif locale={locale} />
+          </div>
+        </div>
+      </section>
+
+      <section className="os-section" aria-labelledby="home-recognition-hl">
+        <div className="os-container">
+          <div className="os-section-head">
+            <h2 className="os-h2 reveal" id="home-recognition-hl">
+              {t.recognition.headline}
+            </h2>
+            <RichBlocks text={t.recognition.body} className="os-body reveal delay-1" />
+            <div className="os-actions reveal delay-2">
+              <Link className="os-btn-primary btn-primary" href="/aanbod" locale={locale}>
                 <span>
-                  <PrimaryRcCtaLabel locale={locale} label={t.hero.primaryCta} />
+                  <PrimaryRcCtaLabel locale={locale} label={t.recognition.cta} />
                 </span>
                 <span className="btn-arrow" />
-              </Link>
-              <Link className="btn-ghost" href="/aanpak" locale={locale}>
-                {t.hero.secondaryCta}
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="s-recognition has-spine spine-light" aria-labelledby="home-recognition-hl">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-light" aria-hidden="true">
-            <span />
-          </div>
-          <div className="spine-content home-recognition-content">
-            <h2 className="recognition-hl reveal" id="home-recognition-hl">
-              {t.recognition.headline}
-            </h2>
-            <RichBlocks text={t.recognition.body} className="stelling-p recognition-body reveal delay-1" />
-            <Link className="btn-primary home-recognition-cta reveal delay-2" href="/aanbod" locale={locale}>
-              <span>
-                <PrimaryRcCtaLabel locale={locale} label={t.recognition.cta} />
-              </span>
-              <span className="btn-arrow" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="s-stelling has-spine spine-light">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-light">
-            <span>{t.diagnosis.spine}</span>
-          </div>
-          <div className="spine-content">
-            <h2 className="stelling-hl reveal delay-1">
+      <section className="os-section" aria-labelledby="home-diagnosis-hl">
+        <div className="os-container">
+          <div className="os-section-head">
+            <p className="os-eyebrow reveal">{t.diagnosis.spine}</p>
+            <h2 className="os-h2 reveal delay-1" id="home-diagnosis-hl">
               <em
                 dangerouslySetInnerHTML={{
                   __html: t.diagnosis.headlineEm.replace(/\n/g, '<br />'),
                 }}
               />
             </h2>
-            <DiagLine className="diag-line reveal delay-1" />
-            <div className="stelling-grid">
-              <div className="reveal delay-2">
-                <p className="stelling-p">
-                  <RichBrLines text={t.diagnosis.p1} />
-                </p>
-                {t.diagnosis.focus?.trim() ? (
-                  <p className="stelling-focus">{t.diagnosis.focus}</p>
-                ) : null}
-              </div>
-            </div>
+            <p className="os-body reveal delay-2">
+              <RichBrLines text={t.diagnosis.p1} />
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="s-aanpak has-spine spine-dark" id="how">
-        <div className="spine-grid aanpak-head-wrap">
-          <div className="spine-label spine-label-dark">
-            <span>{t.approach.spine}</span>
-          </div>
-          <div className="spine-content aanpak-head">
-            <h2 className="aanpak-hl reveal">
+      <section className="os-section os-section--forest" id="how" aria-labelledby="home-approach-hl">
+        <div className="os-container">
+          <div className="os-steps-head">
+            <p className="os-eyebrow reveal">{t.approach.spine}</p>
+            <h2 className="os-h2 reveal delay-1" id="home-approach-hl">
               {t.approach.headline}
               <br />
               <em>{t.approach.headlineEm}</em>
             </h2>
-            {t.approach.note1?.trim() ? (
-              <p className="aanpak-note reveal delay-1">
-                <RichBrLines text={t.approach.note1} />
-              </p>
-            ) : null}
-            {t.approach.introHl ? (
-              <p className="aanpak-intro-hl reveal delay-2">{t.approach.introHl}</p>
-            ) : null}
           </div>
-        </div>
-        <div className="aanpak-steps">
-          <div className="aanpak-spacer" />
-          {steps.map((step, i) => (
-            <div key={step.n} className={`step reveal ${i > 0 ? `delay-${Math.min(i, 3)}` : ''}`}>
-              <span className="step-n">
-                {t.approach.stepPrefix} {step.n}
-              </span>
-              <span className="step-name">{step.name}</span>
-              <p className="step-q">
-                <RichBrLines text={step.q} />
-              </p>
-            </div>
-          ))}
-        </div>
-        {t.approach.moreCta ? (
-          <div className="spine-grid">
-            <div className="spine-label spine-label-dark" aria-hidden="true">
-              <span />
-            </div>
-            <div className="spine-content aanpak-more">
-              <Link className="section-more section-more-dark reveal" href="/aanpak" locale={locale}>
-                <span>{t.approach.moreCta}</span>
-                <span className="section-more-arrow" aria-hidden="true" />
+          <div className="os-steps-grid">
+            {steps.map((step, i) => (
+              <div key={step.n} className={`os-step-card reveal delay-${Math.min(i + 1, 3)}`}>
+                <span className="os-step-num">
+                  {t.approach.stepPrefix} {step.n}
+                </span>
+                <span className="os-step-name">{step.name}</span>
+                <p className="os-step-q">
+                  <RichBrLines text={step.q} />
+                </p>
+              </div>
+            ))}
+          </div>
+          {t.approach.moreCta ? (
+            <div className="os-proof-footer reveal delay-2">
+              <Link className="os-link os-link-arrow" href="/aanpak" locale={locale}>
+                {t.approach.moreCta}
               </Link>
             </div>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
       </section>
 
-      <section className="s-bewijs has-spine spine-light">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-light">
-            <span>{t.proof.spine}</span>
-          </div>
-          <div className="spine-content" style={{ paddingBottom: 'clamp(5vh,7vh,64px)' }}>
-            <h2 className="bewijs-hl reveal">
+      <section className="os-section" aria-labelledby="home-proof-hl">
+        <div className="os-container">
+          <div className="os-section-head">
+            <p className="os-eyebrow reveal">{t.proof.spine}</p>
+            <h2 className="os-h2 reveal delay-1" id="home-proof-hl">
               {t.proof.headline}
               <br />
               <em>{t.proof.headlineEm}</em>
             </h2>
           </div>
-        </div>
-        <div className="proof-grid">
-          {proofCases.map((item, i) => {
-            const tag = CASE_TAGS[item.client];
-            return (
-              <article
-                key={item.client}
-                className={`proof-card reveal ${i > 0 ? `delay-${Math.min(i, 3)}` : ''}`}
-              >
-                <span className="proof-card-num" aria-hidden="true">
-                  {item.num}
-                </span>
-                {tag ? (
-                  <p className="proof-card-tag">{isNl ? tag.nl : tag.en}</p>
-                ) : null}
-                <p className="proof-card-client">{item.client}</p>
-                <p className="proof-card-text">
-                  <RichBrLines text={item.text} />
-                </p>
-              </article>
-            );
-          })}
-        </div>
-        <div className="spine-grid">
-          <div className="spine-label spine-label-light" aria-hidden="true">
-            <span />
+          <div className="os-proof-grid">
+            {proofCases.map((item, i) => {
+              const tag = CASE_TAGS[item.client];
+              return (
+                <article
+                  key={item.client}
+                  className={`os-proof-card reveal ${i > 0 ? `delay-${Math.min(i, 3)}` : ''}`}
+                >
+                  {tag ? (
+                    <p className="os-proof-tag">{isNl ? tag.nl : tag.en}</p>
+                  ) : null}
+                  <h3 className="os-proof-client">{item.client}</h3>
+                  <p className="os-proof-text">
+                    <RichBrLines text={item.text} />
+                  </p>
+                </article>
+              );
+            })}
           </div>
-          <div className="spine-content bewijs-footer">
-            <Link className="section-more reveal" href="/cases" locale={locale}>
-              <span>{seeAllCasesLabel}</span>
-              <span className="section-more-arrow" aria-hidden="true" />
+          <div className="os-proof-footer reveal delay-2">
+            <Link className="os-link os-link-arrow" href="/cases" locale={locale}>
+              {seeAllCasesLabel}
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="s-offer has-spine spine-dark">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-dark">
-            <span>{t.offer.spine}</span>
-          </div>
-          <div className="spine-content">
-            <div className="offer-main offer-main--expanded">
-              <div className="offer-panel">
-                <p className="offer-panel-eyebrow">{offerLabel}</p>
-                <h2 className="offer-name reveal">{t.offer.name}</h2>
-                <RichBlocks text={t.offer.body} className="offer-body reveal delay-1" />
-                {t.offer.price?.trim() ? (
-                  <p className="offer-price reveal delay-2">{t.offer.price}</p>
-                ) : null}
-                {t.offer.deliverables?.length ? (
-                  <ul className="offer-deliverables reveal delay-2">
-                    {t.offer.deliverables.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                ) : null}
-                <Link className="btn-primary offer-btn reveal delay-3" href="/aanbod" locale={locale}>
-                  <span>
-                    <PrimaryRcCtaLabel locale={locale} label={t.offer.ctaPrimary} />
-                  </span>
-                  <span className="btn-arrow" />
-                </Link>
-                {t.offer.secondaryNote?.trim() ? (
-                  <p className="offer-note reveal delay-3">
-                    <RichBrLines text={t.offer.secondaryNote} />
-                  </p>
-                ) : null}
-                {t.offer.solutionsNote?.trim() ? (
-                  <div className="reveal delay-3">
-                    <SolutionsNote text={t.offer.solutionsNote} />
-                  </div>
-                ) : null}
+      <section className="os-section os-section--forest" aria-labelledby="home-offer-hl">
+        <div className="os-container">
+          <div className="os-product-card">
+            <p className="os-product-label">{offerLabel}</p>
+            <h2 className="os-product-title reveal" id="home-offer-hl">
+              {t.offer.name}
+            </h2>
+            <RichBlocks text={t.offer.body} className="os-body reveal delay-1" />
+            {t.offer.price?.trim() ? (
+              <p className="os-product-price reveal delay-2">{t.offer.price}</p>
+            ) : null}
+            {t.offer.deliverables?.length ? (
+              <ul className="os-product-list reveal delay-2">
+                {t.offer.deliverables.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            ) : null}
+            <Link
+              className="os-btn-primary btn-primary offer-btn reveal delay-3"
+              href="/aanbod"
+              locale={locale}
+            >
+              <span>
+                <PrimaryRcCtaLabel locale={locale} label={t.offer.ctaPrimary} />
+              </span>
+              <span className="btn-arrow" />
+            </Link>
+            {t.offer.secondaryNote?.trim() ? (
+              <p className="os-product-note reveal delay-3">
+                <RichBrLines text={t.offer.secondaryNote} />
+              </p>
+            ) : null}
+            {t.offer.solutionsNote?.trim() ? (
+              <div className="reveal delay-3">
+                <SolutionsNote text={t.offer.solutionsNote} />
               </div>
-            </div>
+            ) : null}
           </div>
         </div>
       </section>
 
-      <section className="s-home-insights has-spine spine-light" aria-labelledby="home-insights-hl">
-        <div className="spine-grid">
-          <div className="spine-label spine-label-light">
-            <span>{t.insights.spine}</span>
-          </div>
-          <div className="spine-content home-insights-content">
-            <h2 className="home-insights-hl reveal" id="home-insights-hl">
+      <section className="os-section" aria-labelledby="home-insights-hl">
+        <div className="os-container">
+          <div className="os-section-head">
+            <p className="os-eyebrow reveal">{t.insights.spine}</p>
+            <h2 className="os-h2 reveal delay-1" id="home-insights-hl">
               {t.insights.headline}
             </h2>
             {t.insights.intro?.trim() ? (
-              <p className="stelling-p home-insights-intro reveal delay-1">
+              <p className="os-body reveal delay-2">
                 <RichBrLines text={t.insights.intro} />
               </p>
             ) : null}
-            <Link className="section-more reveal delay-2" href="/insights" locale={locale}>
-              <span>{t.insights.cta}</span>
-              <span className="section-more-arrow" aria-hidden="true" />
+            <Link className="os-link os-link-arrow reveal delay-3" href="/insights" locale={locale}>
+              {t.insights.cta}
             </Link>
           </div>
         </div>
       </section>
 
       <HomeBrandArchitecture locale={locale} />
-    </>
+    </div>
   );
 }
