@@ -10,17 +10,22 @@ function str(v: unknown, fallback: string): string {
   return typeof v === 'string' ? v : fallback;
 }
 
-/** Merge Sanity homepage document into `base` (empty shell or dev fallback). */
+function strList(v: unknown, fallback: string[]): string[] {
+  if (!Array.isArray(v)) return fallback;
+  return v.map((x) => (typeof x === 'string' ? x : '')).filter(Boolean);
+}
+
+/** Merge Sanity homepage document into repo bootstrap (legacy seed path). */
 export function mergeHomeFromSanity(doc: SanityDoc | null, base: HomeContent): HomeContent {
   if (!doc) return base;
 
   const h = isRecord(doc.hero) ? doc.hero : {};
+  const rec = isRecord(doc.recognition) ? doc.recognition : {};
   const d = isRecord(doc.diagnosis) ? doc.diagnosis : {};
   const ap = isRecord(doc.approach) ? doc.approach : {};
   const pr = isRecord(doc.proof) ? doc.proof : {};
-  const sel = isRecord(doc.selection) ? doc.selection : {};
-  const ab = isRecord(doc.about) ? doc.about : {};
   const of = isRecord(doc.offer) ? doc.offer : {};
+  const ins = isRecord(doc.insights) ? doc.insights : {};
 
   const stepsRaw = ap.steps;
   const steps = Array.isArray(stepsRaw)
@@ -66,21 +71,6 @@ export function mergeHomeFromSanity(doc: SanityDoc | null, base: HomeContent): H
     line3: str(feat.line3, base.proof.featured.line3),
   };
 
-  const forItemsRaw = sel.forItems;
-  const forItems = Array.isArray(forItemsRaw)
-    ? forItemsRaw.map((x) => (typeof x === 'string' ? x : '')).filter(Boolean)
-    : base.selection.forItems;
-
-  const forListRaw = sel.forList;
-  const forList = Array.isArray(forListRaw)
-    ? forListRaw.map((x) => (typeof x === 'string' ? x : '')).filter(Boolean)
-    : base.selection.forList ?? [];
-
-  const notForRaw = sel.notFor;
-  const notFor = Array.isArray(notForRaw)
-    ? notForRaw.map((x) => (typeof x === 'string' ? x : '')).filter(Boolean)
-    : base.selection.notFor;
-
   return {
     hero: {
       titleLine1: str(h.titleLine1, base.hero.titleLine1),
@@ -91,10 +81,14 @@ export function mergeHomeFromSanity(doc: SanityDoc | null, base: HomeContent): H
       primaryCta: str(h.primaryCta, base.hero.primaryCta),
       secondaryCta: str(h.secondaryCta, base.hero.secondaryCta),
     },
+    recognition: {
+      headline: str(rec.headline, base.recognition.headline),
+      body: str(rec.body, base.recognition.body),
+      cta: str(rec.cta, base.recognition.cta),
+    },
     diagnosis: {
       spine: str(d.spine, base.diagnosis.spine),
       headlineEm: str(d.headlineEm, base.diagnosis.headlineEm),
-      entityIntro: str(d.entityIntro, base.diagnosis.entityIntro ?? ''),
       p1: str(d.p1, base.diagnosis.p1),
       focus: str(d.focus, base.diagnosis.focus),
     },
@@ -115,39 +109,21 @@ export function mergeHomeFromSanity(doc: SanityDoc | null, base: HomeContent): H
       featured,
       minis: minis.length ? minis : base.proof.minis,
     },
-    selection: {
-      spine: str(sel.spine, base.selection.spine),
-      headline: str(sel.headline, base.selection.headline),
-      headlineEm: str(sel.headlineEm, base.selection.headlineEm),
-      forItems: forItems.length ? forItems : base.selection.forItems,
-      forLabel: str(sel.forLabel, base.selection.forLabel ?? ''),
-      forList: forList.length ? forList : base.selection.forList ?? [],
-      notForLabel: str(sel.notForLabel, base.selection.notForLabel),
-      notFor: notFor.length ? notFor : base.selection.notFor,
-    },
-    about: {
-      spine: str(ab.spine, base.about.spine),
-      headline: str(ab.headline, base.about.headline),
-      headlineEm: str(ab.headlineEm, base.about.headlineEm),
-      statement: str(ab.statement, base.about.statement),
-      body: str(ab.body, base.about.body ?? ''),
-      creds: str(ab.creds, base.about.creds),
-      signature: str(ab.signature, base.about.signature),
-      postSignature: str(ab.postSignature, base.about.postSignature ?? ''),
-      quote: str(ab.quote, base.about.quote),
-    },
     offer: {
       spine: str(of.spine, base.offer.spine),
       name: str(of.name, base.offer.name),
       body: str(of.body, base.offer.body),
+      price: str(of.price, base.offer.price),
+      deliverables: strList(of.deliverables, base.offer.deliverables),
+      solutionsNote: str(of.solutionsNote, base.offer.solutionsNote),
       ctaPrimary: str(of.ctaPrimary, base.offer.ctaPrimary),
-      secondaryHlBeforeEm: str(
-        of.secondaryHlBeforeEm,
-        base.offer.secondaryHlBeforeEm
-      ),
-      secondaryHlEm: str(of.secondaryHlEm, base.offer.secondaryHlEm),
-      secondaryBody: str(of.secondaryBody, base.offer.secondaryBody),
       secondaryNote: str(of.secondaryNote, base.offer.secondaryNote),
+    },
+    insights: {
+      spine: str(ins.spine, base.insights.spine),
+      headline: str(ins.headline, base.insights.headline),
+      intro: str(ins.intro, base.insights.intro),
+      cta: str(ins.cta, base.insights.cta),
     },
   };
 }

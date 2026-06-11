@@ -28,51 +28,55 @@
   "Home": {
     "meta": {
       "title": "ORYEN — Direction before action",
-      "description": "ORYEN is een strategische doorlichting voor Vlaamse B2B-bedrijven die voelen dat er veel gebeurt, maar dat het resultaat achterblijft. ORYEN bepaalt eerst waar het commercieel vastloopt — en pas daarna wat eerst moet gebeuren."
+      "description": "ORYEN toont waar sales, marketing en opvolging resultaat verliezen. Eerst weten waar het commercieel vastloopt — dan pas kiezen wat nodig is."
     },
     "hero": {
       "titleLine1": "ORYEN toont waar sales, marketing en opvolging resultaat verliezen.",
       "titleLine2": "",
       "titleEm": "",
-      "claim": "Er gebeurt vaak al genoeg in uw bedrijf.\nEr wordt gecommuniceerd. Er wordt opgevolgd. Er worden tools gebruikt. Er worden beslissingen genomen.\n\nMaar toch blijft het gevoel: hier halen we niet uit wat erin zit.",
-      "sub": "De vraag is dan niet meteen of er méér moet gebeuren.",
-      "primaryCta": "Plan een Reality Check-gesprek met Christophe",
+      "claim": "",
+      "sub": "",
+      "primaryCta": "Plan een Reality Check",
       "secondaryCta": "Bekijk de aanpak"
+    },
+    "recognition": {
+      "headline": "Er gebeurt vaak al genoeg.",
+      "body": "Er gebeurt vaak al genoeg in uw bedrijf.\nEr wordt gecommuniceerd. Er wordt opgevolgd. Er worden tools gebruikt. Er worden beslissingen genomen.\n\nMaar toch blijft het gevoel:\n\nhier halen we niet uit wat erin zit.\n\nDe vraag is dan niet meteen of er méér moet gebeuren.\n\nDe echte vraag is:\n\nwaar gaat het vandaag mis — en welke ingreep maakt nu echt verschil?",
+      "cta": "Plan een Reality Check"
     },
     "diagnosis": {
       "spine": "01 — Diagnose",
       "headlineEm": "Niet elk probleem\nvraagt meer marketing.",
-      "entityIntro": "ORYEN is een strategische doorlichting voor Vlaamse B2B-bedrijven die voelen dat er veel gebeurt, maar dat het resultaat achterblijft. ORYEN bepaalt eerst waar het commercieel vastloopt — en pas daarna wat eerst moet gebeuren.",
-      "p1": "Soms zit het in sales. In opvolging. In de propositie. In tools, mensen of interne afstemming. Soms in een keuze die te vroeg werd gemaakt.\n\nToch gebeurt vaak hetzelfde: een bureau erbij, een nieuwe tool, een extra campagne, meer budget.\n\nTerwijl de echte oorzaak nog niet scherp benoemd is.\n\nORYEN kijkt niet alleen naar wat er gebeurt — maar naar wat eronder zit.",
+      "p1": "Soms zit het in sales.\nSoms in opvolging.\nSoms in de propositie.\nSoms in tools.\nSoms in mensen.\nSoms in interne afstemming.\nSoms in een keuze die te vroeg werd gemaakt.\n\nToch gebeurt vaak hetzelfde:\ner komt een bureau bij, een nieuwe tool, een extra campagne, meer budget of meer druk op het team.\n\nTerwijl de echte oorzaak nog niet scherp genoeg benoemd is.\n\nORYEN kijkt niet alleen naar wat er gebeurt.\nWe kijken naar wat eronder zit:\n\nwaar loopt aandacht verloren?\nwaar haakt opvolging af?\nwaar wordt verkoop moeilijker dan nodig?\nwaar wordt marketing ruis in plaats van hefboom?\nwaar klopt de gekozen oplossing niet met het echte probleem?",
       "focus": ""
     },
     "approach": {
       "spine": "02 — Aanpak",
       "headline": "Eerst weten waar resultaat verloren gaat.",
       "headlineEm": "Dan pas kiezen wat nodig is.",
-      "note1": "",
+      "note1": "ORYEN maakt duidelijk waar sales, marketing en opvolging elkaar versterken — of net tegenwerken.\n\nNiet om nog meer ruis te creëren.\nWel om scherp te krijgen:\n\nwat vandaag resultaat tegenhoudt;\nwaar tijd, budget of energie verloren gaat;\nwelke aanname niet klopt;\nwat nu prioriteit heeft;\nwat beter nog wacht;\nen welke ingreep eerst verschil maakt.",
       "introHl": "",
       "stepPrefix": "Stap",
       "steps": [
         {
           "n": "01",
           "name": "In kaart brengen",
-          "q": "Wat gebeurt er vandaag al?"
+          "q": "Wat gebeurt er vandaag al?\n\nWe kijken naar aanbod, doelgroep, communicatie, sales, opvolging, tools en interne keuzes.\n\nNiet vanuit theorie.\nWel vanuit de vraag:\n\nwat doet dit vandaag met resultaat?"
         },
         {
           "n": "02",
           "name": "Resultaat toetsen",
-          "q": "Waar blijft het resultaat achter?"
+          "q": "Waar blijft het resultaat achter?\n\nNiet alleen in cijfers, maar ook in signalen:\n\nleads die niet goed passen;\nopvolging die te traag of te versnipperd loopt;\nsales die moeite heeft om het verschil uit te leggen;\nmarketing die wel zichtbaar is, maar weinig beweging brengt;\ntools die meer complexiteit dan grip geven;\nklanten die afhaken, twijfelen of blijven vergelijken."
         },
         {
           "n": "03",
           "name": "Oorzaak bepalen",
-          "q": "Waar zit de echte oorzaak?"
+          "q": "Waar zit de echte oorzaak?\n\nIn de propositie?\nIn doelgroepkeuze?\nIn sales?\nIn marketing?\nIn opvolging?\nIn tools?\nIn mensen?\nIn interne afstemming?\nOf in een beslissing die logisch leek, maar vertrok van een verkeerde aanname?\n\nDat onderscheid maakt het verschil.\n\nWant wie het verkeerde probleem oplost, blijft investeren zonder wezenlijke vooruitgang."
         },
         {
           "n": "04",
           "name": "Keuze maken",
-          "q": "Wat moet eerst worden aangepakt?"
+          "q": "Wat moet eerst worden aangepakt?\n\nNiet alles tegelijk.\nNiet nog een lijst met losse acties.\n\nWel een heldere prioriteit:\n\ndit eerst.\ndit nog niet.\ndit stopzetten.\ndit anders bekijken.\n\nZo ontstaat richting vóór uitvoering."
         }
       ],
       "moreCta": "Bekijk de volledige aanpak"
@@ -109,36 +113,26 @@
         }
       ]
     },
-    "selection": {
-      "spine": "",
-      "headline": "",
-      "headlineEm": "",
-      "forItems": [],
-      "forLabel": "",
-      "forList": [],
-      "notForLabel": "",
-      "notFor": []
-    },
-    "about": {
-      "spine": "",
-      "headline": "",
-      "headlineEm": "",
-      "statement": "",
-      "body": "",
-      "creds": "",
-      "signature": "",
-      "postSignature": "",
-      "quote": ""
-    },
     "offer": {
-      "spine": "04 — Aanbod",
+      "spine": "04 — Reality Check",
       "name": "Reality Check",
-      "body": "Het eerste betaalde moment waarin ORYEN scherp krijgt waar sales, marketing en opvolging resultaat verliezen — en welke ingreep eerst verschil maakt.\n\nGeen vrijblijvende intake. Geen verkoopgesprek in vermomming.\n\nU vertrekt met duidelijkheid, prioriteiten en een concrete volgende stap. Of u daarna verder werkt met ORYEN, beslist u pas dan.",
-      "ctaPrimary": "Plan een Reality Check-gesprek met Christophe",
-      "secondaryHlBeforeEm": "",
-      "secondaryHlEm": "",
-      "secondaryBody": "",
+      "body": "De Reality Check is het eerste betaalde moment waarin ORYEN scherp krijgt waar sales, marketing en opvolging resultaat verliezen — en welke ingreep eerst verschil maakt.\n\nGeen vrijblijvende intake.\nGeen verkoopgesprek in vermomming.\nGeen lange lijst met losse aanbevelingen.\n\nWel een scherp eerste beslismoment waarmee duidelijk wordt:\n\nwat vandaag resultaat tegenhoudt;\nwaar de oorzaak waarschijnlijk zit;\nwat nu prioriteit heeft;\nwat voorlopig geen zin heeft;\nwelke volgende stap logisch is.",
+      "price": "€2.950 ex btw",
+      "deliverables": [
+        "Commerciële scorecard — waar het commercieel vastloopt, in één helder beeld",
+        "Eerste besliskader — wat nu prioriteit heeft, wat wacht, en waarom",
+        "90-dagen koerslijn — korte horizon met focus",
+        "Stoplijst — wat u beter nog niet doet vóór de basis klopt"
+      ],
+      "solutionsNote": "Wanneer uit de diagnose blijkt dat uw digitale infrastructuur, website of platform de groei blokkeert, zetten we de strategie om in tastbare producten via ons executielabel ORYEN Solutions.",
+      "ctaPrimary": "Plan een Reality Check met Christophe",
       "secondaryNote": "Geen automatisch traject.\nRechtstreeks met Christophe."
+    },
+    "insights": {
+      "spine": "05 — Inzichten",
+      "headline": "Artikels over commerciële keuzes",
+      "intro": "waar loopt het werkelijk vast?",
+      "cta": "Bekijk de inzichten"
     }
   },
   "Aanpak": {
@@ -374,8 +368,8 @@
     },
     "insights": {
       "eyebrow": "Inzichten",
-      "title": "Waar het commercieel vastloopt.",
-      "intro": "Artikelen en notities van ORYEN — richting vóór actie."
+      "title": "Artikels over commerciële keuzes",
+      "intro": "Artikels over commerciële keuzes — waar loopt het werkelijk vast?"
     },
     "about": {
       "eyebrow": "Over ORYEN",

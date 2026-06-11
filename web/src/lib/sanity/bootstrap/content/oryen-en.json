@@ -28,51 +28,55 @@
   "Home": {
     "meta": {
       "title": "ORYEN — Direction before action",
-      "description": "ORYEN is a strategic diagnosis for Flemish B2B companies that feel a lot is happening, but results are lagging. ORYEN first determines where things get commercially stuck — and only then what needs to happen first."
+      "description": "ORYEN shows where sales, marketing and follow-up lose results. First know where things stall commercially — then choose what is needed."
     },
     "hero": {
       "titleLine1": "ORYEN shows where sales, marketing and follow-up lose results.",
       "titleLine2": "",
       "titleEm": "",
-      "claim": "Often enough is already happening in your company.\nThere is communication. There is follow-up. Tools are used. Decisions are made.\n\nAnd yet the feeling remains: we are not getting out what we put in.",
-      "sub": "The question is not immediately whether more needs to be done.",
-      "primaryCta": "Book a Reality Check conversation with Christophe",
+      "claim": "",
+      "sub": "",
+      "primaryCta": "Book a Reality Check",
       "secondaryCta": "See the approach"
+    },
+    "recognition": {
+      "headline": "Often enough is already happening.",
+      "body": "Often enough is already happening in your company.\nThere is communication. There is follow-up. Tools are used. Decisions are made.\n\nAnd yet the feeling remains:\n\nwe are not getting out what we put in.\n\nThe question is not immediately whether more needs to be done.\n\nThe real question is:\n\nwhere does it go wrong today — and which intervention actually makes a difference now?",
+      "cta": "Book a Reality Check"
     },
     "diagnosis": {
       "spine": "01 — Diagnosis",
       "headlineEm": "Not every problem\ncalls for more marketing.",
-      "entityIntro": "ORYEN is a strategic diagnosis for Flemish B2B companies that feel a lot is happening, but results are lagging. ORYEN first determines where things get commercially stuck — and only then what needs to happen first.",
-      "p1": "Sometimes it sits in sales. In follow-up. In the proposition. In tools, people or internal coordination. Sometimes in a decision made too early.\n\nYet the same thing often happens: another agency, a new tool, an extra campaign, more budget.\n\nWhile the real cause has not been named sharply enough.\n\nORYEN does not only look at what happens — but at what sits underneath.",
+      "p1": "Sometimes it sits in sales.\nSometimes in follow-up.\nSometimes in the proposition.\nSometimes in tools.\nSometimes in people.\nSometimes in internal alignment.\nSometimes in a decision made too early.\n\nYet the same thing often happens:\nanother agency, a new tool, an extra campaign, more budget or more pressure on the team.\n\nWhile the real cause has not been named sharply enough.\n\nORYEN does not only look at what happens.\nWe look at what sits underneath:\n\nwhere does attention leak?\nwhere does follow-up drop off?\nwhere does sales become harder than it needs to be?\nwhere does marketing become noise instead of leverage?\nwhere does the chosen solution miss the real problem?",
       "focus": ""
     },
     "approach": {
       "spine": "02 — Approach",
       "headline": "First know where results are lost.",
       "headlineEm": "Then choose what is needed.",
-      "note1": "",
+      "note1": "ORYEN makes clear where sales, marketing and follow-up reinforce each other — or work against each other.\n\nNot to create more noise.\nBut to get sharp on:\n\nwhat holds back results today;\nwhere time, budget or energy is lost;\nwhich assumption does not hold;\nwhat deserves priority now;\nwhat is better left waiting;\nand which intervention makes the first difference.",
       "introHl": "",
       "stepPrefix": "Step",
       "steps": [
         {
           "n": "01",
           "name": "Map out",
-          "q": "What is happening today?"
+          "q": "What is happening today?\n\nWe look at offer, audience, communication, sales, follow-up, tools and internal choices.\n\nNot from theory.\nBut from one question:\n\nwhat does this do to results today?"
         },
         {
           "n": "02",
           "name": "Check results",
-          "q": "Where do results fall short?"
+          "q": "Where do results fall short?\n\nNot only in numbers, but in signals:\n\nleads that do not fit;\nfollow-up that is too slow or fragmented;\nsales struggling to explain the difference;\nmarketing that is visible but brings little movement;\ntools that add complexity instead of grip;\ncustomers who drop off, hesitate or keep comparing."
         },
         {
           "n": "03",
           "name": "Pinpoint the cause",
-          "q": "Where does the real cause sit?"
+          "q": "Where is the real cause?\n\nIn the proposition?\nIn audience choice?\nIn sales?\nIn marketing?\nIn follow-up?\nIn tools?\nIn people?\nIn internal alignment?\nOr in a decision that seemed logical but started from a wrong assumption?\n\nThat distinction matters.\n\nBecause whoever solves the wrong problem keeps investing without real progress."
         },
         {
           "n": "04",
           "name": "Make the call",
-          "q": "What must be tackled first?"
+          "q": "What must be tackled first?\n\nNot everything at once.\nNot another list of loose actions.\n\nBut a clear priority:\n\nthis first.\nthis not yet.\nthis stop.\nthis revisit.\n\nThat is how direction comes before execution."
         }
       ],
       "moreCta": "See the full approach"
@@ -109,36 +113,26 @@
         }
       ]
     },
-    "selection": {
-      "spine": "",
-      "headline": "",
-      "headlineEm": "",
-      "forItems": [],
-      "forLabel": "",
-      "forList": [],
-      "notForLabel": "",
-      "notFor": []
-    },
-    "about": {
-      "spine": "",
-      "headline": "",
-      "headlineEm": "",
-      "statement": "",
-      "body": "",
-      "creds": "",
-      "signature": "",
-      "postSignature": "",
-      "quote": ""
-    },
     "offer": {
-      "spine": "04 — Offer",
+      "spine": "04 — Reality Check",
       "name": "Reality Check",
-      "body": "The first paid moment where ORYEN gets sharp on where sales, marketing and follow-up lose results — and which intervention makes the difference first.\n\nNo casual intake. Not a sales conversation in disguise.\n\nYou leave with priorities and a concrete next step. Whether you continue with ORYEN after that, you decide only then.",
-      "ctaPrimary": "Book a Reality Check conversation with Christophe",
-      "secondaryHlBeforeEm": "",
-      "secondaryHlEm": "",
-      "secondaryBody": "",
+      "body": "The Reality Check is the first paid moment where ORYEN gets sharp on where sales, marketing and follow-up lose results — and which intervention makes the first difference.\n\nNo casual intake.\nNot a sales conversation in disguise.\nNo long list of loose recommendations.\n\nBut a sharp first decision moment that makes clear:\n\nwhat holds back results today;\nwhere the cause likely sits;\nwhat deserves priority now;\nwhat does not make sense yet;\nwhich next step is logical.",
+      "price": "€2,950 ex VAT",
+      "deliverables": [
+        "Commercial scorecard — where things stall commercially, in one clear picture",
+        "First decision framework — what takes priority now, what waits, and why",
+        "90-day course line — a short horizon with focus",
+        "Stop list — what you are better off not doing until the basics hold"
+      ],
+      "solutionsNote": "When the diagnosis shows that your digital infrastructure, website or platform is blocking growth, we turn strategy into tangible products through our execution label ORYEN Solutions.",
+      "ctaPrimary": "Book a Reality Check with Christophe",
       "secondaryNote": "No automatic trajectory.\nDirectly with Christophe."
+    },
+    "insights": {
+      "spine": "05 — Insights",
+      "headline": "Articles on commercial choices",
+      "intro": "where does it really stall?",
+      "cta": "See the insights"
     }
   },
   "Aanpak": {
@@ -374,8 +368,8 @@
     },
     "insights": {
       "eyebrow": "Insights",
-      "title": "Where commercial growth stalls.",
-      "intro": "Articles and notes from ORYEN — direction before action."
+      "title": "Articles on commercial choices",
+      "intro": "Articles on commercial choices — where does it really stall?"
     },
     "about": {
       "eyebrow": "About ORYEN",

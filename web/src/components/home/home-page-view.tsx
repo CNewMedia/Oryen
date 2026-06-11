@@ -12,7 +12,9 @@ import { HomeBrandArchitecture, HomeSolutionsBridge } from './home-brand-blocks'
 
 import { DiagLine } from './diag-line';
 
-/** Split op `<br/>` of newline in copy (JSON/Sanity) en render echte `<br />`. */
+const SOLUTIONS_URL = 'https://oryen.solutions';
+
+/** Split op `<br/>` of newline in copy en render echte `<br />`. */
 function RichBrLines({ text }: { text: string }) {
   const normalized = text.replace(/&lt;br\s*\/?&gt;/gi, '<br>');
   const parts = normalized.split(/<br\s*\/?>|\r?\n/i);
@@ -29,14 +31,14 @@ function RichBrLines({ text }: { text: string }) {
 }
 
 /** Blokken gescheiden door lege regels (\n\n); binnen een blok: echte regeleinden. */
-function HeroRichBlocks({
+function RichBlocks({
   text,
   className,
   revealDelay,
 }: {
   text: string;
   className: string;
-  revealDelay: string;
+  revealDelay?: string;
 }) {
   const blocks = text
     .split(/\n\n+/)
@@ -45,11 +47,42 @@ function HeroRichBlocks({
   return (
     <>
       {blocks.map((block, i) => (
-        <p key={i} className={`${className} reveal ${revealDelay}`}>
+        <p
+          key={i}
+          className={`${className}${revealDelay ? ` reveal ${revealDelay}` : ''}`}
+        >
           <RichBrLines text={block} />
         </p>
       ))}
     </>
+  );
+}
+
+function SolutionsNote({ text }: { text: string }) {
+  const marker = 'ORYEN Solutions';
+  const idx = text.indexOf(marker);
+  if (idx === -1) {
+    return (
+      <p className="offer-solutions-note">
+        <RichBrLines text={text} />
+      </p>
+    );
+  }
+  const before = text.slice(0, idx);
+  const after = text.slice(idx + marker.length);
+  return (
+    <p className="offer-solutions-note">
+      <RichBrLines text={before} />
+      <a
+        className="offer-solutions-link"
+        href={SOLUTIONS_URL}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        ORYEN Solutions
+      </a>
+      <RichBrLines text={after} />
+    </p>
   );
 }
 
@@ -71,15 +104,6 @@ export function HomePageView({
   const t = home;
   const steps = t.approach.steps;
   const minis = t.proof.minis;
-
-  const offerSecondaryHead =
-    t.offer.secondaryHlBeforeEm?.trim() || t.offer.secondaryHlEm?.trim();
-  const offerSecondaryBody = t.offer.secondaryBody?.trim();
-  const offerSecondaryNote = t.offer.secondaryNote?.trim();
-  const hasSecondaryColumn =
-    !!(offerSecondaryHead || offerSecondaryBody || offerSecondaryNote);
-  const offerNoteOnlyAside =
-    !!offerSecondaryNote && !offerSecondaryHead && !offerSecondaryBody;
 
   return (
     <>
@@ -110,29 +134,43 @@ export function HomePageView({
                 />
               ) : null}
             </h1>
-            <HeroRichBlocks
-              text={t.hero.claim}
-              className="hero-claim"
-              revealDelay="delay-1"
-            />
+            {t.hero.claim?.trim() ? (
+              <RichBlocks text={t.hero.claim} className="hero-claim" revealDelay="delay-1" />
+            ) : null}
             {t.hero.sub?.trim() ? (
-              <HeroRichBlocks
-                text={t.hero.sub}
-                className="hero-sub"
-                revealDelay="delay-2"
-              />
+              <RichBlocks text={t.hero.sub} className="hero-sub" revealDelay="delay-2" />
             ) : null}
             <div className="hero-actions reveal delay-3">
-              <Link className="btn-primary" href="/aanbod">
+              <Link className="btn-primary" href="/aanbod" locale={locale}>
                 <span>
                   <PrimaryRcCtaLabel locale={locale} label={t.hero.primaryCta} />
                 </span>
                 <span className="btn-arrow" />
               </Link>
-              <Link className="btn-ghost" href="/aanpak">
+              <Link className="btn-ghost" href="/aanpak" locale={locale}>
                 {t.hero.secondaryCta}
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="s-recognition has-spine spine-light" aria-labelledby="home-recognition-hl">
+        <div className="spine-grid">
+          <div className="spine-label spine-label-light" aria-hidden="true">
+            <span />
+          </div>
+          <div className="spine-content home-recognition-content">
+            <h2 className="recognition-hl reveal" id="home-recognition-hl">
+              {t.recognition.headline}
+            </h2>
+            <RichBlocks text={t.recognition.body} className="stelling-p recognition-body reveal delay-1" />
+            <Link className="btn-primary home-recognition-cta reveal delay-2" href="/aanbod" locale={locale}>
+              <span>
+                <PrimaryRcCtaLabel locale={locale} label={t.recognition.cta} />
+              </span>
+              <span className="btn-arrow" />
+            </Link>
           </div>
         </div>
       </section>
@@ -153,11 +191,6 @@ export function HomePageView({
             <DiagLine className="diag-line reveal delay-1" />
             <div className="stelling-grid">
               <div className="reveal delay-2">
-                {t.diagnosis.entityIntro?.trim() ? (
-                  <p className="stelling-p">
-                    <RichBrLines text={t.diagnosis.entityIntro} />
-                  </p>
-                ) : null}
                 <p className="stelling-p">
                   <RichBrLines text={t.diagnosis.p1} />
                 </p>
@@ -211,7 +244,7 @@ export function HomePageView({
               <span />
             </div>
             <div className="spine-content aanpak-more">
-              <Link className="section-more section-more-dark reveal" href="/aanpak">
+              <Link className="section-more section-more-dark reveal" href="/aanpak" locale={locale}>
                 <span>{t.approach.moreCta}</span>
                 <span className="section-more-arrow" aria-hidden="true" />
               </Link>
@@ -290,7 +323,7 @@ export function HomePageView({
             <span />
           </div>
           <div className="spine-content bewijs-footer">
-            <Link className="section-more reveal" href="/cases">
+            <Link className="section-more reveal" href="/cases" locale={locale}>
               <span>{seeAllCasesLabel}</span>
               <span className="section-more-arrow" aria-hidden="true" />
             </Link>
@@ -304,80 +337,66 @@ export function HomePageView({
             <span>{t.offer.spine}</span>
           </div>
           <div className="spine-content">
-            {offerNoteOnlyAside ? (
-              <div className="offer-grid offer-grid--note-aside">
-                <h2 className="offer-name reveal">{t.offer.name}</h2>
-                <p className="offer-note offer-note--aside reveal delay-1">
-                  <RichBrLines text={t.offer.secondaryNote ?? ''} />
+            <div className="offer-main offer-main--expanded">
+              <h2 className="offer-name reveal">{t.offer.name}</h2>
+              <RichBlocks text={t.offer.body} className="offer-body reveal delay-1" />
+              {t.offer.price?.trim() ? (
+                <p className="offer-price reveal delay-1">{t.offer.price}</p>
+              ) : null}
+              {t.offer.deliverables?.length ? (
+                <ul className="offer-deliverables reveal delay-2">
+                  {t.offer.deliverables.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+              {t.offer.solutionsNote?.trim() ? (
+                <div className="reveal delay-2">
+                  <SolutionsNote text={t.offer.solutionsNote} />
+                </div>
+              ) : null}
+              {t.offer.secondaryNote?.trim() ? (
+                <p className="offer-note reveal delay-2">
+                  <RichBrLines text={t.offer.secondaryNote} />
                 </p>
-                <div className="offer-main">
-                  <p className="offer-body reveal delay-1">
-                    <RichBrLines text={t.offer.body} />
-                  </p>
-                  <span className="offer-line reveal delay-2" />
-                  <Link className="offer-btn reveal delay-3" href="/aanbod">
-                    <span>
-                      <PrimaryRcCtaLabel locale={locale} label={t.offer.ctaPrimary} />
-                    </span>
-                    <span
-                      className="btn-arrow"
-                      style={{ background: 'var(--amber)' }}
-                    />
-                  </Link>
-                </div>
-              </div>
-            ) : (
-              <div className="offer-grid">
-                <div>
-                  <h2 className="offer-name reveal">{t.offer.name}</h2>
-                  <p className="offer-body reveal delay-1">
-                    <RichBrLines text={t.offer.body} />
-                  </p>
-                  <span className="offer-line reveal delay-2" />
-                  <Link className="offer-btn reveal delay-3" href="/aanbod">
-                    <span>
-                      <PrimaryRcCtaLabel locale={locale} label={t.offer.ctaPrimary} />
-                    </span>
-                    <span
-                      className="btn-arrow"
-                      style={{ background: 'var(--amber)' }}
-                    />
-                  </Link>
-                </div>
-                <div className="reveal delay-1">
-                  {hasSecondaryColumn ? (
-                    <>
-                      {offerSecondaryHead ? (
-                        <h3 className="offer-r-hl">
-                          <span>
-                            <RichBrLines text={t.offer.secondaryHlBeforeEm ?? ''} />
-                          </span>
-                          <br />
-                          <em>
-                            <RichBrLines text={t.offer.secondaryHlEm ?? ''} />
-                          </em>
-                        </h3>
-                      ) : null}
-                      {offerSecondaryBody ? (
-                        <p className="offer-r-body">
-                          <RichBrLines text={t.offer.secondaryBody} />
-                        </p>
-                      ) : null}
-                      {offerSecondaryNote ? (
-                        <p className="offer-note">
-                          <RichBrLines text={t.offer.secondaryNote} />
-                        </p>
-                      ) : null}
-                    </>
-                  ) : null}
-                </div>
-              </div>
-            )}
+              ) : null}
+              <span className="offer-line reveal delay-3" />
+              <Link className="offer-btn reveal delay-3" href="/aanbod" locale={locale}>
+                <span>
+                  <PrimaryRcCtaLabel locale={locale} label={t.offer.ctaPrimary} />
+                </span>
+                <span className="btn-arrow" style={{ background: 'var(--amber)' }} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
       <HomeSolutionsBridge locale={locale} />
+
+      <section className="s-home-insights has-spine spine-light" aria-labelledby="home-insights-hl">
+        <div className="spine-grid">
+          <div className="spine-label spine-label-light">
+            <span>{t.insights.spine}</span>
+          </div>
+          <div className="spine-content home-insights-content">
+            <h2 className="home-insights-hl reveal" id="home-insights-hl">
+              {t.insights.headline}
+              {t.insights.intro?.trim() ? (
+                <>
+                  <br />
+                  <em>{t.insights.intro}</em>
+                </>
+              ) : null}
+            </h2>
+            <Link className="section-more reveal delay-1" href="/insights" locale={locale}>
+              <span>{t.insights.cta}</span>
+              <span className="section-more-arrow" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <HomeBrandArchitecture />
     </>
   );

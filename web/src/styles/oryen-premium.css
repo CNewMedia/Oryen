@@ -1374,6 +1374,101 @@ img { display: block; max-width: 100%; }
 }
 
 /* ==========================================================================
+   HOMEPAGE — Recognition + insights (in-repo copydeck)
+   ========================================================================== */
+.s-recognition {
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+}
+.home-recognition-content {
+  padding-top: clamp(2.5rem, 5vh, 4rem) !important;
+  padding-bottom: clamp(2rem, 4vh, 3rem) !important;
+}
+.recognition-hl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0 0 1.25rem;
+  max-width: 22ch;
+}
+.recognition-body {
+  max-width: 52ch;
+  margin-bottom: 1.75rem !important;
+}
+.home-recognition-cta {
+  margin-top: 0.25rem;
+}
+
+.offer-main--expanded {
+  max-width: 52ch;
+}
+.offer-price {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 1.5rem;
+}
+.offer-deliverables {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  border-top: 1px solid rgba(242, 239, 232, 0.1);
+}
+.offer-deliverables li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(242, 239, 232, 0.08);
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(242, 239, 232, 0.62);
+}
+.offer-solutions-note {
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.68;
+  color: rgba(242, 239, 232, 0.55);
+  max-width: 48ch;
+  margin: 0 0 1.25rem;
+}
+.offer-solutions-link {
+  color: rgba(242, 239, 232, 0.85);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(196, 120, 32, 0.55);
+}
+.offer-solutions-link:hover {
+  color: var(--amber);
+  text-decoration-color: var(--amber);
+}
+
+.s-home-insights {
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+}
+.home-insights-content {
+  padding-top: clamp(2rem, 4vh, 3rem) !important;
+  padding-bottom: clamp(2.5rem, 5vh, 3.5rem) !important;
+}
+.home-insights-hl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 1.5rem;
+  max-width: 28ch;
+}
+.home-insights-hl em {
+  font-style: italic;
+  color: var(--ink3);
+}
+
+/* ==========================================================================
    OFFER / REALITY CHECK
    ========================================================================== */
 .s-offer { background: var(--pine2); }

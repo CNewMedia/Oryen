@@ -1,4 +1,4 @@
-/** ORYEN homepage section model — mirrors Sanity `homepage` document fields. */
+/** ORYEN homepage section model — in-repo copy (`oryen-*.json`), not Sanity. */
 
 export type HomeApproachStep = {
   n: string;
@@ -26,16 +26,21 @@ export type HomeContent = {
     titleLine1: string;
     titleLine2: string;
     titleEm: string;
+    /** @deprecated Recognition block — kept for type compat */
     claim: string;
+    /** @deprecated Recognition block — kept for type compat */
     sub: string;
     primaryCta: string;
     secondaryCta: string;
   };
+  recognition: {
+    headline: string;
+    body: string;
+    cta: string;
+  };
   diagnosis: {
     spine: string;
     headlineEm: string;
-    /** Answer-first entity line (AEO) — shown in Diagnose section. */
-    entityIntro?: string;
     p1: string;
     focus: string;
   };
@@ -56,7 +61,24 @@ export type HomeContent = {
     featured: HomeFeaturedCase;
     minis: HomeMiniCase[];
   };
-  selection: {
+  offer: {
+    spine: string;
+    name: string;
+    body: string;
+    price: string;
+    deliverables: string[];
+    solutionsNote: string;
+    ctaPrimary: string;
+    secondaryNote: string;
+  };
+  insights: {
+    spine: string;
+    headline: string;
+    intro: string;
+    cta: string;
+  };
+  /** Legacy — not rendered on homepage */
+  selection?: {
     spine: string;
     headline: string;
     headlineEm: string;
@@ -66,7 +88,8 @@ export type HomeContent = {
     notForLabel: string;
     notFor: string[];
   };
-  about: {
+  /** Legacy — not rendered on homepage */
+  about?: {
     spine: string;
     headline: string;
     headlineEm: string;
@@ -74,18 +97,7 @@ export type HomeContent = {
     body?: string;
     creds: string;
     signature: string;
-    /** Tekst onder de handtekening, vóór de team-link (bijv. persoonlijke noot). */
     postSignature?: string;
     quote: string;
-  };
-  offer: {
-    spine: string;
-    name: string;
-    body: string;
-    ctaPrimary: string;
-    secondaryHlBeforeEm: string;
-    secondaryHlEm: string;
-    secondaryBody: string;
-    secondaryNote: string;
   };
 };
