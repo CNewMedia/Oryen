@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 
 import { Link } from '@/i18n/navigation';
+import { HeroSignature } from '@/components/premium/hero-signature';
 
 import type { HomeContent } from '@/types/home-content';
 import type { HomeImageUrls } from '@/lib/sanity/load-homepage';
@@ -12,15 +13,6 @@ import { HomeBrandArchitecture } from './home-brand-blocks';
 import { DiagLine } from './diag-line';
 
 const SOLUTIONS_URL = 'https://oryen.solutions';
-
-/** Subtle case-type labels (design metadata — not body copy). */
-const CASE_TAGS: Record<string, { nl: string; en: string }> = {
-  'Hof van Cleve': { nl: 'richting', en: 'direction' },
-  'Willems Veranda': { nl: 'digitale aansluiting', en: 'digital connection' },
-  'Concordia Textiles': { nl: 'interne afstemming', en: 'internal alignment' },
-  'BMW — lokale dealer': { nl: 'lokaal onderscheid', en: 'local distinction' },
-  'BMW — local dealer': { nl: 'lokaal onderscheid', en: 'local distinction' },
-};
 
 /** Split op `<br/>` of newline in copy en render echte `<br />`. */
 function RichBrLines({ text }: { text: string }) {
@@ -112,23 +104,6 @@ export function HomePageView({
   const t = home;
   const steps = t.approach.steps;
   const minis = t.proof.minis;
-  const isNl = locale === 'nl';
-  const offerLabel = t.offer.spine.includes('—')
-    ? t.offer.spine.split('—').pop()?.trim() ?? t.offer.spine
-    : t.offer.spine;
-
-  const proofCases = [
-    {
-      num: '01',
-      client: t.proof.featured.client,
-      text: t.proof.featured.title,
-    },
-    ...minis.map((m, i) => ({
-      num: String(i + 2).padStart(2, '0'),
-      client: m.client,
-      text: m.subtitle || m.body,
-    })),
-  ];
 
   return (
     <>
@@ -137,6 +112,7 @@ export function HomePageView({
           <img id="heroImg" src={images.hero} alt="" />
         </div>
         <div className="hero-spine" id="heroSpine" />
+        <HeroSignature />
         <div className="hero-body">
           <div className="hero-spacer" />
           <div className="hero-text">
@@ -290,27 +266,59 @@ export function HomePageView({
             </h2>
           </div>
         </div>
-        <div className="proof-grid">
-          {proofCases.map((item, i) => {
-            const tag = CASE_TAGS[item.client];
-            return (
-              <article
-                key={item.client}
-                className={`proof-card reveal ${i > 0 ? `delay-${Math.min(i, 3)}` : ''}`}
-              >
-                <span className="proof-card-num" aria-hidden="true">
-                  {item.num}
-                </span>
-                {tag ? (
-                  <p className="proof-card-tag">{isNl ? tag.nl : tag.en}</p>
-                ) : null}
-                <p className="proof-card-client">{item.client}</p>
-                <p className="proof-card-text">
-                  <RichBrLines text={item.text} />
+        <div className="feat reveal" style={{ marginLeft: 0 }}>
+          <div className="feat-img min-h-[68vh]">
+            <img src={images.featured} alt="" />
+          </div>
+          <div className="feat-body">
+            <span className="feat-ghost">01</span>
+            <div className="feat-client">{t.proof.featured.client}</div>
+            <h3
+              className="feat-hl"
+              dangerouslySetInnerHTML={{
+                __html: t.proof.featured.title.replace(/\n/g, '<br />'),
+              }}
+            />
+            <div className="feat-dl">
+              {t.proof.featured.line1 ? (
+                <div>
+                  <p className="feat-v">{t.proof.featured.line1}</p>
+                </div>
+              ) : null}
+              {t.proof.featured.line2 ? (
+                <div>
+                  <p className="feat-v">{t.proof.featured.line2}</p>
+                </div>
+              ) : null}
+              {t.proof.featured.line3 ? (
+                <div>
+                  <p className="feat-v">{t.proof.featured.line3}</p>
+                </div>
+              ) : null}
+            </div>
+          </div>
+        </div>
+        <div className="minis">
+          <div className="minis-spacer" />
+          {minis.map((m, i) => (
+            <div key={m.client} className={`mini reveal ${i > 0 ? `delay-${i}` : ''}`}>
+              <span className="mini-ghost">{String(i + 2).padStart(2, '0')}</span>
+              <div className="mini-client">{m.client}</div>
+              <p className="mini-subtitle">
+                <RichBrLines text={m.subtitle} />
+              </p>
+              {m.body?.trim() ? (
+                <p className="mini-body">
+                  <RichBrLines text={m.body} />
                 </p>
-              </article>
-            );
-          })}
+              ) : null}
+              {m.result?.trim() ? (
+                <p className="mini-result">
+                  <RichBrLines text={m.result} />
+                </p>
+              ) : null}
+            </div>
+          ))}
         </div>
         <div className="spine-grid">
           <div className="spine-label spine-label-light" aria-hidden="true">
@@ -332,37 +340,35 @@ export function HomePageView({
           </div>
           <div className="spine-content">
             <div className="offer-main offer-main--expanded">
-              <div className="offer-panel">
-                <p className="offer-panel-eyebrow">{offerLabel}</p>
-                <h2 className="offer-name reveal">{t.offer.name}</h2>
-                <RichBlocks text={t.offer.body} className="offer-body reveal delay-1" />
-                {t.offer.price?.trim() ? (
-                  <p className="offer-price reveal delay-2">{t.offer.price}</p>
-                ) : null}
-                {t.offer.deliverables?.length ? (
-                  <ul className="offer-deliverables reveal delay-2">
-                    {t.offer.deliverables.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                ) : null}
-                <Link className="btn-primary offer-btn reveal delay-3" href="/aanbod" locale={locale}>
-                  <span>
-                    <PrimaryRcCtaLabel locale={locale} label={t.offer.ctaPrimary} />
-                  </span>
-                  <span className="btn-arrow" />
-                </Link>
-                {t.offer.secondaryNote?.trim() ? (
-                  <p className="offer-note reveal delay-3">
-                    <RichBrLines text={t.offer.secondaryNote} />
-                  </p>
-                ) : null}
-                {t.offer.solutionsNote?.trim() ? (
-                  <div className="reveal delay-3">
-                    <SolutionsNote text={t.offer.solutionsNote} />
-                  </div>
-                ) : null}
-              </div>
+              <h2 className="offer-name reveal">{t.offer.name}</h2>
+              <RichBlocks text={t.offer.body} className="offer-body reveal delay-1" />
+              {t.offer.deliverables?.length ? (
+                <ul className="offer-deliverables reveal delay-2">
+                  {t.offer.deliverables.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+              {t.offer.price?.trim() ? (
+                <p className="offer-price reveal delay-2">{t.offer.price}</p>
+              ) : null}
+              {t.offer.secondaryNote?.trim() ? (
+                <p className="offer-note reveal delay-2">
+                  <RichBrLines text={t.offer.secondaryNote} />
+                </p>
+              ) : null}
+              {t.offer.solutionsNote?.trim() ? (
+                <div className="reveal delay-2">
+                  <SolutionsNote text={t.offer.solutionsNote} />
+                </div>
+              ) : null}
+              <span className="offer-line reveal delay-3" />
+              <Link className="offer-btn reveal delay-3" href="/aanbod" locale={locale}>
+                <span>
+                  <PrimaryRcCtaLabel locale={locale} label={t.offer.ctaPrimary} />
+                </span>
+                <span className="btn-arrow" style={{ background: 'var(--amber)' }} />
+              </Link>
             </div>
           </div>
         </div>
