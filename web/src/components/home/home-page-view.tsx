@@ -340,9 +340,6 @@ export function HomePageView({
             <div className="offer-main offer-main--expanded">
               <h2 className="offer-name reveal">{t.offer.name}</h2>
               <RichBlocks text={t.offer.body} className="offer-body reveal delay-1" />
-              {t.offer.price?.trim() ? (
-                <p className="offer-price reveal delay-1">{t.offer.price}</p>
-              ) : null}
               {t.offer.deliverables?.length ? (
                 <ul className="offer-deliverables reveal delay-2">
                   {t.offer.deliverables.map((item) => (
@@ -350,15 +347,18 @@ export function HomePageView({
                   ))}
                 </ul>
               ) : null}
-              {t.offer.solutionsNote?.trim() ? (
-                <div className="reveal delay-2">
-                  <SolutionsNote text={t.offer.solutionsNote} />
-                </div>
+              {t.offer.price?.trim() ? (
+                <p className="offer-price reveal delay-2">{t.offer.price}</p>
               ) : null}
               {t.offer.secondaryNote?.trim() ? (
                 <p className="offer-note reveal delay-2">
                   <RichBrLines text={t.offer.secondaryNote} />
                 </p>
+              ) : null}
+              {t.offer.solutionsNote?.trim() ? (
+                <div className="reveal delay-2">
+                  <SolutionsNote text={t.offer.solutionsNote} />
+                </div>
               ) : null}
               <span className="offer-line reveal delay-3" />
               <Link className="offer-btn reveal delay-3" href="/aanbod" locale={locale}>
@@ -382,14 +382,13 @@ export function HomePageView({
           <div className="spine-content home-insights-content">
             <h2 className="home-insights-hl reveal" id="home-insights-hl">
               {t.insights.headline}
-              {t.insights.intro?.trim() ? (
-                <>
-                  <br />
-                  <em>{t.insights.intro}</em>
-                </>
-              ) : null}
             </h2>
-            <Link className="section-more reveal delay-1" href="/insights" locale={locale}>
+            {t.insights.intro?.trim() ? (
+              <p className="stelling-p home-insights-intro reveal delay-1">
+                <RichBrLines text={t.insights.intro} />
+              </p>
+            ) : null}
+            <Link className="section-more reveal delay-2" href="/insights" locale={locale}>
               <span>{t.insights.cta}</span>
               <span className="section-more-arrow" aria-hidden="true" />
             </Link>
@@ -397,7 +396,7 @@ export function HomePageView({
         </div>
       </section>
 
-      <HomeBrandArchitecture />
+      <HomeBrandArchitecture locale={locale} />
     </>
   );
 }

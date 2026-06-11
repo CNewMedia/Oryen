@@ -95,6 +95,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           brandShort={settings.footerBrandShort}
           tagline={settings.footerTagline}
           domain={settings.footerDomain}
+          locale={locale}
           primaryLinks={footerPrimary}
           primaryLabel={tNav('utility')}
           legalLinks={settings.legalLinks}

@@ -9,6 +9,7 @@ type Props = {
   brandShort: string;
   tagline: string;
   domain: string;
+  locale?: string;
   /** Primary site links surfaced in the footer utility nav (labels localized upstream). */
   primaryLinks?: FooterNavItem[];
   primaryLabel?: string;
@@ -23,13 +24,17 @@ const FOOTER_BRAND_LINKS = [
   { label: 'ORYEN Solutions', href: 'https://oryen.solutions' },
 ] as const;
 
-const FOOTER_TRADEMARK =
+const FOOTER_TRADEMARK_NL =
   'ORYEN® is een geregistreerd Benelux-woordmerk (no. 1535652) van CNIP bv. © 2026';
+
+const FOOTER_TRADEMARK_EN =
+  'ORYEN® is a registered Benelux word mark (no. 1535652) owned by CNIP bv. © 2026';
 
 export function SiteFooter({
   brandShort,
   tagline: _tagline,
   domain: _domain,
+  locale = 'nl',
   primaryLinks = [],
   primaryLabel = 'Site',
   legalLinks = [],
@@ -91,7 +96,9 @@ export function SiteFooter({
         </div>
       </div>
       <div className="footer-right">
-        <span className="footer-base footer-trademark">{FOOTER_TRADEMARK}</span>
+        <span className="footer-base footer-trademark">
+          {locale === 'en' ? FOOTER_TRADEMARK_EN : FOOTER_TRADEMARK_NL}
+        </span>
         {socialLinks.length > 0 ? (
           <nav className="footer-social" aria-label="Social">
             <ul>

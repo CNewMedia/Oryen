@@ -58,23 +58,27 @@ export function HomeSolutionsBridge({ locale }: Props) {
 const ARCHITECTURE_CARDS = [
   {
     title: 'ORYEN',
-    subtitle: 'strategic commercial intelligence',
+    subtitleNl: 'strategic commercial intelligence',
+    subtitleEn: 'Strategic commercial intelligence',
     href: 'https://oryen.be',
   },
   {
     title: 'ORYEN Solutions',
-    subtitle: 'digital product builders',
+    subtitleNl: 'digital product builders',
+    subtitleEn: 'Digital product builders',
     href: SOLUTIONS_URL,
   },
   {
     title: 'ORYEN.eu',
-    subtitle: 'European brand presence',
+    subtitleNl: 'European brand presence',
+    subtitleEn: 'European brand presence',
     href: 'https://oryen.eu',
   },
 ] as const;
 
 /** Brand architecture — low visual weight, before the global footer. */
-export function HomeBrandArchitecture() {
+export function HomeBrandArchitecture({ locale }: Props) {
+  const isNl = locale === 'nl';
   return (
     <section
       className="s-brand-architecture has-spine spine-light"
@@ -89,9 +93,19 @@ export function HomeBrandArchitecture() {
             The ORYEN architecture
           </h2>
           <p className="brand-architecture-intro stelling-p">
-            ORYEN helps companies identify where commercial growth gets stuck. ORYEN
-            Solutions builds the digital products and systems that help remove that
-            friction. ORYEN.eu anchors the European brand presence of ORYEN®.
+            {isNl ? (
+              <>
+                ORYEN helps companies identify where commercial growth gets stuck. ORYEN
+                Solutions builds the digital products and systems that help remove that
+                friction. ORYEN.eu anchors the European brand presence of ORYEN®.
+              </>
+            ) : (
+              <>
+                ORYEN identifies where commercial growth gets stuck. ORYEN Solutions builds
+                the digital products and systems that help remove that friction. ORYEN.eu
+                anchors the European brand presence of ORYEN®.
+              </>
+            )}
           </p>
           <ul className="brand-architecture-cards">
             {ARCHITECTURE_CARDS.map((card) => (
@@ -103,7 +117,9 @@ export function HomeBrandArchitecture() {
                   target="_blank"
                 >
                   <span className="brand-architecture-card-title">{card.title}</span>
-                  <span className="brand-architecture-card-sub">{card.subtitle}</span>
+                  <span className="brand-architecture-card-sub">
+                    {isNl ? card.subtitleNl : card.subtitleEn}
+                  </span>
                 </a>
               </li>
             ))}

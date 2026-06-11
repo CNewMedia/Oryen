@@ -28,55 +28,55 @@
   "Home": {
     "meta": {
       "title": "ORYEN — Direction before action",
-      "description": "ORYEN shows where sales, marketing and follow-up lose results. First know where things stall commercially — then choose what is needed."
+      "description": "ORYEN makes clear where commercial growth stalls — and what to fix first."
     },
     "hero": {
-      "titleLine1": "ORYEN shows where sales, marketing and follow-up lose results.",
+      "titleLine1": "ORYEN makes clear where commercial growth stalls — and what to fix first.",
       "titleLine2": "",
       "titleEm": "",
-      "claim": "",
+      "claim": "We examine why marketing, sales and follow-up aren't delivering the results you expect — before you invest again in campaigns, tools, websites or more execution partners.",
       "sub": "",
       "primaryCta": "Book a Reality Check",
       "secondaryCta": "See the approach"
     },
     "recognition": {
-      "headline": "Often enough is already happening.",
-      "body": "Often enough is already happening in your company.\nThere is communication. There is follow-up. Tools are used. Decisions are made.\n\nAnd yet the feeling remains:\n\nwe are not getting out what we put in.\n\nThe question is not immediately whether more needs to be done.\n\nThe real question is:\n\nwhere does it go wrong today — and which intervention actually makes a difference now?",
+      "headline": "Enough is already happening.",
+      "body": "There's communication.\nThere's follow-up.\nTools are in use.\nDecisions are being made.\n\nAnd still the feeling remains:\n\nwe're not getting out of this what's in it.\n\nThe question isn't whether more should happen.\n\nThe real question is:\n\nwhere is it going wrong today — and which move makes the real difference now?",
       "cta": "Book a Reality Check"
     },
     "diagnosis": {
       "spine": "01 — Diagnosis",
       "headlineEm": "Not every problem\ncalls for more marketing.",
-      "p1": "Sometimes it sits in sales.\nSometimes in follow-up.\nSometimes in the proposition.\nSometimes in tools.\nSometimes in people.\nSometimes in internal alignment.\nSometimes in a decision made too early.\n\nYet the same thing often happens:\nanother agency, a new tool, an extra campaign, more budget or more pressure on the team.\n\nWhile the real cause has not been named sharply enough.\n\nORYEN does not only look at what happens.\nWe look at what sits underneath:\n\nwhere does attention leak?\nwhere does follow-up drop off?\nwhere does sales become harder than it needs to be?\nwhere does marketing become noise instead of leverage?\nwhere does the chosen solution miss the real problem?",
+      "p1": "Sometimes the problem is in sales.\nSometimes in follow-up.\nSometimes in the proposition.\nSometimes in tools, people or internal alignment.\nSometimes in a choice made too early or without coherence.\n\nAnd yet the same thing often happens: another agency is brought in, a new tool, an extra campaign, or more budget.\n\nWhile the real cause hasn't yet been named sharply enough.\n\nORYEN doesn't only look at what's happening.\nWe look at what lies beneath.",
       "focus": ""
     },
     "approach": {
       "spine": "02 — Approach",
       "headline": "First know where results are lost.",
-      "headlineEm": "Then choose what is needed.",
-      "note1": "ORYEN makes clear where sales, marketing and follow-up reinforce each other — or work against each other.\n\nNot to create more noise.\nBut to get sharp on:\n\nwhat holds back results today;\nwhere time, budget or energy is lost;\nwhich assumption does not hold;\nwhat deserves priority now;\nwhat is better left waiting;\nand which intervention makes the first difference.",
+      "headlineEm": "Then choose what's needed.",
+      "note1": "",
       "introHl": "",
       "stepPrefix": "Step",
       "steps": [
         {
           "n": "01",
-          "name": "Map out",
-          "q": "What is happening today?\n\nWe look at offer, audience, communication, sales, follow-up, tools and internal choices.\n\nNot from theory.\nBut from one question:\n\nwhat does this do to results today?"
+          "name": "Map it",
+          "q": "What's already happening today?"
         },
         {
           "n": "02",
-          "name": "Check results",
-          "q": "Where do results fall short?\n\nNot only in numbers, but in signals:\n\nleads that do not fit;\nfollow-up that is too slow or fragmented;\nsales struggling to explain the difference;\nmarketing that is visible but brings little movement;\ntools that add complexity instead of grip;\ncustomers who drop off, hesitate or keep comparing."
+          "name": "Test results",
+          "q": "Where do results fall short?"
         },
         {
           "n": "03",
-          "name": "Pinpoint the cause",
-          "q": "Where is the real cause?\n\nIn the proposition?\nIn audience choice?\nIn sales?\nIn marketing?\nIn follow-up?\nIn tools?\nIn people?\nIn internal alignment?\nOr in a decision that seemed logical but started from a wrong assumption?\n\nThat distinction matters.\n\nBecause whoever solves the wrong problem keeps investing without real progress."
+          "name": "Find the cause",
+          "q": "Where's the real cause?"
         },
         {
           "n": "04",
-          "name": "Make the call",
-          "q": "What must be tackled first?\n\nNot everything at once.\nNot another list of loose actions.\n\nBut a clear priority:\n\nthis first.\nthis not yet.\nthis stop.\nthis revisit.\n\nThat is how direction comes before execution."
+          "name": "Make the choice",
+          "q": "What should be tackled first?"
         }
       ],
       "moreCta": "See the full approach"
@@ -84,54 +84,55 @@
     "proof": {
       "spine": "03 — Proof",
       "headline": "ORYEN set the direction first.",
-      "headlineEm": "Execution only after.",
+      "headlineEm": "Execution came after.",
       "featured": {
         "client": "Hof van Cleve",
-        "title": "A three-star restaurant with an impeccable reputation, but little connection with a younger audience that needed to become the future clientele.",
-        "line1": "Not about becoming more commercially visible. About making the brand attractive to a new generation without losing its class.",
-        "line2": "Four years of focused work on engagement and a younger brand feel — until a younger successor could take the torch.",
+        "title": "A three-star restaurant with an untouchable reputation, but little connection with a younger audience — the clientele of its future.",
+        "line1": "Not making it commercially more visible. Making the brand appealing to a new generation, without losing its class.",
+        "line2": "Four years of focused work on engagement and a younger brand feel. Until a younger successor could carry the torch.",
         "line3": ""
       },
       "minis": [
         {
           "client": "Willems Veranda",
-          "subtitle": "Strong craftsmanship, but barely discoverable online — cut off from how customers search and choose today.",
-          "body": "Not more advertising first. First building the digital connection that was not there yet.",
-          "result": "That made the brand structurally easier to find, with dozens of core search terms in the top three."
+          "subtitle": "Strong craftsmanship, but barely findable online — and so cut off from how customers search and choose today.",
+          "body": "Not more advertising first. First building the digital connection that wasn't there yet.",
+          "result": "That made the brand structurally more findable, with dozens of core search terms in the top three."
         },
         {
           "client": "Concordia Textiles",
-          "subtitle": "Digitisation stalling internally against diverging expectations and a complex structure.",
-          "body": "Not rolling out at once. First aligning internally on what was feasible, desirable and priority.",
-          "result": "That made digitisation workable, with buy-in and clear priorities."
+          "subtitle": "A digitalisation effort that stalled internally on diverging expectations and a complex structure.",
+          "body": "Not rolling out straight away. First aligning internally on what was feasible, desirable and a priority.",
+          "result": "That made the digitalisation workable, with internal support and clear priorities."
         },
         {
           "client": "BMW — local dealer",
-          "subtitle": "A strong position, but in messaging hard to tell apart from other dealers in the region.",
-          "body": "Not more budget first. First choosing what truly set them apart locally.",
-          "result": "That restarted digital enquiries from their own region."
+          "subtitle": "A strong position, but in its communication indistinguishable from other dealers in the region.",
+          "body": "Not more budget first. First choosing what genuinely set them apart locally.",
+          "result": "That brought digital enquiries flowing again from their own region."
         }
       ]
     },
     "offer": {
       "spine": "04 — Reality Check",
-      "name": "Reality Check",
-      "body": "The Reality Check is the first paid moment where ORYEN gets sharp on where sales, marketing and follow-up lose results — and which intervention makes the first difference.\n\nNo casual intake.\nNot a sales conversation in disguise.\nNo long list of loose recommendations.\n\nBut a sharp first decision moment that makes clear:\n\nwhat holds back results today;\nwhere the cause likely sits;\nwhat deserves priority now;\nwhat does not make sense yet;\nwhich next step is logical.",
-      "price": "€2,950 ex VAT",
+      "name": "A sharp first decision point.",
+      "body": "The Reality Check is the first paid moment in which ORYEN pinpoints where sales, marketing and follow-up are losing results — and which move makes the difference first.\n\nNo non-committal intake.\nNo sales conversation in disguise.\nNo long list of loose recommendations.\n\nJust one compact commercial scorecard with:",
+      "price": "€2,950 excl. VAT",
       "deliverables": [
-        "Commercial scorecard — where things stall commercially, in one clear picture",
-        "First decision framework — what takes priority now, what waits, and why",
-        "90-day course line — a short horizon with focus",
-        "Stop list — what you are better off not doing until the basics hold"
+        "where commercial growth stalls",
+        "what's a priority now",
+        "what's better left waiting",
+        "which next step makes sense",
+        "what you're better off not doing until the basics are right"
       ],
-      "solutionsNote": "When the diagnosis shows that your digital infrastructure, website or platform is blocking growth, we turn strategy into tangible products through our execution label ORYEN Solutions.",
+      "solutionsNote": "After that, you decide for yourself whether to continue on your own, work with your existing partners, or bring in ORYEN for further guidance or digital product development through ORYEN Solutions.",
       "ctaPrimary": "Book a Reality Check with Christophe",
       "secondaryNote": "No automatic trajectory.\nDirectly with Christophe."
     },
     "insights": {
       "spine": "05 — Insights",
-      "headline": "Articles on commercial choices",
-      "intro": "where does it really stall?",
+      "headline": "Think before acting.",
+      "intro": "Articles about commercial choices, marketing that doesn't pay off, sales follow-up, digital systems, and the question that must come before every investment:\n\nwhere does it really stall?",
       "cta": "See the insights"
     }
   },
@@ -368,8 +369,8 @@
     },
     "insights": {
       "eyebrow": "Insights",
-      "title": "Articles on commercial choices",
-      "intro": "Articles on commercial choices — where does it really stall?"
+      "title": "Think before acting.",
+      "intro": "Articles about commercial choices, marketing that doesn't pay off, sales follow-up, digital systems, and the question that must come before every investment: where does it really stall?"
     },
     "about": {
       "eyebrow": "About ORYEN",

@@ -1467,6 +1467,11 @@ img { display: block; max-width: 100%; }
   font-style: italic;
   color: var(--ink3);
 }
+.home-insights-intro {
+  max-width: 52ch;
+  margin: 0 0 1.5rem !important;
+  color: var(--ink3) !important;
+}
 
 /* ==========================================================================
    OFFER / REALITY CHECK
