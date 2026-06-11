@@ -8,6 +8,8 @@ import type { HomeImageUrls } from '@/lib/sanity/load-homepage';
 
 import { PrimaryRcCtaLabel } from '@/components/shell/reality-check-cta-label';
 
+import { HomeBrandArchitecture, HomeSolutionsBridge } from './home-brand-blocks';
+
 import { DiagLine } from './diag-line';
 
 /** Split op `<br/>` of newline in copy (JSON/Sanity) en render echte `<br />`. */
@@ -374,6 +376,9 @@ export function HomePageView({
           </div>
         </div>
       </section>
+
+      <HomeSolutionsBridge locale={locale} />
+      <HomeBrandArchitecture />
     </>
   );
 }

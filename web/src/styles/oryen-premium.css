@@ -1262,6 +1262,118 @@ img { display: block; max-width: 100%; }
 }
 
 /* ==========================================================================
+   HOMEPAGE — Solutions bridge + brand architecture (static brand blocks)
+   ========================================================================== */
+.s-solutions-bridge {
+  background: var(--cream);
+  padding-bottom: clamp(2.5rem, 5vh, 3.5rem);
+}
+.solutions-bridge-content {
+  padding-top: clamp(2.5rem, 5vh, 4rem) !important;
+  padding-bottom: clamp(1.5rem, 3vh, 2rem) !important;
+}
+.solutions-bridge-hl {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(0.82rem, 0.95vw, 0.88rem);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  margin: 0 0 1rem;
+  max-width: 40ch;
+}
+.solutions-bridge-p {
+  font-size: clamp(0.95rem, 1.05vw, 1rem) !important;
+  line-height: 1.72 !important;
+  color: var(--ink) !important;
+  max-width: 52ch;
+  margin: 0 !important;
+}
+.solutions-bridge-link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(44, 93, 99, 0.45);
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+.solutions-bridge-link:hover {
+  color: #2c5d63;
+  text-decoration-color: #2c5d63;
+}
+
+.s-brand-architecture {
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+}
+.brand-architecture-content {
+  padding-top: clamp(1.75rem, 3.5vh, 2.5rem) !important;
+  padding-bottom: clamp(3rem, 6vh, 4.5rem) !important;
+}
+.brand-architecture-hl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink3);
+  margin: 0 0 0.85rem;
+  letter-spacing: 0.01em;
+}
+.brand-architecture-intro {
+  font-size: clamp(0.88rem, 0.95vw, 0.92rem) !important;
+  line-height: 1.68 !important;
+  color: var(--ink3) !important;
+  max-width: 58ch;
+  margin: 0 0 1.75rem !important;
+}
+.brand-architecture-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 52rem;
+}
+.brand-architecture-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(44, 93, 99, 0.22);
+  background: rgba(44, 93, 99, 0.04);
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s;
+}
+.brand-architecture-card:hover {
+  border-color: rgba(44, 93, 99, 0.42);
+  background: rgba(44, 93, 99, 0.07);
+}
+.brand-architecture-card-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #2c5d63;
+}
+.brand-architecture-card-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ink3);
+}
+
+@media (max-width: 767px) {
+  .brand-architecture-cards {
+    grid-template-columns: 1fr;
+  }
+  .footer-brand-arch,
+  .footer-trademark {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
    OFFER / REALITY CHECK
    ========================================================================== */
 .s-offer { background: var(--pine2); }
@@ -2459,6 +2571,45 @@ footer::before {
   font-size: .75rem;
   letter-spacing: .08em;
   color: rgba(242, 239, 232, 0.52);
+}
+.footer-trademark {
+  max-width: 36ch;
+  line-height: 1.55;
+}
+.footer-brand-arch {
+  margin-top: 0.5rem;
+  max-width: 42ch;
+}
+.footer-brand-arch p {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(242, 239, 232, 0.42);
+  margin: 0 0 0.45rem;
+}
+.footer-brand-arch-links {
+  margin-top: 0.65rem;
+}
+.footer-brand-arch-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-brand-arch-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 232, 0.58);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.footer-brand-arch-links a:hover {
+  color: rgba(242, 239, 232, 0.9);
 }
 
 /* Footer mobile polish — once the two columns wrap, keep everything

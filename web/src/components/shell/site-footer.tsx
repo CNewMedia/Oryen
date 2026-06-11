@@ -18,10 +18,18 @@ type Props = {
   socialLinks?: { label: string; url: string }[];
 };
 
+const FOOTER_BRAND_LINKS = [
+  { label: 'ORYEN.eu', href: 'https://oryen.eu' },
+  { label: 'ORYEN Solutions', href: 'https://oryen.solutions' },
+] as const;
+
+const FOOTER_TRADEMARK =
+  'ORYEN® is een geregistreerd Benelux-woordmerk (no. 1535652) van CNIP bv. © 2026';
+
 export function SiteFooter({
   brandShort,
-  tagline,
-  domain,
+  tagline: _tagline,
+  domain: _domain,
   primaryLinks = [],
   primaryLabel = 'Site',
   legalLinks = [],
@@ -62,11 +70,28 @@ export function SiteFooter({
         ) : null}
         <FooterLanguageSwitch />
         <FooterCookiePreferences />
+        <div className="footer-brand-arch">
+          <p>ORYEN® is a strategic commercial intelligence brand by CNIP bv.</p>
+          <p>ORYEN.eu is the European brand presence of ORYEN®.</p>
+          <p>
+            ORYEN Solutions is the digital product and systems label within the ORYEN®
+            brand architecture.
+          </p>
+          <nav className="footer-brand-arch-links" aria-label="ORYEN brand family">
+            <ul>
+              {FOOTER_BRAND_LINKS.map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} rel="noopener noreferrer" target="_blank">
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </div>
       <div className="footer-right">
-        <span className="footer-base">
-          {tagline} — {domain}
-        </span>
+        <span className="footer-base footer-trademark">{FOOTER_TRADEMARK}</span>
         {socialLinks.length > 0 ? (
           <nav className="footer-social" aria-label="Social">
             <ul>
