@@ -772,17 +772,6 @@ img { display: block; max-width: 100%; }
 }
 .stelling-hl em { font-style: italic; }
 
-/* Diagnoselijn: drie horizontale lijnen die zoeken */
-.diag-line {
-  width: 100%;
-  height: 28px;
-  margin-top: 0;
-  margin-bottom: 3.5vh;
-  overflow: hidden;
-  max-width: 100%;
-}
-.diag-line svg { width: 100%; height: 100%; }
-
 .stelling-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -6212,4 +6201,98 @@ body::before {
   .team-christophe-photo {
     max-width: 280px;
   }
+}
+
+/* ==========================================================================
+   REDESIGN PASS — CALM / PREMIUM (homepage)
+   --------------------------------------------------------------------------
+   One coherent override layer. Goals:
+   1. Cream is the resting surface; pine is reserved for the hero and the
+      pivotal Reality Check (offer) section only. The approach (aanpak)
+      section is flipped from pine to cream here.
+   2. A real two-tier type scale: hero-scale stays for the hero and the
+      offer; every other homepage section heading steps down so the DM Mono
+      spine labels carry the structure.
+   3. Whitespace frames and groups — the uniform giant spine padding is
+      retuned per homepage section so labels couple to their headings.
+
+   Scoping note: `.step*` is shared by /aanpak + the Reality Check template,
+   and `.stelling-hl` is reused by the cases hero — so every recolor/resize
+   below is scoped to a homepage section wrapper and never the base rule.
+   ========================================================================== */
+
+/* --- 1. APPROACH SECTION: PINE -> CREAM ---------------------------------- */
+.s-aanpak { background: var(--cream); }
+
+/* Header divider + heading now sit on cream */
+.s-aanpak .aanpak-head-wrap { border-bottom: 1px solid var(--rule); }
+.s-aanpak .aanpak-hl { color: var(--ink); }
+.s-aanpak .aanpak-hl em { color: var(--amber); }
+.s-aanpak .aanpak-note { color: var(--ink3); }
+.s-aanpak .aanpak-intro-hl { color: rgba(196, 120, 32, 0.85); }
+
+/* The single horizontal line that runs through the steps — quiet ink hairline */
+.s-aanpak .aanpak-steps::before {
+  background: linear-gradient(to right,
+    rgba(15, 14, 11, 0.16) 0%,
+    rgba(15, 14, 11, 0.05) 100%);
+}
+.s-aanpak .aanpak-spacer { border-right: 1px solid var(--rule); }
+
+/* Step cards on cream */
+.s-aanpak .step { border-right: 1px solid var(--rule); }
+.s-aanpak .step:last-child { border-right: none; }
+.s-aanpak .step:hover { background: rgba(15, 14, 11, 0.025) !important; }
+/* The focal point where the line "snags" */
+.s-aanpak .step::before { border-color: rgba(15, 14, 11, 0.22); }
+.s-aanpak .step:hover::before {
+  background: var(--amber);
+  border-color: var(--amber);
+}
+.s-aanpak .step-n { color: var(--ink3); }
+.s-aanpak .step-name { color: var(--ink); }
+.s-aanpak .step-name::after { background: rgba(15, 14, 11, 0.28); }
+.s-aanpak .step-q { color: var(--ink3); }
+
+/* --- 2. TYPE SCALE: STEP DOWN SECONDARY HEADINGS ------------------------- */
+/* Hero (.hero-hl) and the offer (.offer-name) remain the two hero-scale
+   moments. Diagnosis + approach headings step down meaningfully so they read
+   as confident section titles, not competing crescendos. */
+.s-stelling .stelling-hl {
+  font-size: clamp(2.1rem, 3.4vw, 3.4rem);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.4vh;
+}
+.s-aanpak .aanpak-hl {
+  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.s-aanpak .aanpak-hl em { font-size: 0.62em; }
+
+/* --- 3. WHITESPACE: FRAME + GROUP (homepage sections only) --------------- */
+/* Pull the uniform 14–18vh spine padding into a calmer, more intentional
+   rhythm and couple the mono spine label to the heading it introduces. */
+.s-recognition .spine-content,
+.s-stelling .spine-content,
+.s-home-insights .spine-content {
+  padding-top: clamp(9vh, 12vh, 120px);
+  padding-bottom: clamp(9vh, 12vh, 120px);
+}
+.s-recognition .spine-label,
+.s-stelling .spine-label,
+.s-aanpak .aanpak-head-wrap .spine-label,
+.s-home-insights .spine-label {
+  padding-top: clamp(9vh, 12vh, 120px);
+}
+.s-aanpak .aanpak-head {
+  padding-top: clamp(9vh, 12vh, 120px);
+  padding-bottom: clamp(5vh, 7vh, 64px);
+}
+
+@media (max-width: 768px) {
+  /* Keep the stepped-down scale sensible on small screens */
+  .s-stelling .stelling-hl { font-size: clamp(1.9rem, 7vw, 2.6rem); }
+  .s-aanpak .aanpak-hl { font-size: clamp(1.9rem, 7vw, 2.6rem); }
 }

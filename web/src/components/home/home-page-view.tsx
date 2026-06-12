@@ -10,8 +10,6 @@ import { PrimaryRcCtaLabel } from '@/components/shell/reality-check-cta-label';
 
 import { HomeBrandArchitecture } from './home-brand-blocks';
 
-import { DiagLine } from './diag-line';
-
 const SOLUTIONS_URL = 'https://oryen.solutions';
 
 /** Split op `<br/>` of newline in copy en render echte `<br />`. */
@@ -202,9 +200,9 @@ export function HomePageView({
         </div>
       </section>
 
-      <section className="s-aanpak has-spine spine-dark" id="how">
+      <section className="s-aanpak has-spine spine-light" id="how">
         <div className="spine-grid aanpak-head-wrap">
-          <div className="spine-label spine-label-dark">
+          <div className="spine-label spine-label-light">
             <span>{t.approach.spine}</span>
           </div>
           <div className="spine-content aanpak-head">
@@ -239,11 +237,11 @@ export function HomePageView({
         </div>
         {t.approach.moreCta ? (
           <div className="spine-grid">
-            <div className="spine-label spine-label-dark" aria-hidden="true">
+            <div className="spine-label spine-label-light" aria-hidden="true">
               <span />
             </div>
             <div className="spine-content aanpak-more">
-              <Link className="section-more section-more-dark reveal" href="/aanpak" locale={locale}>
+              <Link className="section-more reveal" href="/aanpak" locale={locale}>
                 <span>{t.approach.moreCta}</span>
                 <span className="section-more-arrow" aria-hidden="true" />
               </Link>
