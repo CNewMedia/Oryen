@@ -1,0 +1,25 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
+  },
+  async redirects() {
+    return [
+      {
+        source: '/nl',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/nl/:path*',
+        destination: '/:path*',
+        permanent: false,
+      },
+    ]
+  },
+}
+
+export default nextConfig
