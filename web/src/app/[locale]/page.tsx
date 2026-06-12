@@ -1,20 +1,19 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
-import { HomePageView } from '@/components/home/home-page-view';
-import { HomeHeroEffects } from '@/components/premium/premium-page-effects';
+import { HomePageView } from '@/components/home/v2/home-page-view';
 import {
   alternatesForPath,
   documentTitleAbsolute,
   ogImagesForPage,
 } from '@/lib/metadata/defaults';
-import { getCachedHomepage, getCachedSiteSettings } from '@/lib/sanity/cached-loaders';
+import { getCachedHomepageContent } from '@/lib/home/load-homepage-content';
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const { seo, imageUrls } = await getCachedHomepage(locale);
+  const { seo, imageUrls } = await getCachedHomepageContent(locale);
   const images = ogImagesForPage(imageUrls.hero);
   return {
     title: documentTitleAbsolute(seo.title),
@@ -33,23 +32,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
-  const [homeData, settings, tNav] = await Promise.all([
-    getCachedHomepage(locale),
-    getCachedSiteSettings(locale),
+  const [homeData, tNav] = await Promise.all([
+    getCachedHomepageContent(locale),
     getTranslations({ locale, namespace: 'Nav' }),
   ]);
-  const contactEmail = settings.contactEmail ?? 'hello@oryen.be';
 
   return (
-    <>
-      <HomeHeroEffects />
-      <HomePageView
-        home={homeData.content}
-        images={homeData.imageUrls}
-        contactEmail={contactEmail}
-        seeAllCasesLabel={tNav('seeAllCases')}
-        locale={locale}
-      />
-    </>
+    <HomePageView
+      home={homeData.content}
+      heroImage={homeData.imageUrls.hero}
+      locale={locale}
+      seeAllCasesLabel={tNav('seeAllCases')}
+    />
   );
 }

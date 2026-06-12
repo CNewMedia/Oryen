@@ -1,8 +1,10 @@
+import { cache } from 'react';
+
 import {
   getBootstrapHomeContent,
   getBootstrapHomeMeta,
+  getBootstrapSiteSettings,
 } from '@/lib/sanity/bootstrap/local-bootstrap';
-import { loadSiteSettings } from '@/lib/sanity/load-site-settings';
 import type { HomeContent } from '@/types/home-content';
 
 export type HomeImageUrls = {
@@ -20,7 +22,7 @@ export type HomeSeoResolved = {
 };
 
 const defaultImages: HomeImageUrls = {
-  hero: '/images/rock.jpg',
+  hero: '/images/hero-stone.png',
   featured: '/images/HofvanCleve.jpg',
   portrait: '/images/team/christophe.jpg',
 };
@@ -34,7 +36,7 @@ export async function loadHomepageContent(locale: string): Promise<{
   imageUrls: HomeImageUrls;
   seo: HomeSeoResolved;
 }> {
-  const settings = await loadSiteSettings(locale);
+  const settings = getBootstrapSiteSettings(locale);
   const meta = getBootstrapHomeMeta(locale);
 
   return {
@@ -49,3 +51,6 @@ export async function loadHomepageContent(locale: string): Promise<{
     },
   };
 }
+
+/** One fetch per request per locale (metadata + page). */
+export const getCachedHomepageContent = cache(loadHomepageContent);

@@ -1,7 +1,14 @@
 import type { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { Geist } from 'next/font/google';
 
 import './globals.css';
+
+const geistSans = Geist({
+  subsets: ['latin'],
+  variable: '--font-geist-sans',
+  display: 'swap',
+});
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -18,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased" suppressHydrationWarning>
+      <body className={`${geistSans.variable} antialiased`} suppressHydrationWarning>
         {children}
         <Analytics />
       </body>
