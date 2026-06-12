@@ -188,7 +188,6 @@ export function HomePageView({
                 }}
               />
             </h2>
-            <DiagLine className="diag-line reveal delay-1" />
             <div className="stelling-grid">
               <div className="reveal delay-2">
                 <p className="stelling-p">
