@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 
+import { PRODUCTION_SITE_URL } from '@/lib/site-url';
+
 import './globals.css';
+
+/**
+ * Root-level `metadataBase` so Next never falls back to the Vercel deployment
+ * URL (e.g. oryen-web.vercel.app) when resolving relative canonicals/OG URLs.
+ * Always the production domain.
+ */
+export const metadata: Metadata = {
+  metadataBase: new URL(PRODUCTION_SITE_URL),
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
