@@ -1,5 +1,6 @@
 import { CTAButton } from '@/components/home/v2/cta-button';
 import {
+  formatSecondaryNote,
   parseOfferBody,
   parsePrice,
   SCORECARD_LABEL,
@@ -16,7 +17,7 @@ type Props = {
 export function HomeRealityCheck({ offer, locale }: Props) {
   const { intro, exclusions, scorecardIntro } = parseOfferBody(offer.body);
   const { amount, suffix } = parsePrice(offer.price);
-  const footerNote = offer.secondaryNote.replace(/\n+/g, '. ');
+  const footerNote = formatSecondaryNote(offer.secondaryNote);
 
   return (
     <section id="reality-check" className="bg-pine text-pine-foreground">
@@ -60,11 +61,14 @@ export function HomeRealityCheck({ offer, locale }: Props) {
                   </span>
                   <span className="font-display text-[clamp(2rem,4vw,2.8rem)] font-medium leading-none text-amber">
                     {amount}
-                    {suffix && (
-                      <span className="ml-2 align-middle font-sans text-[14px] font-normal tracking-normal text-pine-foreground/55">
-                        {suffix}
-                      </span>
-                    )}
+                    {suffix ? (
+                      <>
+                        {' '}
+                        <span className="ml-2 align-middle font-sans text-[14px] font-normal tracking-normal text-pine-foreground/55">
+                          {suffix}
+                        </span>
+                      </>
+                    ) : null}
                   </span>
                 </div>
 

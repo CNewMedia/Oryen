@@ -1,4 +1,24 @@
 @import 'tailwindcss';
 
-@import '../styles/oryen-premium.css';
+/* Explicit content globs — Tailwind v4 defaults may miss nested component dirs. */
+@source '../components/**/*.{js,ts,jsx,tsx}';
+@source '../app/**/*.{js,ts,jsx,tsx}';
+
+@theme inline {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: var(--font-geist-sans, 'Jost'), system-ui, sans-serif;
+
+  /* ORYEN v2 homepage tokens (literal values — not chained to .home-v2 vars) */
+  --color-pine: #1c2a22;
+  --color-pine-foreground: #f6f5f1;
+  --color-pine-hairline: rgba(246, 245, 241, 0.14);
+  --color-offwhite: #f6f5f1;
+  --color-ink: #1a1d1b;
+  --color-amber: #c8731f;
+  --color-amber-foreground: #f6f5f1;
+  --color-hairline: #e3e0d8;
+  --color-card: #ffffff;
+}
+
 @import '../styles/home-v2.css';
+@import '../styles/oryen-premium.css';
