@@ -12,6 +12,11 @@ const rowMeta: { status: Status; fill: number }[] = [
   { status: 'niet', fill: 22 },
 ];
 
+function isInViewport(el: Element): boolean {
+  const rect = el.getBoundingClientRect();
+  return rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+}
+
 export function PriorityCard({
   locale,
   className = '',
@@ -21,11 +26,23 @@ export function PriorityCard({
 }) {
   const copy = PRIORITY_CARD_COPY[locale] ?? PRIORITY_CARD_COPY.nl;
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setVisible(true);
+      return;
+    }
+
+    if (isInViewport(el)) {
+      setVisible(true);
+      return;
+    }
+
+    setVisible(false);
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -33,7 +50,7 @@ export function PriorityCard({
           io.disconnect();
         }
       },
-      { threshold: 0.4 },
+      { threshold: 0.2, rootMargin: '0px 0px -5% 0px' },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -42,7 +59,7 @@ export function PriorityCard({
   return (
     <div
       ref={ref}
-      className={`${visible ? 'is-visible' : ''} group w-full max-w-[340px] overflow-hidden rounded-[var(--radius)] border border-pine-hairline bg-[rgba(246,245,241,0.04)] p-6 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)] backdrop-blur-md transition-colors duration-500 hover:border-[rgba(246,245,241,0.22)] ${className}`}
+      className={`${visible ? 'is-visible visible' : ''} group w-full max-w-[340px] overflow-hidden rounded-[var(--radius)] border border-pine-hairline bg-[rgba(246,245,241,0.04)] p-6 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)] backdrop-blur-md transition-colors duration-500 hover:border-[rgba(246,245,241,0.22)] ${className}`}
     >
       <div className="flex items-center justify-between border-b border-pine-hairline pb-4">
         <span className="text-[13px] uppercase tracking-[0.18em] text-pine-foreground/70">

@@ -40,10 +40,15 @@ export function PremiumChrome() {
       },
       { threshold: 0.08, rootMargin: '0px 0px -36px 0px' }
     );
-    reveals.forEach((el) => observer.observe(el));
+    reveals.forEach((el) => {
+      // Homepage v3 owns its own reveal chain inside `.home-v2`
+      if (el.closest('.home-v2')) return;
+      observer.observe(el);
+    });
 
     window.setTimeout(() => {
-      document.querySelectorAll('.hero .reveal').forEach((el) => {
+      document.querySelectorAll('.hero .reveal, #top .reveal').forEach((el) => {
+        if (el.closest('.home-v2')) return;
         el.classList.add('visible');
       });
     }, 60);

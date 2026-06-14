@@ -20,5 +20,5 @@
   --color-card: #ffffff;
 }
 
-@import '../styles/home-v2.css';
 @import '../styles/oryen-premium.css';
+@import '../styles/home-v2.css';
