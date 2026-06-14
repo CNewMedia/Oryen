@@ -43,75 +43,79 @@ export function SiteFooter({
 }: Props) {
   return (
     <footer>
-      <div className="footer-left">
-        <span className="footer-brand">{brandShort}</span>
-        {primaryLinks.length > 0 ? (
-          <nav className="footer-nav" aria-label={primaryLabel}>
-            <ul>
-              {primaryLinks.map((l) => (
-                <li key={`p-${l.href}-${l.label}`}>
-                  <Link href={l.href}>{l.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ) : null}
-        {legalLinks.length > 0 ? (
-          <nav className="footer-legal" aria-label={legalLabel}>
-            <ul>
-              {legalLinks.map((l) => (
-                <li key={`l-${l.href}-${l.label}`}>
-                  {l.href.startsWith('http') ? (
-                    <a href={l.href} rel="noopener noreferrer" target="_blank">
-                      {l.label}
-                    </a>
-                  ) : (
-                    <Link href={l.href as never}>{l.label}</Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ) : null}
-        <FooterLanguageSwitch />
-        <FooterCookiePreferences />
-        <div className="footer-brand-arch">
-          <p>ORYEN® is a strategic commercial intelligence brand by CNIP bv.</p>
-          <p>ORYEN.eu is the European brand presence of ORYEN®.</p>
-          <p>
-            ORYEN Solutions is the digital product and systems label within the ORYEN®
-            brand architecture.
-          </p>
-          <nav className="footer-brand-arch-links" aria-label="ORYEN brand family">
-            <ul>
-              {FOOTER_BRAND_LINKS.map((l) => (
-                <li key={l.href}>
-                  <a href={l.href} rel="noopener noreferrer" target="_blank">
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+      <div className="oryen-site-container mx-auto max-w-[1200px] px-6">
+        <div className="footer-inner">
+          <div className="footer-left">
+            <span className="footer-brand">{brandShort}</span>
+            {primaryLinks.length > 0 ? (
+              <nav className="footer-nav" aria-label={primaryLabel}>
+                <ul>
+                  {primaryLinks.map((l) => (
+                    <li key={`p-${l.href}-${l.label}`}>
+                      <Link href={l.href}>{l.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ) : null}
+            {legalLinks.length > 0 ? (
+              <nav className="footer-legal" aria-label={legalLabel}>
+                <ul>
+                  {legalLinks.map((l) => (
+                    <li key={`l-${l.href}-${l.label}`}>
+                      {l.href.startsWith('http') ? (
+                        <a href={l.href} rel="noopener noreferrer" target="_blank">
+                          {l.label}
+                        </a>
+                      ) : (
+                        <Link href={l.href as never}>{l.label}</Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ) : null}
+            <FooterLanguageSwitch />
+            <FooterCookiePreferences />
+            <div className="footer-brand-arch">
+              <p>ORYEN® is a strategic commercial intelligence brand by CNIP bv.</p>
+              <p>ORYEN.eu is the European brand presence of ORYEN®.</p>
+              <p>
+                ORYEN Solutions is the digital product and systems label within the ORYEN®
+                brand architecture.
+              </p>
+              <nav className="footer-brand-arch-links" aria-label="ORYEN brand family">
+                <ul>
+                  {FOOTER_BRAND_LINKS.map((l) => (
+                    <li key={l.href}>
+                      <a href={l.href} rel="noopener noreferrer" target="_blank">
+                        {l.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div className="footer-right">
+            <span className="footer-base footer-trademark">
+              {locale === 'en' ? FOOTER_TRADEMARK_EN : FOOTER_TRADEMARK_NL}
+            </span>
+            {socialLinks.length > 0 ? (
+              <nav className="footer-social" aria-label="Social">
+                <ul>
+                  {socialLinks.map((s) => (
+                    <li key={`${s.url}-${s.label}`}>
+                      <a href={s.url} rel="noopener noreferrer" target="_blank">
+                        {s.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ) : null}
+          </div>
         </div>
-      </div>
-      <div className="footer-right">
-        <span className="footer-base footer-trademark">
-          {locale === 'en' ? FOOTER_TRADEMARK_EN : FOOTER_TRADEMARK_NL}
-        </span>
-        {socialLinks.length > 0 ? (
-          <nav className="footer-social" aria-label="Social">
-            <ul>
-              {socialLinks.map((s) => (
-                <li key={`${s.url}-${s.label}`}>
-                  <a href={s.url} rel="noopener noreferrer" target="_blank">
-                    {s.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ) : null}
       </div>
     </footer>
   );

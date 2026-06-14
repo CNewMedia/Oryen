@@ -1,5 +1,6 @@
 import { ARCHITECTURE_COPY } from '@/components/home/v2/content-helpers';
 import { Reveal } from '@/components/home/v2/reveal';
+import { HomeSectionContainer } from '@/components/home/v2/section-container';
 import { SectionTitle } from '@/components/home/v2/section-bits';
 
 type Props = {
@@ -11,7 +12,7 @@ export function HomeArchitecture({ locale }: Props) {
 
   return (
     <section id="over" className="bg-offwhite">
-      <div className="mx-auto max-w-[1200px] px-6 pb-24 md:pb-32">
+      <HomeSectionContainer>
         <div className="border-t border-hairline pt-16">
           <div className="max-w-[760px]">
             <Reveal>
@@ -38,7 +39,7 @@ export function HomeArchitecture({ locale }: Props) {
             ))}
           </div>
         </div>
-      </div>
+      </HomeSectionContainer>
     </section>
   );
 }

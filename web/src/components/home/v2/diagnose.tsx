@@ -1,5 +1,6 @@
 import { parseDiagnosisBody } from '@/components/home/v2/content-helpers';
 import { Reveal } from '@/components/home/v2/reveal';
+import { HomeSectionContainer } from '@/components/home/v2/section-container';
 import { Eyebrow, SectionTitle } from '@/components/home/v2/section-bits';
 import type { HomeContent } from '@/types/home-content';
 
@@ -16,7 +17,7 @@ export function HomeDiagnose({ diagnosis }: Props) {
 
   return (
     <section className="bg-offwhite">
-      <div className="mx-auto max-w-[1200px] px-6 pb-24 md:pb-32">
+      <HomeSectionContainer>
         <div className="border-t border-hairline pt-16">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
             <div className="lg:col-span-5">
@@ -52,7 +53,7 @@ export function HomeDiagnose({ diagnosis }: Props) {
             </div>
           </div>
         </div>
-      </div>
+      </HomeSectionContainer>
     </section>
   );
 }

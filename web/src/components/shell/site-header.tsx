@@ -85,41 +85,43 @@ export function SiteHeader({
         id="mainNav"
         aria-label={primaryLabel}
       >
-        <Link className="nav-logo" href="/">
-          <span className="nav-logo-name">{brandWordmark}</span>
-          <span className="nav-logo-line" />
-          <span className="nav-logo-sub">{tagline}</span>
-        </Link>
-
-        <ul className="nav-primary" role="list">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className={`nav-link${isActive(item.href) ? ' is-active' : ''}`}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <div className="nav-end">
-          <Link className="nav-cta" href="/aanbod">
-            {ctaLabel}
+        <div className="oryen-site-container mx-auto flex h-full max-w-[1200px] items-center justify-between px-6">
+          <Link className="nav-logo" href="/">
+            <span className="nav-logo-name">{brandWordmark}</span>
+            <span className="nav-logo-line" />
+            <span className="nav-logo-sub">{tagline}</span>
           </Link>
-          {/* Hit area ≥44px via .nav-toggle (see oryen-premium.css); icon stays visually compact. */}
-          <button
-            type="button"
-            className={`nav-toggle${open ? ' is-open' : ''}`}
-            aria-expanded={open}
-            aria-controls="navDrawer"
-            aria-label={open ? closeMenuLabel : openMenuLabel}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span />
-            <span />
-          </button>
+
+          <ul className="nav-primary" role="list">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`nav-link${isActive(item.href) ? ' is-active' : ''}`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="nav-end">
+            <Link className="nav-cta" href="/aanbod">
+              {ctaLabel}
+            </Link>
+            {/* Hit area ≥44px via .nav-toggle (see oryen-premium.css); icon stays visually compact. */}
+            <button
+              type="button"
+              className={`nav-toggle${open ? ' is-open' : ''}`}
+              aria-expanded={open}
+              aria-controls="navDrawer"
+              aria-label={open ? closeMenuLabel : openMenuLabel}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span />
+              <span />
+            </button>
+          </div>
         </div>
       </nav>
 
