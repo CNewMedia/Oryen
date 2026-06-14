@@ -1,6 +1,6 @@
 /** Publieke URL’s (bestanden in `public/images/`). */
 export const siteImages = {
-  hero: '/images/rock.jpg',
+  hero: '/images/hero-stone.png',
   /** Aanpak / approach page hero — same full-bleed treatment as homepage. */
   aanpakHero: '/images/route.jpg',
   featuredCase: '/images/HofvanCleve.jpg',

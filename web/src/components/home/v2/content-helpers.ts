@@ -104,9 +104,25 @@ export function parseInsightsIntro(intro: string): {
 }
 
 export function parsePrice(price: string): { amount: string; suffix: string } {
-  const match = price.match(/^([€$][\d.,]+)\s*(.*)$/);
-  if (!match) return { amount: price, suffix: '' };
-  return { amount: match[1], suffix: match[2] ?? '' };
+  const trimmed = price.trim();
+  const match = trimmed.match(/^([€$][\d.,]+)\s*(.*)$/);
+  if (match) {
+    return { amount: match[1], suffix: (match[2] ?? '').trim() };
+  }
+  const excl = trimmed.match(/^(.+?)\s+(excl\b.*)$/i);
+  if (excl) {
+    return { amount: excl[1].trim(), suffix: excl[2].trim() };
+  }
+  return { amount: trimmed, suffix: '' };
+}
+
+/** Join secondary-note lines without doubling sentence punctuation. */
+export function formatSecondaryNote(note: string): string {
+  return note
+    .split(/\n+/)
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .join(' ');
 }
 
 export function joinHeadline(headline: string, headlineEm: string): string {
