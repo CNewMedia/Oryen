@@ -35,7 +35,7 @@ export function HomeHero({ hero, heroImage, locale }: Props) {
         <div className="absolute inset-0 [background:radial-gradient(130%_130%_at_50%_42%,transparent_55%,rgba(0,0,0,0.3)_100%)]" />
       </div>
 
-      <div className="mx-auto max-w-[1200px] px-6 pb-20 pt-36 md:pb-28 md:pt-44">
+      <div className="home-v2-hero-inner mx-auto max-w-[1200px] px-6">
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-7">
             <Reveal>
