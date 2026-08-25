@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import type { ReactNode } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -32,6 +33,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="antialiased" suppressHydrationWarning>
         {children}
+        <Script
+          id="hs-script-loader"
+          src="https://js-eu1.hs-scripts.com/3375589.js"
+          strategy="afterInteractive"
+        />
         <Analytics />
       </body>
     </html>
